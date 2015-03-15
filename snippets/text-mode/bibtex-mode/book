@@ -1,0 +1,17 @@
+# name: @book
+# --
+@book {$0,
+  hyphenation = {english},
+  author = {},
+  title = {},
+  year = {},
+  subtitle = {},
+  volume = {},
+  part = {},
+  edition = {},
+  series = {},
+  number = {},
+  publisher = {},
+  url = {},
+  urldate = {},
+}

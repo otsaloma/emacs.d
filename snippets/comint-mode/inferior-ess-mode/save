@@ -1,0 +1,3 @@
+# name: save
+# --
+save(${1:OBJECT}, file="$1.RData")

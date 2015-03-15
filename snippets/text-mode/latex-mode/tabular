@@ -1,0 +1,5 @@
+# name: tabular
+# --
+\begin{tabular}{${1:ll}}
+$0
+\end{tabular}

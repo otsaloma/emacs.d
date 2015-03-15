@@ -1,0 +1,5 @@
+# name: quote
+# --
+\begin{quote}
+$0
+\end{quote}

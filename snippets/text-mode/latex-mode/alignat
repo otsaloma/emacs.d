@@ -1,0 +1,5 @@
+# name: alignat
+# --
+\begin{alignat}{${1:(MAX(&s)+1)/2}}
+$0
+\end{alignat}

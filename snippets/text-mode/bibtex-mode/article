@@ -1,0 +1,22 @@
+# name: @article
+# --
+@article {$0,
+  hyphenation = {english},
+  author = {},
+  title = {},
+  journaltitle = {},
+  year = {},
+  subtitle = {},
+  journalsubtitle = {},
+  issuetitle = {},
+  issuesubtitle = {},
+  series = {},
+  volume = {},
+  number = {},
+  issue = {},
+  date = {},
+  month = {},
+  pages = {},
+  url = {},
+  urldate = {},
+}

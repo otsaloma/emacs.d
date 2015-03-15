@@ -1,0 +1,6 @@
+# name: eqnarray
+# --
+\begin{eqnarray}
+\label{eq:${1:LABEL}}
+$0
+\end{eqnarray}

@@ -1,0 +1,5 @@
+# name: begin
+# --
+\begin{${1:ENVIRONMENT}}
+$0
+\end{$1}

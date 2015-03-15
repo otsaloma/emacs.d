@@ -1,0 +1,5 @@
+# name: array
+# --
+\begin{array}{${1:ll}}
+$0
+\end{array}

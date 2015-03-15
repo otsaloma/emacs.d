@@ -1,0 +1,3 @@
+# name: ref
+# --
+\ref{${1:eq}:${2:LABEL}}
