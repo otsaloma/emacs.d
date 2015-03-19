@@ -1,0 +1,15 @@
+#!/bin/sh
+# Open files in existing Emacs window or open a new one.
+# Usage: emacs [OPTION...] [FILE...]
+export LC_MESSAGES=C
+if [ -z "$(ps -A | grep emacs24)" ]; then
+    # Remove stale server if Emacs crashed.
+    rm -rfv /tmp/emacs1000/
+fi
+if [ -e /tmp/emacs1000/server ]; then
+    # Open files given as arguments in already running server.
+    /usr/bin/emacsclient.emacs24 -n "$@"
+else
+    # Start a new emacs, open files given as arguments and start the server.
+    /usr/bin/emacs24 -g 90x35 --eval "(server-mode 1)" "$@" &
+fi
