@@ -27,6 +27,15 @@ this configuration.
 
 ![Screenshot](http://dl.dropboxusercontent.com/u/39625783/emacs-1.png)
 
+On GNOME, the default dark theme can be complemented with the following
+Lua code as a [Devilspie2][4] script.
+
+    if (get_application_name() == "emacs24" and
+        get_window_type() == "WINDOW_TYPE_NORMAL") then
+       os.execute("xprop -id " .. get_window_xid() .. " -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT dark")
+    end
+
  [1]: http://vgoulet.act.ulaval.ca/en/emacs/
  [2]: http://github.com/capitaomorte/yasnippet
  [3]: http://github.com/otsaloma/docsets
+ [4]: http://www.gusnan.se/devilspie2/
