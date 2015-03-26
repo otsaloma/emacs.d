@@ -11,6 +11,8 @@
   "Set properties for interactive R sessions."
   (local-set-key (kbd "C-b") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
+  (setq ac-use-quick-help nil)
+  (setq ess-use-auto-complete t)
   (setq inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
   (when (eq system-type 'windows-nt)
     (setq process-coding-system-alist '(("R.*" . windows-1252)))))
