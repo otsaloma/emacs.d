@@ -1,6 +1,9 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-js-mode.el
 
+(let ((modes '(("\\.\\(geo\\|topo\\)?json$" . js-mode))))
+  (setq auto-mode-alist (append modes auto-mode-alist)))
+
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
