@@ -2,10 +2,10 @@
 *.elc
 .hidden
 ac-comphist.dat
-ac-dict/ess-mode
-ac-dict/python-mode
+ac-dict/*-mode
 auto-save-list/
 docsets/
 elpa/
 image-dired/
 recentf.el
+server/
