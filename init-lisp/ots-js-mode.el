@@ -18,6 +18,7 @@
   (setq-local helm-dash-docsets '("JavaScript")))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
+(add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 (provide 'ots-js-mode)
 ;;; ots-js-mode.el ends here
