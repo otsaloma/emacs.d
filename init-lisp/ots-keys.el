@@ -12,7 +12,6 @@
   (global-set-key (kbd "C-0") 'delete-window)
   (global-set-key (kbd "C-a") 'mark-whole-buffer)
   (global-set-key (kbd "C-b") 'ots-util-smart-home)
-  (global-set-key (kbd "C-S-b") 'ots-util-mark-to-smart-home)
   (global-set-key (kbd "C-e") 'end-of-line)
   (global-set-key (kbd "C-f") 'isearch-forward-regexp)
   (global-set-key (kbd "C-S-f") 'isearch-backward-regexp)
