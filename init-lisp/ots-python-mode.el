@@ -99,7 +99,7 @@
       ;; that imports from GI.
       (setq-local
        helm-dash-docsets
-       '("GDK" "GLib" "GObject" "GTK+" "Pango" "Python"))
+       '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango" "Python"))
     (setq-local helm-dash-docsets '("Python")))
   (turn-on-auto-fill))
 
