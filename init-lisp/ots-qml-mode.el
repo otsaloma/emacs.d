@@ -15,12 +15,12 @@
   (font-lock-add-keywords
    nil
    '(;; Keywords
-     ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
+     ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
       1 font-lock-keyword-face)
      (" \\([:?]\\) "
       1 font-lock-keyword-face)
      ;; Types
-     ("\\<\\(alias\\|bool\\|double\\|function\\|int\\|real\\|string\\|var\\)\\>"
+     ("\\<\\(alias\\|bool\\|double\\|int\\|real\\|string\\|var\\)\\>"
       1 font-lock-type-face)
      ;; Constants
      ("\\<\\([0-9.]+\\)\\>"
