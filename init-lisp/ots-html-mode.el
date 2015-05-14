@@ -3,6 +3,7 @@
 
 (defun ots-html-mode-set-properties ()
   "Set properties for editing HTML files."
+  (local-set-key (kbd "C-<") 'sgml-tag)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f8>") 'browse-url-of-file)
