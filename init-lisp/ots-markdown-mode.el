@@ -21,7 +21,11 @@
   (setq markdown-indent-on-enter nil)
   (setq tab-width 4)
   (setq truncate-lines t)
-  (turn-on-auto-fill))
+  (turn-on-auto-fill)
+  ;; Work around some indentation bug in markdown-mode.
+  (add-hook 'first-change-hook '(lambda()
+    (when (derived-mode-p 'markdown-mode)
+      (markdown-mode)))))
 
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-faces)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-properties)
