@@ -22,9 +22,9 @@
      ;; Types
      ("\\<\\(alias\\|bool\\|double\\|int\\|real\\|string\\|var\\)\\>"
       1 font-lock-type-face)
-     ;; Constants
+     ;; Strings
      ("\\<\\([0-9.]+\\)\\>"
-      1 font-lock-constant-face)
+      1 font-lock-string-face)
      ("\\<\\(false\\|null\\|this\\|true\\|undefined\\)\\>"
       1 font-lock-constant-face)
      ;; Functions

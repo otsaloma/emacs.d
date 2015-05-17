@@ -22,10 +22,11 @@
      ("\\(\\.\\.\\.\\)"
       1 font-lock-keyword-face)
      ;; Constants
-     ("\\<\\([0-9.]+L?\\)\\>"
-      1 font-lock-constant-face)
      ("\\<\\(FALSE\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\)\\>"
       1 font-lock-constant-face)
+     ;; Strings
+     ("\\<\\([0-9.]+L?\\)\\>"
+      1 font-lock-string-face)
      ;; Functions
      ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
       1 font-lock-function-name-face)

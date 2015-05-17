@@ -63,7 +63,7 @@
   (font-lock-add-keywords
    nil
    '(("\\<\\([0-9.]+\\)\\>"
-      1 font-lock-constant-face)
+      1 font-lock-string-face)
      ("\\<\\(False\\|None\\|True\\)\\>"
       1 font-lock-constant-face)
      ("\\<\\(self\\)\\>"

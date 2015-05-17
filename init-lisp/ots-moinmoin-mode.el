@@ -13,7 +13,21 @@
 (defun ots-moinmoin-mode-set-faces ()
   "Set faces for editing MoinMoin wiki files."
   (font-lock-add-keywords
-   nil '(("^ *?=+ \\(.+?\\) =+ *?$" 1 font-lock-function-name-face))))
+   nil
+   '(;; Titles
+     ("^\\( *?=+ .+? =+ *?\\)$" 1 font-lock-function-name-face)
+     ;; Symbols
+     ("\\(^ *\\* \\)" 1 font-lock-builtin-face)
+     ("\\(^ *[0-9]+\\. \\)" 1 font-lock-builtin-face)
+     ("\\(\{\{\{.*$\\)" 1 font-lock-builtin-face)
+     ("\\(\}\}\}\\)" 1 font-lock-builtin-face)
+     ;; Fields
+     ("\\('''.*?'''\\)" 1 font-lock-string-face)
+     ("\\(''.*?''\\)" 1 font-lock-string-face)
+     ("\\(`.*?`\\)" 1 font-lock-type-face)
+     ("\\(<<.*?>>\\)" 1 font-lock-keyword-face)
+     ("\\(\\[\\[.*?\\]\\]\\)" 1 font-lock-keyword-face)
+     )))
 
 (defun ots-moinmoin-mode-set-properties ()
   "Set properties for editing MoinMoin wiki files."

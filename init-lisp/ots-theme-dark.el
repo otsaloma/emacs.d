@@ -30,10 +30,10 @@
  `(vertical-border ((t (:foreground "#2e3436"))))
 
  ;; Font-lock
- `(font-lock-builtin-face ((t (:foreground "#e68a8a"))))
+ `(font-lock-builtin-face ((t (:foreground "#d2a86e"))))
  `(font-lock-comment-delimiter-face ((t (:foreground "#84a3c2"))))
  `(font-lock-comment-face ((t (:foreground "#84a3c2"))))
- `(font-lock-constant-face ((t (:foreground "#c2c284"))))
+ `(font-lock-constant-face ((t (:foreground "#e68a8a"))))
  `(font-lock-doc-string-face ((t (:foreground "#84a3c2"))))
  `(font-lock-function-name-face ((t (:foreground "#d1d175"))))
  `(font-lock-keyword-face ((t (:foreground "#8abeb7"))))
@@ -41,7 +41,7 @@
  `(font-lock-regexp-grouping-backslash ((t (:foreground "#e68a8a"))))
  `(font-lock-regexp-grouping-construct ((t (:foreground "#e68a8a"))))
  `(font-lock-string-face ((t (:foreground "#b294bb"))))
- `(font-lock-type-face ((t (:foreground "#c2c284"))))
+ `(font-lock-type-face ((t (:foreground "#e68a8a"))))
  `(font-lock-variable-name-face ((t (:foreground "#90b078"))))
  `(font-lock-warning-face ((t (:foreground "#e68a8a"))))
 
