@@ -4,6 +4,15 @@
 (let ((modes '(("\\.\\(geo\\|topo\\)?json$" . js-mode))))
   (setq auto-mode-alist (append modes auto-mode-alist)))
 
+(defun ots-js-mode-set-faces ()
+  "Set faces for editing JavaScript files."
+  (font-lock-add-keywords
+   nil
+   '(;; Constants
+     ("\\<\\(self\\|that\\)\\>"
+      1 font-lock-constant-face)
+     )))
+
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
@@ -17,6 +26,7 @@
   (turn-on-auto-fill)
   (setq-local helm-dash-docsets '("JavaScript")))
 
+(add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
