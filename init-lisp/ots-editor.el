@@ -20,5 +20,10 @@
 (show-paren-mode t)
 (transient-mark-mode t)
 
+;; Deactivate selection when switching buffers.
+;; XXX: Better would be what shift-select-mode does:
+;; "the mark will be deactivated by any subsequent point motion key".
+(add-hook 'buffer-list-update-hook 'deactivate-mark)
+
 (provide 'ots-editor)
 ;;; ots-editor.el ends here
