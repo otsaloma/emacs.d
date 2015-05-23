@@ -21,9 +21,10 @@
 (transient-mark-mode t)
 
 ;; Deactivate selection when switching buffers.
-;; XXX: Better would be what shift-select-mode does:
-;; "the mark will be deactivated by any subsequent point motion key".
-(add-hook 'buffer-list-update-hook 'deactivate-mark)
+;; XXX: This is fucking suboptimal...
+(advice-add 'switch-to-buffer :before #'deactivate-mark)
+(advice-add 'tabbar-forward-tab :before #'deactivate-mark)
+(advice-add 'tabbar-backward-tab :before #'deactivate-mark)
 
 (provide 'ots-editor)
 ;;; ots-editor.el ends here
