@@ -10,6 +10,13 @@
   (interactive)
   (insert "_"))
 
+(defun ots-ess-mode-eval-region ()
+  "Send the current region to R."
+  (interactive)
+  (if (not ess-local-process-name)
+      (ess-switch-process))
+  (ess-eval-region-and-go (region-beginning) (region-end) nil))
+
 (defun ots-ess-mode-set-sources ()
   "Set sources to use with auto-complete mode."
   (setq ac-sources (remq 'ac-source-R-args ac-sources)))
@@ -55,8 +62,9 @@
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
   (local-set-key (kbd "<f8>") 'ots-ess-start)
+  (local-set-key (kbd "<S-f8>") 'ots-ess-mode-setwd)
   (local-set-key (kbd "<f9>") 'ots-ess-mode-source)
-  (local-set-key (kbd "<S-f9>") 'ots-ess-mode-setwd))
+  (local-set-key (kbd "<S-f9>") 'ots-ess-mode-eval-region))
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
