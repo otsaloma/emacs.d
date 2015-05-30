@@ -15,7 +15,7 @@
   (font-lock-add-keywords
    nil
    '(;; Keywords
-     ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
+     ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|signal\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
       1 font-lock-keyword-face)
      (" \\([:?]\\) "
       1 font-lock-keyword-face)
@@ -37,6 +37,8 @@
       1 font-lock-builtin-face)
      ;; Variables
      ("\\<\\([a-zA-Z0-9_.]+\\):"
+      1 font-lock-variable-name-face)
+     ("\\<signal +\\([a-zA-Z0-9_.]+\\)\\>"
       1 font-lock-variable-name-face)
      ("\\<var +\\([a-zA-Z0-9_.]+\\)\\>"
       1 font-lock-variable-name-face)
