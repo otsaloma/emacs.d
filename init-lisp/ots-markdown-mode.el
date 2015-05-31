@@ -5,6 +5,10 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+(defvar ots-markdown-mode-css-file
+  (expand-file-name "~/.local/share/markdown/github.css")
+  "Name of stylesheet file to use.")
+
 (defun ots-markdown-mode-set-faces ()
   "Set faces for editing markdown files."
   (set-face-attribute 'markdown-bold-face nil :weight 'normal)
@@ -17,6 +21,7 @@
   (local-set-key (kbd "<f8>") 'markdown-preview)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
+  (setq markdown-command (format "pandoc --css=%s" ots-markdown-mode-css-file))
   (setq markdown-indent-function 'indent-relative-maybe)
   (setq markdown-indent-on-enter nil)
   (setq tab-width 4)
