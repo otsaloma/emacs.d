@@ -6,7 +6,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (defvar ots-markdown-mode-css-file
-  (expand-file-name "~/.local/share/markdown/github.css")
+  (concat "file://"
+    (expand-file-name "~/.local/share/markdown/github.css"))
   "Name of stylesheet file to use.")
 
 (defun ots-markdown-mode-set-faces ()
