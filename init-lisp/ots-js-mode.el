@@ -24,7 +24,7 @@
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill)
-  (setq-local helm-dash-docsets '("JavaScript")))
+  (setq-local helm-dash-docsets '("JavaScript" "jQuery")))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
