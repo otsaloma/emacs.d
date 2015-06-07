@@ -4,6 +4,11 @@
 (let ((modes '(("\\.\\(geo\\|topo\\)?json$" . js-mode))))
   (setq auto-mode-alist (append modes auto-mode-alist)))
 
+(defun ots-js-mode-jshint ()
+  "Run code quality check with JSHint."
+  (interactive)
+  (compile (ots-util-expand-command "jshint --reporter=unix %s")))
+
 (defun ots-js-mode-set-faces ()
   "Set faces for editing JavaScript files."
   (font-lock-add-keywords
@@ -17,6 +22,7 @@
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
+  (local-set-key (kbd "<f9>") 'ots-js-mode-jshint)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
   (setq fill-column 80)
