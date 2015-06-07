@@ -4,7 +4,7 @@
 (require 'rainbow-mode)
 
 (defvar ots-rainbow-mode-modes
-  '(conf-mode css-mode emacs-lisp-mode ess-mode inferior-ess-mode js-mode
+  '(conf-mode css-mode emacs-lisp-mode ess-mode inferior-ess-mode
     latex-mode python-mode qml-mode)
   "Modes in which to color hexadecimal color codes.")
 
