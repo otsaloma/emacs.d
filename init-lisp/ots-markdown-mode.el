@@ -10,6 +10,11 @@
     (expand-file-name "~/.local/share/markdown/github.css"))
   "Name of stylesheet file to use.")
 
+(defun ots-markdown-mode-browse ()
+  "Browse file:// URL of the current buffer."
+  (interactive)
+  (browse-url (file-name-nondirectory (buffer-file-name))))
+
 (defun ots-markdown-mode-set-faces ()
   "Set faces for editing markdown files."
   (set-face-attribute 'markdown-bold-face nil :weight 'normal)
@@ -20,6 +25,7 @@
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
   (local-set-key (kbd "<f8>") 'markdown-preview)
+  (local-set-key (kbd "<S-f8>") 'ots-markdown-mode-browse)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq markdown-command (format "pandoc --css=%s" ots-markdown-mode-css-file))
