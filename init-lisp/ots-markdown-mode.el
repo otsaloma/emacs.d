@@ -20,7 +20,9 @@
   (set-face-attribute 'markdown-bold-face nil :weight 'normal)
   (set-face-attribute 'markdown-header-delimiter-face nil :weight 'normal)
   (set-face-attribute 'markdown-header-face nil :weight 'normal)
-  (set-face-attribute 'markdown-header-rule-face nil :weight 'normal))
+  (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
+  (setq markdown-inline-code-face 'font-lock-variable-name-face)
+  (setq markdown-pre-face 'font-lock-string-face))
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
@@ -34,10 +36,11 @@
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill)
-  ;; Work around some indentation bug in markdown-mode.
-  (add-hook 'first-change-hook '(lambda()
-    (when (derived-mode-p 'markdown-mode)
-      (markdown-mode)))))
+  ;; Use GitHub Flavored Markdown by default.
+  ;; http://help.github.com/articles/github-flavored-markdown/
+  ;; This also works around some auto-indentation bug.
+  (if (not (eq major-mode 'gfm-mode))
+      (gfm-mode)))
 
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-faces)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-properties)
