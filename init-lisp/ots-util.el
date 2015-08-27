@@ -80,6 +80,10 @@
   (interactive)
   (other-window 1))
 
+(defun ots-util-parent-directory (path)
+  "Return the parent directory of path."
+  (file-name-directory (directory-file-name path)))
+
 (defun ots-util-prepend-env (name value)
   "Prepend value to given environment variable."
   (if (eq system-type 'windows-nt)

@@ -4,7 +4,6 @@
 (delete-selection-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-(set-fringe-mode '(6 . 6))
 (setq auto-window-vscroll nil)
 (setq backward-delete-char-untabify-method 'hungry)
 (setq compilation-scroll-output t)

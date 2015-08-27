@@ -17,6 +17,7 @@
      (package-install package)))
  '(auto-complete
    dos
+   git-gutter-fringe+
    helm
    helm-dash
    jedi

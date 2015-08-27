@@ -6,6 +6,7 @@
 (menu-bar-mode 0)
 (modify-frame-parameters nil '((wait-for-wm . nil)))
 (scroll-bar-mode 0)
+(set-fringe-mode '(6 . 6))
 (setq frame-title-format "%+%b")
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)

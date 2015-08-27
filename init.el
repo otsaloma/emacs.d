@@ -40,6 +40,7 @@
 (require 'ots-ess-mode)
 (require 'ots-fringe)
 (require 'ots-fullscreen)
+(require 'ots-git-gutter)
 (require 'ots-helm)
 (require 'ots-helm-dash)
 (require 'ots-hideshow)
