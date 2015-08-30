@@ -27,6 +27,8 @@ this configuration.
 
 ![Screenshot](http://dl.dropboxusercontent.com/u/39625783/emacs-1.png)
 
+### GNOME
+
 On GNOME, the default dark theme can be complemented with the following
 Lua code as a [Devilspie2][4] script.
 

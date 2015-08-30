@@ -26,8 +26,8 @@
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
-  (local-set-key (kbd "<f8>") 'markdown-preview)
-  (local-set-key (kbd "<S-f8>") 'ots-markdown-mode-browse)
+  (local-set-key (kbd "<f8>") 'ots-markdown-mode-browse)
+  (local-set-key (kbd "<S-f8>") 'markdown-preview)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq markdown-command (format "pandoc --css=%s" ots-markdown-mode-css-file))
