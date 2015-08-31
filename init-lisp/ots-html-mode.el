@@ -14,7 +14,7 @@
       1 font-lock-constant-face)
      ("<title>\\(.+?\\)</title>"
       1 font-lock-negation-char-face)
-     ("<h[0-9] .*?>\\(\\(.\\|\n\\)+?\\)</h[0-9]>"
+     ("<h[0-9].*?>\\(\\(.\\|\n\\)+?\\)</h[0-9]>"
       1 font-lock-negation-char-face)
      ))
   ;; Use the above proper face for titles and headings.

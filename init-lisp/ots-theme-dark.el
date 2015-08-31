@@ -38,9 +38,6 @@
  `(font-lock-doc-string-face ((t (:foreground "#84a3c2"))))
  `(font-lock-function-name-face ((t (:foreground "#d1d175"))))
  `(font-lock-keyword-face ((t (:foreground "#8abeb7"))))
- ;; XXX: Abuse negation-char for titles (e.g. HTML, LaTeX)
- ;; as creating a new face seems to fail (Emacs 24.4.1).
- `(font-lock-negation-char-face ((t (:foreground "#ffffff" :height 150))))
  `(font-lock-preprocessor-face ((t (:foreground "#8abeb7"))))
  `(font-lock-regexp-grouping-backslash ((t (:foreground "#e68a8a"))))
  `(font-lock-regexp-grouping-construct ((t (:foreground "#e68a8a"))))
@@ -48,6 +45,11 @@
  `(font-lock-type-face ((t (:foreground "#e68a8a"))))
  `(font-lock-variable-name-face ((t (:foreground "#90b078"))))
  `(font-lock-warning-face ((t (:foreground "#e68a8a"))))
+
+ ;; XXX: Abuse negation-char for titles (e.g. HTML, LaTeX)
+ ;; as creating a new face seems to fail (Emacs 24.4.1).
+ `(font-lock-negation-char-face
+   ((t (:foreground "#ffffff" :height 150 :weight normal))))
 
  ;; Add-on packages
  `(ac-candidate-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))
