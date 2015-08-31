@@ -8,9 +8,7 @@
   "Set fonts and colors for section titles."
   (let ((face (format "font-latex-sectioning-%d-face" level)))
     (setq face (car (read-from-string face)))
-    (set-face-attribute face nil :inherit 'default)
-    (set-face-attribute face nil :height 1.0)
-    (set-face-attribute face nil :weight 'bold)
+    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)
     (ots-util-set-face face nil nil)))
 
 (defun ots-latex-mode-set-faces ()
@@ -23,9 +21,7 @@
   "Set fonts and colors for section titles."
   (dotimes (i 6) (ots-latex-mode-set-face-sectioning i))
   (let ((face 'font-latex-slide-title-face))
-    (set-face-attribute face nil :inherit 'default)
-    (set-face-attribute face nil :height 1.0)
-    (set-face-attribute face nil :weight 'bold)
+    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)
     (ots-util-set-face face nil nil)))
 
 (defun ots-latex-mode-set-faces-verbatim ()

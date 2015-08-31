@@ -169,5 +169,15 @@
         ((eq major-mode 'LaTeX-mode) t)
         (t nil)))
 
+(defun ots-util-what-face (pos)
+  "Print face at pos."
+  ;; http://stackoverflow.com/a/1242366/653825
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face
+        (message "Face: %s" face)
+      (message "No face at %d" pos))))
+
 (provide 'ots-util)
 ;;; ots-util.el ends here

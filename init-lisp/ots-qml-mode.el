@@ -14,28 +14,24 @@
   "Set faces for editing QML files."
   (font-lock-add-keywords
    nil
-   '(;; Keywords
-     ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|signal\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
+   '(("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|signal\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
       1 font-lock-keyword-face)
-     (" \\([:?]\\) "
-      1 font-lock-keyword-face)
-     ;; Types
      ("\\<\\(alias\\|bool\\|double\\|int\\|real\\|string\\|var\\)\\>"
       1 font-lock-type-face)
-     ;; Strings
-     ("\\<\\([0-9.]+\\)\\>"
-      1 font-lock-string-face)
      ("\\<\\(false\\|null\\|this\\|true\\|undefined\\)\\>"
       1 font-lock-constant-face)
-     ;; Functions
+     ("\\<\\(console.log\\|debugger\\|return\\)\\>"
+      1 font-lock-builtin-face)
+     ("\\<\\([0-9.]+\\)\\>"
+      1 font-lock-constant-face)
+     (" \\([:?]\\) "
+      1 font-lock-keyword-face)
+     ;; Callbacks and functions
      ("\\<\\([A-Z][a-zA-Z0-9_]+\\)\\> +{"
       1 font-lock-function-name-face)
      ("\\<function +\\([a-zA-Z0-9_]*\\)\\>"
       1 font-lock-function-name-face)
-     ;; Built-ins
-     ("\\<\\(console.log\\|debugger\\|return\\)\\>"
-      1 font-lock-builtin-face)
-     ;; Variables
+     ;; Properties, signals and variables
      ("\\<\\([a-zA-Z0-9_.]+\\):"
       1 font-lock-variable-name-face)
      ("\\<signal +\\([a-zA-Z0-9_.]+\\)\\>"

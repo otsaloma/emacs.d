@@ -15,7 +15,7 @@
   (font-lock-add-keywords
    nil
    '(;; Titles
-     ("^\\( *?=+ .+? =+ *?\\)$" 1 font-lock-function-name-face)
+     ("^\\( *?=+ .+? =+ *?\\)$" 1 font-lock-negation-char-face)
      ;; Symbols
      ("\\(^ *\\* \\)" 1 font-lock-builtin-face)
      ("\\(^ *[0-9]+\\. \\)" 1 font-lock-builtin-face)

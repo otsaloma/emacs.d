@@ -1,6 +1,26 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-html-mode.el
 
+(require 'ots-theme)
+
+(defun ots-html-mode-set-faces ()
+  "Set faces for editing HTML files."
+  (font-lock-add-keywords
+   nil
+   '(;; Attribute names
+     ("\\<\\([a-z-]+\\)=\""
+      1 font-lock-preprocessor-face)
+     ("<script>\\(\\(.\\|\n\\)+?\\)</script>"
+      1 font-lock-constant-face)
+     ("<title>\\(.+?\\)</title>"
+      1 font-lock-negation-char-face)
+     ("<h[0-9] .*?>\\(\\(.\\|\n\\)+?\\)</h[0-9]>"
+      1 font-lock-negation-char-face)
+     ))
+  ;; Use the above proper face for titles and headings.
+  (set-face-attribute 'bold nil :weight 'normal :underline nil)
+  (set-face-attribute 'underline nil :weight 'normal :underline nil))
+
 (defun ots-html-mode-set-properties ()
   "Set properties for editing HTML files."
   (local-set-key (kbd "C-<") 'sgml-tag)
@@ -13,6 +33,7 @@
   (setq truncate-lines t)
   (setq-local helm-dash-docsets '("HTML")))
 
+(add-hook 'html-mode-hook 'ots-html-mode-set-faces)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)
 
 (provide 'ots-html-mode)

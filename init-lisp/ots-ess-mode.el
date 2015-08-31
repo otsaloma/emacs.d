@@ -25,32 +25,30 @@
   "Set faces for editing R files."
   (font-lock-add-keywords
    nil
-   '(;; Keywords
-     ("\\(\\.\\.\\.\\)"
+   '(("\\(\\.\\.\\.\\)"
       1 font-lock-keyword-face)
-     ;; Constants
-     ("\\<\\(FALSE\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\)\\>"
+     ("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
+      1 font-lock-builtin-face)
+     ("\\<\\(return\\)("
+      1 font-lock-function-name-face)
+     ("\\<\\(FALSE\\|F\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\|T\\)\\>"
       1 font-lock-constant-face)
-     ;; Strings
      ("\\<\\([0-9.]+L?\\)\\>"
-      1 font-lock-string-face)
-     ;; Functions
-     ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
+      1 font-lock-constant-face)
+     ;; Function definitions
+     ("^[:blank:]*\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
       1 font-lock-function-name-face)
      ;; Keyword arguments
      ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
       1 font-lock-preprocessor-face)
-     ;; Built-ins
-     ("\\<\\(browser\\|function\\|library\\|messagef?\\|print\\|return\\|stop\\|stopif\\|stopifnot\\|source\\|warning\\)\\>"
-      1 font-lock-builtin-face)
-     ;; Variables
-     ("^ *\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
+     ;; Variable assignments
+     ("^[:blank:]*\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
       1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
+     ("^[:blank:]*\\([a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
       1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
+     ("^[:blank:]*\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
       1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
+     ("^[:blank:]*\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
       1 font-lock-variable-name-face)
      )))
 

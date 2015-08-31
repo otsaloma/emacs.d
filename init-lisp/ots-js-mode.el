@@ -13,9 +13,11 @@
   "Set faces for editing JavaScript files."
   (font-lock-add-keywords
    nil
-   '(;; Constants
-     ("\\<\\(self\\|that\\)\\>"
-      1 font-lock-constant-face)
+   '(("\\<\\(self\\|that\\|this\\)\\>"
+      1 font-lock-variable-name-face)
+     ;; Variable assignments
+     ("^[:blank:]*\\<\\([a-zA-Z0-9_]+\\) = "
+      1 font-lock-variable-name-face)
      )))
 
 (defun ots-js-mode-set-properties ()
