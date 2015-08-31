@@ -16,7 +16,7 @@
    '(("\\<\\(self\\|that\\|this\\)\\>"
       1 font-lock-variable-name-face)
      ;; Variable assignments
-     ("^[:blank:]*\\<\\([a-zA-Z0-9_]+\\) = "
+     ("^ *\\<\\([a-zA-Z0-9_]+\\) = "
       1 font-lock-variable-name-face)
      )))
 
