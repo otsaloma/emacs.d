@@ -36,7 +36,7 @@
      ("\\<\\([0-9.]+L?\\)\\>"
       1 font-lock-constant-face)
      ;; Function definitions
-     ("^[:blank:]*\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
+     ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
       1 font-lock-function-name-face)
      ;; Keyword arguments
      ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
