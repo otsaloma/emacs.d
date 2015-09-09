@@ -84,6 +84,7 @@
  `(tabbar-selected ((t (:background "#ffffff" :foreground "#2e3436" :box nil))))
  `(tabbar-separator ((t (:background "#ffffff"))))
  `(tabbar-unselected ((t (:background "#cccccc" :foreground "#2e3436" :box nil))))
+ `(wcheck-default-face ((t (:underline "#ff5555"))))
  `(woman-bold ((t (:foreground "#1d77ff"))))
  `(woman-italic ((t (:foreground "#9f6fff"))))
 
