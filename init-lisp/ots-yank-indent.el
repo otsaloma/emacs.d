@@ -5,8 +5,7 @@
   "Number of characters over which indentation is not done.")
 
 (defvar ots-yank-indent-modes
-  '(bibtex-mode
-    c-mode
+  '(c-mode
     css-mode
     emacs-lisp-mode
     ess-mode

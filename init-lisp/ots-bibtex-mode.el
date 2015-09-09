@@ -3,6 +3,7 @@
 
 (defun ots-bibtex-mode-set-properties ()
   "Set properties for editing BibTeX files."
+  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (setq fill-column 1000)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)
