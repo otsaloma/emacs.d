@@ -52,6 +52,7 @@
 (require 'ots-latex-mode)
 (require 'ots-linear-undo)
 (require 'ots-linum)
+(require 'ots-makefile-mode)
 (require 'ots-markdown-mode)
 (require 'ots-minibuffer)
 (require 'ots-mode-line)
