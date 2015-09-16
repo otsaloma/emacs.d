@@ -17,6 +17,7 @@
     java-mode
     js-mode
     latex-mode
+    makefile-mode
     ots-moinmoin-mode
     ots-qml-mode
     perl-mode
