@@ -29,6 +29,8 @@
  `(show-paren-match ((t (:underline "#99eebb"))))
  `(show-paren-mismatch ((t (:underline "#ff5555"))))
  `(vertical-border ((t (:foreground "#2e3436"))))
+ `(whitespace-space ((t (:background nil :foreground "#e68a8a"))))
+ `(whitespace-tab ((t (:background nil :foreground "#e68a8a"))))
 
  ;; Font-lock
  `(font-lock-builtin-face ((t (:foreground "#d2a86e"))))

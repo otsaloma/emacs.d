@@ -53,6 +53,7 @@
   (global-set-key (kbd "<tab>") 'ots-util-smart-tab)
   (global-set-key (kbd "<C-tab>") 'ots-util-next-window)
   (global-set-key (kbd "<backtab>") 'ots-util-previous-window)
+  (global-set-key (kbd "<C-S-tab>") 'ots-util-insert-tab)
   (global-set-key (kbd "<delete>") 'delete-char)
   (global-set-key (kbd "<home>") 'ots-util-smart-home)
   (global-set-key (kbd "<C-kp-subtract>") 'ots-util-insert-en-dash)

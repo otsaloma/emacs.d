@@ -35,6 +35,11 @@
   (interactive)
   (insert "—"))
 
+(defun ots-util-insert-tab ()
+  "Insert one tab character at point."
+  (interactive)
+  (insert 9))
+
 (defun ots-util-kill-buffer ()
   "Kill the current buffer."
   (interactive)

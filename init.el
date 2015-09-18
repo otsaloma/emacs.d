@@ -75,6 +75,7 @@
 (require 'ots-trailing-space)
 (require 'ots-uniquify)
 (require 'ots-wcheck-mode)
+(require 'ots-whitespace-mode)
 (require 'ots-woman-mode)
 (require 'ots-yank-indent)
 (require 'ots-yasnippet)
