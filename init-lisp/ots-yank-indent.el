@@ -6,7 +6,6 @@
 
 (defvar ots-yank-indent-modes
   '(c-mode
-    css-mode
     emacs-lisp-mode
     ess-mode
     html-mode
