@@ -13,7 +13,7 @@
     (dolist (buffer (buffer-list))
       (let ((name (buffer-name buffer)))
         (when (or (eq (current-buffer) buffer)
-                  (not (string-match "^\\( ?\\*\\|TAGS\\)" name))
+                  (not (string-match "^\\( ?\\*\\|TAGS$\\)" name))
                   (string-match "^\\*man " name)
                   (string-match "^\\*\\(Python\\|R\\|shell\\)\\*" name))
           (push buffer result))))
