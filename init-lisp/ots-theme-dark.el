@@ -51,7 +51,7 @@
  ;; XXX: Abuse negation-char for titles (e.g. HTML, LaTeX)
  ;; as creating a new face seems to fail (Emacs 24.4.1).
  `(font-lock-negation-char-face
-   ((t (:foreground "#ffffff" :height 150 :weight normal))))
+   ((t (:foreground nil :height 150))))
 
  ;; Add-on packages
  `(ac-candidate-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))
@@ -92,10 +92,8 @@
 
  )
 
-;; Disable bold and italic for font support is poor.
-(set-face-attribute 'bold nil :weight 'normal)
+;; Disable italic for font support is poor.
 (set-face-attribute 'italic nil :slant 'normal)
-(set-face-attribute 'bold-italic nil :weight 'normal)
 (set-face-attribute 'bold-italic nil :slant 'normal)
 
 ;; For font used on Unix, see ~/.Xresources.
