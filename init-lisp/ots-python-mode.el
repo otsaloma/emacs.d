@@ -26,7 +26,7 @@
   "Run unit tests with py.test for the current buffer."
   (interactive)
   (let ((file-name (ots-python-mode-unit-test-argument)))
-    (compile (format "py.test-3 -xs %s" file-name))))
+    (compile (format "py.test -xs %s" file-name))))
 
 (defun ots-python-mode-py-test-coverage ()
   "Run unit tests with py.test and coverage for the current buffer."
@@ -37,7 +37,7 @@
 (defun ots-python-mode-pyflakes ()
   "Check the current buffer with pyflakes."
   (interactive)
-  (compile (ots-util-expand-command "pyflakes3 %s")))
+  (compile (ots-util-expand-command "pyflakes %s")))
 
 (defun ots-python-mode-run ()
   "Run python file with python."
