@@ -77,6 +77,7 @@
 (require 'ots-wcheck-mode)
 (require 'ots-whitespace-mode)
 (require 'ots-woman-mode)
+(require 'ots-yaml-mode)
 (require 'ots-yank-indent)
 (require 'ots-yasnippet)
 
