@@ -11,7 +11,7 @@
 
 (defvar ots-markdown-mode-command
   (concat "pandoc"
-          " -f markdown_github"
+          " -f markdown"
           " -t html5"
           " --ascii"
           " --css=" ots-markdown-mode-css-file
