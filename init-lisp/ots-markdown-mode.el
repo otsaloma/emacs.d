@@ -3,12 +3,21 @@
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 (defvar ots-markdown-mode-css-file
-  (concat "file://"
-    (expand-file-name "~/.local/share/markdown/github.css"))
+  (concat "file://" (expand-file-name "~/.local/share/markdown/github.css"))
   "Name of stylesheet file to use.")
+
+(defvar ots-markdown-mode-command
+  (concat "pandoc"
+          " -f markdown_github"
+          " -t html5"
+          " --ascii"
+          " --css=" ots-markdown-mode-css-file
+          " --highlight-style=haddock"
+          " --smart")
+  "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-browse ()
   "Browse file:// URL of the current buffer."
@@ -20,19 +29,23 @@
   (set-face-attribute 'markdown-bold-face nil :weight 'normal)
   (let ((face 'font-lock-negation-char-face))
     (set-face-attribute 'markdown-header-delimiter-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
     (set-face-attribute 'markdown-header-delimiter-face nil :inherit face)
+    (set-face-attribute 'markdown-header-face nil :weight 'normal)
     (set-face-attribute 'markdown-header-face nil :inherit face)
+    (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
     (set-face-attribute 'markdown-header-rule-face nil :inherit face)))
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
-  (local-set-key (kbd "<f8>") 'ots-markdown-mode-browse)
-  (local-set-key (kbd "<S-f8>") 'markdown-preview)
+  ;; Preview using a browser extension that renders Markdown
+  ;; is simplest, but tends to be buggy and is unclear about
+  ;; which Markdown variant is supported or used.
+  (local-set-key (kbd "<f8>") 'markdown-preview)
+  (local-set-key (kbd "<S-f8>") 'ots-markdown-mode-browse)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
-  (setq markdown-command (format "pandoc --css=%s" ots-markdown-mode-css-file))
+  (setq markdown-command ots-markdown-mode-command)
+  (setq markdown-command-needs-filename t)
   (setq markdown-indent-function 'indent-relative-maybe)
   (setq markdown-indent-on-enter nil)
   (setq tab-width 4)
