@@ -6,7 +6,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 (defvar ots-markdown-mode-css-file
-  (concat "file://" (expand-file-name "~/.local/share/markdown/github.css"))
+  (expand-file-name "~/.local/share/markdown/github.css")
   "Name of stylesheet file to use.")
 
 (defvar ots-markdown-mode-command
@@ -14,15 +14,11 @@
           " -f markdown"
           " -t html5"
           " --ascii"
-          " --css=" ots-markdown-mode-css-file
+          " --css=" (convert-standard-filename ots-markdown-mode-css-file)
           " --highlight-style=haddock"
+          " --self-contained"
           " --smart")
   "Command to use to compile Markdown files.")
-
-(defun ots-markdown-mode-browse ()
-  "Browse file:// URL of the current buffer."
-  (interactive)
-  (browse-url (file-name-nondirectory (buffer-file-name))))
 
 (defun ots-markdown-mode-set-faces ()
   "Set faces for editing markdown files."
@@ -37,11 +33,8 @@
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
-  ;; Preview using a browser extension that renders Markdown
-  ;; is simplest, but tends to be buggy and is unclear about
-  ;; which Markdown variant is supported or used.
   (local-set-key (kbd "<f8>") 'markdown-preview)
-  (local-set-key (kbd "<S-f8>") 'ots-markdown-mode-browse)
+  (local-set-key (kbd "<f9>") 'markdown-export)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq markdown-command ots-markdown-mode-command)
