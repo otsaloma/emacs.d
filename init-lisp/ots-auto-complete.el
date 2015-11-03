@@ -13,11 +13,13 @@
     dos-mode
     emacs-lisp-mode
     ess-mode
+    gfm-mode
     html-mode
     java-mode
     js-mode
     latex-mode
     makefile-mode
+    markdown-mode
     ots-moinmoin-mode
     ots-qml-mode
     perl-mode
