@@ -10,7 +10,6 @@
 
 (require 'ots-ansi-color)
 (require 'ots-auto-complete)
-(require 'ots-auto-save)
 (require 'ots-backup)
 (require 'ots-bibtex-mode)
 (require 'ots-browse-url)
