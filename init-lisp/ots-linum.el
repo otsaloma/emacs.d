@@ -27,6 +27,7 @@
 (add-hook 'after-change-major-mode-hook 'ots-linum-enable)
 (add-hook 'after-save-hook 'ots-linum-update-width)
 (add-hook 'linum-mode-hook 'ots-linum-update-width)
+
 (setq linum-delay t)
 (setq linum-format 'ots-linum-format)
 

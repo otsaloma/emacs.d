@@ -5,7 +5,7 @@
 
 (when (eq system-type 'windows-nt)
   (setenv "PROMPT" "$P$_$G$s")
-  ;; Checked to work with wcheck-mode and voikkospell.
+  ;; Checked to work with wcheck-mode and enchant.
   ;; If other processes fail, define process-coding-system-alist.
   (setq default-process-coding-system '(utf-8 . utf-8)))
 

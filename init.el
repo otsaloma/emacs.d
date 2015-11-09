@@ -20,7 +20,6 @@
 (require 'ots-conf-mode)
 (require 'ots-css-mode)
 (require 'ots-diff-mode)
-(require 'ots-display)
 (require 'ots-dos-mode)
 (require 'ots-editor)
 (require 'ots-emacs-lisp-mode)
