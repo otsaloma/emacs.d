@@ -52,7 +52,6 @@
 (require 'ots-python-mode)
 (require 'ots-qml-mode)
 (require 'ots-rainbow-mode)
-(require 'ots-recentf)
 (require 'ots-server)
 (require 'ots-sgml-xml-mode)
 (require 'ots-sh-mode)
