@@ -11,11 +11,11 @@
 
 (setq whitespace-style
       (quote (face tabs indentation space-after-tab
-                   space-before-tab tab-mark)))
+              space-before-tab tab-mark)))
 
 ;; Unicode characters in decimal, see M-x insert-char.
-(setq whitespace-display-mappings '((space-mark 32 [183] [46])
-                                    (tab-mark 9 [62 9])))
+(setq whitespace-display-mappings
+      '((space-mark 32 [183] [46]) (tab-mark 9 [62 9])))
 
 (add-hook 'after-change-major-mode-hook 'ots-whitespace-mode-enable)
 

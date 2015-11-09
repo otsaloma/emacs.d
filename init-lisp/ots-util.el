@@ -167,13 +167,6 @@
   (interactive)
   (switch-to-buffer nil))
 
-(defun ots-util-text-mode-p ()
-  "Return t if major-mode is some kind of natural language text mode."
-  (cond ((eq major-mode 'text-mode)  t)
-        ((eq major-mode 'latex-mode) t)
-        ((eq major-mode 'LaTeX-mode) t)
-        (t nil)))
-
 (defun ots-util-what-face (pos)
   "Print face at pos."
   ;; http://stackoverflow.com/a/1242366/653825

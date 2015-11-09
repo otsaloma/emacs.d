@@ -80,9 +80,9 @@
 
 (defun ots-keys-set-punct ()
   "Set keybindings for punctuation navigation keys."
-  (if (ots-util-text-mode-p)
-      (ots-keys-set-punct-sentence)
-    (ots-keys-set-punct-defun)))
+  (if (derived-mode-p 'prog-mode)
+      (ots-keys-set-punct-defun)
+    (ots-keys-set-punct-sentence)))
 
 (defun ots-keys-set-punct-defun ()
   "Set keybindings for navigating between functions."
