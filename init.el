@@ -1,23 +1,12 @@
 ;;; -*- coding: utf-8-unix -*-
 
 (require 'package)
-
-(setq
- package-archives
- '(("gnu" . "http://elpa.gnu.org/packages/")
-   ("melpa" . "http://melpa.org/packages/")
-   ("marmalade" . "http://marmalade-repo.org/packages/")))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 (push "~/.emacs.d/init-lisp" load-path)
-(push "~/.emacs.d/site-lisp" load-path)
-
-(let ((default-directory "~/.emacs.d/site-lisp/"))
-  (normal-top-level-add-subdirs-to-load-path))
-
 (byte-recompile-directory "~/.emacs.d/init-lisp" 0)
-(byte-recompile-directory "~/.emacs.d/site-lisp" 0)
 
 (require 'ots-ansi-color)
 (require 'ots-auto-complete)

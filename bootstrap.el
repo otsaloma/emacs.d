@@ -1,16 +1,9 @@
 ;;; -*- coding: utf-8-unix -*-
-
 (require 'package)
-
-(setq
- package-archives
- '(("gnu" . "http://elpa.gnu.org/packages/")
-   ("melpa" . "http://melpa.org/packages/")
-   ("marmalade" . "http://marmalade-repo.org/packages/")))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-refresh-contents)
 (package-initialize)
-
 (mapcar
  (lambda (package)
    (unless (package-installed-p package)
@@ -29,7 +22,7 @@
    smooth-scrolling
    tabbar
    wcheck-mode
+   yasnippet
    ))
-
 (message "%s" "All done!")
 (message "%s" "Hit Ctrl-C to quit.")

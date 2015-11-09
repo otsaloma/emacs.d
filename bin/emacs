@@ -1,7 +1,6 @@
 #!/bin/sh
 # Open files in existing Emacs window or open a new one.
 # Usage: emacs [OPTION...] [FILE...]
-export LC_MESSAGES=C
 if [ -z "$(ps -A | grep emacs24)" ]; then
     # Remove stale server if Emacs crashed.
     rm -rfv /tmp/emacs1000/
