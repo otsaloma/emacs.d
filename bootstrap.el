@@ -15,7 +15,6 @@
    helm-dash
    jedi
    linear-undo
-   lua-mode
    markdown-mode
    php-mode
    rainbow-mode

@@ -14,6 +14,7 @@
       (concat "#%" (buffer-name) "#")))))
 
 (make-directory ots-auto-save-directory t)
+(setq auto-save-list-file-name (concat ots-auto-save-directory "list"))
 (setq delete-auto-save-files nil)
 
 (provide 'ots-auto-save)

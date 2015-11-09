@@ -1,3 +1,3 @@
 # name: frac
 # --
-\frac{${1:NUM}}{${2:DEN}}
+\frac{$0}{}

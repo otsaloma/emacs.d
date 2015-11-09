@@ -1,8 +1,8 @@
 # name: figure
 # --
-\begin{figure}[htb]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=${1:0.6}\textwidth]{${2:FILE}}
-\caption{${3:CAPTION}}
-\label{fig:${4:LABEL}}
+\includegraphics[width=\textwidth]{$0}
+\caption{}
+\label{fig:}
 \end{figure}

@@ -1,6 +1,0 @@
-# name: case
-# --
-case $${1:VARIABLE} in
-    ${2:""} ) ${3:echo};;
-    *  ) ${4:echo};;
-esac

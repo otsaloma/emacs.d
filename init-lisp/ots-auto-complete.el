@@ -44,6 +44,7 @@
 (setq ac-auto-show-menu 0)
 (setq ac-auto-start 2)
 (setq ac-candidate-limit nil)
+(setq ac-comphist-file "/dev/null")
 (setq ac-delay 0)
 (setq ac-disable-faces nil)
 (setq ac-ignore-case nil)

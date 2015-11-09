@@ -1,5 +1,5 @@
 # name: includegraphics
 # --
 \begin{center}
-\includegraphics[height=${1:HEIGHT}]{${2:FILENAME}}
+\includegraphics[height=\textheight]{$0}
 \end{center}

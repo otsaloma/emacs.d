@@ -1,5 +1,5 @@
 # name: array
 # --
-\begin{array}{${1:ll}}
+\begin{array}{ll}
 $0
 \end{array}

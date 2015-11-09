@@ -1,6 +1,0 @@
-# name: imageframe
-# --
-\begin{imageframe}
-\frametitle{${1:TITLE}}
-\bigimage{${2:FILENAME}}
-\end{imageframe}

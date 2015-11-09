@@ -1,10 +1,10 @@
 # name: table
 # --
-\begin{table}[htb]
+\begin{table}[htbp]
 \centering
-\caption{${1:CAPTION}}
-\label{tab:${2:LABEL}}
-\begin{tabular}{${3:ll}}
+\caption{}
+\label{tab:}
+\begin{tabular}{ll}
 \toprule
 $0
 \midrule

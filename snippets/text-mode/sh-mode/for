@@ -1,5 +1,0 @@
-# name: for
-# --
-for ${1:X} in ${2:ITERABLE}; do
-    $0
-done

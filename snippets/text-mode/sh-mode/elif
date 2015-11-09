@@ -1,4 +1,0 @@
-# name: elif
-# --
-elif [ ${1:CONDITION} ]; then
-    $0
