@@ -15,7 +15,7 @@
         (when (or (eq (current-buffer) buffer)
                   (not (string-match "^\\( ?\\*\\|TAGS$\\)" name))
                   (string-match "^\\*man " name)
-                  (string-match "^\\*\\(js\\|Python\\|R\\|shell\\)\\*" name))
+                  (string-match "^\\*\\(ielm\\|js\\|Python\\|R\\|shell\\)\\*" name))
           (push buffer result))))
     result))
 

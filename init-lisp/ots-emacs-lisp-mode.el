@@ -6,6 +6,7 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f5>") 'emacs-lisp-byte-compile)
+  (local-set-key (kbd "<f8>") 'ielm)
   (eldoc-mode 1)
   (hs-minor-mode 1)
   (setq fill-column 80)

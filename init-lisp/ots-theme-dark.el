@@ -48,7 +48,7 @@
  `(font-lock-variable-name-face ((t (:foreground "#90b078"))))
  `(font-lock-warning-face ((t (:foreground "#e68a8a"))))
 
- ;; XXX: Abuse negation-char for titles (e.g. HTML, LaTeX)
+ ;; XXX: Abuse negation-char for titles (e.g. Markdown, LaTeX)
  ;; as creating a new face seems to fail (Emacs 24.4.1).
  `(font-lock-negation-char-face
    ((t (:foreground nil :height 150))))
