@@ -3,17 +3,18 @@
 
 (require 'yasnippet)
 
-(setq yas/root-directory '("~/.emacs.d/snippets"))
-(setq yas/trigger-key "C-+")
-(setq yas/trigger-symbol "+")
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-+") 'yas-expand)
+
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(setq yas-trigger-symbol "+")
+(yas-global-mode 1)
 
 ;; Allow snippets in comments too (e.g. coding magic line).
 (add-hook 'after-change-major-mode-hook
-          '(lambda () (setq yas/buffer-local-condition
+          '(lambda () (setq yas-buffer-local-condition
                             '(require-snippet-condition . t))))
-
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets")
 
 (provide 'ots-yasnippet)
 ;;; ots-yasnippet.el ends here
