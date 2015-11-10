@@ -14,6 +14,7 @@
    helm
    helm-dash
    jedi
+   js-comint
    linear-undo
    markdown-mode
    php-mode

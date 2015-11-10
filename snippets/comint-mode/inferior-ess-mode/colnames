@@ -1,3 +1,0 @@
-# name: colnames
-# --
-colnames(${1:OBJECT}) = tolower(colnames($1))

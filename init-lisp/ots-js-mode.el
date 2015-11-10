@@ -9,6 +9,17 @@
   (interactive)
   (compile (ots-util-expand-command "jshint --reporter=unix %s")))
 
+(defun ots-js-mode-run-js ()
+  "Start an interactive JavaScript interpreter."
+  (interactive)
+  (require 'js-comint)
+  (setenv "NODE_NO_READLINE" "1")
+  (setq inferior-js-program-command "node --interactive")
+  (run-js inferior-js-program-command)
+  (ansi-color-for-comint-mode-on)
+  (set-process-query-on-exit-flag (get-process "js") nil)
+  (delete-other-windows))
+
 (defun ots-js-mode-set-faces ()
   "Set faces for editing JavaScript files."
   (font-lock-add-keywords
@@ -24,6 +35,7 @@
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
+  (local-set-key (kbd "<f8>") 'ots-js-mode-run-js)
   (local-set-key (kbd "<f9>") 'ots-js-mode-jshint)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")

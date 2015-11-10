@@ -1,3 +1,0 @@
-# name: load
-# --
-load("$0.RData")

@@ -1,3 +1,0 @@
-# name: write
-# --
-write.delim(${1:OBJECT}, "$1.txt")
