@@ -6,13 +6,8 @@
 (defun ots-html-mode-set-faces ()
   "Set faces for editing HTML files."
   (font-lock-add-keywords
-   nil
-   '(;; Attribute names
-     ("\\<\\([a-z-]+\\)=\""
-      1 font-lock-preprocessor-face)
-     ("<script>\\(\\(.\\|\n\\)+?\\)</script>"
-      1 font-lock-constant-face)
-     ))
+   nil '(("\\<\\([a-z-]+\\)=\"" 1 font-lock-preprocessor-face)
+         ("<script>\\(\\(.\\|\n\\)+?\\)</script>" 1 font-lock-constant-face)))
   (set-face-attribute 'bold nil :weight 'normal :underline nil)
   (set-face-attribute 'underline nil :weight 'normal :underline nil))
 

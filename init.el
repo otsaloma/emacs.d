@@ -32,6 +32,7 @@
 (require 'ots-helm-dash)
 (require 'ots-hideshow)
 (require 'ots-html-mode)
+(require 'ots-imenu)
 (require 'ots-inferior-ess-mode)
 (require 'ots-java-mode)
 (require 'ots-js-mode)

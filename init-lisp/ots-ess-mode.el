@@ -59,7 +59,7 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
-  (local-set-key (kbd "<f8>") 'ots-ess-start)
+  (local-set-key (kbd "<f8>") 'ots-ess-mode-start)
   (local-set-key (kbd "<S-f8>") 'ots-ess-mode-setwd)
   (local-set-key (kbd "<f9>") 'ots-ess-mode-source)
   (local-set-key (kbd "<S-f9>") 'ots-ess-mode-eval-region))
@@ -100,6 +100,7 @@
 
 (defun ots-ess-mode-start ()
   "Start or associate a process for the buffer."
+  (interactive)
   (setq inferior-R-args "--no-save --no-restore-history --quiet")
   (let ((new-process (not ess-process-name-list)))
     (ess-force-buffer-current nil t nil nil)
