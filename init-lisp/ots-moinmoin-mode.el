@@ -13,21 +13,16 @@
 (defun ots-moinmoin-mode-set-faces ()
   "Set faces for editing MoinMoin wiki files."
   (font-lock-add-keywords
-   nil
-   '(;; Titles
-     ("^\\( *?=+ .+? =+ *?\\)$" 1 font-lock-negation-char-face)
-     ;; Symbols
-     ("\\(^ *\\* \\)" 1 font-lock-builtin-face)
-     ("\\(^ *[0-9]+\\. \\)" 1 font-lock-builtin-face)
-     ("\\(\{\{\{.*$\\)" 1 font-lock-builtin-face)
-     ("\\(\}\}\}\\)" 1 font-lock-builtin-face)
-     ;; Fields
-     ("\\('''.*?'''\\)" 1 font-lock-string-face)
-     ("\\(''.*?''\\)" 1 font-lock-string-face)
-     ("\\(`.*?`\\)" 1 font-lock-type-face)
-     ("\\(<<.*?>>\\)" 1 font-lock-keyword-face)
-     ("\\(\\[\\[.*?\\]\\]\\)" 1 font-lock-keyword-face)
-     )))
+   nil '(("\\(^ *\\* \\)" 1 font-lock-builtin-face)
+         ("\\(^ *[0-9]+\\. \\)" 1 font-lock-builtin-face)
+         ("\\(\{\{\{.*$\\)" 1 font-lock-builtin-face)
+         ("\\(\}\}\}\\)" 1 font-lock-builtin-face)
+         ("\\(<<.*?>>\\)" 1 font-lock-keyword-face)
+         ("\\(\\[\\[.*?\\]\\]\\)" 1 font-lock-keyword-face)
+         ("^\\( *?=+ .+? =+ *?\\)$" 1 font-lock-negation-char-face)
+         ("\\('''.*?'''\\)" 1 font-lock-string-face)
+         ("\\(''.*?''\\)" 1 font-lock-string-face)
+         ("\\(`.*?`\\)" 1 font-lock-type-face))))
 
 (defun ots-moinmoin-mode-set-properties ()
   "Set properties for editing MoinMoin wiki files."

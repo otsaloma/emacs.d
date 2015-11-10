@@ -13,12 +13,8 @@
 (defun ots-yaml-mode-set-faces ()
   "Set faces for editing YAML files."
   (font-lock-add-keywords
-   nil
-   '(("^\\([a-z_]+:\\)"
-      1 font-lock-function-name-face)
-     ("\\(#.*$\\)"
-      1 font-lock-comment-face)
-     )))
+   nil '(("\\(#.*$\\)" 1 font-lock-comment-face)
+         ("^\\([a-z_]+:\\)" 1 font-lock-function-name-face))))
 
 (defun ots-yaml-mode-set-properties ()
   "Set properties for editing YAML files."

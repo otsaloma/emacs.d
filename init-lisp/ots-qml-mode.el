@@ -13,32 +13,28 @@
 (defun ots-qml-mode-set-faces ()
   "Set faces for editing QML files."
   (font-lock-add-keywords
-   nil
-   '(("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|signal\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
-      1 font-lock-keyword-face)
-     ("\\<\\(alias\\|bool\\|double\\|int\\|real\\|string\\|var\\)\\>"
-      1 font-lock-type-face)
-     ("\\<\\(false\\|null\\|this\\|true\\|undefined\\)\\>"
-      1 font-lock-constant-face)
-     ("\\<\\(console.log\\|debugger\\|return\\)\\>"
-      1 font-lock-builtin-face)
-     ("\\<\\([0-9.]+\\)\\>"
-      1 font-lock-constant-face)
-     (" \\([:?]\\) "
-      1 font-lock-keyword-face)
-     ;; Callbacks and functions
-     ("\\<\\([A-Z][a-zA-Z0-9_]+\\)\\> +{"
-      1 font-lock-function-name-face)
-     ("\\<function +\\([a-zA-Z0-9_]*\\)\\>"
-      1 font-lock-function-name-face)
-     ;; Properties, signals and variables
-     ("\\<\\([a-zA-Z0-9_.]+\\):"
-      1 font-lock-variable-name-face)
-     ("\\<signal +\\([a-zA-Z0-9_.]+\\)\\>"
-      1 font-lock-variable-name-face)
-     ("\\<var +\\([a-zA-Z0-9_.]+\\)\\>"
-      1 font-lock-variable-name-face)
-     )))
+   nil '(("\\<\\(console.log\\|debugger\\|return\\)\\>"
+          1 font-lock-builtin-face)
+         ("\\<\\(false\\|null\\|this\\|true\\|undefined\\)\\>"
+          1 font-lock-constant-face)
+         ("\\<\\([0-9.]+\\)\\>"
+          1 font-lock-constant-face)
+         ("\\<\\([A-Z][a-zA-Z0-9_]+\\)\\> +{"
+          1 font-lock-function-name-face)
+         ("\\<function +\\([a-zA-Z0-9_]*\\)\\>"
+          1 font-lock-function-name-face)
+         ("\\<\\(as\\|break\\|case\\|catch\\|continue\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|import\\|in\\|instanceof\\|new\\|parent\\|property\\|signal\\|switch\\|throw\\|try\\|typeof\\|void\\|while\\|with\\)\\>"
+          1 font-lock-keyword-face)
+         (" \\([:?]\\) "
+          1 font-lock-keyword-face)
+         ("\\<\\(alias\\|bool\\|double\\|int\\|real\\|string\\|var\\)\\>"
+          1 font-lock-type-face)
+         ("\\<\\([a-zA-Z0-9_.]+\\):"
+          1 font-lock-variable-name-face)
+         ("\\<signal +\\([a-zA-Z0-9_.]+\\)\\>"
+          1 font-lock-variable-name-face)
+         ("\\<var +\\([a-zA-Z0-9_.]+\\)\\>"
+          1 font-lock-variable-name-face))))
 
 (defun ots-qml-mode-set-properties ()
   "Set properties for editing QML files."

@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-diff-mode.el
 
-(require 'ots-util)
-
 (defun ots-diff-mode-set-properties ()
   "Set properties for editing diff files."
   (setq truncate-lines t))

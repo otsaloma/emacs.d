@@ -12,11 +12,7 @@
 (defun ots-sh-mode-set-faces ()
   "Set fonts and colors for shell scripts."
   (font-lock-add-keywords
-   nil
-   '(;; Alias definitions
-     ("alias +\\([a-z0-9\-]+\\)="
-      1 font-lock-variable-name-face)
-     ))
+   nil '(("alias +\\([a-z0-9\-]+\\)=" 1 font-lock-variable-name-face)))
   (let ((face (face-foreground 'font-lock-constant-face)))
     (set-face-foreground 'sh-quoted-exec face)))
 

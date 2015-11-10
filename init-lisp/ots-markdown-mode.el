@@ -11,8 +11,8 @@
 
 (defvar ots-markdown-mode-command
   (concat "pandoc"
-          " -f markdown"
-          " -t html5"
+          " --from=markdown"
+          " --to=html5"
           " --ascii"
           " --css=" (convert-standard-filename ots-markdown-mode-css-file)
           " --highlight-style=haddock"
