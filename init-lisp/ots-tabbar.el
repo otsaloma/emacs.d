@@ -11,13 +11,16 @@
   "Return list of buffers to show in tabs in no particular order."
   (let ((result ()))
     (dolist (buffer (buffer-list))
-      (let ((name (buffer-name buffer)))
-        (when (or (eq (current-buffer) buffer)
-                  (not (string-match "^\\( ?\\*\\|TAGS$\\)" name))
-                  (string-match "^\\*man " name)
-                  (string-match "^\\*\\(ielm\\|js\\|Python\\|R\\|shell\\)\\*" name))
-          (push buffer result))))
+      (if (ots-tabbar-buffer-list-p buffer)
+          (push buffer result)))
     result))
+
+(defun ots-tabbar-buffer-list-p (buffer)
+  "Return true if buffer should be shown in the list of buffers."
+  (let ((name (buffer-name buffer)))
+    (or (eq (current-buffer) buffer)
+        (string-match "^[^* ]" name) ; regular buffers
+        (string-match "^\\*\\(ielm\\|js\\|man\\|Python\\|R\\|shell\\)" name))))
 
 (defun ots-tabbar-set-buttons ()
   "Set button pixmaps to use in tabbar buttons."
@@ -38,14 +41,16 @@
   (global-set-key (kbd "<C-prior>") 'tabbar-backward-tab))
 
 (defun ots-tabbar-sort (x y)
-  "Return string sort value for tabs x and y based on their labels."
-  (let ((xlabel (tabbar-buffer-tab-label x))
-        (ylabel (tabbar-buffer-tab-label y)))
-    (if (string-match "^test_" xlabel)
-        (setq xlabel (concat (substring xlabel 5) ".test")))
-    (if (string-match "^test_" ylabel)
-        (setq ylabel (concat (substring ylabel 5) ".test")))
-    (string-lessp xlabel ylabel)))
+  "Return string sort value for tabs x and y."
+  (string-lessp (ots-tabbar-label-sort-key x)
+                (ots-tabbar-label-sort-key y)))
+
+(defun ots-tabbar-label-sort-key (tab)
+  "Return a sort key for the label of tab."
+  (let ((label (tabbar-buffer-tab-label tab)))
+    (if (string-match "^test_" label)
+        (concat (substring label 5) ".test")
+      label)))
 
 (defun ots-tabbar-tab-label (tab)
   "Return string shortened from filename to use as tab label."

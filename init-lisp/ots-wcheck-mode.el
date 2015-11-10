@@ -27,13 +27,13 @@
 
 (defun enchant-wcheck-entry (lang)
   "Construct a wcheck-language-data alist entry for enchant."
-  (setq out (list lang))
-  (add-to-list 'out `(program . ,enchant-program) t)
-  (add-to-list 'out `(args "-l" "-d" ,lang) t)
-  (add-to-list 'out `(action-program . ,enchant-program) t)
-  (add-to-list 'out `(action-args "-a" "-d" ,lang) t)
-  (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
-  out)
+  (let ((out (list lang)))
+    (add-to-list 'out `(program . ,enchant-program) t)
+    (add-to-list 'out `(args "-l" "-d" ,lang) t)
+    (add-to-list 'out `(action-program . ,enchant-program) t)
+    (add-to-list 'out `(action-args "-a" "-d" ,lang) t)
+    (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
+    out))
 
 (setq wcheck-language "fi")
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
