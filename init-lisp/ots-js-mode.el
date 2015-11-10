@@ -16,7 +16,6 @@
   (setenv "NODE_NO_READLINE" "1")
   (setq inferior-js-program-command "node --interactive")
   (run-js inferior-js-program-command)
-  (ansi-color-for-comint-mode-on)
   (set-process-query-on-exit-flag (get-process "js") nil)
   (delete-other-windows))
 

@@ -63,7 +63,6 @@
   (global-set-key (kbd "<C-S-kp-subtract>") 'ots-util-insert-em-dash)
   (global-set-key (kbd "<f1>") 'help)
   (global-set-key (kbd "<S-f1>") 'woman)
-  (global-set-key (kbd "<f2>") 'devhelp-word-at-point)
   (global-set-key (kbd "<f3>") 'ots-util-start-external-terminal)
   (global-set-key (kbd "<S-f3>") 'shell)
   (global-set-key (kbd "<f5>") 'compile)
