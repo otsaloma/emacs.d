@@ -49,5 +49,11 @@
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
+;; Use js2-mode for linting.
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(setq js2-strict-inconsistent-return-warning nil)
+(setq js2-strict-var-redeclaration-warning nil)
+(setq js2-highlight-external-variables nil)
+
 (provide 'ots-js-mode)
 ;;; ots-js-mode.el ends here
