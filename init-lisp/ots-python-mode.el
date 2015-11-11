@@ -3,7 +3,6 @@
 
 (require 'ots-comint-mode)
 (require 'ots-util)
-(require 'python)
 
 (setenv "PYTHONPATH" ".")
 (setenv "PYTHONSTARTUP" "")
@@ -27,12 +26,6 @@
   (interactive)
   (let ((file-name (ots-python-mode-unit-test-argument)))
     (compile (format "py.test -xs %s" file-name))))
-
-(defun ots-python-mode-py-test-coverage ()
-  "Run unit tests with py.test and coverage for the current buffer."
-  (interactive)
-  (let ((file-name (ots-python-mode-unit-test-argument)))
-    (compile (format "py.test-coverage -xs %s" file-name))))
 
 (defun ots-python-mode-pyflakes ()
   "Check the current buffer with pyflakes."
@@ -58,20 +51,22 @@
           (cd (concat directory parent))
         (setq directory (concat directory parent))))))
 
+(defun ots-python-mode-set-docsets ()
+  "Load helm-dash docsets based on buffer imports."
+  (if (ots-util-buffer-contains "gi.repository")
+      ;; Only load GNOME documentation if in a file
+      ;; that imports from GI.
+      (setq-local helm-dash-docsets
+       '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango" "Python"))
+    (setq-local helm-dash-docsets '("Python"))))
+
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
   (font-lock-add-keywords
-   nil
-   '(("\\<\\(False\\|None\\|True\\)\\>"
-      1 font-lock-constant-face)
-     ("\\<\\(self\\)\\>"
-      1 font-lock-variable-name-face)
-     ("\\<\\([0-9.]+\\)\\>"
-      1 font-lock-constant-face)
-     ;; Keyword arguments
-     ("\\<\\([a-zA-Z0-9_]+\\)="
-      1 font-lock-preprocessor-face)
-     )))
+   nil '(("\\<\\(False\\|None\\|True\\)\\>" 1 font-lock-constant-face)
+         ("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
+         ("\\<\\([a-zA-Z0-9_]+\\)=" 1 font-lock-preprocessor-face)
+         ("\\<\\(self\\)\\>" 1 font-lock-variable-name-face))))
 
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
@@ -81,11 +76,10 @@
   (local-set-key (kbd "<f8>") 'python-shell-send-buffer)
   (local-set-key (kbd "<f9>") 'ots-python-mode-pyflakes)
   (local-set-key (kbd "<f10>") 'ots-python-mode-py-test)
-  (local-set-key (kbd "<S-f10>") 'ots-python-mode-py-test-coverage)
-  (local-set-key (kbd "<C-S-f10>") 'ots-python-mode-nosetests-run))
+  (local-set-key (kbd "<S-f10>") 'ots-python-mode-nosetests-run))
 
 (defun ots-python-mode-set-properties ()
-  "Set properties for editing Python code."
+  "Set properties for editing Python files."
   (eldoc-mode 1)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
@@ -95,13 +89,6 @@
   (setq python-shell-interpreter "python3")
   (setq tab-width 4)
   (setq truncate-lines t)
-  (if (ots-util-buffer-contains "gi.repository")
-      ;; Only load GNOME documentation if in a file
-      ;; that imports from GI.
-      (setq-local
-       helm-dash-docsets
-       '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango" "Python"))
-    (setq-local helm-dash-docsets '("Python")))
   (turn-on-auto-fill))
 
 (defun ots-python-mode-start ()
@@ -123,6 +110,7 @@
     (concat directory "test/test_" file-name)))
 
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
+(add-hook 'python-mode-hook 'ots-python-mode-set-docsets)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
