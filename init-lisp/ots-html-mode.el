@@ -11,6 +11,14 @@
   (set-face-attribute 'bold nil :weight 'normal :underline nil)
   (set-face-attribute 'underline nil :weight 'normal :underline nil))
 
+(defun ots-html-mode-set-imenu ()
+  "Set imenu index patterns for HTML files."
+  (setq imenu-generic-expression
+        '((nil "\\(</?\\(head\\|body\\|header\\|main\\|footer\\)>\\)" 1)
+          (nil "\\<\\(id=\"[^\"]+\"\\)" 1)))
+  (setq imenu-create-index-function
+        'imenu-default-create-index-function))
+
 (defun ots-html-mode-set-properties ()
   "Set properties for editing HTML files."
   (local-set-key (kbd "C-<") 'sgml-tag)
@@ -24,6 +32,7 @@
   (setq-local helm-dash-docsets '("HTML")))
 
 (add-hook 'html-mode-hook 'ots-html-mode-set-faces)
+(add-hook 'html-mode-hook 'ots-html-mode-set-imenu)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)
 
 (provide 'ots-html-mode)

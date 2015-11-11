@@ -1,6 +1,13 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-css-mode.el
 
+(defun ots-css-mode-set-imenu ()
+  "Set imenu index patterns for CSS files."
+  (setq imenu-generic-expression
+        '((nil "^\\([^ @\n].*\\) +{" 1)))
+  (setq imenu-create-index-function
+        'imenu-default-create-index-function))
+
 (defun ots-css-mode-set-properties ()
   "Set properties for editing CSS files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
@@ -14,6 +21,7 @@
   (setq-local helm-dash-docsets '("CSS"))
   (turn-on-auto-fill))
 
+(add-hook 'css-mode-hook 'ots-css-mode-set-imenu)
 (add-hook 'css-mode-hook 'ots-css-mode-set-properties)
 
 (provide 'ots-css-mode)

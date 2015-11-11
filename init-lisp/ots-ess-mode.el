@@ -6,6 +6,13 @@
 (autoload 'R-mode "ess-site.el" "ESS" t)
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
+(setq
+ ;; This gets fed to imenu-generic-expression.
+ ;; The default in ESS insists on arrows.
+ ess-imenu-S-generic-expression
+ '((nil "^\\([a-zA-Z0-9._]+\\) = function(" 1)
+   (nil "^\\([a-zA-Z0-9._]+\\) <- function(" 1)))
+
 (defun ess-smart-S-assign ()
   "Always insert a fucking underscore, regardless of whether
   ess-toggle-underscore happens to be working or not."
