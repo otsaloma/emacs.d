@@ -2,7 +2,9 @@
 ;;; ots-ess-mode.el
 
 (require 'ots-auto-complete)
-(require 'ess-site)
+
+(autoload 'R-mode "ess-site.el" "ESS" t)
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
 (defun ess-smart-S-assign ()
   "Always insert a fucking underscore, regardless of whether
@@ -24,38 +26,39 @@
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
   (font-lock-add-keywords
-   nil
-   '(("\\(\\.\\.\\.\\)"
-      1 font-lock-keyword-face)
-     ("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
-      1 font-lock-builtin-face)
-     ("\\<\\(return\\)("
-      1 font-lock-function-name-face)
-     ("\\<\\(FALSE\\|F\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\|T\\)\\>"
-      1 font-lock-constant-face)
-     ("\\<\\([0-9.]+L?\\)\\>"
-      1 font-lock-constant-face)
-     ;; Function definitions
-     ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
-      1 font-lock-function-name-face)
-     ;; Keyword arguments
-     ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
-      1 font-lock-preprocessor-face)
-     ;; Variable assignments
-     ("^ *\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
-      1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
-      1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
-      1 font-lock-variable-name-face)
-     ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
-      1 font-lock-variable-name-face)
-     )))
+   nil '(("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
+          1 font-lock-builtin-face)
+         ("\\<\\(FALSE\\|F\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\|T\\)\\>"
+          1 font-lock-constant-face)
+         ("\\<\\([0-9.]+L?\\)\\>"
+          1 font-lock-constant-face)
+         ("\\<\\(return\\)("
+          1 font-lock-function-name-face)
+         ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
+          1 font-lock-function-name-face)
+         ("\\(\\.\\.\\.\\)"
+          1 font-lock-keyword-face)
+         ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
+          1 font-lock-preprocessor-face)
+         ("^ *\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
+          1 font-lock-variable-name-face)
+         ("^ *\\([a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
+          1 font-lock-variable-name-face)
+         ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
+          1 font-lock-variable-name-face)
+         ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
+          1 font-lock-variable-name-face))))
+
+(defun ots-ess-mode-set-indentation ()
+  "Set indentation properties for editing R files."
+  (setq ess-default-style 'DEFAULT)
+  (setq ess-indent-offset 4)
+  (setq ess-indent-with-fancy-comments nil))
 
 (defun ots-ess-mode-set-keys ()
   "Set keybindings for editing R files."
   (local-set-key (kbd "C-m") 'exchange-point-and-mark)
-  (local-set-key (kbd "C-+") 'yas/expand)
+  (local-set-key (kbd "C-+") 'yas-expand)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
@@ -70,25 +73,15 @@
   (modify-syntax-entry ?_ "w")
   (setq ac-use-quick-help nil)
   (setq comment-add 0)
-  (setq ess-arg-function-offset nil)
   (setq ess-ask-for-ess-directory nil)
-  (setq ess-brace-imaginary-offset 0)
-  (setq ess-brace-offset -4)
-  (setq ess-close-brace-offset 0)
-  (setq ess-continued-brace-offset 0)
-  (setq ess-continued-statement-offset 4)
-  (setq ess-else-offset 0)
-  (setq ess-expression-offset nil)
-  (setq ess-fancy-comments nil)
-  (setq ess-first-continued-statement-offset 0)
   (setq ess-history-directory "~")
-  (setq ess-indent-level 4)
   (setq ess-roxy-str "#'")
   (setq ess-use-auto-complete t)
   (setq ess-use-eldoc t)
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
-  (setq inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
+  (setq inferior-ess-r-help-command
+        ".ess.help('%s', help.type='html')\n")
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill))
@@ -96,7 +89,9 @@
 (defun ots-ess-mode-setwd ()
   "setwd to the directory of the current buffer in R."
   (interactive)
-  (ess-change-directory (file-name-directory (buffer-file-name))))
+  (ess-change-directory
+   (file-name-directory
+    (buffer-file-name))))
 
 (defun ots-ess-mode-start ()
   "Start or associate a process for the buffer."
@@ -113,14 +108,17 @@
   (interactive)
   (if (not ess-local-process-name)
       (ess-switch-process))
-  (ess-change-directory (file-name-directory (buffer-file-name)))
+  (ots-ess-mode-setwd)
   (sleep-for 1)
-  (let ((file-name (file-name-nondirectory (buffer-file-name))))
+  (let ((file-name
+         (file-name-nondirectory
+          (buffer-file-name))))
     (ess-switch-to-end-of-ESS)
     (insert (format "source('%s')" file-name))
     (comint-send-input)))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
+(add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-keys t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-sources t)
