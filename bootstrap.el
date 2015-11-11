@@ -25,4 +25,3 @@
    yasnippet
    ))
 (message "%s" "All done!")
-(message "%s" "Hit Ctrl-C to quit.")
