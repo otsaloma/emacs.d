@@ -36,6 +36,14 @@
          ("\\<var +\\([a-zA-Z0-9_.]+\\)\\>"
           1 font-lock-variable-name-face))))
 
+(defun ots-qml-mode-set-imenu ()
+  "Set imenu index patterns for QML files."
+  (setq imenu-generic-expression
+        '((nil "^ +\\([^: ]+\\): +{" 1)
+          (nil "^ +function +\\([^( ]+\\)(" 1)))
+  (setq imenu-create-index-function
+        'imenu-default-create-index-function))
+
 (defun ots-qml-mode-set-properties ()
   "Set properties for editing QML files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
@@ -49,6 +57,7 @@
   (hs-minor-mode 1))
 
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-faces)
+(add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-imenu)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-properties)
 
 (provide 'ots-qml-mode)
