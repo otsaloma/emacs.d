@@ -22,13 +22,8 @@
 (defun ots-js-mode-set-faces ()
   "Set faces for editing JavaScript files."
   (font-lock-add-keywords
-   nil
-   '(("\\<\\(self\\|that\\|this\\)\\>"
-      1 font-lock-variable-name-face)
-     ;; Variable assignments
-     ("^ *\\<\\([a-zA-Z0-9_]+\\) = "
-      1 font-lock-variable-name-face)
-     )))
+   nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face)
+         ("^ *\\<\\([a-zA-Z0-9_]+\\) = " 1 font-lock-variable-name-face))))
 
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
