@@ -25,6 +25,14 @@
    nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face)
          ("^ *\\<\\([a-zA-Z0-9_]+\\) = " 1 font-lock-variable-name-face))))
 
+(defun ots-js-mode-set-imenu ()
+  "Set imenu index patterns for JavaScript files."
+  (setq imenu-generic-expression
+        '((nil "^var +\\([^ =]+\\)[ =]" 1)
+          (nil "^function +\\([^(]+\\)(" 1)))
+  (setq imenu-create-index-function
+        'imenu-default-create-index-function))
+
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
@@ -41,6 +49,7 @@
   (setq-local helm-dash-docsets '("JavaScript" "jQuery")))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
+(add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
