@@ -35,11 +35,11 @@
 
 (defun ots-js-mode-set-linting ()
   "Use js2-mode for linting, but not in derived modes."
-  (when (eq major-mode 'js-mode)
-    (js2-minor-mode)
-    (setq js2-strict-inconsistent-return-warning nil)
-    (setq js2-strict-var-redeclaration-warning nil)
-    (setq js2-highlight-external-variables nil)))
+  (setq js2-strict-inconsistent-return-warning nil)
+  (setq js2-strict-var-redeclaration-warning nil)
+  (setq js2-highlight-external-variables nil)
+  (if (eq major-mode 'js-mode)
+      (js2-minor-mode)))
 
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
