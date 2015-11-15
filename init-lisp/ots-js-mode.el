@@ -33,6 +33,14 @@
   (setq imenu-create-index-function
         'imenu-default-create-index-function))
 
+(defun ots-js-mode-set-linting ()
+  "Use js2-mode for linting, but not in derived modes."
+  (when (eq major-mode 'js-mode)
+    (js2-minor-mode)
+    (setq js2-strict-inconsistent-return-warning nil)
+    (setq js2-strict-var-redeclaration-warning nil)
+    (setq js2-highlight-external-variables nil)))
+
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
@@ -50,14 +58,9 @@
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
+(add-hook 'js-mode-hook 'ots-js-mode-set-linting)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
-
-;; Use js2-mode for linting.
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(setq js2-strict-inconsistent-return-warning nil)
-(setq js2-strict-var-redeclaration-warning nil)
-(setq js2-highlight-external-variables nil)
 
 (provide 'ots-js-mode)
 ;;; ots-js-mode.el ends here
