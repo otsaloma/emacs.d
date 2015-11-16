@@ -26,10 +26,6 @@
       (ess-switch-process))
   (ess-eval-region-and-go (region-beginning) (region-end) nil))
 
-(defun ots-ess-mode-set-sources ()
-  "Set sources to use with auto-complete mode."
-  (setq ac-sources (remq 'ac-source-R-args ac-sources)))
-
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
   (font-lock-add-keywords
@@ -79,6 +75,9 @@
   "Set properties for editing R files."
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
+  ;; XXX: ac-source-R is really slow (ESS 15.09).
+  (setq ac-sources (remq 'ac-source-R ac-sources))
+  (setq ac-sources (remq 'ac-source-R-args ac-sources))
   (setq ac-use-quick-help nil)
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
@@ -129,7 +128,6 @@
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-keys t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
-(add-hook 'ess-mode-hook 'ots-ess-mode-set-sources t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-start t)
 
 (provide 'ots-ess-mode)
