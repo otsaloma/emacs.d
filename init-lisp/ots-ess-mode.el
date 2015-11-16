@@ -60,7 +60,8 @@
   "Set indentation properties for editing R files."
   (setq ess-default-style 'DEFAULT)
   (setq ess-indent-offset 4)
-  (setq ess-indent-with-fancy-comments nil))
+  (setq ess-indent-with-fancy-comments nil)
+  (setq ess-offset-arguments-newline 'prev-line))
 
 (defun ots-ess-mode-set-keys ()
   "Set keybindings for editing R files."
