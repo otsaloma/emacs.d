@@ -83,7 +83,7 @@
   (eldoc-mode 1)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
-  (setq ac-use-quick-help nil)
+  (setq-local ac-use-quick-help nil)
   (setq fill-column 79)
   (setq indent-tabs-mode nil)
   (setq python-shell-interpreter "python3")
