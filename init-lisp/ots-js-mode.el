@@ -1,9 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-js-mode.el
 
-(let ((modes '(("\\.\\(geo\\|topo\\)?json$" . js-mode))))
-  (setq auto-mode-alist (append modes auto-mode-alist)))
-
 (defun ots-js-mode-jshint ()
   "Run code quality check with JSHint."
   (interactive)

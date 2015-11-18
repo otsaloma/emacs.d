@@ -36,6 +36,7 @@
 (require 'ots-inferior-ess-mode)
 (require 'ots-java-mode)
 (require 'ots-js-mode)
+(require 'ots-json-mode)
 (require 'ots-keys)
 (require 'ots-latex-mode)
 (require 'ots-linear-undo)
