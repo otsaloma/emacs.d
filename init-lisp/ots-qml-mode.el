@@ -1,6 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-qml-mode.el
 
+(require 'ots-js-mode)
+
 (autoload 'ots-qml-mode "qml" "Edit QML files." t)
 (let ((modes '(("\\.qml$" . ots-qml-mode))))
   (setq auto-mode-alist (append modes auto-mode-alist)))
