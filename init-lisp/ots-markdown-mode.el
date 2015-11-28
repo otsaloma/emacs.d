@@ -29,7 +29,9 @@
     (set-face-attribute 'markdown-header-face nil :weight 'normal)
     (set-face-attribute 'markdown-header-face nil :inherit face)
     (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-rule-face nil :inherit face)))
+    (set-face-attribute 'markdown-header-rule-face nil :inherit face))
+  (font-lock-add-keywords
+   nil '(("</?\\([^!>]+\\)>" 1 font-lock-function-name-face))))
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
