@@ -9,6 +9,7 @@
 (setq backup-directory-alist `((".*" . ,ots-backup-directory)))
 (setq auto-save-file-name-transforms `((".*" ,ots-backup-directory t)))
 (setq auto-save-list-file-prefix ots-backup-directory)
+(setq create-lockfiles nil)
 
 (provide 'ots-backup)
 ;;; ots-backup.el ends here
