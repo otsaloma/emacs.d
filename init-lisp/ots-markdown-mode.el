@@ -20,6 +20,47 @@
           " --smart")
   "Command to use to compile Markdown files.")
 
+(defun ots-markdown-mode-export ()
+  "Export the current file in a temporary HTML file."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      ;; Use an ASCII-filenamed temporary copy to avoid
+      ;; character encoding problems on Windows.
+      (let* ((orig-file buffer-file-name)
+             (temp-dir temporary-file-directory)
+             (temp-name (concat (make-temp-name "emacs") ".md"))
+             (temp-file (concat temp-dir temp-name))
+             (temp-html (ots-markdown-mode-html-file-name temp-file))
+             (orig-html (ots-markdown-mode-html-file-name orig-file)))
+        (copy-file buffer-file-name temp-file)
+        (find-file temp-file)
+        (markdown-export)
+        (kill-buffer (file-name-nondirectory temp-file))
+        (kill-buffer (file-name-nondirectory temp-html))
+        (delete-file temp-file)
+        (rename-file temp-html orig-html t))
+    (markdown-export)))
+
+(defun ots-markdown-mode-html-file-name (file-name)
+  "Convert markdown filename to a HTML filename."
+  (replace-regexp-in-string "\\(.md\\)?$" ".html" file-name))
+
+(defun ots-markdown-mode-preview ()
+  "Preview the current file in a temporary HTML file."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      ;; Use an ASCII-filenamed temporary copy to avoid
+      ;; character encoding problems on Windows.
+      (let* ((temp-dir temporary-file-directory)
+             (temp-name (concat (make-temp-name "emacs") ".md"))
+             (temp-file (concat temp-dir temp-name)))
+        (copy-file buffer-file-name temp-file)
+        (find-file temp-file)
+        (markdown-preview)
+        (kill-buffer (file-name-nondirectory temp-file))
+        (delete-file temp-file))
+    (markdown-preview)))
+
 (defun ots-markdown-mode-set-faces ()
   "Set faces for editing markdown files."
   (set-face-attribute 'markdown-bold-face nil :weight 'normal)
@@ -35,8 +76,8 @@
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
-  (local-set-key (kbd "<f8>") 'markdown-preview)
-  (local-set-key (kbd "<f9>") 'markdown-export)
+  (local-set-key (kbd "<f8>") 'ots-markdown-mode-preview)
+  (local-set-key (kbd "<f9>") 'ots-markdown-mode-export)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq markdown-command ots-markdown-mode-command)
