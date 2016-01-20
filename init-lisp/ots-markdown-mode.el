@@ -21,7 +21,7 @@
   "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-export ()
-  "Export the current file in a temporary HTML file."
+  "Export the current file to a HTML file."
   (interactive)
   (if (eq system-type 'windows-nt)
       ;; Use an ASCII-filenamed temporary copy to avoid
