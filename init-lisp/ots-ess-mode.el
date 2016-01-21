@@ -76,7 +76,6 @@
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
   ;; auto-complete with global config seems slow.
-  (setq-local ac-auto-show-menu 0.5)
   (setq-local ac-delay 0.5)
   (setq-local ac-sources (remq 'ac-source-R-args ac-sources))
   (setq-local ac-use-quick-help nil)

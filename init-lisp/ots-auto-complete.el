@@ -21,11 +21,11 @@
 (define-key ac-complete-mode-map (kbd "<return>") nil)
 (define-key ac-complete-mode-map (kbd "<tab>") 'ac-complete)
 
-(setq ac-auto-show-menu 0)
+(setq ac-auto-show-menu 1)
 (setq ac-auto-start 2)
 (setq ac-candidate-limit 8)
 (setq ac-comphist-file "/dev/null")
-(setq ac-delay 0)
+(setq ac-delay 0.01)
 (setq ac-disable-faces nil)
 (setq ac-ignore-case nil)
 (setq ac-menu-height 8)
