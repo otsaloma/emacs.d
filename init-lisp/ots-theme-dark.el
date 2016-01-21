@@ -51,7 +51,7 @@
  ;; XXX: Abuse negation-char for titles (e.g. Markdown, LaTeX)
  ;; as creating a new face seems to fail (Emacs 24.4.1).
  `(font-lock-negation-char-face
-   ((t (:foreground nil :height 150))))
+   ((t (:foreground "#d1d175" :height 145))))
 
  ;; Add-on packages
  `(ac-candidate-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))
