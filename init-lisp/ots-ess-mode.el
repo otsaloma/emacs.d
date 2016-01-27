@@ -66,10 +66,10 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
-  (local-set-key (kbd "<f8>") 'ots-ess-mode-start)
-  (local-set-key (kbd "<S-f8>") 'ots-ess-mode-setwd)
-  (local-set-key (kbd "<f9>") 'ots-ess-mode-source)
-  (local-set-key (kbd "<S-f9>") 'ots-ess-mode-eval-region))
+  (local-set-key (kbd "<f6>") 'ots-ess-mode-start)
+  (local-set-key (kbd "<S-f6>") 'ots-ess-mode-setwd)
+  (local-set-key (kbd "<f8>") 'ots-ess-mode-source)
+  (local-set-key (kbd "<S-f8>") 'ots-ess-mode-eval-region))
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
