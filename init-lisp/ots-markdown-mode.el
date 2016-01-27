@@ -6,7 +6,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 (defvar ots-markdown-mode-css-file
-  (expand-file-name "~/.local/share/markdown-css/tufte.css")
+  (expand-file-name "~/.local/share/markdown-css/github.css")
   "Name of stylesheet file to use.")
 
 (defvar ots-markdown-mode-command
