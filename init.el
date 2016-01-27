@@ -7,8 +7,8 @@
   (setq gc-cons-threshold (* 10 1024 1024))))
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 (push "~/.emacs.d/init-lisp" load-path)

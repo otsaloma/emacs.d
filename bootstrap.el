@@ -1,7 +1,7 @@
 ;;; -*- coding: utf-8-unix -*-
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-refresh-contents)
 (package-initialize)
 (mapcar
@@ -17,6 +17,7 @@
    js-comint
    js2-mode
    linear-undo
+   magit
    markdown-mode
    php-mode
    rainbow-mode
