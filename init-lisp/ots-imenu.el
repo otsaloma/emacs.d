@@ -9,7 +9,6 @@
 
 (add-hook 'font-lock-mode-hook 'ots-imenu-add-maybe t)
 (global-set-key (kbd "<f4>") 'helm-imenu)
-(global-set-key (kbd "<S-f4>") 'helm-imenu-in-all-buffers)
 
 (provide 'ots-imenu)
 ;;; ots-imenu.el ends here
