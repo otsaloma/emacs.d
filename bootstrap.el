@@ -13,6 +13,7 @@
    git-gutter-fringe+
    helm
    helm-dash
+   helm-ls-git
    jedi
    js-comint
    js2-mode
