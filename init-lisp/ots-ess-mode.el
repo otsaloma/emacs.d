@@ -108,7 +108,8 @@
     (ess-force-buffer-current nil t nil nil)
     (if new-process
         (delete-other-windows)))
-  (set-process-query-on-exit-flag (get-process "R") nil))
+  (set-process-query-on-exit-flag (get-process "R") nil)
+  (ess-tracebug -1))
 
 (defun ots-ess-mode-source ()
   "Source the current buffer in R."
