@@ -9,6 +9,10 @@
 
 (defun ots-inferior-ess-mode-set-properties ()
   "Set properties for interactive R sessions."
+  ;; auto-complete with global config seems slow.
+  (setq-local ac-delay 0.5)
+  (setq-local ac-sources (remq 'ac-source-R-args ac-sources))
+  (setq-local ac-use-quick-help nil)
   (local-set-key (kbd "C-b") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
   (setq ac-use-quick-help nil)

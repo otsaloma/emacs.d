@@ -7,5 +7,5 @@ auto-save-list/
 docsets/
 elpa/
 image-dired/
-recentf.el
+recentf
 server/
