@@ -53,10 +53,19 @@
   (turn-on-auto-fill)
   (setq-local helm-dash-docsets '("JavaScript" "jQuery")))
 
+(defun ots-js-mode-tern ()
+  "Start tern-mode and its auto-complete."
+  ;; TODO: Figure out how to use Tern on Windows.
+  (when (not (eq system-type 'windows-nt))
+    (tern-mode t)
+    (require 'tern-auto-complete)
+    (tern-ac-setup)))
+
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
 (add-hook 'js-mode-hook 'ots-js-mode-set-linting)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
+(add-hook 'js-mode-hook 'ots-js-mode-tern)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 (provide 'ots-js-mode)

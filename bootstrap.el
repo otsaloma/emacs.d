@@ -24,6 +24,8 @@
    rainbow-mode
    smooth-scrolling
    tabbar
+   tern
+   tern-auto-complete
    wcheck-mode
    yasnippet
    ))
