@@ -1,10 +1,10 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-js-mode.el
 
-(defvar ots-tern-windows-exe
+(defun ots-js-mode-get-tern-exe ()
+  "Return path to the tern executable on Windows."
   (concat (replace-regexp-in-string "\\\\" "/" (getenv "APPDATA"))
-   "/npm/node_modules/tern/bin/tern")
-  "Path to the tern executable on Windows.")
+          "/npm/node_modules/tern/bin/tern"))
 
 (defun ots-js-mode-jshint ()
   "Run code quality check with JSHint."
@@ -63,7 +63,7 @@
   (when (eq system-type 'windows-nt)
     ;; XXX: tern-mode can't find tern on Windows.
     ;; https://github.com/ternjs/tern/issues/256
-    (setq tern-command (list "node" ots-tern-windows-exe)))
+    (setq tern-command (list "node" (ots-js-mode-get-tern-exe))))
   (tern-mode t)
   (require 'tern-auto-complete)
   (tern-ac-setup))
