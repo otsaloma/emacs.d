@@ -3,8 +3,6 @@
 ;; Speed up init by doing garbage collection less often.
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
 (setq gc-cons-threshold (* 100 1024 1024))
-(run-with-idle-timer 5 nil #'(lambda ()
-  (setq gc-cons-threshold (* 10 1024 1024))))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
