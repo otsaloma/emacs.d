@@ -41,5 +41,8 @@
 (advice-add 'tabbar-forward-tab :before #'deactivate-mark)
 (advice-add 'tabbar-backward-tab :before #'deactivate-mark)
 
+;; XXX: Work around sometimes broken fontification.
+(add-hook 'change-major-mode-hook 'font-lock-fontify-buffer t)
+
 (provide 'ots-editor)
 ;;; ots-editor.el ends here
