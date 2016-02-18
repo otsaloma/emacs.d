@@ -41,6 +41,8 @@
           1 font-lock-function-name-face)
          ("\\(\\.\\.\\.\\)"
           1 font-lock-keyword-face)
+         ("\\(%.*?%\\)"
+          1 font-lock-keyword-face)
          ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
           1 font-lock-preprocessor-face)
          ("^ *\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
