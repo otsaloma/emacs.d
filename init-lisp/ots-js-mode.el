@@ -63,9 +63,10 @@
     ;; XXX: tern-mode can't find tern on Windows.
     ;; https://github.com/ternjs/tern/issues/256
     (setq tern-command (list "node" (ots-js-mode-get-tern-exe))))
-  (tern-mode t)
-  (require 'tern-auto-complete)
-  (tern-ac-setup))
+  (when (eq major-mode 'js-mode)
+    (tern-mode t)
+    (require 'tern-auto-complete)
+    (tern-ac-setup)))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
