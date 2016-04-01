@@ -65,7 +65,6 @@
   (global-set-key (kbd "<S-f1>") 'woman)
   (global-set-key (kbd "<f3>") 'ots-util-start-external-terminal)
   (global-set-key (kbd "<S-f3>") 'shell)
-  (global-set-key (kbd "<S-f4>") 'vc-git-grep)
   (global-set-key (kbd "<f5>") 'compile)
   (global-set-key (kbd "<S-f5>") 'recompile)
   (global-set-key (kbd "<C-S-f5>") 'kill-compilation)

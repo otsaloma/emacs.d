@@ -57,6 +57,7 @@
   (require 'ots-minibuffer)
   (require 'ots-mode-line)
   (require 'ots-moinmoin-mode)
+  (require 'ots-neotree)
   (require 'ots-perl-mode)
   (require 'ots-php-mode)
   (require 'ots-po-mode)

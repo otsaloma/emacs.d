@@ -20,6 +20,7 @@
    linear-undo
    magit
    markdown-mode
+   neotree
    php-mode
    rainbow-mode
    smooth-scrolling
