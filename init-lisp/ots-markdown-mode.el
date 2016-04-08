@@ -26,7 +26,8 @@
   (if (eq system-type 'windows-nt)
       ;; Use an ASCII-filenamed temporary copy to avoid
       ;; character encoding problems on Windows.
-      (let* ((orig-file buffer-file-name)
+      (let* ((orig-buffer (current-buffer))
+             (orig-file buffer-file-name)
              (temp-dir temporary-file-directory)
              (temp-name (concat (make-temp-name "emacs") ".md"))
              (temp-file (concat temp-dir temp-name))
@@ -38,7 +39,8 @@
         (kill-buffer (file-name-nondirectory temp-file))
         (kill-buffer (file-name-nondirectory temp-html))
         (delete-file temp-file)
-        (rename-file temp-html orig-html t))
+        (rename-file temp-html orig-html t)
+        (switch-to-buffer orig-buffer))
     (markdown-export)))
 
 (defun ots-markdown-mode-html-file-name (file-name)
@@ -51,14 +53,16 @@
   (if (eq system-type 'windows-nt)
       ;; Use an ASCII-filenamed temporary copy to avoid
       ;; character encoding problems on Windows.
-      (let* ((temp-dir temporary-file-directory)
+      (let* ((orig-buffer (current-buffer))
+             (temp-dir temporary-file-directory)
              (temp-name (concat (make-temp-name "emacs") ".md"))
              (temp-file (concat temp-dir temp-name)))
         (copy-file buffer-file-name temp-file)
         (find-file temp-file)
         (markdown-preview)
         (kill-buffer (file-name-nondirectory temp-file))
-        (delete-file temp-file))
+        (delete-file temp-file)
+        (switch-to-buffer orig-buffer))
     (markdown-preview)))
 
 (defun ots-markdown-mode-set-faces ()
@@ -72,7 +76,7 @@
     (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
     (set-face-attribute 'markdown-header-rule-face nil :inherit face))
   (font-lock-add-keywords
-   nil '(("</?\\([^!>]+\\)>" 1 font-lock-keyword-face))))
+   nil '(("</?\\([^ ][^!>\n]*\\)>" 1 font-lock-keyword-face))))
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing markdown files."
