@@ -21,21 +21,16 @@
     (anaconda-eldoc-mode)
     (add-to-list 'company-backends 'company-anaconda)))
 
-(defun ots-python-mode-find-unit-test-file ()
-  "Open the unit test file testing the current buffer."
-  (interactive)
-  (find-file (ots-python-mode-unit-test-file)))
-
 (defun ots-python-mode-nosetests-run ()
   "Run interactive unit tests with nosetests for the current buffer."
   (interactive)
-  (let ((file-name (ots-python-mode-unit-test-argument)))
+  (let ((file-name (ots-util-unit-test-argument)))
     (compile (format "nosetests-run -xs %s" file-name))))
 
 (defun ots-python-mode-py-test ()
   "Run unit tests with py.test for the current buffer."
   (interactive)
-  (let ((file-name (ots-python-mode-unit-test-argument)))
+  (let ((file-name (ots-util-unit-test-argument)))
     (compile (format "py.test -xs %s" file-name))))
 
 (defun ots-python-mode-pyflakes ()
@@ -44,7 +39,7 @@
   (compile (ots-util-expand-command "pyflakes %s")))
 
 (defun ots-python-mode-run ()
-  "Run python file with python."
+  "Run the current buffer with python."
   (interactive)
   (compile (ots-util-expand-command "python3 -u %s")))
 
@@ -53,14 +48,7 @@
   ;; We need to have the current package at the beginning of PYTHONPATH,
   ;; which is easiest done by changing the working directory.
   (while (file-exists-p (concat default-directory "__init__.py"))
-    (cd ".."))
-  (let ((directory default-directory)
-        (parent (file-name-as-directory ".."))
-        (dotgit (file-name-as-directory ".git")))
-    (dotimes (i 10)
-      (if (file-exists-p (concat directory parent dotgit))
-          (cd (concat directory parent))
-        (setq directory (concat directory parent))))))
+    (cd "..")))
 
 (defun ots-python-mode-set-docsets ()
   "Load helm-dash docsets based on buffer imports."
@@ -81,7 +69,7 @@
 
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
-  (local-set-key (kbd "C-S-o") 'ots-python-mode-find-unit-test-file)
+  (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f6>") 'ots-python-mode-run)
   (local-set-key (kbd "<f8>") 'python-shell-send-buffer)
@@ -103,19 +91,6 @@
 (defun ots-python-mode-start ()
   "Start or associate a process for the buffer."
   (run-python "python3 -i" nil nil))
-
-(defun ots-python-mode-unit-test-argument ()
-  "Return unit test filename argument for unit test programs."
-  (let ((file-name (buffer-file-name)))
-    (if (string= (substring (file-name-nondirectory file-name) 0 5) "test_")
-        (shell-quote-argument (ots-util-buffer-file-name))
-      (shell-quote-argument (ots-python-mode-unit-test-file)))))
-
-(defun ots-python-mode-unit-test-file ()
-  "Return path of the unit test file for the current buffer."
-  (let ((directory (file-name-directory (ots-util-buffer-file-name)))
-        (file-name (file-name-nondirectory (ots-util-buffer-file-name))))
-    (concat directory "test/test_" file-name)))
 
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets)

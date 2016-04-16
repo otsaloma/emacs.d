@@ -25,6 +25,11 @@
       (setq command (format command file-name))))
   command)
 
+(defun ots-util-find-unit-test-file ()
+  "Open the unit test file testing the current buffer."
+  (interactive)
+  (find-file (ots-util-unit-test-file)))
+
 (defun ots-util-insert-en-dash ()
   "Insert one en dash at point."
   (interactive)
@@ -166,6 +171,19 @@
   "Switch to the most recently selected buffer."
   (interactive)
   (switch-to-buffer nil))
+
+(defun ots-util-unit-test-argument ()
+  "Return unit test filename argument for unit test programs."
+  (let ((file-name (buffer-file-name)))
+    (if (string= (substring (file-name-nondirectory file-name) 0 5) "test_")
+        (shell-quote-argument (ots-util-buffer-file-name))
+      (shell-quote-argument (ots-util-unit-test-file)))))
+
+(defun ots-util-unit-test-file ()
+  "Return path of the unit test file for the current buffer."
+  (let ((directory (file-name-directory (ots-util-buffer-file-name)))
+        (file-name (file-name-nondirectory (ots-util-buffer-file-name))))
+    (concat directory "test/test_" file-name)))
 
 (defun ots-util-what-face (pos)
   "Print face at pos."
