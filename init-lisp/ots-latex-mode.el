@@ -37,6 +37,7 @@
 
 (defun ots-latex-mode-set-properties ()
   "Set properties for editing LaTeX files."
+  (company-auctex-init)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f8>") 'ots-latex-mode-view-pdf)

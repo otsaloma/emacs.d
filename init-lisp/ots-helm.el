@@ -26,8 +26,5 @@
 (global-set-key (kbd "C-å") 'ots-helm-find-file)
 (setq helm-case-fold-search t)
 
-;; XXX: Does not work well in some cases, e.g. sgml-tag.
-;; (helm-mode 1)
-
 (provide 'ots-helm)
 ;;; ots-helm.el ends here

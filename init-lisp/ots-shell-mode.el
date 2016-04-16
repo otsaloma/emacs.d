@@ -9,8 +9,7 @@
 (defun ots-shell-mode-set-properties ()
   "Set properties for interactive shell sessions."
   (dirtrack-mode 1)
-  (set (make-local-variable 'line-spacing) 0)
-  (set-process-query-on-exit-flag (get-process "shell") nil))
+  (set (make-local-variable 'line-spacing) 0))
 
 (add-hook 'shell-mode-hook 'ots-shell-mode-set-faces)
 (add-hook 'shell-mode-hook 'ots-shell-mode-set-properties)

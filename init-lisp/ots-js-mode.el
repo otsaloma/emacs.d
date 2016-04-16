@@ -17,7 +17,6 @@
   (require 'js-comint)
   (setenv "NODE_NO_READLINE" "1")
   (run-js inferior-js-program-command)
-  (set-process-query-on-exit-flag (get-process "js") nil)
   (delete-other-windows))
 
 (defun ots-js-mode-set-faces ()
@@ -36,9 +35,9 @@
 
 (defun ots-js-mode-set-linting ()
   "Use js2-mode for linting, but not in derived modes."
+  (setq js2-highlight-external-variables nil)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-var-redeclaration-warning nil)
-  (setq js2-highlight-external-variables nil)
   (if (eq major-mode 'js-mode)
       (js2-minor-mode)))
 
@@ -65,8 +64,7 @@
     (setq tern-command (list "node" (ots-js-mode-get-tern-exe))))
   (when (eq major-mode 'js-mode)
     (tern-mode t)
-    (require 'tern-auto-complete)
-    (tern-ac-setup)))
+    (add-to-list 'company-backends 'company-tern)))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)

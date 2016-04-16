@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-ess-mode.el
 
-(require 'ots-auto-complete)
-
 (autoload 'R-mode "ess-site.el" "ESS" t)
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
@@ -77,15 +75,12 @@
   "Set properties for editing R files."
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
-  ;; auto-complete with global config seems slow.
-  (setq-local ac-delay 0.5)
-  (setq-local ac-sources (remq 'ac-source-R-args ac-sources))
-  (setq-local ac-use-quick-help nil)
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
   (setq ess-history-directory "~")
+  (setq ess-R-argument-suffix "=")
   (setq ess-roxy-str "#'")
-  (setq ess-use-auto-complete t)
+  (setq ess-use-company t)
   (setq ess-use-eldoc t)
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
@@ -110,7 +105,6 @@
     (ess-force-buffer-current nil t nil nil)
     (if new-process
         (delete-other-windows)))
-  (set-process-query-on-exit-flag (get-process "R") nil)
   (ess-tracebug -1))
 
 (defun ots-ess-mode-source ()

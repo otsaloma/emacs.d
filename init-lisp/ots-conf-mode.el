@@ -2,7 +2,7 @@
 ;;; ots-conf-mode.el
 
 (defun ots-conf-mode-set-properties ()
-  "Set properties for editing text files."
+  "Set properties for editing configuration files."
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)

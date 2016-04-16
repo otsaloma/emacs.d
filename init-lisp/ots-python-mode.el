@@ -10,6 +10,17 @@
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
 
+(defun ots-python-mode-anaconda ()
+  "Start anaconda-mode and it's completion via company-mode."
+  (unless (eq system-type 'windows-nt)
+    ;; XXX: Ignore local and use a global installation.
+    ;; https://github.com/proofit404/anaconda-mode/issues/106
+    (setq anaconda-mode-installation-directory "/tmp/anaconda-mode")
+    (setq anaconda-mode-server-script "/usr/local/lib/python3.5/dist-packages/anaconda_mode.py")
+    (anaconda-mode)
+    (anaconda-eldoc-mode)
+    (add-to-list 'company-backends 'company-anaconda)))
+
 (defun ots-python-mode-find-unit-test-file ()
   "Open the unit test file testing the current buffer."
   (interactive)
@@ -80,10 +91,8 @@
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
-  (eldoc-mode 1)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
-  (setq-local ac-use-quick-help nil)
   (setq fill-column 79)
   (setq indent-tabs-mode nil)
   (setq python-shell-interpreter "python3")
@@ -93,8 +102,7 @@
 
 (defun ots-python-mode-start ()
   "Start or associate a process for the buffer."
-  (run-python "python3 -i" nil nil)
-  (set-process-query-on-exit-flag (get-process "Python") nil))
+  (run-python "python3 -i" nil nil))
 
 (defun ots-python-mode-unit-test-argument ()
   "Return unit test filename argument for unit test programs."
@@ -115,11 +123,7 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 (add-hook 'python-mode-hook 'ots-python-mode-start t)
-
-(unless (eq system-type 'windows-nt)
-  ;; TODO: Figure out how to install Jedi on Windows.
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:complete-on-dot t))
+(add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here

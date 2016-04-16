@@ -1,8 +1,6 @@
 *.bak
 *.elc
 .hidden
-ac-comphist.dat
-ac-dict/*-mode
 auto-save-list/
 docsets/
 elpa/

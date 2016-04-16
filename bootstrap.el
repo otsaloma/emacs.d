@@ -8,13 +8,16 @@
  (lambda (package)
    (unless (package-installed-p package)
      (package-install package)))
- '(auto-complete
+ '(anaconda-mode
+   company
+   company-anaconda
+   company-auctex
+   company-tern
    dos
    git-gutter-fringe+
    helm
    helm-dash
    helm-ls-git
-   jedi
    js-comint
    js2-mode
    linear-undo
@@ -26,7 +29,6 @@
    smooth-scrolling
    tabbar
    tern
-   tern-auto-complete
    wcheck-mode
    yasnippet
    ))

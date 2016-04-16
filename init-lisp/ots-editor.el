@@ -1,6 +1,10 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-editor.el
 
+(defun process-query-on-exit-flag (process)
+  "Terminate subprocesses on exit without asking."
+  nil)
+
 (blink-cursor-mode 0)
 (delete-selection-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
