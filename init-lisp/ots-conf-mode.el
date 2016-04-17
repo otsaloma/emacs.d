@@ -3,6 +3,7 @@
 
 (defun ots-conf-mode-set-properties ()
   "Set properties for editing configuration files."
+  (conf-quote-normal nil)
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)
