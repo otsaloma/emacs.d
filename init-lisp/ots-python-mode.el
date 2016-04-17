@@ -97,8 +97,12 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
-(add-hook 'python-mode-hook 'ots-python-mode-start t)
 (add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
+
+;; XXX: Causes Emacs to hang when editing a docstring.
+;; anaconda-mode doesn't need this for completion,
+;; maybe we can drop it entirely?
+;; (add-hook 'python-mode-hook 'ots-python-mode-start t)
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here
