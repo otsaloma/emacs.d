@@ -58,6 +58,7 @@
   (require 'ots-mode-line)
   (require 'ots-moinmoin-mode)
   (require 'ots-neotree)
+  (require 'ots-pcre)
   (require 'ots-perl-mode)
   (require 'ots-php-mode)
   (require 'ots-po-mode)

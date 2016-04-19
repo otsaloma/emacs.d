@@ -24,6 +24,7 @@
    magit
    markdown-mode
    neotree
+   pcre2el
    php-mode
    rainbow-mode
    smooth-scrolling
