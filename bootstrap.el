@@ -13,6 +13,7 @@
    company-anaconda
    company-auctex
    company-tern
+   csv-mode
    dos
    git-gutter-fringe+
    helm

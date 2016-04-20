@@ -24,6 +24,7 @@
   (require 'ots-browse-url)
   (require 'ots-c-mode)
   (require 'ots-change-log-mode)
+  (require 'ots-csv-mode)
   (require 'ots-comint-mode)
   (require 'ots-company)
   (require 'ots-compilation-mode)
