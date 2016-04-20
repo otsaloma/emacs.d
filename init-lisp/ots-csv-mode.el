@@ -30,6 +30,7 @@
   "Set properties for editing CSV files."
   (setq csv-separators '(";" "\t"))
   (setq csv-align-style 'right)
+  (setq whitespace-style nil)
   (csv-align-fields nil (point-min) (point-max)))
 
 (defun ots-csv-mode-txt-maybe ()
