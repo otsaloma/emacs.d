@@ -28,8 +28,9 @@
 
 (defun ots-csv-mode-set-properties ()
   "Set properties for editing CSV files."
-  (setq csv-separators '(";" "\t"))
+  (setq csv-align-padding 2)
   (setq csv-align-style 'right)
+  (setq csv-separators '(";" "\t"))
   (setq whitespace-style nil)
   (csv-align-fields nil (point-min) (point-max)))
 
