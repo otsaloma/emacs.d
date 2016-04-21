@@ -37,6 +37,7 @@
 (defun ots-csv-mode-txt-maybe ()
   "Enable csv-mode for tab-delimited text files."
   (when (and (eq major-mode 'text-mode)
+             (buffer-file-name)
              (string-match "\\.txt$" (buffer-file-name))
              (ots-csv-mode-is-csv "\t"))
     (setq csv-separators '("\t"))
