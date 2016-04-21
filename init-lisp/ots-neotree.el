@@ -12,12 +12,18 @@
     (neo-global--reset-width)
     (neo-global--reset-width)))
 
+(defun ots-neotree-mode-set-properties ()
+  "Set properties for neotree buffers."
+  (local-set-key (kbd "<f4>") 'neotree-change-root)
+  (local-set-key (kbd "<f5>") 'neotree-refresh))
+
 (defun ots-neotree-update-width ()
   "Update neotree width to be relative to total frame width."
   (let ((width (window-total-width (frame-root-window))))
     (setq neo-window-width (floor (* 0.3 width)))))
 
 (add-hook 'after-change-major-mode-hook 'ots-neotree-ensure-width t)
+(add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (add-hook 'window-configuration-change-hook 'ots-neotree-update-width t)
 (global-set-key (kbd "<S-f4>") 'neotree-toggle)
 (global-set-key (kbd "<C-S-f4>") 'neotree-find)
