@@ -27,8 +27,8 @@
  `(mode-line-inactive ((t (:background "#555753" :foreground "#555753"))))
  `(query-replace ((t (:background "#ffcc00" :foreground "#2e3436"))))
  `(region ((t (:background "#527bcc" :foreground "#ffffff"))))
- `(show-paren-match ((t (:underline "#99eebb"))))
- `(show-paren-mismatch ((t (:underline "#ff5555"))))
+ `(show-paren-match ((t (:background nil :underline "#99eebb"))))
+ `(show-paren-mismatch ((t (:background nil :underline "#ff5555"))))
  `(vertical-border ((t (:foreground "#2e3436"))))
  `(whitespace-space ((t (:background nil :foreground "#e68a8a"))))
  `(whitespace-tab ((t (:background nil :foreground "#e68a8a"))))
@@ -67,10 +67,10 @@
  `(company-tooltip-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(cua-rectangle ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(cua-rectangle-noselect ((t (:background "#527bcc" :foreground "#ffffff"))))
- `(diff-added ((t (:foreground "#90b078"))))
- `(diff-file-header ((t (:foreground "#84a3c2"))))
- `(diff-header ((t (:foreground "#d1d175"))))
- `(diff-removed ((t (:foreground "#e68a8a"))))
+ `(diff-added ((t (:background nil :foreground "#90b078"))))
+ `(diff-file-header ((t (:background nil :foreground "#84a3c2"))))
+ `(diff-header ((t (:background nil :foreground "#d1d175"))))
+ `(diff-removed ((t (:background nil :foreground "#e68a8a"))))
  `(font-latex-bold-face ((t (:background nil :foreground nil))))
  `(font-latex-italic-face ((t (:background nil :foreground nil))))
  `(font-latex-math-face ((t (:background "#393f3f" :foreground nil))))
@@ -101,14 +101,6 @@
  `(woman-italic ((t (:foreground "#b294bb"))))
 
  )
-
-;; Disable italic for font support is poor.
-(set-face-attribute 'italic nil :slant 'normal)
-(set-face-attribute 'bold-italic nil :slant 'normal)
-
-;; For font used on Unix, see ~/.Xresources.
-(when (eq system-type 'windows-nt)
-  (set-frame-font "Consolas-10.2"))
 
 (provide-theme 'ots-dark)
 (provide 'ots-theme-dark)
