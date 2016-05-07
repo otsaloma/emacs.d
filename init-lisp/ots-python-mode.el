@@ -19,7 +19,8 @@
     (setq anaconda-mode-server-script "/usr/local/lib/python3.5/dist-packages/anaconda_mode.py")
     (anaconda-mode)
     (anaconda-eldoc-mode)
-    (add-to-list 'company-backends 'company-anaconda)))
+    (setq company-backends '((company-anaconda :with company-dabbrev-code)))
+    (setq company-transformers '(company-sort-by-backend-importance))))
 
 (defun ots-python-mode-nosetests-run ()
   "Run interactive unit tests with nosetests for the current buffer."
