@@ -1,10 +1,8 @@
 ! Set Emacs UI for faster init and less flicker.
 ! https://snarfed.org/emacs_x_resources
 Emacs*background: #2e3436
-! Emacs*background: #ffffff
 Emacs*font: Meslo LG L-10
 Emacs*foreground: #babdb6
-! Emacs*foreground: #2e3436
 Emacs.fontBackend: xft
 Emacs.menuBar: off
 Emacs.toolBar: off
