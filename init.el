@@ -12,6 +12,10 @@
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; Avoid questions about where to save abbrevs.
+;; XXX: Why must this be before loading init-lisp?
+(setq save-abbrevs nil)
+
 (push "~/.emacs.d/init-lisp" load-path)
 (byte-recompile-directory "~/.emacs.d/init-lisp" 0)
 
