@@ -9,6 +9,8 @@
   "Set properties for editing php files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (hs-minor-mode 1)
+  (setq-local company-backends
+   '((company-keywords :with company-dabbrev)))
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)

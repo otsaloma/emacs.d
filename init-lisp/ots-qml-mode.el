@@ -50,8 +50,6 @@
   "Set properties for editing QML files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
-  ;; TODO Add custom list to company-keywords-alist?
-  (setq company-backends '((company-dabbrev)))
   (setq fill-column 100)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)

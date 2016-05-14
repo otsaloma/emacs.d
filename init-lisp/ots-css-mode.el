@@ -13,6 +13,8 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (hs-minor-mode 1)
+  (setq-local company-backends
+   '((company-css :with company-dabbrev)))
   (setq css-indent-offset 2)
   (setq fill-column 80)
   (setq indent-tabs-mode nil)

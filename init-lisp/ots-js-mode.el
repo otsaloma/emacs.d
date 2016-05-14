@@ -64,8 +64,9 @@
     (setq tern-command (list "node" (ots-js-mode-get-tern-exe))))
   (when (eq major-mode 'js-mode)
     (tern-mode t)
-    (setq company-backends '((company-tern :with company-dabbrev-code)))
-    (setq company-transformers '(company-sort-by-backend-importance))))
+    (setq-local company-backends
+     '((company-tern :with company-dabbrev)))))
+
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)

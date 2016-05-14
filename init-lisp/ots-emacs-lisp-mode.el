@@ -9,6 +9,8 @@
   (local-set-key (kbd "<f6>") 'ielm)
   (eldoc-mode 1)
   (hs-minor-mode 1)
+  (setq-local company-backends
+   '((company-elisp :with company-dabbrev)))
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)

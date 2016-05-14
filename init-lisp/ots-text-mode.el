@@ -4,6 +4,7 @@
 (defun ots-text-mode-set-properties ()
   "Set properties for editing text files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
+  (setq-local company-backends '((company-dabbrev)))
   (setq fill-column 72)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)

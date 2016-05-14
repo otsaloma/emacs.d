@@ -22,7 +22,9 @@
   (define-key company-active-map (kbd "C-s") 'ots-company-save)
   (setq company-idle-delay 0.1)
   (setq company-tooltip-align-annotations t)
-  (setq company-dabbrev-downcase nil))
+  (setq company-dabbrev-downcase nil)
+  (setq-local company-transformers
+   '(company-sort-by-backend-importance)))
 
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'company-mode-hook 'ots-company-set-properties)
