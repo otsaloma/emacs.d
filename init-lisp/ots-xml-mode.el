@@ -1,9 +1,9 @@
 ;;; -*- coding: utf-8 -*-
-;;; ots-sgml-xml-mode.el
+;;; ots-xml-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.svg" . xml-mode))
 
-(defun ots-sgml-xml-mode-set-properties ()
+(defun ots-xml-mode-set-properties ()
   "Set properties for editing XML files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (setq fill-column 1000)
@@ -11,7 +11,7 @@
   (setq tab-width 2)
   (setq truncate-lines t))
 
-(add-hook 'sgml-xml-mode-hook 'ots-sgml-xml-mode-set-properties)
+(add-hook 'nxml-mode-hook 'ots-xml-mode-set-properties)
 
-(provide 'ots-sgml-xml-mode)
-;;; ots-sgml-xml-mode.el ends here
+(provide 'ots-xml-mode)
+;;; ots-xml-mode.el ends here
