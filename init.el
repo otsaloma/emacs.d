@@ -27,6 +27,7 @@
   (require 'ots-bibtex-mode)
   (require 'ots-browse-url)
   (require 'ots-c-mode)
+  (require 'ots-c++-mode)
   (require 'ots-change-log-mode)
   (require 'ots-csv-mode)
   (require 'ots-comint-mode)
