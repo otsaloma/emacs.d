@@ -1,6 +1,15 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-css-mode.el
 
+(defun ots-css-mode-set-faces ()
+  "Set faces for editing CSS files."
+  (font-lock-add-keywords
+   ;; css-mode seems to have trouble with selectors
+   ;; split across multiple lines.
+   nil '(("\\[\\(.*\\)=" 1 font-lock-keyword-face)
+         ("=\\(.*\\)\\]" 1 font-lock-string-face)
+         ("^ *\\([^/].*\\)[{,]$" 1 font-lock-function-name-face))))
+
 (defun ots-css-mode-set-imenu ()
   "Set imenu index patterns for CSS files."
   (setq imenu-generic-expression
@@ -23,6 +32,7 @@
   (setq-local helm-dash-docsets '("CSS"))
   (turn-on-auto-fill))
 
+(add-hook 'css-mode-hook 'ots-css-mode-set-faces)
 (add-hook 'css-mode-hook 'ots-css-mode-set-imenu)
 (add-hook 'css-mode-hook 'ots-css-mode-set-properties)
 
