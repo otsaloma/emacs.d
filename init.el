@@ -68,6 +68,7 @@
   (require 'ots-perl-mode)
   (require 'ots-php-mode)
   (require 'ots-po-mode)
+  (require 'ots-projectile)
   (require 'ots-python-mode)
   (require 'ots-qml-mode)
   (require 'ots-rainbow-mode)

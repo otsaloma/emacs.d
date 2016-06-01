@@ -18,7 +18,7 @@
    git-gutter-fringe+
    helm
    helm-dash
-   helm-ls-git
+   helm-projectile
    js-comint
    js2-mode
    linear-undo
