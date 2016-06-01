@@ -41,6 +41,7 @@
   (global-set-key (kbd "C-S-v") 'yank-pop)
   (global-set-key (kbd "C-w") 'ots-util-kill-buffer)
   (global-set-key (kbd "C-S-w") 'browse-url-at-point)
+  (global-set-key (kbd "C-å") 'find-file)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-y") 'ots-util-smart-fill)
   (global-set-key (kbd "C-S-z") 'redo)
