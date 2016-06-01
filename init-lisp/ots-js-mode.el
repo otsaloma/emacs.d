@@ -36,10 +36,13 @@
 (defun ots-js-mode-set-linting ()
   "Use js2-mode for linting, but not in derived modes."
   (setq js2-highlight-external-variables nil)
+  (setq js2-idle-timer-delay 5)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-var-redeclaration-warning nil)
-  (if (eq major-mode 'js-mode)
-      (js2-minor-mode)))
+  (when (eq major-mode 'js-mode)
+    (js2-minor-mode)
+    (add-hook 'after-save-hook
+              'js2-mode-display-warnings-and-errors t t)))
 
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
@@ -66,7 +69,6 @@
     (tern-mode t)
     (setq-local company-backends
      '((company-tern :with company-dabbrev)))))
-
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)

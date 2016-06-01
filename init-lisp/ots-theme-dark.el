@@ -85,6 +85,8 @@
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
+ `(js2-error ((t (:background nil :foreground nil :underline "#ff5555"))))
+ `(js2-warning ((t (:background nil :foreground nil :underline "#ff5555"))))
  `(linum ((t (:background "#393f3f" :foreground "#888a85" :height 95))))
  `(markdown-inline-code-face ((t (:background "#393f3f" :foreground nil))))
  `(markdown-pre-face ((t (:background nil :foreground "#b294bb"))))
