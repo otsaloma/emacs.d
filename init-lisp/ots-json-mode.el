@@ -4,7 +4,7 @@
 (require 'ots-js-mode)
 
 (autoload 'ots-json-mode "json" "Edit JSON files." t)
-(let ((modes '(("\\.json$" . ots-json-mode))))
+(let ((modes '(("\\.\\(geo\\|topo\\)?json$" . ots-json-mode))))
   (setq auto-mode-alist (append modes auto-mode-alist)))
 
 (define-derived-mode ots-json-mode js-mode "JSON"
@@ -19,6 +19,8 @@
 
 (add-hook 'ots-json-mode-hook 'ots-json-mode-set-properties)
 (modify-coding-system-alist 'file "\\.json\\'" 'utf-8)
+(modify-coding-system-alist 'file "\\.geojson\\'" 'utf-8)
+(modify-coding-system-alist 'file "\\.topojson\\'" 'utf-8)
 
 (provide 'ots-json-mode)
 ;;; ots-json-mode.el ends here
