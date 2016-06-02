@@ -9,6 +9,7 @@
   (setq-local helm-dash-docsets '("Make")))
 
 (add-hook 'makefile-mode-hook 'ots-makefile-mode-set-properties)
+(modify-coding-system-alist 'file "Makefile\\'" 'utf-8)
 
 (provide 'ots-makefile-mode)
 ;;; ots-makefile-mode.el ends here

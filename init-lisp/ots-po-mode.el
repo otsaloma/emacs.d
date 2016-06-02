@@ -15,6 +15,7 @@
 
 (add-hook 'po-mode-hook 'ots-po-mode-set-keys)
 (add-hook 'po-subedit-mode-hook 'ots-po-subedit-mode-set-keys)
+(modify-coding-system-alist 'file "\\.po\\'" 'utf-8)
 
 (provide 'ots-po-mode)
 ;;; ots-po-mode.el ends here

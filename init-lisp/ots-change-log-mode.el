@@ -14,6 +14,8 @@
   (turn-on-auto-fill))
 
 (add-hook 'change-log-mode-hook 'ots-change-log-mode-set-properties)
+(modify-coding-system-alist 'file "\\.changes\\'" 'utf-8)
+(modify-coding-system-alist 'file "ChangeLog\\'" 'utf-8)
 
 (provide 'ots-change-log-mode)
 ;;; ots-change-log-mode.el ends here

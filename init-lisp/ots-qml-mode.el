@@ -61,6 +61,7 @@
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-faces)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-imenu)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-properties)
+(modify-coding-system-alist 'file "\\.qml\\'" 'utf-8)
 
 (provide 'ots-qml-mode)
 ;;; ots-qml-mode.el ends here

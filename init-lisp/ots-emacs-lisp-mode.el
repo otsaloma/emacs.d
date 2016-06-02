@@ -19,6 +19,7 @@
   (turn-on-auto-fill))
 
 (add-hook 'emacs-lisp-mode-hook 'ots-emacs-lisp-mode-set-properties)
+(modify-coding-system-alist 'file "\\.el\\'" 'utf-8)
 
 (provide 'ots-emacs-lisp-mode)
 ;;; ots-emacs-lisp-mode.el ends here

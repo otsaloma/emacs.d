@@ -33,6 +33,8 @@
 
 (add-hook 'ots-moinmoin-mode-hook 'ots-moinmoin-mode-set-faces)
 (add-hook 'ots-moinmoin-mode-hook 'ots-moinmoin-mode-set-properties)
+(modify-coding-system-alist 'file "\\.moinmoin\\'" 'utf-8)
+(modify-coding-system-alist 'file "\\.wiki\\'" 'utf-8)
 
 (provide 'ots-moinmoin-mode)
 ;;; ots-moinmoin-mode.el ends here

@@ -14,6 +14,7 @@
   (setq truncate-lines t))
 
 (add-hook 'nxml-mode-hook 'ots-xml-mode-set-properties)
+(modify-coding-system-alist 'file "\\.xml\\'" 'utf-8)
 
 (provide 'ots-xml-mode)
 ;;; ots-xml-mode.el ends here

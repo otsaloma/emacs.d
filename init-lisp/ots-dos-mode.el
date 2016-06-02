@@ -23,6 +23,9 @@
   (turn-on-auto-fill))
 
 (add-hook 'dos-mode-hook 'ots-dos-mode-set-properties)
+(modify-coding-system-alist 'file "\\.bat\\'" 'cp850)
+(modify-coding-system-alist 'file "\\.cmd\\'" 'cp850)
+(modify-coding-system-alist 'file "\\.dos\\'" 'cp850)
 
 (provide 'ots-dos-mode)
 ;;; ots-dos-mode.el ends here

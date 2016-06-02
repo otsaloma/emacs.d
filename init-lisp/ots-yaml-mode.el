@@ -27,6 +27,7 @@
 
 (add-hook 'ots-yaml-mode-hook 'ots-yaml-mode-set-faces)
 (add-hook 'ots-yaml-mode-hook 'ots-yaml-mode-set-properties)
+(modify-coding-system-alist 'file "\\.yaml\\'" 'utf-8)
 
 (provide 'ots-yaml-mode)
 ;;; ots-yaml-mode.el ends here

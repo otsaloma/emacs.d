@@ -18,6 +18,7 @@
   (turn-off-auto-fill))
 
 (add-hook 'ots-json-mode-hook 'ots-json-mode-set-properties)
+(modify-coding-system-alist 'file "\\.json\\'" 'utf-8)
 
 (provide 'ots-json-mode)
 ;;; ots-json-mode.el ends here

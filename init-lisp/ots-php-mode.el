@@ -18,6 +18,7 @@
   (turn-on-auto-fill))
 
 (add-hook 'php-mode-hook 'ots-php-mode-set-properties)
+(modify-coding-system-alist 'file "\\.php\\'" 'utf-8)
 
 (provide 'ots-php-mode)
 ;;; ots-php-mode.el ends here

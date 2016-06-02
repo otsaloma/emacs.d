@@ -76,6 +76,7 @@
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-hook 'js-mode-hook 'ots-js-mode-tern)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
+(modify-coding-system-alist 'file "\\.js\\'" 'utf-8)
 
 (provide 'ots-js-mode)
 ;;; ots-js-mode.el ends here

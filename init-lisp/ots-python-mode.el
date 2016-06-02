@@ -99,6 +99,7 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 (add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
+(modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
 
 ;; XXX: Causes Emacs to hang when editing a docstring.
 ;; anaconda-mode doesn't need this for completion,

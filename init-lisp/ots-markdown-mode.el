@@ -99,6 +99,7 @@
 
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-faces)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-properties)
+(modify-coding-system-alist 'file "\\.md\\'" 'utf-8)
 
 (provide 'ots-markdown-mode)
 ;;; ots-markdown-mode.el ends here

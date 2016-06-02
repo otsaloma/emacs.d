@@ -34,6 +34,7 @@
 (add-hook 'html-mode-hook 'ots-html-mode-set-faces)
 (add-hook 'html-mode-hook 'ots-html-mode-set-imenu)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)
+(modify-coding-system-alist 'file "\\.html\\'" 'utf-8)
 
 (provide 'ots-html-mode)
 ;;; ots-html-mode.el ends here
