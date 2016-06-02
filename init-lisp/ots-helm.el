@@ -14,6 +14,7 @@
 
 (global-set-key (kbd "C-o") 'ots-helm-find-file)
 (setq helm-case-fold-search t)
+(setq helm-split-window-default-side 'other)
 
 (provide 'ots-helm)
 ;;; ots-helm.el ends here
