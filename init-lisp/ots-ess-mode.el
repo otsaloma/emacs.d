@@ -77,6 +77,8 @@
   (modify-syntax-entry ?_ "w")
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
+  (setq ess-gen-proc-buffer-name-function
+        'ess-gen-proc-buffer-name:simple)
   (setq ess-history-directory "~")
   (setq ess-R-argument-suffix "=")
   (setq ess-roxy-str "#'")
