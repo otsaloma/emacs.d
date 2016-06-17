@@ -27,7 +27,7 @@
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
   (font-lock-add-keywords
-   nil '(("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
+   nil '(("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?0?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
           1 font-lock-builtin-face)
          ("\\<\\(FALSE\\|F\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\|T\\)\\>"
           1 font-lock-constant-face)
