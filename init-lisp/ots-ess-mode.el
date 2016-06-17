@@ -75,10 +75,13 @@
   "Set properties for editing R files."
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
+  (modify-syntax-entry ?. "w")
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
+  (setq-local company-backends
+   '((company-R-objects :with company-R-args company-dabbrev)))
   (setq ess-gen-proc-buffer-name-function
-        'ess-gen-proc-buffer-name:simple)
+   'ess-gen-proc-buffer-name:simple)
   (setq ess-history-directory "~")
   (setq ess-R-argument-suffix "=")
   (setq ess-roxy-str "#'")
@@ -87,7 +90,7 @@
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
   (setq inferior-ess-r-help-command
-        ".ess.help('%s', help.type='html')\n")
+   ".ess.help('%s', help.type='html')\n")
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill))
