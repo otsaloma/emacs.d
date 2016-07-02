@@ -3667,7 +3667,6 @@ wrapMode
 wrapXRotation
 wrapYRotation
 wrapped
-x
 xColumn
 xDeformationVectorX
 xDeformationVectorY
@@ -3682,7 +3681,6 @@ xVariance
 xVariation
 xVector
 xml
-y
 yColumn
 yDeformationVectorX
 yDeformationVectorY
@@ -3697,7 +3695,6 @@ yVariation
 yVector
 year
 yearAt
-z
 zPosRole
 zPosRolePattern
 zPosRoleReplace
