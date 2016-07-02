@@ -12,6 +12,7 @@
    company
    company-anaconda
    company-auctex
+   company-dict
    company-tern
    csv-mode
    dos
