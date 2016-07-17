@@ -18,7 +18,7 @@ install them in one go with the following shell command.
     emacs24 --script bootstrap.el
 
 My emacs.d is available under the GNU General Public License (GPL), see
-the file `COPYING` for details. See also my [docsets][2] for
+the file [`COPYING`](COPYING) for details. See also my [docsets][2] for
 documentation packages used by default by this configuration.
 
 [1]: http://vgoulet.act.ulaval.ca/en/emacs/
