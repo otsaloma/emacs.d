@@ -1,7 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-conf-mode.el
 
-(let ((modes '(("\\.theme$" . conf-mode))))
+;; Use conf-mode for Freedesktop.org and GNOME key files.
+(let ((modes '(("\\.\\(desktop\\|theme\\|thumbnailer\\)$" . conf-mode))))
   (setq auto-mode-alist (append modes auto-mode-alist)))
 
 (defun ots-conf-mode-set-properties ()
