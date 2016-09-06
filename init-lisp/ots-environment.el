@@ -3,6 +3,10 @@
 
 (require 'ots-util)
 
+;; Allow Emacs to be started with GTK_THEME=Adwaita:dark,
+;; but don't propagate that to subprocesses.
+(setenv "GTK_THEME" nil)
+
 (when (eq system-type 'windows-nt)
   (setenv "PROMPT" "$P$_$G$s")
   ;; Checked to work with wcheck-mode and enchant.

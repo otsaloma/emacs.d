@@ -1,0 +1,3 @@
+#!/bin/sh
+export GTK_THEME=Adwaita:dark
+/usr/bin/emacs24 -g 90x35 "$@"

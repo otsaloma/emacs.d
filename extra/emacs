@@ -1,6 +1,7 @@
 #!/bin/sh
 # Open files in existing Emacs window or open a new one.
 # Usage: emacs [OPTION...] [FILE...]
+export GTK_THEME=Adwaita:dark
 if [ -z "$(ps -A | grep emacs24)" ]; then
     # Remove stale server if Emacs crashed.
     rm -rfv /tmp/emacs1000/
