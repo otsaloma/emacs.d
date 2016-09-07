@@ -33,6 +33,7 @@
   (local-set-key (kbd "<f8>") 'ots-magit-diff-external))
 
 (add-hook 'find-file-hook 'ots-magit-enable-maybe)
+(global-git-commit-mode)
 
 (provide 'ots-magit)
 ;;; ots-magit.el ends here
