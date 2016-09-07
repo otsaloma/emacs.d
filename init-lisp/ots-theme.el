@@ -31,7 +31,7 @@
 
 ;; For font used on Unix, see ~/.Xresources.
 (when (eq system-type 'windows-nt)
-  (set-frame-font "Consolas-10.2"))
+  (set-frame-font "Meslo LG M-10"))
 
 (provide 'ots-theme)
 ;;; ots-theme.el ends here
