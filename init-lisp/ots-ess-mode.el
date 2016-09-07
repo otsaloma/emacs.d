@@ -27,30 +27,16 @@
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
   (font-lock-add-keywords
-   nil '(("\\<\\(args\\|browser\\|class\\|data.frame\\|format\\|function\\|gc\\|invisible\\|library\\|list\\|local\\|matrix\\|messagef?0?\\|options\\|print\\|quit\\|Recall\\|require\\|rm\\|rm.gc\\|sink\\|source\\|stop\\|stopif\\|stopifnot\\|system\\|tb\\|traceback\\|try\\|tryCatch\\|unclass\\|UseMethod\\|warning\\|vector\\|with\\)("
-          1 font-lock-builtin-face)
-         ("\\<\\(FALSE\\|F\\|Inf\\|NA\\|NaN\\|NULL\\|TRUE\\|T\\)\\>"
-          1 font-lock-constant-face)
-         ("\\<\\([0-9.]+L?\\)\\>"
-          1 font-lock-constant-face)
-         ("\\<\\(return\\)("
+   nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|library\\||messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
+          1 font-lock-keyword-face)
+         ("\\<\\(Recall\\|return\\)("
           1 font-lock-function-name-face)
-         ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *function\\>"
+         ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *\\(function\\|local\\)\\>"
           1 font-lock-function-name-face)
          ("\\(\\.\\.\\.\\)"
           1 font-lock-keyword-face)
-         ("\\(%.*?%\\)"
-          1 font-lock-keyword-face)
-         ("\\<\\([a-zA-Z0-9._]+\\)=[^=]"
-          1 font-lock-preprocessor-face)
-         ("^ *\\([a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
-          1 font-lock-variable-name-face)
-         ("^ *\\([a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
-          1 font-lock-variable-name-face)
-         ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\) +\\(=\\|<<?-\\)[^=]"
-          1 font-lock-variable-name-face)
-         ("^ *\\([a-zA-Z0-9._]+\\$[a-zA-Z0-9._]+\\)\\[.+\\] +\\(=\\|<<?-\\)[^=]"
-          1 font-lock-variable-name-face))))
+         ("[^= ]\\(=\\)[^= ]"
+          1 font-lock-keyword-face))))
 
 (defun ots-ess-mode-set-indentation ()
   "Set indentation properties for editing R files."
@@ -131,6 +117,20 @@
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-keys t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-start t)
+
+(setq ess-R-font-lock-keywords
+ '((ess-R-fl-keyword:modifiers . t)
+   (ess-R-fl-keyword:fun-defs . t)
+   (ess-R-fl-keyword:keywords . t)
+   (ess-R-fl-keyword:assign-ops . t)
+   (ess-R-fl-keyword:constants . t)
+   (ess-fl-keyword:fun-calls)
+   (ess-fl-keyword:numbers . t)
+   (ess-fl-keyword:operators)
+   (ess-fl-keyword:delimiters)
+   (ess-fl-keyword:=)
+   (ess-R-fl-keyword:F&T . t)
+   (ess-R-fl-keyword:%op% . t)))
 
 (provide 'ots-ess-mode)
 ;;; ots-ess-mode.el ends here
