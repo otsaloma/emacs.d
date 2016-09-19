@@ -35,7 +35,7 @@
 (defun ots-sh-mode-shellcheck ()
   "Check the current buffer with shellcheck."
   (interactive)
-  (compile (ots-util-expand-command "shellcheck %s")))
+  (compile (ots-util-expand-command "shellcheck -f gcc %s")))
 
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-faces)
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-properties)
