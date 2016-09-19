@@ -21,6 +21,7 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f6>") 'ots-sh-mode-run)
+  (local-set-key (kbd "<f9>") 'ots-sh-mode-shellcheck)
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
   (ots-util-set-compile-command "checkbashisms %s")
@@ -30,6 +31,11 @@
   (setq truncate-lines t)
   (setq-local helm-dash-docsets '("Bash"))
   (turn-on-auto-fill))
+
+(defun ots-sh-mode-shellcheck ()
+  "Check the current buffer with shellcheck."
+  (interactive)
+  (compile (ots-util-expand-command "shellcheck %s")))
 
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-faces)
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-properties)
