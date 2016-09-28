@@ -9,12 +9,14 @@
 (add-to-list 'projectile-globally-ignored-directories "dist")
 (add-to-list 'projectile-globally-ignored-directories "docsets")
 (add-to-list 'projectile-globally-ignored-directories "elpa")
+(add-to-list 'projectile-globally-ignored-directories "man")
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 
 (add-to-list 'projectile-globally-ignored-file-suffixes ".elc")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".min.css")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".min.js")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".pyc")
+(add-to-list 'projectile-globally-ignored-file-suffixes ".Rd")
 (add-to-list 'projectile-globally-ignored-file-suffixes "~")
 
 (projectile-global-mode)
