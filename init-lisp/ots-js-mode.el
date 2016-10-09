@@ -71,7 +71,6 @@
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
-(add-hook 'js-mode-hook 'ots-js-mode-set-linting)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-hook 'js-mode-hook 'ots-js-mode-tern)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
