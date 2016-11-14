@@ -35,7 +35,7 @@
 (defun ots-js-mode-set-linting ()
   "Use js2-mode for linting, but not in derived modes."
   (setq js2-highlight-external-variables nil)
-  (setq js2-idle-timer-delay 5)
+  (setq js2-idle-timer-delay 3600)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-var-redeclaration-warning nil)
   (when (eq major-mode 'js-mode)
@@ -71,6 +71,7 @@
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
+(add-hook 'js-mode-hook 'ots-js-mode-set-linting)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-hook 'js-mode-hook 'ots-js-mode-tern)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
