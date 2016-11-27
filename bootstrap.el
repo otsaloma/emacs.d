@@ -17,6 +17,7 @@
    csv-mode
    dos
    git-gutter-fringe+
+   graphql-mode
    helm
    helm-dash
    helm-projectile
