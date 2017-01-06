@@ -9,7 +9,8 @@ Emacs.toolBar: off
 Emacs.verticalScrollBars: off
 Xft.antialias: 1
 Xft.autohint: 0
-Xft.hinting: 0
-Xft.hintstyle: hintslight
+Xft.dpi: 163
+Xft.hinting: 1
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
