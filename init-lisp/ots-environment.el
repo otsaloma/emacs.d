@@ -3,8 +3,9 @@
 
 (require 'ots-util)
 
-;; Allow Emacs to be started with GTK_THEME=Adwaita:dark,
-;; but don't propagate that to subprocesses.
+;; Allow Emacs to be started with certain oddities,
+;; but don't propagate them to subprocesses.
+(setenv "GDK_SCALE" nil)
 (setenv "GTK_THEME" nil)
 
 (when (eq system-type 'windows-nt)
