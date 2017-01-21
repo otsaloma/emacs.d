@@ -8,7 +8,7 @@
  'ots-light
 
  ;; Base Emacs
- `(comint-highlight-prompt ((t (:foreground "#ff0000"))))
+ `(comint-highlight-prompt ((t (:foreground "red3"))))
  `(compilation-column-number ((t (:foreground "#ba7fba"))))
  `(compilation-error ((t (:foreground "#ff405a"))))
  `(compilation-info ((t (:foreground "#1d77ff"))))
