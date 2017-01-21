@@ -15,6 +15,7 @@
   "Vector of ANSI color values in shell output.")
 
 (setq ansi-color-names-vector ots-ansi-color-values)
+(setq ansi-color-map (ansi-color-make-color-map))
 (ansi-color-for-comint-mode-on)
 
 (provide 'ots-ansi-color)
