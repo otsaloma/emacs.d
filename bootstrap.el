@@ -24,7 +24,6 @@
    helm-projectile
    js-comint
    js2-mode
-   linear-undo
    magit
    markdown-mode
    neotree
@@ -34,6 +33,7 @@
    smooth-scrolling
    tabbar
    tern
+   undo-tree
    wcheck-mode
    yasnippet
    ))
