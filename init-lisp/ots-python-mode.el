@@ -14,11 +14,6 @@
   "Start anaconda-mode and it's completion via company-mode."
   (when (eq system-type 'windows-nt)
     (setq python-shell-interpreter "C:/Python33/python.exe"))
-  (unless (eq system-type 'windows-nt)
-    ;; XXX: Ignore local and use a global installation.
-    ;; https://github.com/proofit404/anaconda-mode/issues/106
-    (setq anaconda-mode-installation-directory "/tmp/anaconda-mode")
-    (setq anaconda-mode-server-script "/usr/local/lib/python3.5/dist-packages/anaconda_mode.py"))
   (anaconda-mode)
   (anaconda-eldoc-mode)
   (setq-local company-backends
@@ -100,11 +95,6 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 (add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
-
-;; XXX: Causes Emacs to hang when editing a docstring.
-;; anaconda-mode doesn't need this for completion,
-;; maybe we can drop it entirely?
-;; (add-hook 'python-mode-hook 'ots-python-mode-start t)
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here
