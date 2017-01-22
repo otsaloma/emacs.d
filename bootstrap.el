@@ -8,7 +8,8 @@
  (lambda (package)
    (unless (package-installed-p package)
      (package-install package)))
- '(anaconda-mode
+ '(all-the-icons
+   anaconda-mode
    company
    company-anaconda
    company-auctex

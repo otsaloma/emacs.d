@@ -75,8 +75,8 @@
   (local-set-key (kbd "<f6>") 'ots-python-mode-run)
   (local-set-key (kbd "<f8>") 'python-shell-send-buffer)
   (local-set-key (kbd "<f9>") 'ots-python-mode-pyflakes)
-  (local-set-key (kbd "<f10>") 'ots-python-mode-py-test)
-  (local-set-key (kbd "<S-f10>") 'ots-python-mode-nosetests-run))
+  (local-set-key (kbd "<S-f9>") 'ots-python-mode-py-test)
+  (local-set-key (kbd "<C-S-f9>") 'ots-python-mode-nosetests-run))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
