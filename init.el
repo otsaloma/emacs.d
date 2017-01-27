@@ -63,6 +63,7 @@
   (require 'ots-markdown-mode)
   (require 'ots-minibuffer)
   (require 'ots-mode-line)
+  (require 'ots-multi-web-mode)
   (require 'ots-neotree)
   (require 'ots-pcre)
   (require 'ots-perl-mode)

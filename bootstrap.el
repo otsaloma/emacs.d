@@ -26,6 +26,7 @@
    js2-mode
    magit
    markdown-mode
+   multi-web-mode
    neotree
    pcre2el
    php-mode
