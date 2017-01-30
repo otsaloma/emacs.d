@@ -4,7 +4,7 @@
 (require 'linum)
 (require 'ots-normal)
 
-(defvar ots-linum-width 2)
+(defvar ots-linum-width 3)
 (make-variable-buffer-local 'ots-linum-width)
 
 (defun ots-linum-enable ()
@@ -22,7 +22,7 @@
 (defun ots-linum-update-width ()
   "Update margin width needed to display line numbers."
   (let ((n (count-lines (point-min) (point-max))))
-    (setq ots-linum-width (max 2 (length (number-to-string n))))))
+    (setq ots-linum-width (max 3 (length (number-to-string n))))))
 
 (add-hook 'after-change-major-mode-hook 'ots-linum-enable)
 (add-hook 'after-save-hook 'ots-linum-update-width)
