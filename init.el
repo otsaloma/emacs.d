@@ -7,6 +7,9 @@
 (run-with-idle-timer 5 nil #'(lambda ()
   (setq gc-cons-threshold (* 100 1024 1024))))
 
+;; Don't save package-selected-packages.
+(setq custom-file "/dev/null")
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
