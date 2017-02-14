@@ -61,7 +61,6 @@
   "Set properties for editing R files."
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
-  (modify-syntax-entry ?. "w")
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
   (setq-local company-backends
