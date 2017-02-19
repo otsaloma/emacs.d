@@ -21,5 +21,5 @@ My emacs.d is available under the GNU General Public License (GPL), see
 the file [`COPYING`](COPYING) for details. See also my [docsets][2] for
 documentation packages used by default by this configuration.
 
-[1]: http://vgoulet.act.ulaval.ca/en/emacs/
-[2]: http://github.com/otsaloma/docsets
+[1]: https://vigou3.github.io/emacs-modified-windows/
+[2]: https://github.com/otsaloma/docsets
