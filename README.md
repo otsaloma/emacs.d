@@ -9,6 +9,7 @@ solution and is unlikely to be of popular interest as-is.
 
 <img src="http://otsaloma.io/pub/emacs-1.png"
      srcset="http://otsaloma.io/pub/emacs-1@2x.png"
+     width="756"
      alt="Screenshot">
 
 This configuration should work on both Unix and Windows, perhaps Mac
