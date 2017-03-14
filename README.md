@@ -7,7 +7,7 @@ dependencies on unavailable executables or assumptions about a
 particular platform and environment. It is not a recommended general-use
 solution and is unlikely to be of popular interest as-is.
 
-<img src="http://otsaloma.io/pub/emacs-1@2x.png" width="756" alt="Screenshot">
+<img src="http://otsaloma.io/pub/emacs-1.png" width="756" alt="Screenshot">
 
 This configuration should work on both Unix and Windows, perhaps Mac
 too, but that has not been tested. For Windows users,
