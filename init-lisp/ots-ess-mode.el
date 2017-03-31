@@ -33,7 +33,7 @@
           1 font-lock-function-name-face)
          ("^ *\\([a-zA-Z0-9._]+\\) *\\(=\\|<<?-\\) *\\(function\\|local\\)\\>"
           1 font-lock-function-name-face)
-         ("\\(\\.\\.\\.\\)"
+         ("\\(\\.\\.\\.\\|\\$\\|@\\)"
           1 font-lock-keyword-face)
          ("[^= ]\\(=\\)[^= ]"
           1 font-lock-keyword-face))))
