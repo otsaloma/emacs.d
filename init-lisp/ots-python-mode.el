@@ -50,12 +50,16 @@
 
 (defun ots-python-mode-set-docsets ()
   "Load helm-dash docsets based on buffer imports."
-  (if (ots-util-buffer-contains "gi.repository")
-      ;; Only load GNOME documentation if in a file
-      ;; that imports from GI.
-      (setq-local helm-dash-docsets
-       '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango" "Python"))
-    (setq-local helm-dash-docsets '("Python"))))
+  (let ((docsets '("Python")))
+    (if (ots-util-buffer-contains "gi.repository")
+        (nconc docsets '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango")))
+    (if (ots-util-buffer-contains "import numpy")
+        (nconc docsets '("NumPy")))
+    (if (ots-util-buffer-contains "import pandas")
+        (nconc docsets '("Pandas")))
+    (if (ots-util-buffer-contains "import requests")
+        (nconc docsets '("Requests")))
+    (setq-local helm-dash-docsets docsets)))
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
