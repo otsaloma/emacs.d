@@ -61,10 +61,12 @@
   "Set properties for editing R files."
   (hs-minor-mode 1)
   (modify-syntax-entry ?_ "w")
+  (modify-syntax-entry ?. "w")
   (setq comment-add 0)
   (setq ess-ask-for-ess-directory nil)
   (setq-local company-backends
-   '((company-R-objects :with company-R-args company-dabbrev)))
+   '((company-R-objects company-R-args company-keywords company-dabbrev)
+     (company-dabbrev)))
   (setq ess-gen-proc-buffer-name-function
    'ess-gen-proc-buffer-name:simple)
   (setq ess-history-directory "~")

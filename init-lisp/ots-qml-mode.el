@@ -52,7 +52,7 @@
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (setq-local company-backends
-   '((company-dict :with company-dabbrev)))
+   '((company-dict company-dabbrev)))
   (setq fill-column 100)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)

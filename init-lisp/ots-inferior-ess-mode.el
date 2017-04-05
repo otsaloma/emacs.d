@@ -13,7 +13,8 @@
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
   (setq ess-R-argument-suffix "=")
   (setq ess-use-company t)
-  (setq inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
+  (setq inferior-ess-r-help-command
+   ".ess.help('%s', help.type='html')\n")
   (when (eq system-type 'windows-nt)
     (setq process-coding-system-alist '(("R.*" . windows-1252)))))
 

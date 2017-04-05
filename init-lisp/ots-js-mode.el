@@ -67,7 +67,8 @@
   (when (eq major-mode 'js-mode)
     (tern-mode t)
     (setq-local company-backends
-     '((company-tern :with company-dabbrev)))))
+     '((company-tern company-keywords company-dabbrev-code)
+       (company-dabbrev)))))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)

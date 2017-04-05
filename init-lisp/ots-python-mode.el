@@ -17,7 +17,8 @@
   (anaconda-mode)
   (anaconda-eldoc-mode)
   (setq-local company-backends
-   '((company-anaconda :with company-dabbrev))))
+   '((company-anaconda company-keywords company-dabbrev-code)
+     (company-dabbrev))))
 
 (defun ots-python-mode-nosetests-run ()
   "Run interactive unit tests with nosetests for the current buffer."

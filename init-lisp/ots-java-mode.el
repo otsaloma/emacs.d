@@ -7,7 +7,8 @@
   (c-set-style "k&r")
   (hs-minor-mode 1)
   (setq-local company-backends
-   '((company-keywords :with company-dabbrev)))
+   '((company-keywords company-dabbrev-code)
+     (company-dabbrev)))
   (setq c-basic-offset 4)
   (setq fill-column 80)
   (setq indent-tabs-mode t)
