@@ -32,7 +32,7 @@
 (setq use-file-dialog nil)
 (setq x-select-enable-clipboard t)
 (setq-default fill-column 80)
-(setq-default line-spacing 2)
+(setq-default line-spacing 0.15)
 (setq-default major-mode 'text-mode)
 (show-paren-mode t)
 (tool-bar-mode 0)
