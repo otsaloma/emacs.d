@@ -7,7 +7,7 @@
   "Set properties for editing XML files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (setq-local company-backends
-   '((company-nxml :with company-dabbrev)))
+   '((company-nxml company-dabbrev)))
   (setq fill-column 1000)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)
