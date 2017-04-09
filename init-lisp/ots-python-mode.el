@@ -54,6 +54,8 @@
   (let ((docsets '("Python")))
     (if (ots-util-buffer-contains "gi.repository")
         (nconc docsets '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango")))
+    (if (ots-util-buffer-contains "import flask")
+        (nconc docsets '("Flask")))
     (if (ots-util-buffer-contains "import numpy")
         (nconc docsets '("NumPy")))
     (if (ots-util-buffer-contains "import pandas")
