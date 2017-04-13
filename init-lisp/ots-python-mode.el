@@ -5,7 +5,6 @@
 (require 'ots-util)
 
 (setenv "PYTHONPATH" ".")
-(setenv "PYTHONSTARTUP" "")
 
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
@@ -38,9 +37,38 @@
   (compile (ots-util-expand-command "pyflakes %s")))
 
 (defun ots-python-mode-run ()
-  "Run the current buffer with python."
+  "Run the current buffer with Python."
   (interactive)
   (compile (ots-util-expand-command "python3 -u %s")))
+
+(defun ots-python-mode-run-in-shell ()
+  "Run the current file in the Python shell."
+  (interactive)
+  (when (not (get-buffer "*Python*"))
+    (run-python "python3 -i" nil t)
+    (sleep-for 1))
+  (let ((directory (expand-file-name default-directory))
+        (file-name (file-relative-name (buffer-file-name))))
+    (python-shell-switch-to-shell)
+    (goto-char (point-max))
+    (ots-util-comint-send "os.chdir('%s')" directory)
+    (ots-util-comint-send "run('%s')" file-name)))
+
+(defun ots-python-mode-send-region ()
+  "Run the current line or region in the Python shell."
+  (interactive)
+  (when (not (get-buffer "*Python*"))
+    (run-python "python3 -i" nil t)
+    (sleep-for 1))
+  (let* ((start (if (use-region-p) (region-beginning) (line-beginning-position)))
+         (end (if (use-region-p) (region-end) (line-end-position)))
+         (text (buffer-substring start end))
+         (lines (split-string text "\n")))
+    (python-shell-switch-to-shell)
+    (goto-char (point-max))
+    (dolist (line lines)
+      (if (> (length line) 0)
+          (ots-util-comint-send line)))))
 
 (defun ots-python-mode-set-default-directory ()
   "Set the default directory to the source tree root."
@@ -75,7 +103,9 @@
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f6>") 'ots-python-mode-run)
-  (local-set-key (kbd "<f8>") 'python-shell-send-buffer)
+  (local-set-key (kbd "<S-f6>") 'ots-python-mode-start)
+  (local-set-key (kbd "<f8>") 'ots-python-mode-run-in-shell)
+  (local-set-key (kbd "<S-f8>") 'ots-python-mode-send-region)
   (local-set-key (kbd "<f9>") 'ots-python-mode-pyflakes)
   (local-set-key (kbd "<S-f9>") 'ots-python-mode-py-test)
   (local-set-key (kbd "<C-S-f9>") 'ots-python-mode-nosetests-run))
@@ -86,21 +116,26 @@
   (modify-syntax-entry ?_ "w")
   (setq fill-column 79)
   (setq indent-tabs-mode nil)
+  (setq python-shell-completion-native nil)
+  (setq python-shell-completion-native-disabled-interpreters '("python3"))
   (setq python-shell-interpreter "python3")
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill))
 
 (defun ots-python-mode-start ()
-  "Start or associate a process for the buffer."
-  (run-python "python3 -i" nil nil))
+  "Start a global, interactive Python shell."
+  (interactive)
+  (if (not (get-buffer "*Python*"))
+      (run-python "python3 -i" nil t))
+  (python-shell-switch-to-shell))
 
+(add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
-(add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
 
 (provide 'ots-python-mode)

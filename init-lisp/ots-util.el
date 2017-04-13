@@ -18,6 +18,13 @@
   "Return shell-quoted current buffer's filename."
   (shell-quote-argument (ots-util-buffer-file-name)))
 
+(defun ots-util-comint-send (command &optional args)
+  "Format command and send as input in a comint buffer."
+  (if args
+      (setq command (format command args)))
+  (insert command)
+  (comint-send-input))
+
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
   (let ((file-name (ots-util-buffer-file-name-quoted)))

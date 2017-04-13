@@ -22,7 +22,9 @@
   (interactive)
   (if (not ess-local-process-name)
       (ess-switch-process))
-  (ess-eval-region-and-go (region-beginning) (region-end) nil))
+  (if (use-region-p)
+      (ess-eval-region-and-go (region-beginning) (region-end) nil)
+    (ess-eval-region-and-go (line-beginning-position) (line-end-position) nil)))
 
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
@@ -110,8 +112,7 @@
          (file-name-nondirectory
           (buffer-file-name))))
     (ess-switch-to-end-of-ESS)
-    (insert (format "source('%s')" file-name))
-    (comint-send-input)))
+    (ots-util-comint-send("source('%s')" file-name))))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
