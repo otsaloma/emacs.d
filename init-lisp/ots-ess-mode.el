@@ -57,7 +57,7 @@
   (local-set-key (kbd "<f6>") 'ots-ess-mode-start)
   (local-set-key (kbd "<S-f6>") 'ots-ess-mode-setwd)
   (local-set-key (kbd "<f8>") 'ots-ess-mode-source)
-  (local-set-key (kbd "<S-f8>") 'ots-ess-mode-eval-region))
+  (local-set-key (kbd "<f9>") 'ots-ess-mode-eval-region))
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
