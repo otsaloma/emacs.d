@@ -38,6 +38,9 @@
 (tool-bar-mode 0)
 (transient-mark-mode t)
 
+;; Prevent a window split when opening multiple files at once.
+(add-hook 'emacs-startup-hook 'delete-other-windows t)
+
 ;; Deactivate selection when switching buffers.
 ;; XXX: This is fucking suboptimal...
 (require 'ots-tabbar)
