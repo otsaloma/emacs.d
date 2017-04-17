@@ -112,7 +112,7 @@
          (file-name-nondirectory
           (buffer-file-name))))
     (ess-switch-to-end-of-ESS)
-    (ots-util-comint-send("source('%s')" file-name))))
+    (ots-util-comint-send "source('%s')" file-name)))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
