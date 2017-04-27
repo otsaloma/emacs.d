@@ -9,6 +9,18 @@
   (company-abort)
   (execute-kbd-macro (kbd "<return>")))
 
+(defun ots-company-left ()
+  "Just do what the fuck Left should do."
+  (interactive)
+  (company-abort)
+  (execute-kbd-macro (kbd "<left>")))
+
+(defun ots-company-right ()
+  "Just do what the fuck Right should do."
+  (interactive)
+  (company-abort)
+  (execute-kbd-macro (kbd "<right>")))
+
 (defun ots-company-save ()
   "Just do what the fuck Ctrl+S should do."
   (interactive)
@@ -19,6 +31,8 @@
   "Set properties for company-mode buffers."
   (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
   (define-key company-active-map (kbd "<return>") 'ots-company-enter)
+  (define-key company-active-map (kbd "<left>") 'ots-company-left)
+  (define-key company-active-map (kbd "<right>") 'ots-company-right)
   (define-key company-active-map (kbd "C-s") 'ots-company-save)
   (setq company-dabbrev-code-everywhere nil)
   (setq company-dabbrev-downcase nil)
