@@ -97,7 +97,8 @@
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
   (font-lock-add-keywords
-   nil '(("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
+   nil '(("\\(=\\)" 1 font-lock-keyword-face)
+         ("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
          ("\\<\\(self\\)\\>" 1 font-lock-variable-name-face))))
 
 (defun ots-python-mode-set-keys ()
