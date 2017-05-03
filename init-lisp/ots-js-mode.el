@@ -56,7 +56,7 @@
   (setq tab-width 4)
   (setq truncate-lines t)
   (turn-on-auto-fill)
-  (setq-local helm-dash-docsets '("JavaScript" "jQuery")))
+  (setq-local helm-dash-docsets '("jQuery" "JavaScript")))
 
 (defun ots-js-mode-tern ()
   "Start tern-mode and its auto-complete."

@@ -57,7 +57,7 @@
   (setq indent-tabs-mode nil)
   (setq tab-width 4)
   (setq truncate-lines t)
-  (setq-local helm-dash-docsets '("JavaScript" "QML" "Silica"))
+  (setq-local helm-dash-docsets '("JavaScript" "Silica" "QML"))
   (turn-on-auto-fill)
   (hs-minor-mode 1))
 
