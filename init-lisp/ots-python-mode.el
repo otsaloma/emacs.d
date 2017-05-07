@@ -2,6 +2,7 @@
 ;;; ots-python-mode.el
 
 (require 'ots-comint-mode)
+(require 'ots-python-completion)
 (require 'ots-util)
 
 (setenv "PYTHONPATH" ".")
@@ -16,7 +17,8 @@
   (anaconda-mode)
   (anaconda-eldoc-mode)
   (setq-local company-backends
-   '((company-anaconda company-keywords company-dabbrev-code)
+   '((company-anaconda :with company-anaconda-dabbrev company-anaconda-dict)
+     (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
 (defun ots-python-mode-nosetests-run ()

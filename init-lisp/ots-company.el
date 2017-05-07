@@ -36,6 +36,7 @@
   (define-key company-active-map (kbd "C-s") 'ots-company-save)
   (setq company-dabbrev-code-everywhere nil)
   (setq company-dabbrev-downcase nil)
+  (setq company-dabbrev-ignore-case nil)
   (setq company-dabbrev-minimum-length 3)
   (setq company-idle-delay 0.1)
   (setq company-tooltip-align-annotations t)
