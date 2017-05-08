@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-names = (dir(__builtins__) +
-         dir(bool()) +
+names = (dir(bool()) +
          dir(dict()) +
          dir(float()) +
          dir(int()) +
