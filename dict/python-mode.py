@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-names = (dir(bool()) +
-         dir(dict()) +
-         dir(float()) +
-         dir(int()) +
-         dir(list()) +
-         dir(set()) +
-         dir(str()) +
-         dir(tuple()))
-
-names = sorted(set(names))
-names = [x for x in names if not x.startswith("_")]
+import itertools
+objs = [
+    bool(),
+    dict(),
+    float(),
+    int(),
+    list(),
+    set(),
+    str(),
+    tuple(),
+]
+names = itertools.chain(*list(map(dir, objs)))
+names = sorted(set(filter(lambda x: x[0].isalpha(), names)))
 open("python-mode", "w").write("\n".join(names) + "\n")
