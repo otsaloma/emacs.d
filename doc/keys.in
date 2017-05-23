@@ -1,0 +1,114 @@
+[general]
+Ctrl+0 delete-window
+Ctrl+1 delete-other-windows
+Ctrl+2 split-window-vertically
+Ctrl+3 split-window-horizontally
+Ctrl+A mark-whole-buffer
+Ctrl+B ots-util-smart-home
+Ctrl+D ots-util-smart-kill-line
+Ctrl+Shift+D ots-util-smart-kill-word
+Ctrl+E end-of-line
+Ctrl+F isearch-forward-regexp
+Ctrl+Shift+F isearch-backward-regexp
+Ctrl+G isearch-repeat-forward
+Ctrl+Shift+G isearch-repeat-backward
+Ctrl+H query-replace-regexp
+Ctrl+Shift+H ots-pcre-query-replace-in-open-buffers
+Ctrl+J join-line
+Ctrl+Shift+J join-line
+Ctrl+K comment-or-uncomment-region
+Ctrl+L goto-line
+Ctrl+M exchange-point-and-mark
+Alt+M menu-bar-mode
+Ctrl+N universal-argument
+Ctrl+O ots-helm-find-file
+Ctrl+P mark-paragraph
+Ctrl+Shift+P mark-defun
+Ctrl+Q save-buffers-kill-emacs
+Ctrl+Shift+Q kill-emacs
+Ctrl+R sort-lines
+Ctrl+Shift+R sort-paragraphs
+Ctrl+S ots-util-save-buffer
+Ctrl+Shift+S write-file
+Ctrl+T helm-projectile-grep
+Ctrl+Shift+T projectile-replace-regexp
+Ctrl+U upcase-region
+Ctrl+Shift+U downcase-region
+Ctrl+Shift+V yank-pop
+Ctrl+W ots-util-kill-buffer
+Ctrl+Shift+W browse-url-at-point
+Ctrl+Å find-file
+Ctrl+Y ots-util-smart-fill
+Ctrl+Shift+Z redo
+§ ots-util-match-paren
+Ctrl+§ helm-buffers-list
+Alt+§ ots-util-switch-to-other-buffer
+Ctrl+, beginning-of-defun / backward-sentence
+Ctrl+. end-of-defun / forward-sentence
+Ctrl+- hs-toggle-hiding
+Ctrl++ yas-expand
+Tab ots-util-smart-tab
+Ctrl+Tab ots-util-next-window
+Shift+Tab ots-util-previous-window
+Control+Shift+Tab ots-util-insert-tab
+Ctrl+Space set-mark-command
+Home ots-util-smart-home
+End end-of-line
+Ctrl+PageUp tabbar-backward-tab
+Ctrl+PageDown tabbar-forward-tab
+F1 help
+Shift+F1 woman
+F2 helm-dash-at-point
+F3 ots-util-start-external-terminal
+Shift+F3 shell
+F4 helm-imenu
+F5 compile
+Shift+F5 recompile
+Ctrl+Shift+F5 kill-compilation
+F7 wcheck-mode
+Shift+F7 wcheck-change-language
+F10 neotree-toggle
+F11 ots-fullscreen-toggle
+Shift+F11 ots-theme-toggle
+
+[bat-mode]
+F6 ots-bat-mode-run
+
+[emacs-lisp-mode]
+F5 emacs-lisp-byte-compile
+F6 ielm
+
+[ess-mode]
+F6 ots-ess-mode-start
+Shift+F6 ots-ess-mode-setwd
+F8 ots-ess-mode-source
+F9 ots-ess-mode-eval-region
+
+[html-mode]
+Ctrl+< sgml-tag
+F8 browse-url-of-file
+
+[js-mode]
+F8 ots-js-mode-run-js
+F9 ots-js-mode-jshint
+
+[latex-mode]
+F8 ots-latex-mode-view-pdf
+
+[markdown-mode]
+F8 ots-markdown-mode-preview
+F9 ots-markdown-mode-export
+
+[python-mode]
+Ctrl+Shift+O ots-util-find-unit-test-file
+F6 ots-python-mode-run
+Shift+F6 ots-python-mode-start
+F8 ots-python-mode-run-in-shell
+Shift+F8 ots-python-mode-send-region
+F9 ots-python-mode-pyflakes
+Shift+F9 ots-python-mode-py-test
+Ctrl+Shift+F9 ots-python-mode-nosetests-run
+
+[sh-mode]
+F6 ots-sh-mode-run
+F9 ots-sh-mode-shellcheck
