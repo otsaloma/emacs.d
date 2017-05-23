@@ -18,7 +18,7 @@
   (global-set-key (kbd "C-g") 'isearch-repeat-forward)
   (global-set-key (kbd "C-S-g") 'isearch-repeat-backward)
   (global-set-key (kbd "C-h") 'query-replace-regexp)
-  (global-set-key (kbd "C-S-h") 'replace-regexp)
+  (global-set-key (kbd "C-S-h") 'ots-pcre-query-replace-in-open-buffers)
   (global-set-key (kbd "C-j") 'join-line)
   (global-set-key (kbd "C-S-j") 'join-line)
   (global-set-key (kbd "C-k") 'comment-or-uncomment-region)
