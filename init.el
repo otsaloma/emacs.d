@@ -68,6 +68,7 @@
   (require 'ots-mode-line)
   (require 'ots-multi-web-mode)
   (require 'ots-neotree)
+  (require 'ots-octave-mode)
   (require 'ots-pcre)
   (require 'ots-perl-mode)
   (require 'ots-php-mode)
