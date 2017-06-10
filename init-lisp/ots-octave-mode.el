@@ -16,6 +16,7 @@
 
 (defun ots-octave-mode-set-keys ()
   "Set keybindings for editing Octave files."
+  (local-set-key (kbd "C-h") 'query-replace-regexp)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<f6>") 'run-octave)
