@@ -1,6 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-octave-mode.el
 
+(require 'company-dict)
+
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
 (defun ots-octave-mode-set-indentation ()
@@ -26,7 +28,7 @@
   (setq comment-add 0)
   (setq comment-start "%")
   (setq-local company-backends
-   '((company-keywords company-dabbrev-code)
+   '((company-dict company-dabbrev-code)
      (company-dabbrev)))
   (setq fill-column 80)
   (setq indent-tabs-mode nil)
