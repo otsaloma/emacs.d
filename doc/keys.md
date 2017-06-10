@@ -126,6 +126,14 @@
 | <kbd>F8</kbd> | ots-markdown-mode-preview |
 | <kbd>F9</kbd> | ots-markdown-mode-export |
 
+## octave-mode
+
+| Key | Command |
+| ---: | :--- |
+| <kbd>F6</kbd> | run-octave |
+| <kbd>F8</kbd> | octave-send-buffer |
+| <kbd>F9</kbd> | octave-send-line |
+
 ## python-mode
 
 | Key | Command |

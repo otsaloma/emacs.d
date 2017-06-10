@@ -99,6 +99,11 @@ F8 ots-latex-mode-view-pdf
 F8 ots-markdown-mode-preview
 F9 ots-markdown-mode-export
 
+[octave-mode]
+F6 run-octave
+F8 octave-send-buffer
+F9 octave-send-line
+
 [python-mode]
 Ctrl+Shift+O ots-util-find-unit-test-file
 F6 ots-python-mode-run
