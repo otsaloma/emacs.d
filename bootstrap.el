@@ -31,6 +31,7 @@
    php-mode
    rainbow-mode
    smooth-scrolling
+   sqlup-mode
    tabbar
    tern
    undo-tree

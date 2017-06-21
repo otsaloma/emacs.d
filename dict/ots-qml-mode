@@ -1,12 +1,20 @@
+AbsractClipAnimator
 Abstract3DSeries
+Abstract3DSeries.baseColor
+Abstract3DSeries.baseGradient
+Abstract3DSeries.colorStyle
+Abstract3DSeries.meshRotation
 AbstractActionInput
+AbstractAnimation
 AbstractAxis
 AbstractAxis3D
 AbstractAxisInput
 AbstractBarSeries
 AbstractButton
+AbstractClipBlendNode
 AbstractDataProxy
 AbstractGraph3D
+AbstractGraph3D.clearSelection
 AbstractInputHandler3D
 AbstractPhysicalDevice
 AbstractSeries
@@ -14,10 +22,10 @@ AbstractTextureImage
 Accelerometer
 AccelerometerReading
 Accessible
-Action: Qt3D
-Action: QtQuickControls
+Action
 ActionInput
 AddAnimation
+AdditiveClipBlend
 Address
 Affector
 Age
@@ -38,11 +46,10 @@ AnimatedImage
 AnimatedSprite
 Animation
 AnimationController
+AnimationGroup
 Animator
 ApplicationWindow
 ApplicationWindow.deviceOrientation
-ApplicationWindow: QtQuickControls
-ApplicationWindow: QtQuickControls2
 ApplicationWindowStyle
 AreaSeries
 AttenuationModelInverse
@@ -77,6 +84,7 @@ Binding
 Blend
 BlendEquation
 BlendEquationArguments
+BlendedClipAnimator
 BluetoothDiscoveryModel
 BluetoothService
 BluetoothSocket
@@ -89,23 +97,19 @@ BoxPlotSeries
 BoxSet
 BrightnessContrast
 Buffer
-BusyIndicato
 BusyIndicator
 BusyIndicatorStyle
 Button
-Button: QtQuickControls
-Button: QtQuickControls2
 ButtonAxisInput
 ButtonGroup
 ButtonStyle
-Calenda
+Calendar
 CalendarModel
 CalendarStyle
+Camera
 Camera.orientation
 Camera.position
 Camera3D
-Camera: Qt3D
-Camera: QtMultimedia
 CameraCapture
 CameraExposure
 CameraFlash
@@ -145,19 +149,19 @@ CategoryRange
 ChangeLanguageKey
 ChartView
 ChartView.localizeNumbers
-CheckBox: QtQuickControls
-CheckBox: QtQuickControls2
+ChartView.margins
+CheckBox
 CheckBoxStyle
 CheckDelegate
 CircularGauge
 CircularGaugeStyle
 ClearBuffers
+ClipAnimator
 ClipPlane
 Clipboard
 CloseEvent
 ColorAnimation
-ColorDialog: QtLabsPlatform
-ColorDialog: QtQuickDialogs
+ColorDialog
 ColorDialogRequest
 ColorGradient
 ColorGradientStop
@@ -171,8 +175,6 @@ Column
 ColumnLayout
 ColumnView
 ComboBox
-ComboBox: QtQuickControls
-ComboBox: QtQuickControls2
 ComboBoxStyle
 Compass
 CompassReading
@@ -189,7 +191,7 @@ ContactDetails
 Container
 Context2D
 Context3D
-Context3D.clear(Context3D.GL_COLOR_BUFFER_BIT)
+Context3D.clear
 Context3D.createBuffer
 Context3D.createFramebuffer
 Context3D.createProgram
@@ -233,13 +235,9 @@ DepthTest
 Desaturate
 DestinationAlpha
 DetailItem
-Dial: QtQuickControls2
-Dial: QtQuickExtras
+Dial
 DialStyle
 Dialog
-Dialog: QtLabsPlatform
-Dialog: QtQuickControls2
-Dialog: QtQuickDialogs
 DialogButtonBox
 DialogHeader
 DiffuseMapMaterial
@@ -265,20 +263,21 @@ Effect
 EllipseShape
 Emitter
 EnterKey
-EnterKey: QtQuick
-EnterKey: QtVirtualKeyboard
 EnterKeyAction
 Entity
 EntityLoader
+EnvironmentLight
 ErrorDomain
+EventConnection
 ExclusiveGroup
 ExtendedAttributes
+ExtrudedTextGeometry
+ExtrudedTextMesh
 FadeAnimation
 FadeAnimator
 FastBlur
 Feature
-FileDialog: QtLabsPlatform
-FileDialog: QtQuickDialogs
+FileDialog
 FileDialogRequest
 FillerKey
 FilterKey
@@ -291,8 +290,7 @@ Flow
 FocusScope
 FolderDialog
 FolderListModel
-FontDialog: QtLabsPlatform
-FontDialog: QtQuickDialogs
+FontDialog
 FontLoader
 FontMetrics
 FormValidationMessageRequest
@@ -322,8 +320,7 @@ Grid
 GridLayout
 GridMesh
 GridView
-GroupBox: QtQuickControls
-GroupBox: QtQuickControls2
+GroupBox
 GroupGoal
 Gyroscope
 GyroscopeReading
@@ -344,6 +341,8 @@ HorizontalPercentBarSeries
 HorizontalScrollDecorator
 HorizontalStackedBarSeries
 HueSaturation
+HumidityReading
+HumiditySensor
 IRProximityReading
 IRProximitySensor
 Icon
@@ -357,18 +356,19 @@ ImageParticle
 InnerShadow
 InputChord
 InputContext
-InputContext.capsLock
 InputEngine
 InputEngine.traceBegin
 InputEngine.traceEnd
 InputHandler3D
 InputMethod
+InputMethod.traceBegin
 InputMethod.traceEnd
 InputPanel
 InputSequence
 InputSettings
 Instantiator
 IntValidator
+InvokedServices
 Item
 Item.rotation
 Item.transform
@@ -387,10 +387,9 @@ JumpListDestination
 JumpListLink
 JumpListSeparator
 Key
+KeyEvent
 KeyEvent.key
 KeyEvent.modifiers
-KeyEvent: Qt3D
-KeyEvent: QtQuick
 KeyIcon
 KeyNavigation
 KeyPanel
@@ -402,11 +401,10 @@ KeyboardLayoutLoader
 KeyboardRow
 KeyboardStyle
 KeyboardStyle.traceCanvasDelegate
+KeyframeAnimation
 Keypad
 Keys
 Label
-Label: QtQuickControls
-Label: QtQuickControls2
 Layer
 LayerFilter
 Layout
@@ -431,7 +429,13 @@ Layout.topMargin
 LayoutMirroring
 LayoutMirroring.enabled
 Legend
+LerpBlend
 LevelAdjust
+LevelOfDetail
+LevelOfDetailLoader
+LevelOfDetailSwitch
+LidReading
+LidSensor
 Light
 Light3D
 LightReading
@@ -457,8 +461,11 @@ Magnetometer
 MagnetometerReading
 Map
 MapCircle
+MapCopyrightNotice
 MapGestureArea
+MapItemGroup
 MapItemView
+MapParameter
 MapPinchEvent
 MapPolygon
 MapPolyline
@@ -473,28 +480,24 @@ Material
 Matrix4x4
 MediaPlayer
 MediaPlayer.metaData
-Menu: QtLabsPlatform
-Menu: QtQuickControls
-Menu: QtQuickControls2
-MenuBa
+MemoryBarrier
+Menu
+MenuBar
 MenuBarStyle
 MenuItem
-MenuItem: QtLabsPlatform
-MenuItem: QtQuickControls
-MenuItem: QtQuickControls2
 MenuItemGroup
 MenuLabel
-MenuSeparato
+MenuSeparator
 MenuStyle
 Mesh
-MessageDialog: QtLabsPlatform
-MessageDialog: QtQuickDialogs
+MessageDialog
 ModeKey
 MonthGrid
+MorphTarget
+MorphingAnimation
 MouseArea
 MouseDevice
-MouseEvent: Qt3D
-MouseEvent: QtQuick
+MouseEvent
 MouseHandler
 MultiPointTouchArea
 MultiSampleAntiAliasing
@@ -515,6 +518,7 @@ NormalDiffuseSpecularMapMaterial
 Number
 NumberAnimation
 NumberKey
+Object3D
 ObjectModel
 ObjectPicker
 OpacityAnimator
@@ -565,6 +569,9 @@ Picture
 PieMenu
 PieMenuStyle
 PieSeries
+PieSeries.append
+PieSeries.at
+PieSeries.find
 PieSlice
 PinchArea
 PinchEvent
@@ -595,7 +602,6 @@ PressureSensor
 PrintedPageOrientation
 PrintedPageSizeId
 Product
-ProgressBa
 ProgressBar
 ProgressBarStyle
 PropertyAction
@@ -608,6 +614,7 @@ PushUpMenu
 QAbstractState
 QAbstractTransition
 QSignalTransition
+Qt.application
 Qt.application.domain
 Qt.application.name
 Qt.application.organization
@@ -625,8 +632,8 @@ Qt.hsva
 Qt.lighter
 Qt.locale
 Qt.matrix4x4
-Qt.md5(string)
-Qt.openUrlExternally(string)
+Qt.md5
+Qt.openUrlExternally
 Qt.point
 Qt.quaternion
 Qt.quit
@@ -650,8 +657,7 @@ QuaternionAnimation
 RadialBlur
 RadialGradient
 Radio
-RadioButton: QtQuickControls
-RadioButton: QtQuickControls2
+RadioButton
 RadioButtonStyle
 RadioData
 RadioDelegate
@@ -668,9 +674,11 @@ RemoveAnimation
 RenderCapture
 RenderCaptureReply
 RenderPass
+RenderPassFilter
 RenderProcessTerminationStatus
 RenderSettings
 RenderState
+RenderStateSet
 RenderSurfaceSelector
 RenderTarget
 RenderTargetOutput
@@ -697,6 +705,7 @@ Scatter3D
 Scatter3DSeries
 ScatterDataProxy
 ScatterSeries
+Scene2D
 Scene3D
 SceneLoader
 ScissorTest
@@ -704,10 +713,13 @@ Screen
 Screen.orientation
 ScriptAction
 ScrollBar
+ScrollBar.horizontal
+ScrollBar.vertical
 ScrollDecorator
 ScrollIndicator
 ScrollView
 ScrollViewStyle
+ScxmlStateMachine
 SeamlessCubemap
 SearchField
 SectionHeader
@@ -734,7 +746,6 @@ SilicaFlickable
 SilicaGridView
 SilicaListView
 SilicaWebView
-Slide
 Slider
 SliderStyle
 SlideshowView
@@ -747,8 +758,7 @@ SoundInstance
 SpaceKey
 SphereGeometry
 SphereMesh
-SpinBox: QtQuickControls
-SpinBox: QtQuickControls2
+SpinBox
 SpinBoxStyle
 SplineSeries
 SplitView
@@ -763,17 +773,14 @@ Stack.status
 Stack.view
 StackLayout
 StackView
-StackView.get(index)
+StackView.get
 StackView.push
-StackView: QtQuickControls
-StackView: QtQuickControls2
 StackViewDelegate
 StackViewDelegate.getTransition
 StackViewDelegate.transitionFinished
 StackedBarSeries
 StandardPaths
-State: QtQml
-State: QtQuick
+State
 StateChangeScript
 StateGroup
 StateMachine
@@ -796,8 +803,6 @@ SurfaceDataProxy
 SwipeDelegate
 SwipeView
 Switch
-Switch: QtQuickControls
-Switch: QtQuickControls2
 SwitchDelegate
 SwitchStyle
 SymbolModeKey
@@ -816,22 +821,19 @@ TapSensor
 TargetDirection
 TaskbarButton
 Technique
+TechniqueFilter
 TestCase
+TestCase.touchEvent
 Text
 TextArea
-TextArea: QtQuickControls
-TextArea: QtQuickControls2
 TextAreaStyle
 TextEdit
 TextField
-TextField: QtQuickControls
-TextField: QtQuickControls2
 TextFieldStyle
 TextInput
 TextMetrics
 TextSwitch
-TextureImage: Qt3D
-TextureImage: QtCanvas3D
+TextureImage
 TextureImageFactory
 Theme
 Theme.coverSizeLarge
@@ -866,16 +868,16 @@ TimeoutTransition
 Timer
 ToggleButton
 ToggleButtonStyle
-ToolBa
+ToolBar
 ToolBarStyle
-ToolButton: QtQuickControls
-ToolButton: QtQuickControls2
+ToolButton
 ToolSeparator
 ToolTip
 Torch
 TorusGeometry
 TorusMesh
 TouchBlocker
+TouchEventSequence
 TouchInputHandler3D
 TouchPoint
 Trace
@@ -885,13 +887,12 @@ TraceInputKey
 TraceInputKeyPanel
 TrailEmitter
 Transaction
-Transform: Qt3D
-Transform: QtQuick
+Transform
 Transition
 Translate
 TreeView
 TreeViewStyle
-Tumble
+Tumbler
 TumblerColumn
 TumblerStyle
 Turbulence
@@ -906,8 +907,8 @@ ValueAxis
 ValueAxis3D
 ValueAxis3DFormatter
 ValueButton
-ValuePositions
 Vector3dAnimation
+VertexBlendAnimation
 VerticalScrollDecorator
 Video
 VideoOutput
@@ -952,8 +953,7 @@ WebSocketServer
 WebView
 WebViewLoadRequest
 WeekNumberColumn
-WheelEvent: Qt3D
-WheelEvent: QtQuick
+WheelEvent
 Window
 WlShell
 WlShellSurface
@@ -961,10 +961,14 @@ WorkerScript
 XAnimator
 XYPoint
 XYSeries
+XdgPopupV5
+XdgShellV5
+XdgSurfaceV5
 XmlListModel
 XmlRole
 YAnimator
 ZoomBlur
+absoluteHumidity
 accelerated2dCanvasEnabled
 acceleration
 accelerationMode
@@ -990,7 +994,7 @@ actions
 activate
 activateItemOnSingleClick
 active
-active focus
+activeAnimationGroup
 activeCamera
 activeFocus
 activeFocusControl
@@ -1003,6 +1007,7 @@ activeKey
 activeLight
 activeLocales
 activeMapType
+activeStateNames
 activeTexture
 actualLocation
 add
@@ -1020,6 +1025,8 @@ addGroups
 addItem
 addItems
 addMapItem
+addMapItemGroup
+addMapParameter
 addMenu
 addPlayVariation
 addPoint
@@ -1028,6 +1035,7 @@ addSeries
 addSound
 addTab
 addWaypoint
+additiveFactor
 address
 advance
 advancePosition
@@ -1038,6 +1046,7 @@ alignment
 allTestsPassOperation
 allowDiscardFrontBuffer
 allowExperimental
+allowGeolocationOnInsecureOrigins
 allowResize
 allowRunningInsecureContent
 allowedOrientations
@@ -1069,6 +1078,7 @@ ambient
 ambientLightStrength
 anchor
 anchorPoint
+anchorPosition
 anchorRectangle
 anchors
 anchors.alignWhenCentered
@@ -1100,7 +1110,10 @@ animating
 animation
 animationDuration
 animationEasingCurve
+animationGroups
+animationName
 animationOptions
+animationType
 animations
 antennaConnected
 antialias
@@ -1109,11 +1122,9 @@ aperture
 api
 append
 application
-application-based integration method
 applyNiceNumbers
 arc
 arcTo
-area
 arg
 arguments
 ascent
@@ -1129,6 +1140,8 @@ attachmentPoint
 attachments
 attenuationModel
 attribute
+attributeNames
+attributes
 attribution
 audioBitRate
 audioChannels
@@ -1150,6 +1163,7 @@ autoLoadIconsForPage
 autoLoadImages
 autoOrientation
 autoPlay
+autoPosition
 autoRepeat
 autoRotate
 autoRotation
@@ -1189,10 +1203,10 @@ axisZ
 azimuth
 back
 backItems
+backLidClosed
 backNavigation
 backOutputMask
 background
-background color
 backgroundColor
 backgroundEnabled
 backgroundItem
@@ -1202,7 +1216,6 @@ backgroundVisible
 backspaceKeyPanel
 backtab
 band
-bar spacing
 barSpacing
 barSpacingRelative
 barThickness
@@ -1215,6 +1228,7 @@ baseGradients
 baseUrl
 baselineOffset
 batchSize
+bearing
 beginPath
 beta
 bezierCurveTo
@@ -1228,6 +1242,7 @@ binding
 blendColor
 blendEquation
 blendEquationSeparate
+blendFactor
 blendFunc
 blendFuncSeparate
 blendFunction
@@ -1255,7 +1270,6 @@ bottomMargin
 bottomPadding
 bottomRadius
 bottomRight
-bounding box
 boundingBox
 boundingItem
 boundingRect
@@ -1266,7 +1280,6 @@ boxOutlineVisible
 boxWidth
 branchDelegate
 brightness
-brush
 brushFilename
 btoa
 bufferData
@@ -1310,6 +1323,7 @@ canUndo
 cancel
 cancelBounceBack
 cancelCapture
+cancelDelayedEvent
 cancelFlick
 cancelRadius
 cancelRequestAnimationFrame
@@ -1377,14 +1391,17 @@ clearDepthValue
 clearExcludedAreas
 clearHttpCache
 clearMapItems
+clearMapParameters
 clearRect
 clearSelection
 clearStencil
 clearStencilValue
 clearWaypoints
+clicked
 clickedButton
 client
 clip
+clips
 close
 closeColumn
 closeOnActivation
@@ -1427,6 +1444,8 @@ completeToBeginning
 completeToEnd
 completeTransition
 completed
+component
+component.createObject
 components
 compositor
 compressedTexImage2D
@@ -1443,7 +1462,6 @@ containsCoordinate
 containsDrag
 containsMouse
 containsPress
-content item
 contentChildren
 contentData
 contentFooter
@@ -1503,6 +1521,8 @@ createRadialGradient
 createRenderbuffer
 createSeries
 createShader
+createTemporaryObject
+createTemporaryQmlObject
 createTexture
 createTextureFromSource
 created
@@ -1510,7 +1530,6 @@ cullFace
 cullMode
 currencySymbol
 current
-current index
 currentColor
 currentFile
 currentFiles
@@ -1537,7 +1556,6 @@ cursorRectangle
 cursorShape
 cursorSurface
 cursorVisible
-custom delegate
 customFocusPoint
 customItemList
 customLayoutsOnly
@@ -1547,6 +1565,7 @@ damping
 dark
 darker
 data
+dataModel
 dataProxy
 dataRate
 date
@@ -1614,7 +1633,6 @@ destroy
 destroyClient
 destroyClientForSurface
 detachShader
-detailed text
 detailedText
 detailsFetched
 deviation
@@ -1640,7 +1658,6 @@ dismissOnClick
 displaced
 displacement
 displacementSource
-display text
 displayMarginBeginning
 displayMarginEnd
 displayName
@@ -1648,13 +1665,13 @@ displayText
 distance
 distanceToNextInstruction
 district
-doLayout
 dock
 documents
 domain
 done
 dopplerFactor
 double
+doubleClicked
 doubleTap
 down
 down.hovered
@@ -1689,7 +1706,6 @@ drawSlices
 drawingBufferHeight
 drawingBufferWidth
 drop
-drop action
 dropDownButtonWidth
 dropShadowEnabled
 duration
@@ -1719,6 +1735,7 @@ elideMode
 elideWidth
 elidedText
 ellipse
+ellipseDiameters
 email
 emitHeight
 emitRate
@@ -1731,13 +1748,17 @@ enableVertexAttribArray
 enabled
 end
 endAngle
+endMode
 endRotation
 endSize
+endValue
 engine
 ensureVisible
 enter
 enterKeyPanel
+entities
 entity
+entityNames
 entryEffect
 enumeration
 epsilon
@@ -1749,6 +1770,7 @@ errorPageEnabled
 errorState
 errorString
 eventSource
+events
 exclude
 excludedAreas
 excludedFromPeek
@@ -1774,6 +1796,7 @@ externalRenderTargetSize
 extraContent
 face
 faceMode
+faceOrientationPickingMode
 facingCamera
 factor
 fade
@@ -1834,6 +1857,7 @@ firstSetColumn
 firstSetRow
 firstVertex
 fitViewportToMapItems
+fitViewportToVisibleMapItems
 flags
 flat
 flatShadingEnabled
@@ -1880,6 +1904,13 @@ font.wordSpacing
 fontFamilies
 fontFamily
 fontFamilyHeading
+fontInfo.bold
+fontInfo.family
+fontInfo.italic
+fontInfo.pixelSize
+fontInfo.pointSize
+fontInfo.styleName
+fontInfo.weight
 fontSizeExtraLarge
 fontSizeExtraSmall
 fontSizeHuge
@@ -1889,7 +1920,6 @@ fontSizeMode
 fontSizeSmall
 fontSizeTiny
 footer
-footer item
 footerItem
 footerPositioning
 forceActiveFocus
@@ -1909,7 +1939,6 @@ forwardItems
 forwardNavigation
 forwardTo
 fps
-fragment (pixel)
 fragmentShader
 fragmentShaderCode
 frame
@@ -1918,6 +1947,7 @@ frameDuration
 frameDurationVariation
 frameHeight
 frameOverlap
+framePositions
 frameRate
 frameRateVariation
 frameSetupTimeMs
@@ -1938,13 +1968,27 @@ fromAxesAndAngles
 fromAxisAndAngle
 fromCoordinate
 fromEulerAngles
+fromGeometry
 fromLocaleDateString
 fromLocaleString
 fromLocaleTimeString
 front
 frontFace
+frontLidClosed
 frontOutputMask
+frustumCulling
 fullScreenCancelled
+fullScreenInputBackground
+fullScreenInputColor
+fullScreenInputContainerBackground
+fullScreenInputCursor
+fullScreenInputFont
+fullScreenInputMargins
+fullScreenInputPadding
+fullScreenInputPasswordCharacter
+fullScreenInputSelectedTextColor
+fullScreenInputSelectionColor
+fullScreenMode
 fullscreenSupportEnabled
 functionKey
 fuzzyCompare
@@ -1956,20 +2000,20 @@ genericData
 geocircle
 geometry
 geometryShaderCode
+geopath
 georectangle
 geoshape
 gesture
 gestures
 get
-get(index)
 getActiveAttrib
 getActiveUniform
+getAnimationIndex
 getAttachedShaders
 getAttribLocation
 getBufferParameter
 getColumn
 getContext
-getContext(string type, Canvas3DContextAttributes options)
 getContextAttributes
 getDataAsArrayBuffer
 getDataAsString
@@ -1979,6 +2023,7 @@ getExtension
 getFormattedText
 getFramebufferAttachmentParameter
 getGLStateDump
+getGroup
 getImageData
 getParameter
 getProgramInfoLog
@@ -2045,7 +2090,6 @@ hasUrls
 hasVideo
 hasZ
 header
-header item
 headerDelegate
 headerItem
 headerPositioning
@@ -2094,6 +2138,7 @@ horizontalAlignment
 horizontalAspectRatio
 horizontalItemAlignment
 horizontalOffset
+horizontalOvershoot
 horizontalPageMargin
 horizontalPosition
 horizontalRadius
@@ -2163,7 +2208,6 @@ indexAttribute
 indexOf
 indexOffset
 indicator
-informative text
 informativeText
 init
 initTestCase
@@ -2174,10 +2218,12 @@ initialPage
 initialState
 initialVX
 initialVY
+initialValues
 initialX
 initialY
 initialize
 initializeFavorite
+initialized
 injectionPoint
 inputContext
 inputEngine
@@ -2206,6 +2252,9 @@ instructionText
 int
 interactive
 interpolate
+interpolator
+interruptReason
+interruptReasonString
 interval
 invalidGestures
 invalidSelectionIndex
@@ -2214,6 +2263,10 @@ invalidSelectionPosition
 invalidated
 invert
 inverted
+invoked
+invokedServices
+irradiance
+isActive
 isAttached
 isAutoRepeat
 isBuffer
@@ -2224,6 +2277,7 @@ isContextLost
 isCurrentItem
 isDefault
 isDestroyed
+isDispatchableTarget
 isEnabled
 isExpanded
 isFinal
@@ -2302,6 +2356,7 @@ keyboardRelativeBottomMargin
 keyboardRelativeLeftMargin
 keyboardRelativeRightMargin
 keyboardRelativeTopMargin
+keyframes
 keys
 kill
 label
@@ -2329,6 +2384,12 @@ labelsPosition
 labelsRow
 labelsVisible
 languageKeyPanel
+languageListAdd
+languageListBackground
+languageListDelegate
+languageListHighlight
+languageListRemove
+languagePopupListEnabled
 lastBarSetColumn
 lastBarSetRow
 lastBoxSetColumn
@@ -2349,7 +2410,6 @@ layer.textureMirroring
 layer.textureSize
 layer.wrapMode
 layers
-layout direction
 layoutDirection
 leading
 left
@@ -2390,7 +2450,6 @@ linkText
 linkUrl
 linksIncludedInFocusChain
 list
-list<string> Qt.fontFamilies
 listen
 listener
 live
@@ -2401,6 +2460,7 @@ loadImage
 loadProgress
 loadSource
 loaded
+loader
 loading
 localContentCanAccessFileUrls
 localContentCanAccessRemoteUrls
@@ -2444,12 +2504,15 @@ mapFromItem
 mapItems
 mapNormalizedPointToItem
 mapNormalizedRectToItem
+mapParameters
 mapPointToItem
 mapPointToSource
 mapPointToSourceNormalized
+mapReady
 mapRectToItem
 mapRectToSource
 mapRectToSourceNormalized
+mapSource
 mapToGlobal
 mapToItem
 mapToPosition
@@ -2461,6 +2524,8 @@ markerShape
 markerSize
 maskSource
 mass
+matchAll
+matchAny
 matches
 matrix
 matrix4x4
@@ -2472,13 +2537,13 @@ maxXValue
 maxZValue
 maxZoomLevel
 maximum
-maximum size
 maximumCharacterWidth
 maximumColumnWidth
 maximumDate
 maximumDigitalZoom
 maximumEasingTime
 maximumEmitted
+maximumFieldOfView
 maximumFlickVelocity
 maximumFrequency
 maximumHeight
@@ -2487,6 +2552,7 @@ maximumLength
 maximumLineCount
 maximumOpticalZoom
 maximumOutput
+maximumTilt
 maximumTouchPoints
 maximumValue
 maximumValueAngle
@@ -2513,7 +2579,6 @@ menuOpen
 menuStyle
 menus
 mesh
-mesh resolution
 meshAngle
 meshFile
 meshName
@@ -2583,6 +2648,7 @@ metaData.videoFrameRate
 metaData.writer
 metaData.year
 meteringMode
+method
 mid
 midlight
 mimeData
@@ -2594,9 +2660,9 @@ minXValue
 minZValue
 minZoomLevel
 minimum
-minimum size
 minimumColumnWidth
 minimumDate
+minimumFieldOfView
 minimumFrequency
 minimumHandleLength
 minimumHeight
@@ -2606,11 +2672,13 @@ minimumOutput
 minimumPixelSize
 minimumPointSize
 minimumRightBearing
+minimumTilt
 minimumTouchPoints
 minimumValue
 minimumValueAngle
 minimumWidth
 minimumZoomLevel
+minorGridLineColor
 minorGridVisible
 minorRadius
 minorTickCount
@@ -2640,6 +2708,7 @@ month
 monthAt
 monthName
 monthYearVisible
+morphTargets
 mouseClick
 mouseDoubleClick
 mouseDoubleClickSequence
@@ -2677,7 +2746,6 @@ multiSeriesUniform
 music
 muted
 name
-name filter
 nameFilters
 namespaceDeclarations
 nativeCountryName
@@ -2715,12 +2783,9 @@ normal
 normalAttribute
 normalizedRect
 notation
+notifyInterval
 numberAlternativeRoutes
 object
-object Qt.binding(function)
-object Qt.createComponent(url)
-object Qt.createQmlObject(string qml, object parent, string filepath)
-object Qt.locale
 objectAt
 objectName
 offTheRecord
@@ -2761,7 +2826,6 @@ outputLocation
 outputRange
 outputRanges
 overlay
-overlay item
 overlay.accessibleDescription
 overlay.iconSource
 overlay.modal
@@ -2774,7 +2838,6 @@ padding
 paddingLarge
 paddingMedium
 paddingSmall
-page stack
 pageContainer
 pageStack
 paintEnabled
@@ -2791,6 +2854,7 @@ parentFolder
 parentMenu
 parentModelIndex
 parentWindow
+parseErrors
 partiallyCheckedEnabled
 particleStates
 parts
@@ -2807,7 +2871,6 @@ patternRecognitionModes
 pause
 paused
 peekDisallowed
-pen
 pending
 percent
 percentage
@@ -2845,7 +2908,6 @@ pixelSize
 pixelStorei
 place
 placeId
-placeholder text
 placeholderColor
 placeholderText
 placeholderTextColor
@@ -2876,11 +2938,10 @@ pointLabelsVisible
 points
 pointsVisible
 polar
+policy
 polling
 polygonOffset
 pop
-pop(A)
-pop(null)
 popAttached
 popEnter
 popExit
@@ -2898,6 +2959,8 @@ position
 positionAbsolute
 positionAt
 positionAttribute
+positionOffset
+positionScale
 positionToRectangle
 positionViewAtBeginning
 positionViewAtEnd
@@ -2910,7 +2973,6 @@ precision
 preeditText
 preferLowPowerToHighPerformance
 preferred
-preferred size
 preferredHeight
 preferredHighlightBegin
 preferredHighlightEnd
@@ -2922,6 +2984,8 @@ preloaded
 premultipliedAlpha
 preserveDrawingBuffer
 preserveOpacity
+press
+pressAndHoldInterval
 pressDelay
 pressed
 pressedButtonColor
@@ -2976,6 +3040,7 @@ projectionType
 propagateComposedEvents
 properties
 property
+propertyTrackingOverrides
 proportionalFonts
 proportionalMagnitude
 proportionalToDistance
@@ -2986,16 +3051,13 @@ pulleyMenuActive
 pulse
 purchase
 push
-push(D)
-push(D, replace)
-push([D, E, F])
-push([D, E, F], replace)
 pushAttached
 pushEnter
 pushExit
 pushTransition
 pushUpMenu
 putImageData
+qmlChildren
 qsTr
 qsTrId
 qsTrIdNoOp
@@ -3007,7 +3069,6 @@ quadraticCurveTo
 quaternion
 queriedGraphPosition
 query
-quick scroll
 quickScroll
 quickScrollAnimating
 quickSelect
@@ -3020,6 +3081,7 @@ radiusX
 radiusY
 raise
 randomStart
+rangeChanged
 rangeMax
 rangeMin
 ratings
@@ -3061,9 +3123,12 @@ relativeControl2X
 relativeControl2Y
 relativeControlX
 relativeControlY
+relativeHumidity
 relativeX
 relativeY
+release
 releaseCustomItem
+released
 relevanceHint
 reload
 reloadAndBypassCache
@@ -3083,6 +3148,8 @@ removeGroups
 removeItem
 removeItems
 removeMapItem
+removeMapItemGroup
+removeMapParameter
 removeMenu
 removePoints
 removeSeries
@@ -3102,7 +3169,6 @@ renderbufferStorage
 renderingMode
 repeat
 replace
-replace([D, E, F])
 replaceAbove
 replaceCoordinate
 replaceEnter
@@ -3114,6 +3180,7 @@ requestAnimationFrame
 requestCapture
 requestPaint
 requestRender
+requestedUrl
 required
 reselect
 reserveExtraContent
@@ -3168,6 +3235,7 @@ rotate
 rotateAboutViewCenter
 rotateAround
 rotation
+rotationActive
 rotationEnabled
 rotationRole
 rotationRolePattern
@@ -3203,6 +3271,7 @@ sampleCoverage
 samples
 saturation
 save
+saveImage
 savePageFormat
 saveToFile
 scalableFonts
@@ -3219,6 +3288,7 @@ sceneX
 sceneY
 scheduleUpdate
 scissor
+screen
 screenCaptureEnabled
 screenRotation
 script
@@ -3337,6 +3407,7 @@ serviceDescription
 serviceName
 serviceProtocol
 serviceUuid
+sessionId
 set
 setActiveFocusOnPress
 setAutoAperture
@@ -3381,6 +3452,7 @@ shadowSpread
 shadowsSupported
 shape
 shapeToCircle
+shapeToPath
 shapeToRectangle
 sharedLayouts
 sharpeningLevel
@@ -3479,6 +3551,7 @@ sourceRgb
 sourceSize
 sourceState
 sourceUrl
+sources
 spaceKeyPanel
 spacing
 spatialNavigationEnabled
@@ -3495,7 +3568,6 @@ spring
 sprites
 spritesInterpolate
 src
-stacking order
 standaloneDayName
 standaloneMonthName
 standardButton
@@ -3506,6 +3578,7 @@ startAngle
 startCenter
 startDrag
 startDragDistance
+startMode
 startPoint1
 startPoint2
 startSize
@@ -3515,9 +3588,11 @@ startX
 startY
 state
 stateMachine
+stateNames
 states
 stationId
 stationName
+stationary
 status
 statusBar
 stencil
@@ -3540,12 +3615,6 @@ street
 strength
 strikeOutPosition
 string
-string Qt.atob(string)
-string Qt.btoa(string)
-string Qt.formatDate(datetime date, variant format)
-string Qt.formatDateTime(datetime date, variant format)
-string Qt.formatTime(datetime date, variant format)
-string Qt.resolvedUrl(string)
 stringData
 stroke
 strokeRect
@@ -3555,11 +3624,13 @@ style
 styleColor
 styleHints
 styleName
+styleSheet
 subMenu
 subSegmentCount
 subText
 submenuOverlap
 submenuPopupDelay
+submitEvent
 subpixel
 subsurfaceHandler
 suffix
@@ -3570,7 +3641,9 @@ supplierId
 supportedActions
 supportedAudioRoles
 supportedMapTypes
+supportedModes
 supportedPositioningMethods
+supportedResolutions
 supportedViewfinderFrameRateRanges
 supportedViewfinderResolutions
 supportsAtlasTextures
@@ -3587,11 +3660,14 @@ swipe.behind
 swipe.behindItem
 swipe.close
 swipe.complete
+swipe.enabled
 swipe.left
 swipe.leftItem
+swipe.open
 swipe.position
 swipe.right
 swipe.rightItem
+swipe.transition
 symbolKeyPanel
 symbolsVisible
 sync
@@ -3614,6 +3690,8 @@ target
 targetIndexes
 targetItem
 targetItems
+targetName
+targetPositions
 targetState
 targetStates
 targetVariation
@@ -3631,7 +3709,6 @@ texParameterf
 texParameteri
 texSubImage2D
 text
-text role
 textAlign
 textAt
 textBaseline
@@ -3670,6 +3747,7 @@ tightBoundingRect
 tileSize
 tilt
 tiltAboutViewCenter
+tiltActive
 tiltRotation
 time
 timeFormat
@@ -3709,6 +3787,7 @@ topPadding
 topRadius
 totalBytes
 totalCount
+touchEvent
 touchIconsEnabled
 touchPoints
 trace
@@ -3721,6 +3800,7 @@ traceMargins
 transform
 transformOrigin
 transientScrollBars
+transition
 transitionFinished
 transitions
 translate
@@ -3775,6 +3855,7 @@ uniform4iv
 uniformMatrix2fv
 uniformMatrix3fv
 uniformMatrix4fv
+uniqueId
 unloadImage
 unlock
 up.hovered
@@ -3786,6 +3867,7 @@ updateInterval
 updateValueWhileDragging
 updateWith
 upperSeries
+uppercase
 uppercased
 uri
 url
@@ -3857,6 +3939,7 @@ verticalAlignment
 verticalItemAlignment
 verticalLayoutDirection
 verticalOffset
+verticalOvershoot
 verticalPosition
 verticalRadius
 verticalRulers
@@ -3887,6 +3970,8 @@ virtualKeyCancel
 virtualKeyClick
 virtualKeyPress
 virtualKeyRelease
+virtualX
+virtualY
 visibility
 visibilityScope
 visible
@@ -3933,6 +4018,9 @@ windowColor
 windowShown
 windowText
 windowType
+wordCandidateList
+wordCandidateList.alwaysVisible
+wordCandidateList.autoHideDelay
 wordCandidateListModel
 wordCandidateListVisibleHint
 workGroupX
