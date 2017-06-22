@@ -11,6 +11,7 @@
 (defun ots-sql-mode-set-properties ()
   "Set properties for editing SQL files."
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
+  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   ;; Allow double-quotes and backticks (for identifier names).
   (modify-syntax-entry ?\" "\"" sql-mode-syntax-table)
   (modify-syntax-entry ?\` "\"" sql-mode-syntax-table)
@@ -20,6 +21,7 @@
   (setq indent-tabs-mode nil)
   (setq tab-width 4)
   (setq truncate-lines t)
+  (setq-local helm-dash-docsets '("PostgreSQL"))
   (turn-on-auto-fill))
 
 (add-hook 'sql-mode-hook 'ots-sql-mode-set-faces)
