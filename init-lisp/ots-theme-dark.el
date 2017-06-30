@@ -97,7 +97,7 @@
  `(tabbar-modified ((t (:background "#555753" :foreground "#e68a8a" :box nil))))
  `(tabbar-selected ((t (:background "#2e3436" :foreground "#d3d7cf" :box nil))))
  `(tabbar-selected-modified ((t (:background "#2e3436" :foreground "#d3d7cf" :box nil))))
- `(tabbar-separator ((t (:background "#555753"))))
+ `(tabbar-separator ((t (:inherit 'tabbar-selected))))
  `(tabbar-unselected ((t (:background "#555753" :foreground "#d3d7cf" :box nil))))
  `(wcheck-default-face ((t (:underline "#ff5555"))))
  `(woman-bold ((t (:foreground "#84a3c2"))))
