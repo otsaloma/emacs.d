@@ -25,6 +25,15 @@
   (insert command)
   (comint-send-input))
 
+(defun ots-util-copy-open-file-names ()
+  "Copy names of all open files to the kill ring."
+  (interactive)
+  (let ((buffers (delq nil (mapcar 'buffer-file-name (buffer-list)))))
+    (setq buffers (delq nil buffers))
+    (setq buffers (sort buffers 'string<))
+    (kill-new (mapconcat 'identity buffers "\n")))
+  (message "Copied!"))
+
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
   (let ((file-name (ots-util-buffer-file-name-quoted)))
