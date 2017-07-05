@@ -29,7 +29,6 @@
   "Copy names of all open files to the kill ring."
   (interactive)
   (let ((buffers (delq nil (mapcar 'buffer-file-name (buffer-list)))))
-    (setq buffers (delq nil buffers))
     (setq buffers (sort buffers 'string<))
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
