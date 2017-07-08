@@ -26,6 +26,7 @@
 (defun ots-octave-mode-set-properties ()
   "Set properties for editing Octave files."
   (eldoc-mode 1)
+  (modify-syntax-entry ?_ "w")
   (setq comment-add 0)
   (setq comment-start "%")
   (setq-local company-backends
