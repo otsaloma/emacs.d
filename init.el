@@ -48,6 +48,7 @@
   (require 'ots-fringe)
   (require 'ots-fullscreen)
   (require 'ots-git-gutter)
+  (require 'ots-gpg)
   (require 'ots-graphql-mode)
   (require 'ots-helm)
   (require 'ots-helm-dash)
