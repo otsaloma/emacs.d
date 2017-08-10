@@ -19,6 +19,14 @@
   (run-js inferior-js-program-command)
   (delete-other-windows))
 
+(defun ots-js-mode-set-docsets ()
+  "Load helm-dash docsets based on buffer contents."
+  (let ((docsets '("jQuery" "JavaScript"))
+        (text (buffer-substring (point-min) (point-max))))
+    (when (string-match-p "</" text)
+      (add-to-list 'docsets "HTML"))
+    (setq-local helm-dash-docsets docsets)))
+
 (defun ots-js-mode-set-faces ()
   "Set faces for editing JavaScript files."
   (font-lock-add-keywords
@@ -55,8 +63,7 @@
   (setq indent-tabs-mode nil)
   (setq tab-width 4)
   (setq truncate-lines t)
-  (turn-on-auto-fill)
-  (setq-local helm-dash-docsets '("jQuery" "JavaScript")))
+  (turn-on-auto-fill))
 
 (defun ots-js-mode-tern ()
   "Start tern-mode and its auto-complete."
@@ -70,6 +77,7 @@
      '((company-tern company-keywords company-dabbrev-code)
        (company-dabbrev)))))
 
+(add-hook 'js-mode-hook 'ots-js-mode-set-docsets t)
 (add-hook 'js-mode-hook 'ots-js-mode-set-faces)
 (add-hook 'js-mode-hook 'ots-js-mode-set-imenu)
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)

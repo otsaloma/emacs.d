@@ -3,6 +3,16 @@
 
 (require 'ots-theme)
 
+(defun ots-html-mode-set-docsets ()
+  "Load helm-dash docsets based on buffer contents."
+  (let ((docsets '("HTML"))
+        (text (buffer-substring (point-min) (point-max))))
+    (when (string-match-p "<style>" text)
+      (add-to-list 'docsets "CSS"))
+    (when (string-match-p "<script>" text)
+      (add-to-list 'docsets "JavaScript"))
+    (setq-local helm-dash-docsets docsets)))
+
 (defun ots-html-mode-set-faces ()
   "Set faces for editing HTML files."
   (font-lock-add-keywords
@@ -28,9 +38,9 @@
   (setq fill-column 100)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)
-  (setq truncate-lines t)
-  (setq-local helm-dash-docsets '("HTML")))
+  (setq truncate-lines t))
 
+(add-hook 'html-mode-hook 'ots-html-mode-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-mode-set-faces)
 (add-hook 'html-mode-hook 'ots-html-mode-set-imenu)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)
