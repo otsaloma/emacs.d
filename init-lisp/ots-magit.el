@@ -32,7 +32,7 @@
   (local-set-key (kbd "<S-iso-lefttab>") 'ots-util-previous-window)
   (local-set-key (kbd "<f8>") 'ots-magit-diff-external))
 
-(add-hook 'find-file-hook 'ots-magit-enable-maybe)
+;; (add-hook 'find-file-hook 'ots-magit-enable-maybe)
 (modify-coding-system-alist 'file "COMMIT_EDITMSG\\'" 'utf-8)
 (global-git-commit-mode)
 
