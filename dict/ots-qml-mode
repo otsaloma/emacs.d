@@ -58,6 +58,7 @@ BusyIndicator
 BusyIndicatorStyle
 Button
 ButtonGroup
+ButtonLayout
 ButtonStyle
 Calendar
 CalendarModel
@@ -257,6 +258,7 @@ LightReading
 LightSensor
 LineShape
 LinearGradient
+LinkedLabel
 ListElement
 ListItem
 ListModel
@@ -332,6 +334,7 @@ Particle
 ParticleGroup
 ParticlePainter
 ParticleSystem
+PasswordField
 Path
 PathAnimation
 PathArc
@@ -401,6 +404,7 @@ RectangleShape
 RectangularGlow
 RecursiveBlur
 RegExpValidator
+Remorse
 RemorseItem
 RemorsePopup
 RemoveAnimation
@@ -578,6 +582,7 @@ XmlListModel
 XmlRole
 YAnimator
 ZoomBlur
+_webviewCustomLayoutWidthScalingFactor
 acceleration
 accelerationMode
 accept
@@ -675,6 +680,7 @@ angleRange
 angleVariation
 animateRemoval
 animation
+animationDuration
 animations
 antennaConnected
 antialias
@@ -963,6 +969,7 @@ country
 countryCode
 county
 cover
+coverActionArea
 coverSizeLarge
 coverSizeSmall
 create
@@ -1035,6 +1042,7 @@ defaultAllowedOrientations
 defaultButton
 defaultCamera
 defaultCancelText
+defaultLinkActions
 defaultOrientationTransition
 defaultProfile
 defaultSensorForType
@@ -1099,6 +1107,7 @@ doubleTap
 down
 down.indicator
 down.pressed
+download
 downloadUrl
 drag
 drag.active
@@ -1276,13 +1285,20 @@ fontFamilies
 fontFamily
 fontFamilyHeading
 fontSizeExtraLarge
+fontSizeExtraLargeBase
 fontSizeExtraSmall
+fontSizeExtraSmallBase
 fontSizeHuge
+fontSizeHugeBase
 fontSizeLarge
+fontSizeLargeBase
 fontSizeMedium
+fontSizeMediumBase
 fontSizeMode
 fontSizeSmall
+fontSizeSmallBase
 fontSizeTiny
+fontSizeTinyBase
 footer
 footerItem
 footerPositioning
@@ -1453,6 +1469,7 @@ hint
 hintText
 historyType
 holstered
+home
 horizontal
 horizontalAccuracy
 horizontalAccuracyValid
@@ -1482,6 +1499,7 @@ hue
 hyperlinkAuditingEnabled
 icon
 iconBackground
+iconForMimeType
 iconName
 iconPath
 iconSizeExtraLarge
@@ -1594,6 +1612,7 @@ isTexture
 isUnresolved
 iso
 item
+itemAction
 itemAt
 itemCount
 itemDelegate
@@ -1923,6 +1942,7 @@ needleRotation
 negativeSign
 networkError
 newInstance
+newLine
 newParent
 newTexImage
 next
@@ -1974,6 +1994,7 @@ overlay
 overlay.accessibleDescription
 overlay.background
 overlay.iconSource
+overlayBackgroundColor
 overlinePosition
 overridable
 pace
@@ -1998,6 +2019,7 @@ particleStates
 parts
 password
 passwordCharacter
+passwordEchoMode
 passwordEdit
 passwordMaskDelay
 paste
@@ -2041,6 +2063,7 @@ placeId
 placeholderColor
 placeholderText
 placeholderTextColor
+plainText
 platform
 play
 playType
@@ -2066,6 +2089,7 @@ popExit
 popTransition
 populate
 popup
+popupAction
 port
 portableText
 position
@@ -2091,6 +2115,7 @@ prefetchData
 prefix
 preloaded
 premultipliedAlpha
+presenceColor
 preserveDrawingBuffer
 pressDelay
 pressed
@@ -2417,12 +2442,14 @@ sharpeningLevel
 shear
 shortcut
 shortcuts
+shortenUrl
 show
 showAlphaChannel
 showDecorator
 showDirs
 showDirsFirst
 showDotAndDotDot
+showEchoModeToggle
 showFiles
 showFullScreen
 showHidden
