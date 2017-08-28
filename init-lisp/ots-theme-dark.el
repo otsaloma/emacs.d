@@ -91,6 +91,7 @@
  `(markdown-code-face ((t (:background nil :foreground "#b294bb" :family nil))))
  `(markdown-inline-code-face ((t (:background "#393f3f" :foreground nil))))
  `(markdown-pre-face ((t (:background nil :foreground "#b294bb" :family nil))))
+ `(mmm-default-submode-face ((t (:background nil :foreground nil))))
  `(neo-dir-link-face ((t (:background nil :foreground "#d1d175"))))
  `(neo-file-link-face ((t (:background nil :foreground "#babdb6"))))
  `(popup-tip-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))

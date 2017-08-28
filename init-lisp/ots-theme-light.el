@@ -90,6 +90,7 @@
  `(linum ((t (:background "#cccccc" :foreground "#777777" :height 95))))
  `(markdown-inline-code-face ((t (:background "#eeeeee" :foreground nil))))
  `(markdown-pre-face ((t (:background nil :foreground "#ba7fba"))))
+ `(mmm-default-submode-face ((t (:background nil :foreground nil))))
  `(neo-dir-link-face ((t (:background nil :foreground "#1d77ff"))))
  `(neo-file-link-face ((t (:background nil :foreground "#2e3436"))))
  `(popup-tip-face ((t (:background "#f0f080" :foreground "#2e3436"))))
