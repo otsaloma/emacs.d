@@ -32,6 +32,7 @@
    rainbow-mode
    smooth-scrolling
    sqlup-mode
+   sudo-edit
    tabbar
    tern
    undo-tree
