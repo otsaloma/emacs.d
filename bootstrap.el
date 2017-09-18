@@ -23,6 +23,7 @@
    helm-projectile
    js-comint
    js2-mode
+   json-mode
    magit
    markdown-mode
    mmm-mode
