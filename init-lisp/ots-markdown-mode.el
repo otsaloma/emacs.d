@@ -67,14 +67,6 @@
 
 (defun ots-markdown-mode-set-faces ()
   "Set faces for editing markdown files."
-  (set-face-attribute 'markdown-bold-face nil :weight 'normal)
-  (let ((face 'font-lock-negation-char-face))
-    (set-face-attribute 'markdown-header-delimiter-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-delimiter-face nil :inherit face)
-    (set-face-attribute 'markdown-header-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-face nil :inherit face)
-    (set-face-attribute 'markdown-header-rule-face nil :weight 'normal)
-    (set-face-attribute 'markdown-header-rule-face nil :inherit face))
   (font-lock-add-keywords
    nil '(("</?\\([^ ][^!>\n]*\\)>" 1 font-lock-keyword-face))))
 
@@ -86,6 +78,7 @@
   (setq indent-tabs-mode nil)
   (setq markdown-command ots-markdown-mode-command)
   (setq markdown-command-needs-filename t)
+  (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-indent-function 'indent-relative-maybe)
   (setq markdown-indent-on-enter nil)
   (setq tab-width 4)

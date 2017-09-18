@@ -22,6 +22,7 @@
  `(hl-line ((t (:background "#333839"))))
  `(isearch ((t (:background "#ffcc00" :foreground "#2e3436"))))
  `(lazy-highlight ((t (:background "#babdb6" :foreground "#2e3436"))))
+ `(link ((t (:foreground "#8abeb7"))))
  `(minibuffer-prompt ((t (:foreground "#ffff00"))))
  `(mode-line ((t (:background "#555753" :foreground "#d3d7cf" :overline "#2e3436"))))
  `(mode-line-inactive ((t (:background "#555753" :foreground "#555753"))))
@@ -52,7 +53,7 @@
  ;; XXX: Abuse negation-char for titles (e.g. Markdown, LaTeX)
  ;; as creating a new face seems to fail (Emacs 24.4.1).
  `(font-lock-negation-char-face
-   ((t (:foreground "#d1d175" :height 145))))
+   ((t (:foreground "#d1d175" :family nil :weight bold))))
 
  ;; Add-on packages
  `(company-preview ((t (:foreground "#ff5555"))))
@@ -87,11 +88,10 @@
  `(helm-source-header ((t (:foreground "#d1d175"))))
  `(js2-error ((t (:background nil :foreground nil :underline "#ff5555"))))
  `(js2-warning ((t (:background nil :foreground nil :underline "#ff5555"))))
- `(linum ((t (:background "#393f3f" :foreground "#888a85" :height 95))))
- `(markdown-code-face ((t (:background nil :foreground "#b294bb" :family nil))))
- `(markdown-inline-code-face ((t (:background "#393f3f" :foreground nil))))
- `(markdown-pre-face ((t (:background nil :foreground "#b294bb" :family nil))))
- `(mmm-default-submode-face ((t (:background nil :foreground nil))))
+ `(linum ((t (:background "#393f3f" :foreground "#888a85" :height 1.0))))
+ `(markdown-code-face ((t (:background "#33393a" :foreground nil))))
+ `(markdown-header-face ((t (:foreground "#d1d175" :weight bold))))
+ `(mmm-default-submode-face ((t (:background "#33393a" :foreground nil))))
  `(neo-dir-link-face ((t (:background nil :foreground "#d1d175"))))
  `(neo-file-link-face ((t (:background nil :foreground "#babdb6"))))
  `(popup-tip-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))

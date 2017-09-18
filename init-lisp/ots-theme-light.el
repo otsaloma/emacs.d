@@ -22,6 +22,7 @@
  `(hl-line ((t (:background "#fcfcfc"))))
  `(isearch ((t (:background "#ffcc00" :foreground nil))))
  `(lazy-highlight ((t (:background "#cccccc" :foreground nil))))
+ `(link ((t (:foreground "#897fba"))))
  `(minibuffer-prompt ((t (:foreground "#1d77ff"))))
  `(mode-line ((t (:background "#cccccc" :foreground "#3465a4" :overline "#ffffff"))))
  `(mode-line-inactive ((t (:background "#cccccc" :foreground "#cccccc"))))
@@ -52,7 +53,7 @@
  ;; XXX: Abuse negation-char for titles (e.g. Markdown, LaTeX)
  ;; as creating a new face seems to fail (Emacs 24.4.1).
  `(font-lock-negation-char-face
-   ((t (:foreground "#1d77ff" :height 145))))
+   ((t (:foreground "#1d77ff" :family nil :weight bold))))
 
  ;; Add-on packages
  `(company-preview ((t (:foreground "#ff5555"))))
@@ -87,10 +88,10 @@
  `(helm-source-header ((t (:foreground "#1d77ff"))))
  `(js2-error ((t (:background nil :foreground nil :underline "#ff5555"))))
  `(js2-warning ((t (:background nil :foreground nil :underline "#ff5555"))))
- `(linum ((t (:background "#cccccc" :foreground "#777777" :height 95))))
- `(markdown-inline-code-face ((t (:background "#eeeeee" :foreground nil))))
- `(markdown-pre-face ((t (:background nil :foreground "#ba7fba"))))
- `(mmm-default-submode-face ((t (:background nil :foreground nil))))
+ `(linum ((t (:background "#cccccc" :foreground "#777777" :height 1.0))))
+ `(markdown-code-face ((t (:background "#f6f6f6" :foreground nil))))
+ `(markdown-header-face ((t (:foreground "#1d77ff" :weight bold))))
+ `(mmm-default-submode-face ((t (:background "#f6f6f6" :foreground nil))))
  `(neo-dir-link-face ((t (:background nil :foreground "#1d77ff"))))
  `(neo-file-link-face ((t (:background nil :foreground "#2e3436"))))
  `(popup-tip-face ((t (:background "#f0f080" :foreground "#2e3436"))))
