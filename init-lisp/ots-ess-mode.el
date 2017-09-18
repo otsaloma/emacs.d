@@ -94,12 +94,13 @@
 (defun ots-ess-mode-start ()
   "Start or associate a process for the buffer."
   (interactive)
-  (setq inferior-R-args "--no-save --no-restore-history --quiet")
-  (let ((new-process (not ess-process-name-list)))
-    (ess-force-buffer-current nil t nil nil)
-    (if new-process
-        (delete-other-windows)))
-  (ess-tracebug -1))
+  (when (buffer-file-name)
+    (setq inferior-R-args "--no-save --no-restore-history --quiet")
+    (let ((new-process (not ess-process-name-list)))
+      (ess-force-buffer-current nil t nil nil)
+      (if new-process
+          (delete-other-windows)))
+    (ess-tracebug -1)))
 
 (defun ots-ess-mode-source ()
   "Source the current buffer in R."
