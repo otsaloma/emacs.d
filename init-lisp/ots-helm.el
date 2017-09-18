@@ -2,6 +2,7 @@
 ;;; ots-helm.el
 
 (require 'helm-config)
+(require 'helm-for-files)
 
 (defun ots-helm-find-file ()
   "Find a file to open from common sources."
