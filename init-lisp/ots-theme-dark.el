@@ -95,6 +95,7 @@
  `(neo-dir-link-face ((t (:background nil :foreground "#d1d175"))))
  `(neo-file-link-face ((t (:background nil :foreground "#babdb6"))))
  `(popup-tip-face ((t (:background "#d3d7cf" :foreground "#2e3436"))))
+ `(sh-heredoc ((t (:foreground "#b294bb"))))
  `(tabbar-default ((t (:background "#555753" :foreground "#d3d7cf" :box nil))))
  `(tabbar-modified ((t (:background "#555753" :foreground "#e68a8a" :box nil))))
  `(tabbar-selected ((t (:background "#2e3436" :foreground "#d3d7cf" :box nil))))
