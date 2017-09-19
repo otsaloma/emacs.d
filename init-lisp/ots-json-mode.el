@@ -1,6 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-json-mode.el
 
+(require 'json-mode)
+
 (defun ots-json-mode-set-properties ()
   "Set properties for editing JSON files."
   (setq fill-column 1000)
