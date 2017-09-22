@@ -8,12 +8,11 @@
 
 (defun ots-hideshow-display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))
-    (let* ((display-string (format "(%d)..."
-                                   (count-lines (overlay-start ov)
-                                                (overlay-end ov))))
-           (n (length display-string)))
-      (put-text-property 0 n 'face 'hs-overlay-face display-string)
-      (overlay-put ov 'display display-string))))
+    (let ((label (format "(%d)..."
+                         (count-lines (overlay-start ov)
+                                      (overlay-end ov)))))
+      (put-text-property 0 (length label) 'face 'hs-overlay-face label)
+      (overlay-put ov 'display label))))
 
 (setq hs-set-up-overlay 'ots-hideshow-display-code-line-counts)
 

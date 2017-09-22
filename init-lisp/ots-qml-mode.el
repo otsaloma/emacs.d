@@ -1,13 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-qml-mode.el
 
-(require 'company-dict)
-(require 'ots-js-mode)
-
-(autoload 'ots-qml-mode "qml" "Edit QML files." t)
-(let ((modes '(("\\.qml$" . ots-qml-mode))))
-  (setq auto-mode-alist (append modes auto-mode-alist)))
-
 (define-derived-mode ots-qml-mode js-mode "QML"
   "Mode for editing QML files."
   (setq major-mode 'ots-qml-mode mode-name "QML")
@@ -39,31 +32,20 @@
          ("\\<var +\\([a-zA-Z0-9_.]+\\)\\>"
           1 font-lock-variable-name-face))))
 
-(defun ots-qml-mode-set-imenu ()
-  "Set imenu index patterns for QML files."
-  (setq imenu-generic-expression
-        '((nil "^ +\\([^: ]+\\): +{" 1)
-          (nil "^ +function +\\([^( ]+\\)(" 1)))
-  (setq imenu-create-index-function
-        'imenu-default-create-index-function))
-
 (defun ots-qml-mode-set-properties ()
   "Set properties for editing QML files."
-  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
-  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
+  (require 'company-dict)
+  (ots-util-add-imenu-expressions
+   '((nil "^ +\\([^: ]+\\): +{" 1)
+     (nil "^ +function +\\([^( ]+\\)(" 1)))
   (setq-local company-backends
    '((company-dict company-dabbrev)))
-  (setq fill-column 100)
-  (setq indent-tabs-mode nil)
-  (setq tab-width 4)
-  (setq truncate-lines t)
-  (setq-local helm-dash-docsets '("JavaScript" "Silica" "QML"))
-  (turn-on-auto-fill)
-  (hs-minor-mode 1))
+  (setq-local helm-dash-docsets '("JavaScript" "Silica" "QML")))
 
+(autoload 'ots-qml-mode "qml" "QML" t)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-faces)
-(add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-imenu)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-properties)
+(add-to-list 'auto-mode-alist '("\\.qml\\'" . ots-qml-mode))
 (modify-coding-system-alist 'file "\\.qml\\'" 'utf-8)
 
 (provide 'ots-qml-mode)

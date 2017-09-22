@@ -24,8 +24,7 @@
   (visual-line-mode 1)
   (define-key po-subedit-mode-map (kbd "C-s") 'po-subedit-exit)
   (define-key po-subedit-mode-map (kbd "C-g") 'po-subedit-abort)
-  (set (make-local-variable 'po-subedit-message)
-       "Type 'C-s' once done, or 'C-g' to abort edit"))
+  (setq-local po-subedit-message "Type 'C-s' once done, or 'C-g' to abort edit"))
 
 (defadvice po-edit-string (around setup-spell-checking (string type expand-tabs) activate)
   "Set up spell-checking for the subedit buffer."

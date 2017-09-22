@@ -2,7 +2,6 @@
 ;;; ots-linum.el
 
 (require 'linum)
-(require 'ots-normal)
 
 (defvar ots-linum-width 3)
 (make-variable-buffer-local 'ots-linum-width)
@@ -11,9 +10,11 @@
   "Turn linum-mode on if in a normal buffer."
   ;; linum is unbearably slow in large buffers.
   (when (< (count-lines (point-min) (point-max)) 10000)
-    (dolist (mode ots-normal-modes)
-      (when (derived-mode-p mode)
-        (linum-mode 1)))))
+    (catch 'found
+      (dolist (mode ots-normal-modes)
+        (when (derived-mode-p mode)
+          (linum-mode 1)
+          (throw 'found t))))))
 
 (defun ots-linum-format (line)
   "Return line number string to show in line number area."

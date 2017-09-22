@@ -3,7 +3,6 @@
 
 (defun ots-json-mode-set-properties ()
   "Set properties for editing JSON files."
-  (setq fill-column 1000)
   (turn-off-auto-fill))
 
 (add-hook 'json-mode-hook 'ots-json-mode-set-properties)

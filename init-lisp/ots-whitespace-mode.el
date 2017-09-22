@@ -1,13 +1,13 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-whitespace-mode.el
 
-(require 'ots-normal)
-
 (defun ots-whitespace-mode-enable ()
   "Turn whitespace-mode on if in a normal buffer."
-  (dolist (mode ots-normal-modes)
-    (when (derived-mode-p mode)
-      (whitespace-mode 1))))
+  (catch 'found
+    (dolist (mode ots-normal-modes)
+      (when (derived-mode-p mode)
+        (whitespace-mode 1)
+        (throw 'found t)))))
 
 (setq whitespace-style
       (quote (face tabs indentation space-after-tab

@@ -1,22 +1,16 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-inferior-ess-mode.el
 
-(defun ess-smart-S-assign ()
-  "Always insert a fucking underscore, regardless of whether
-  ess-toggle-underscore happens to be working or not."
-  (interactive)
-  (insert "_"))
-
 (defun ots-inferior-ess-mode-set-properties ()
   "Set properties for interactive R sessions."
   (local-set-key (kbd "C-b") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
-  (setq ess-R-argument-suffix "=")
-  (setq ess-use-company t)
-  (setq inferior-ess-r-help-command
-   ".ess.help('%s', help.type='html')\n")
+  (setq-local ess-R-argument-suffix "=")
+  (setq-local ess-use-company t)
+  (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
   (when (eq system-type 'windows-nt)
-    (setq process-coding-system-alist '(("R.*" . windows-1252)))))
+    (setq-local process-coding-system-alist
+                '(("R.*" . windows-1252)))))
 
 (defun ots-inferior-ess-mode-smart-home (&optional count)
   "Go to the beginning of the line or right after the prompt."

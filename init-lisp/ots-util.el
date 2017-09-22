@@ -1,6 +1,26 @@
 ;;; -*- coding: utf-8-unix -*-
 ;;; ots-util.el
 
+(defun ots-util-add-docset (regexp docset &optional limit)
+  "Add helm-dash docset if regexp found in buffer text."
+  (if (not (local-variable-p 'helm-dash-docsets))
+      (setq-local helm-dash-docsets '()))
+  (setq limit (min (point-max) (or limit (point-max))))
+  (let ((text (buffer-substring (point-min) limit)))
+    (when (string-match-p regexp text)
+      (add-to-list 'helm-dash-docsets docset t))))
+
+(defun ots-util-add-imenu-expressions (expressions)
+  "Set imenu index patterns for the current buffer."
+  (setq-local imenu-generic-expression expressions)
+  (setq-local imenu-create-index-function 'imenu-default-create-index-function))
+
+(defun ots-util-bind-key-compile (key command)
+  "Bind key locally to a compile command."
+  (local-set-key key `(lambda ()
+   (interactive)
+   (compile (ots-util-expand-command ',command)))))
+
 (defun ots-util-buffer-contains (string)
   "Return t if buffer contains string, else nil."
   (save-excursion
@@ -36,7 +56,12 @@
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
   (let ((file-name (ots-util-buffer-file-name-quoted)))
-    (dotimes (i (string-match "%s" command))
+    (dotimes (i (or (string-match "%s" command) 0))
+      (setq command (format command file-name))))
+  ;; Allow using %t in command for the corresponding unit test file.
+  (setq command (replace-regexp-in-string "%t" "%s" command))
+  (let ((file-name (ots-util-unit-test-argument)))
+    (dotimes (i (or (string-match "%s" command) 0))
       (setq command (format command file-name))))
   command)
 
@@ -44,6 +69,13 @@
   "Open the unit test file testing the current buffer."
   (interactive)
   (find-file (ots-util-unit-test-file)))
+
+(defun ots-util-in-git-repo (path)
+  "Return true if path is in a git repository"
+  (if (member path '("/" nil)) nil
+    (if (file-exists-p (concat path "/.git/")) t
+      (ots-util-in-git-repo
+       (ots-util-parent-directory path)))))
 
 (defun ots-util-insert-en-dash ()
   "Insert one en dash at point."

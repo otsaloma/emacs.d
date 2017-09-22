@@ -1,17 +1,10 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
-(require 'ots-comint-mode)
-(require 'ots-python-completion)
-(require 'ots-util)
-
-(setenv "PYTHONPATH" ".")
-
-(add-to-list 'interpreter-mode-alist '("python2" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python3" . python-mode))
-
 (defun ots-python-mode-anaconda ()
   "Start anaconda-mode and it's completion via company-mode."
+  (require 'company-dict)
+  (require 'ots-python-completion)
   (when (eq system-type 'windows-nt)
     (setq python-shell-interpreter "C:/Python33/python.exe"))
   (anaconda-mode)
@@ -20,28 +13,6 @@
    '((company-anaconda :with company-anaconda-dabbrev company-anaconda-dict)
      (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
-
-(defun ots-python-mode-nosetests-run ()
-  "Run interactive unit tests with nosetests for the current buffer."
-  (interactive)
-  (let ((file-name (ots-util-unit-test-argument)))
-    (compile (format "nosetests-run -xs %s" file-name))))
-
-(defun ots-python-mode-py-test ()
-  "Run unit tests with py.test for the current buffer."
-  (interactive)
-  (let ((file-name (ots-util-unit-test-argument)))
-    (compile (format "py.test -xs %s" file-name))))
-
-(defun ots-python-mode-pyflakes ()
-  "Check the current buffer with pyflakes."
-  (interactive)
-  (compile (ots-util-expand-command "pyflakes %s")))
-
-(defun ots-python-mode-run ()
-  "Run the current buffer with Python."
-  (interactive)
-  (compile (ots-util-expand-command "python3 -u %s")))
 
 (defun ots-python-mode-run-in-shell ()
   "Run the current file in the Python shell."
@@ -53,8 +24,8 @@
         (file-name (file-relative-name (buffer-file-name))))
     (python-shell-switch-to-shell)
     (goto-char (point-max))
-    (ots-util-comint-send "os.chdir('%s')" directory)
-    (ots-util-comint-send "run('%s')" file-name)))
+    (ots-util-comint-send "os.chdir(\"%s\")" directory)
+    (ots-util-comint-send "run(\"%s\")" file-name)))
 
 (defun ots-python-mode-send-region ()
   "Run the current line or region in the Python shell."
@@ -80,21 +51,18 @@
     (cd "..")))
 
 (defun ots-python-mode-set-docsets ()
-  "Load helm-dash docsets based on buffer imports."
-  (let ((docsets '("Python"))
-        (text (buffer-substring (point-min) (min (point-max) 8000))))
-    (when (string-match-p "gi.repository" text)
-      (dolist (docset '("GDK" "Gio" "GLib" "GObject" "GTK+" "Pango"))
-        (add-to-list 'docsets docset)))
-    (when (string-match-p "import numpy" text)
-      (add-to-list 'docsets "NumPy"))
-    (when (string-match-p "import pandas" text)
-      (add-to-list 'docsets "Pandas"))
-    (when (string-match-p "import requests" text)
-      (add-to-list 'docsets "Requests"))
-    (when (string-match-p "import flask" text)
-      (add-to-list 'docsets "Flask"))
-    (setq-local helm-dash-docsets docsets)))
+  "Load helm-dash docsets based on buffer contents."
+  (setq-local helm-dash-docsets '("Python"))
+  (ots-util-add-docset "gi.repository"  "GDK")
+  (ots-util-add-docset "gi.repository"  "Gio")
+  (ots-util-add-docset "gi.repository"  "GLib")
+  (ots-util-add-docset "gi.repository"  "GObject")
+  (ots-util-add-docset "gi.repository"  "GTK+")
+  (ots-util-add-docset "gi.repository"  "Pango")
+  (ots-util-add-docset "\\<flask\\>"    "Flask")
+  (ots-util-add-docset "\\<numpy\\>"    "NumPy")
+  (ots-util-add-docset "\\<pandas\\>"   "Pandas")
+  (ots-util-add-docset "\\<requests\\>" "Requests"))
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
@@ -106,27 +74,20 @@
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
-  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
-  (local-set-key (kbd "<f6>") 'ots-python-mode-run)
+  (ots-util-bind-key-compile (kbd "<f6>") "python3 -u %s")
   (local-set-key (kbd "<S-f6>") 'ots-python-mode-start)
   (local-set-key (kbd "<f8>") 'ots-python-mode-run-in-shell)
   (local-set-key (kbd "<S-f8>") 'ots-python-mode-send-region)
-  (local-set-key (kbd "<f9>") 'ots-python-mode-pyflakes)
-  (local-set-key (kbd "<S-f9>") 'ots-python-mode-py-test)
-  (local-set-key (kbd "<C-S-f9>") 'ots-python-mode-nosetests-run))
+  (ots-util-bind-key-compile (kbd "<f9>") "pyflakes %s")
+  (ots-util-bind-key-compile (kbd "<S-f9>") "py.test -xs %t")
+  (ots-util-bind-key-compile (kbd "<C-S-f9>") "nosetests-run -xs %t"))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
-  (hs-minor-mode 1)
-  (modify-syntax-entry ?_ "w")
-  (setq fill-column 79)
-  (setq indent-tabs-mode nil)
-  (setq python-shell-completion-native nil)
-  (setq python-shell-completion-native-disabled-interpreters '("python3"))
-  (setq python-shell-interpreter "python3")
-  (setq tab-width 4)
-  (setq truncate-lines t)
-  (turn-on-auto-fill))
+  (setq-local fill-column 79)
+  (setq-local python-shell-completion-native nil)
+  (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
+  (setq-local python-shell-interpreter "python3"))
 
 (defun ots-python-mode-start ()
   "Start a global, interactive Python shell."
@@ -141,7 +102,10 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
+(add-to-list 'interpreter-mode-alist '("python2" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python3" . python-mode))
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
+(setenv "PYTHONPATH" ".")
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here

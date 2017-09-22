@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-yaml-mode.el
 
-(autoload 'ots-yaml-mode "yaml" "Edit YAML files." t)
-(let ((modes '(("\\.yml$" . ots-yaml-mode))))
-  (setq auto-mode-alist (append modes auto-mode-alist)))
-
 (define-derived-mode ots-yaml-mode prog-mode "YAML"
   "Mode for editing YAML files."
   (setq major-mode 'ots-yaml-mode mode-name "YAML")
@@ -18,15 +14,13 @@
 
 (defun ots-yaml-mode-set-properties ()
   "Set properties for editing YAML files."
-  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
-  (setq fill-column 72)
-  (setq indent-tabs-mode nil)
-  (setq tab-width 2)
-  (setq truncate-lines t)
-  (turn-on-auto-fill))
+  (setq-local fill-column 72)
+  (setq-local tab-width 2))
 
+(autoload 'ots-yaml-mode "yaml" "YAML" t)
 (add-hook 'ots-yaml-mode-hook 'ots-yaml-mode-set-faces)
 (add-hook 'ots-yaml-mode-hook 'ots-yaml-mode-set-properties)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . ots-yaml-mode))
 (modify-coding-system-alist 'file "\\.yaml\\'" 'utf-8)
 
 (provide 'ots-yaml-mode)

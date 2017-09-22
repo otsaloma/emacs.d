@@ -9,6 +9,7 @@
 
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (setq yas-trigger-symbol "+")
+
 (yas-global-mode 1)
 
 ;; Allow snippets in comments too (e.g. coding magic line).

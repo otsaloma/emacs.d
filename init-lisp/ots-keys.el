@@ -1,9 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-keys.el
 
-(require 'ots-normal)
-(require 'ots-util)
-
 (defun ots-keys-set-basic ()
   "Set basic global keybindings."
   (global-set-key (kbd "C-0") 'delete-window)
@@ -76,6 +73,17 @@
   (define-key isearch-mode-map (kbd "<return>") 'isearch-exit)
   (define-key isearch-mode-map (kbd "<kp-enter>") 'isearch-exit))
 
+(defun ots-keys-set-normal ()
+  "Set keybindings for editing normal text files."
+  (catch 'found
+    (dolist (mode ots-normal-modes)
+      (when (derived-mode-p mode)
+        (local-set-key (kbd "C-d") 'ots-util-smart-kill-line)
+        (local-set-key (kbd "C-S-d") 'ots-util-smart-kill-word)
+        (local-set-key (kbd "<return>") 'newline-and-indent)
+        (local-set-key (kbd "<kp-enter>") 'newline-and-indent)
+        (throw 'found t)))))
+
 (defun ots-keys-set-punct ()
   "Set keybindings for punctuation navigation keys."
   (if (derived-mode-p 'prog-mode)
@@ -96,21 +104,12 @@
   (local-set-key (kbd "C-.") 'forward-sentence)
   (local-set-key (kbd "C-:") 'ots-util-mark-to-end-of-sentence))
 
-(defun ots-keys-set-text ()
-  "Set keybindings for editing text."
-  (dolist (mode ots-normal-modes)
-    (when (derived-mode-p mode)
-      (local-set-key (kbd "C-d") 'ots-util-smart-kill-line)
-      (local-set-key (kbd "C-S-d") 'ots-util-smart-kill-word)
-      (local-set-key (kbd "<return>") 'newline-and-indent)
-      (local-set-key (kbd "<kp-enter>") 'newline-and-indent))))
-
 (cua-mode t)
 (setq cua-keep-region-after-copy t)
 (ots-keys-set-basic)
 (ots-keys-set-isearch)
 (add-hook 'after-change-major-mode-hook 'ots-keys-set-punct)
-(add-hook 'after-change-major-mode-hook 'ots-keys-set-text)
+(add-hook 'after-change-major-mode-hook 'ots-keys-set-normal)
 
 (provide 'ots-keys)
 ;;; ots-keys.el ends here

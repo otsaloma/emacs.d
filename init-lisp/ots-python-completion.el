@@ -2,10 +2,6 @@
 ;;; ots-python-completion.el
 
 (require 'cl-lib)
-(require 'company)
-(require 'company-anaconda)
-(require 'company-dabbrev)
-(require 'company-dict)
 
 ;; If company-anaconda is the first completion backend to try, company is not
 ;; able to fall back to other backends, e.g. dabbrev, in places where anaconda

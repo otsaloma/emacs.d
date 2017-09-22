@@ -22,14 +22,12 @@
    helm-dash
    helm-projectile
    js-comint
-   js2-mode
    json-mode
    magit
    markdown-mode
    mmm-mode
    neotree
    pcre2el
-   php-mode
    rainbow-mode
    smooth-scrolling
    sqlup-mode
@@ -40,4 +38,3 @@
    wcheck-mode
    yasnippet
    ))
-(message "%s" "All done!")

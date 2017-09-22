@@ -1,5 +1,5 @@
 #!/bin/sh
-# XXX: Using Gnome HiDPI settings confuses emacs window geometry.
+# Using Gnome HiDPI settings confuses emacs window geometry.
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=790098#10
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark

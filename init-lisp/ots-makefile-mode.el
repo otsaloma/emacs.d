@@ -3,10 +3,9 @@
 
 (defun ots-makefile-mode-set-properties ()
   "Set properties for editing Makefiles."
-  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
-  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
-  (setq truncate-lines t)
-  (setq-local helm-dash-docsets '("Make")))
+  (setq-local helm-dash-docsets '("Make"))
+  (setq-local indent-tabs-mode t)
+  (setq-local tab-width 8))
 
 (add-hook 'makefile-mode-hook 'ots-makefile-mode-set-properties)
 (modify-coding-system-alist 'file "Makefile\\'" 'utf-8)

@@ -4,7 +4,7 @@
 (defvar ots-trailing-space-no-modes '(diff-mode)
   "Modes in which to not delete trailing whitespace.")
 
-(defvar ots-trailing-space-no-names '("\\.diff$" "\\.patch$")
+(defvar ots-trailing-space-no-names '("\\.diff\\'" "\\.patch\\'")
   "Filename patterns for which to not delete trailing whitespace.")
 
 (defun ots-trailing-space-delete ()

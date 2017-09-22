@@ -1,17 +1,13 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-shell-mode.el
 
-(defun ots-shell-mode-set-faces ()
-  "Set fonts and colors for interactive shell sessions."
-  (set (make-local-variable 'font-lock-comment-face) nil)
-  (set (make-local-variable 'font-lock-string-face) nil))
-
 (defun ots-shell-mode-set-properties ()
   "Set properties for interactive shell sessions."
   (dirtrack-mode 1)
-  (set (make-local-variable 'line-spacing) 0))
+  (setq-local font-lock-comment-face nil)
+  (setq-local font-lock-string-face nil)
+  (setq-local line-spacing 0))
 
-(add-hook 'shell-mode-hook 'ots-shell-mode-set-faces)
 (add-hook 'shell-mode-hook 'ots-shell-mode-set-properties)
 
 (if (eq system-type 'windows-nt)

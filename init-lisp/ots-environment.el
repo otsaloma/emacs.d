@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-environment.el
 
-(require 'ots-util)
-
 ;; Allow Emacs to be started with certain oddities,
 ;; but don't propagate them to subprocesses.
 (setenv "GDK_SCALE" nil)

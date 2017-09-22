@@ -1,11 +1,9 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-rainbow-mode.el
 
-(require 'rainbow-mode)
-
 (defvar ots-rainbow-mode-modes
   '(conf-mode css-mode emacs-lisp-mode ess-mode inferior-ess-mode
-    latex-mode python-mode qml-mode)
+    json-mode latex-mode python-mode)
   "Modes in which to color hexadecimal color codes.")
 
 (defun ots-rainbow-mode-enable ()

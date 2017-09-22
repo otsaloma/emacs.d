@@ -9,11 +9,7 @@
 
 (defun ots-tabbar-buffer-list ()
   "Return list of buffers to show in tabs in no particular order."
-  (let ((result ()))
-    (dolist (buffer (buffer-list))
-      (if (ots-tabbar-buffer-list-p buffer)
-          (push buffer result)))
-    result))
+  (seq-filter 'ots-tabbar-buffer-list-p (buffer-list)))
 
 (defun ots-tabbar-buffer-list-p (buffer)
   "Return true if buffer should be shown in the list of buffers."
@@ -47,6 +43,7 @@
 
 (defun ots-tabbar-label-sort-key (tab)
   "Return a sort key for the label of tab."
+  ;; Sort unit test files to the right of the main file.
   (let ((label (tabbar-buffer-tab-label tab)))
     (if (string-match "^test_" label)
         (concat (substring label 5) ".test")

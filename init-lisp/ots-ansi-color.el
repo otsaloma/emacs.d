@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-ansi-color.el
 
-(require 'ots-theme)
-
 (defvar ots-ansi-color-values
   ["#2e3436"
    "#cc6666"

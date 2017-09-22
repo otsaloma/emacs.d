@@ -1,22 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-ess-mode.el
 
-(autoload 'R-mode "ess-site.el" "ESS" t)
-(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
-
-(setq
- ;; This gets fed to imenu-generic-expression.
- ;; The default in ESS insists on arrows.
- ess-imenu-S-generic-expression
- '((nil "^\\([a-zA-Z0-9._]+\\) = function(" 1)
-   (nil "^\\([a-zA-Z0-9._]+\\) <- function(" 1)))
-
-(defun ess-smart-S-assign ()
-  "Always insert a fucking underscore, regardless of whether
-  ess-toggle-underscore happens to be working or not."
-  (interactive)
-  (insert "_"))
-
 (defun ots-ess-mode-eval-region ()
   "Send the current region to R."
   (interactive)
@@ -28,6 +12,11 @@
 
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
+  ;; Enable some font-lock stuff that's off by default.
+  ;; Full list is in ess-R-font-lock-keywords.
+  (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
+  (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:%op%)
+  (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
   (font-lock-add-keywords
    nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|library\\|messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
           1 font-lock-keyword-face)
@@ -42,10 +31,10 @@
 
 (defun ots-ess-mode-set-indentation ()
   "Set indentation properties for editing R files."
-  (setq ess-default-style 'DEFAULT)
-  (setq ess-indent-offset 4)
-  (setq ess-indent-with-fancy-comments nil)
-  (setq ess-offset-arguments-newline 'prev-line))
+  (setq-local ess-default-style 'DEFAULT)
+  (setq-local ess-indent-offset 4)
+  (setq-local ess-indent-with-fancy-comments nil)
+  (setq-local ess-offset-arguments-newline 'prev-line))
 
 (defun ots-ess-mode-set-keys ()
   "Set keybindings for editing R files."
@@ -61,28 +50,21 @@
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
-  (hs-minor-mode 1)
-  (modify-syntax-entry ?_ "w")
+  (ess-toggle-underscore nil)
   (modify-syntax-entry ?. "w")
-  (setq comment-add 0)
-  (setq ess-ask-for-ess-directory nil)
+  (setq-local comment-add 0)
   (setq-local company-backends
    '((company-R-objects company-R-args company-keywords company-dabbrev)
      (company-dabbrev)))
-  (setq ess-gen-proc-buffer-name-function
+  (setq-local ess-ask-for-ess-directory nil)
+  (setq-local ess-gen-proc-buffer-name-function
    'ess-gen-proc-buffer-name:simple)
-  (setq ess-history-directory "~")
-  (setq ess-R-argument-suffix "=")
-  (setq ess-roxy-str "#'")
-  (setq ess-use-company t)
-  (setq ess-use-eldoc t)
-  (setq fill-column 80)
-  (setq indent-tabs-mode nil)
-  (setq inferior-ess-r-help-command
-   ".ess.help('%s', help.type='html')\n")
-  (setq tab-width 4)
-  (setq truncate-lines t)
-  (turn-on-auto-fill))
+  (setq-local ess-history-directory "~")
+  (setq-local ess-R-argument-suffix "=")
+  (setq-local ess-roxy-str "#'")
+  (setq-local ess-use-company t)
+  (setq-local inferior-ess-r-help-command
+   ".ess.help(\"%s\", help.type=\"html\")\n"))
 
 (defun ots-ess-mode-setwd ()
   "setwd to the directory of the current buffer in R."
@@ -98,8 +80,7 @@
     (setq inferior-R-args "--no-save --no-restore-history --quiet")
     (let ((new-process (not ess-process-name-list)))
       (ess-force-buffer-current nil t nil nil)
-      (if new-process
-          (delete-other-windows)))
+      (if new-process (delete-other-windows)))
     (ess-tracebug -1)))
 
 (defun ots-ess-mode-source ()
@@ -113,7 +94,10 @@
          (file-name-nondirectory
           (buffer-file-name))))
     (ess-switch-to-end-of-ESS)
-    (ots-util-comint-send "source('%s')" file-name)))
+    (ots-util-comint-send "source(\"%s\")" file-name)))
+
+(autoload 'R-mode "ess-site.el" "ESS" t)
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
@@ -121,19 +105,12 @@
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-start t)
 
-(setq ess-R-font-lock-keywords
- '((ess-R-fl-keyword:modifiers . t)
-   (ess-R-fl-keyword:fun-defs . t)
-   (ess-R-fl-keyword:keywords . t)
-   (ess-R-fl-keyword:assign-ops . t)
-   (ess-R-fl-keyword:constants . t)
-   (ess-fl-keyword:fun-calls)
-   (ess-fl-keyword:numbers . t)
-   (ess-fl-keyword:operators)
-   (ess-fl-keyword:delimiters)
-   (ess-fl-keyword:=)
-   (ess-R-fl-keyword:F&T . t)
-   (ess-R-fl-keyword:%op% . t)))
+(setq
+ ;; This gets fed to imenu-generic-expression.
+ ;; The default in ESS insists on arrows.
+ ess-imenu-S-generic-expression
+ '((nil "^\\([a-zA-Z0-9._]+\\) = function(" 1)
+   (nil "^\\([a-zA-Z0-9._]+\\) <- function(" 1)))
 
 (provide 'ots-ess-mode)
 ;;; ots-ess-mode.el ends here

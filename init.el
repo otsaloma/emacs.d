@@ -25,6 +25,11 @@
 ;; Do less filename checks when loading requires.
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
 (let ((file-name-handler-alist nil))
+  ;; Load in the correct order.
+  (require 'ots-normal)
+  (require 'ots-theme)
+  (require 'ots-util)
+  ;; Load in the correct order.
   (require 'ots-ansi-color)
   (require 'ots-backup)
   (require 'ots-bat-mode)
@@ -32,7 +37,6 @@
   (require 'ots-browse-url)
   (require 'ots-c-mode)
   (require 'ots-c++-mode)
-  (require 'ots-change-log-mode)
   (require 'ots-csv-mode)
   (require 'ots-comint-mode)
   (require 'ots-company)
@@ -71,9 +75,8 @@
   (require 'ots-neotree)
   (require 'ots-octave-mode)
   (require 'ots-pcre)
-  (require 'ots-perl-mode)
-  (require 'ots-php-mode)
   (require 'ots-po-mode)
+  (require 'ots-prog-mode)
   (require 'ots-projectile)
   (require 'ots-python-mode)
   (require 'ots-qml-mode)
@@ -85,7 +88,6 @@
   (require 'ots-sql-mode)
   (require 'ots-tabbar)
   (require 'ots-text-mode)
-  (require 'ots-theme)
   (require 'ots-trailing-space)
   (require 'ots-undo-tree)
   (require 'ots-uniquify)

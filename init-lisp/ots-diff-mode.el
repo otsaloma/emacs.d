@@ -3,7 +3,7 @@
 
 (defun ots-diff-mode-set-properties ()
   "Set properties for editing diff files."
-  (setq truncate-lines t))
+  (setq-local truncate-lines t))
 
 (add-hook 'diff-mode-hook 'ots-diff-mode-set-properties)
 

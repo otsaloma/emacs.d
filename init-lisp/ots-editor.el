@@ -41,15 +41,5 @@
 ;; Prevent a window split when opening multiple files at once.
 (add-hook 'emacs-startup-hook 'delete-other-windows t)
 
-;; Deactivate selection when switching buffers.
-;; XXX: This is fucking suboptimal...
-(require 'ots-tabbar)
-(advice-add 'switch-to-buffer :before #'deactivate-mark)
-(advice-add 'tabbar-forward-tab :before #'deactivate-mark)
-(advice-add 'tabbar-backward-tab :before #'deactivate-mark)
-
-;; XXX: Work around sometimes broken fontification.
-(add-hook 'change-major-mode-hook 'font-lock-fontify-buffer t)
-
 (provide 'ots-editor)
 ;;; ots-editor.el ends here

@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8-unix -*-
 ;;; ots-wcheck-mode.el
 
-(autoload 'wcheck-actions "wcheck-mode" "Open actions menu." t)
-(autoload 'wcheck-change-language "wcheck-mode" "Switch language." t)
-(autoload 'wcheck-mode "wcheck-mode" "Toggle wcheck-mode." t)
-
 (defvar enchant-program
   (if (eq system-type 'windows-nt)
       "c:\\cygwin\\bin\\enchant.exe"
@@ -18,7 +14,7 @@
          (file (format "~/.config/enchant/%s.dic" lang)))
     (when (and file (file-writable-p file))
       (write-region (concat "\n" word) nil file 'append)
-      (message "Added word \"%s\" to the %s.dic" word lang))))
+      (message "Added word \"%s\" to %s.dic" word lang))))
 
 (defun enchant-suggestions-menu (marked-text)
   "Add to suggestions menu an action to add word to user's dictionary."
@@ -35,7 +31,11 @@
     (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
     out))
 
-(setq wcheck-language "fi")
+(autoload 'wcheck-actions "wcheck-mode" "Open actions menu." t)
+(autoload 'wcheck-change-language "wcheck-mode" "Switch language." t)
+(autoload 'wcheck-mode "wcheck-mode" "Toggle wcheck-mode." t)
+
+(setq wcheck-language "en")
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
 (setq wcheck-language-data-defaults

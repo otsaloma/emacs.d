@@ -1,7 +1,6 @@
 ;;; -*- coding: utf-8 -*-
-;;; ots-theme.el
+;;; ots-theme-dark.el
 
-(require 'ots-util)
 (deftheme ots-dark)
 
 (custom-theme-set-faces
@@ -86,8 +85,6 @@
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
- `(js2-error ((t (:background nil :foreground nil :underline "#ff5555"))))
- `(js2-warning ((t (:background nil :foreground nil :underline "#ff5555"))))
  `(linum ((t (:background "#393f3f" :foreground "#888a85" :height 1.0))))
  `(markdown-code-face ((t (:background "#33393a" :foreground nil))))
  `(markdown-header-face ((t (:foreground "#d1d175" :weight bold))))

@@ -8,12 +8,11 @@
 
 (defun ots-server-delete-file ()
    "Delete ots-server-file."
-   (condition-case nil
-       (delete-file ots-server-file)
-     (error nil)))
+   (ignore-errors
+     (delete-file ots-server-file)))
 
 (if (eq system-type 'windows-nt)
-     (add-hook 'kill-emacs-hook 'ots-server-delete-file))
+    (add-hook 'kill-emacs-hook 'ots-server-delete-file))
 
 (provide 'ots-server)
 ;;; ots-server.el ends here

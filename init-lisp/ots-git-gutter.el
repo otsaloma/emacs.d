@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-git-gutter.el
 
-(require 'ots-util)
-
 (defun ots-git-gutter-enable ()
   "Enable git-gutter."
   (require 'git-gutter-fringe+)
@@ -11,11 +9,8 @@
 
 (defun ots-git-gutter-enable-maybe ()
   "Enable git-gutter if in a git repository."
-  (let ((parent (file-name-directory (buffer-file-name))))
-    (dotimes (i 10)
-      (if (file-exists-p (concat parent "/.git/"))
-          (ots-git-gutter-enable))
-      (setq parent (ots-util-parent-directory parent)))))
+  (if (ots-util-in-git-repo (buffer-file-name))
+      (ots-git-gutter-enable)))
 
 (add-hook 'find-file-hook 'ots-git-gutter-enable-maybe)
 

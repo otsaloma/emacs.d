@@ -1,9 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-latex-mode.el
 
-(require 'ots-util)
-(require 'ots-wcheck-mode)
-
 (defvar ots-latex-mode-compile-command
   (if (eq system-type 'windows-nt) "make pdf %s" "ostex pdf %s")
   "Command to compile LaTeX document.")
@@ -12,8 +9,9 @@
   "Set fonts and colors for section titles."
   (let ((face (format "font-latex-sectioning-%d-face" level)))
     (setq face (car (read-from-string face)))
-    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)
-    (ots-util-set-face face nil nil)))
+    (set-face-attribute face nil :background nil)
+    (set-face-attribute face nil :foreground nil)
+    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)))
 
 (defun ots-latex-mode-set-faces ()
   "Set fonts and colors for editing LaTeX files."
@@ -25,8 +23,9 @@
   "Set fonts and colors for section titles."
   (dotimes (i 6) (ots-latex-mode-set-face-sectioning i))
   (let ((face 'font-latex-slide-title-face))
-    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)
-    (ots-util-set-face face nil nil)))
+    (set-face-attribute face nil :background nil)
+    (set-face-attribute face nil :foreground nil)
+    (set-face-attribute face nil :inherit 'font-lock-negation-char-face)))
 
 (defun ots-latex-mode-set-faces-verbatim ()
   "Set fonts and colors for verbatim text."
@@ -38,38 +37,14 @@
 (defun ots-latex-mode-set-properties ()
   "Set properties for editing LaTeX files."
   (company-auctex-init)
-  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
-  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
-  (local-set-key (kbd "<f8>") 'ots-latex-mode-view-pdf)
-  (hs-minor-mode 1)
-  (ots-util-set-compile-command
-   ots-latex-mode-compile-command)
-  (setq fill-column 80)
-  (setq indent-tabs-mode nil)
-  (setq LaTeX-indent-level 0)
-  (setq LaTeX-item-indent 0)
-  (setq reftex-plug-into-AUCTeX t)
-  (setq tab-width 2)
-  (setq TeX-electric-sub-and-superscript t)
-  (setq truncate-lines t)
+  (ots-util-set-compile-command ots-latex-mode-compile-command)
   (setq-local helm-dash-docsets '("LaTeX"))
-  (turn-on-auto-fill)
+  (setq-local LaTeX-indent-level 0)
+  (setq-local LaTeX-item-indent 0)
+  (setq-local reftex-plug-into-AUCTeX t)
+  (setq-local tab-width 2)
+  (setq-local TeX-electric-sub-and-superscript t)
   (turn-on-reftex))
-
-(defun ots-latex-mode-view-pdf ()
-  "Open the newest PDF-file in the current directory."
-  (interactive)
-  (let ((pdf-file "no-file"))
-    (dolist (file (file-expand-wildcards "*.pdf"))
-      (if (file-newer-than-file-p file pdf-file)
-          (setq pdf-file file)))
-    (message "Viewing %s..." pdf-file)
-    ;; XXX: gnome-open and xdg-open don't seem to work here.
-    (let ((program (if (eq system-type 'windows-nt) "start" "evince"))
-          (arg (shell-quote-argument pdf-file)))
-      (start-process-shell-command program
-                                   (format "*%s*" program)
-                                   (format "%s %s" program arg)))))
 
 (add-hook 'LaTeX-mode-hook 'ots-latex-mode-set-faces)
 (add-hook 'LaTeX-mode-hook 'ots-latex-mode-set-properties)

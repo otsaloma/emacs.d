@@ -20,18 +20,23 @@
   (interactive)
   (if (string= ots-theme-current "dark")
       (ots-theme-enable "light")
-    (ots-theme-enable "dark")))
+    (ots-theme-enable "dark"))
+  ;; tabbar background color doesn't seem to update
+  ;; unless we do something to trigger a redraw.
+  (switch-to-buffer "*scratch*")
+  (run-with-timer 0.001 nil #'(lambda () (switch-to-buffer nil))))
 
 (ots-theme-enable "dark")
 (global-set-key (kbd "<S-f11>") 'ots-theme-toggle)
 
-;; Disable italic for font support is poor.
+;; Disable italics as most monospace fonts don't
+;; really have proper italics.
 (set-face-attribute 'italic nil :slant 'normal)
 (set-face-attribute 'bold-italic nil :slant 'normal)
 
 ;; For font used on Unix, see ~/.Xresources.
 (when (eq system-type 'windows-nt)
-  (set-frame-font "Meslo LG M-10"))
+  (set-frame-font "Meslo LG L-10"))
 
 (provide 'ots-theme)
 ;;; ots-theme.el ends here

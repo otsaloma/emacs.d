@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-markdown-mode.el
 
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
-
 (defvar ots-markdown-mode-css-file
   (expand-file-name "~/.local/share/markdown-css/github.css")
   "Name of stylesheet file to use.")
@@ -21,32 +17,30 @@
   "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-set-faces ()
-  "Set faces for editing markdown files."
+  "Set faces for editing Markdown files."
   (font-lock-add-keywords
    nil '(("</?\\([^ ][^!>\n]*\\)>" 1 font-lock-keyword-face))))
 
 (defun ots-markdown-mode-set-properties ()
-  "Set properties for editing markdown files."
+  "Set properties for editing Markdown files."
   (local-set-key (kbd "<f8>") 'markdown-preview)
   (local-set-key (kbd "<f9>") 'markdown-export)
-  (setq fill-column 72)
-  (setq indent-tabs-mode nil)
-  (setq markdown-command ots-markdown-mode-command)
-  (setq markdown-command-needs-filename t)
-  (setq markdown-fontify-code-blocks-natively t)
-  (setq markdown-indent-function 'indent-relative-maybe)
-  (setq markdown-indent-on-enter nil)
-  (setq tab-width 4)
-  (setq truncate-lines t)
-  (turn-on-auto-fill)
+  (setq-local fill-column 72)
+  (setq-local markdown-command ots-markdown-mode-command)
+  (setq-local markdown-command-needs-filename t)
+  (setq-local markdown-fontify-code-blocks-natively t)
+  (setq-local markdown-gfm-use-electric-backquote nil)
+  (setq-local markdown-indent-function 'indent-relative-maybe)
+  (setq-local markdown-indent-on-enter nil)
+  (setq-local markdown-spaces-after-code-fence 0)
   ;; Use GitHub Flavored Markdown by default.
-  ;; http://help.github.com/articles/github-flavored-markdown/
-  ;; This also works around some auto-indentation bug.
   (if (not (eq major-mode 'gfm-mode))
       (gfm-mode)))
 
+(autoload 'markdown-mode "markdown-mode" "Markdown" t)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-faces)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-properties)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (modify-coding-system-alist 'file "\\.md\\'" 'utf-8)
 
 (provide 'ots-markdown-mode)
