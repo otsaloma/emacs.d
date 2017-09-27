@@ -25,6 +25,7 @@
   "Set properties for editing Markdown files."
   (local-set-key (kbd "<f8>") 'markdown-preview)
   (local-set-key (kbd "<f9>") 'markdown-export)
+  (setq-local comment-auto-fill-only-comments nil)
   (setq-local fill-column 72)
   (setq-local markdown-command ots-markdown-mode-command)
   (setq-local markdown-command-needs-filename t)
