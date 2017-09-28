@@ -17,7 +17,6 @@
   (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
   (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:%op%)
   (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
-  (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:fun-defs)
   (font-lock-add-keywords
    nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|library\\|messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
           1 font-lock-keyword-face)
