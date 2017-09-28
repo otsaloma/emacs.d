@@ -1,6 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-ess-mode.el
 
+(defvar ots-ess-mode-faces-toggled nil)
+
 (defun ots-ess-mode-eval-region ()
   "Send the current region to R."
   (interactive)
@@ -12,11 +14,13 @@
 
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
-  ;; Enable some font-lock stuff that's off by default.
-  ;; Full list is in ess-R-font-lock-keywords.
-  (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
-  (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:%op%)
-  (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
+  (unless ots-ess-mode-faces-toggled
+    ;; Enable some font-lock stuff that's off by default.
+    ;; Full list is in ess-R-font-lock-keywords.
+    (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
+    (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:%op%)
+    (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
+    (setq ots-ess-mode-faces-toggled t))
   (font-lock-add-keywords
    nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|library\\|messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
           1 font-lock-keyword-face)
