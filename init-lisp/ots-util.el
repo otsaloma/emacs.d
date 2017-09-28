@@ -139,6 +139,10 @@
   "Return the parent directory of path."
   (file-name-directory (directory-file-name path)))
 
+(defun ots-util-pixel-ratio ()
+  "Return screen DPI relative to traditional."
+  (if (> (display-pixel-width) 2000) 2 1))
+
 (defun ots-util-prepend-env (name value)
   "Prepend value to given environment variable."
   (if (eq system-type 'windows-nt)

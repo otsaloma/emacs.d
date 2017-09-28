@@ -13,7 +13,7 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (scroll-bar-mode 0)
-(set-fringe-mode '(6 . 6))
+(set-fringe-mode (* 6 (ots-util-pixel-ratio)))
 (setq auto-window-vscroll nil)
 (setq backward-delete-char-untabify-method 'hungry)
 (setq compilation-scroll-output t)
