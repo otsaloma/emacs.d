@@ -55,14 +55,12 @@
 
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
-  (let ((file-name (ots-util-buffer-file-name-quoted)))
-    (dotimes (i (or (string-match "%s" command) 0))
-      (setq command (format command file-name))))
+  (dotimes (i (or (string-match "%s" command) 0))
+    (setq command (format command (ots-util-buffer-file-name-quoted))))
   ;; Allow using %t in command for the corresponding unit test file.
   (setq command (replace-regexp-in-string "%t" "%s" command))
-  (let ((file-name (ots-util-unit-test-argument)))
-    (dotimes (i (or (string-match "%s" command) 0))
-      (setq command (format command file-name))))
+  (dotimes (i (or (string-match "%s" command) 0))
+    (setq command (format command (ots-util-unit-test-argument))))
   command)
 
 (defun ots-util-find-unit-test-file ()
@@ -223,7 +221,7 @@
 (defun ots-util-unit-test-argument ()
   "Return unit test filename argument for unit test programs."
   (let ((file-name (buffer-file-name)))
-    (if (string= (substring (file-name-nondirectory file-name) 0 5) "test_")
+    (if (string-match-p "^test_" (file-name-nondirectory file-name))
         (shell-quote-argument (ots-util-buffer-file-name))
       (shell-quote-argument (ots-util-unit-test-file)))))
 
