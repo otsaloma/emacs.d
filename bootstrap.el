@@ -16,6 +16,7 @@
    company-dict
    company-tern
    csv-mode
+   editorconfig
    git-gutter-fringe+
    graphql-mode
    helm

@@ -11,9 +11,18 @@
   "Return the amount of characters on the current line."
   (number-to-string (- (line-end-position) (line-beginning-position))))
 
+(defun ots-mode-line-editorconfig-suffix ()
+  "Return a string indicating if an editorconfig file is in use."
+  (if (and (boundp 'editorconfig-properties-hash)
+           (gethash 'indent_size editorconfig-properties-hash)) "-EC" ""))
+
 (defun ots-mode-line-indentation ()
   "Return a string describing current buffer's indentation settings."
-  (format (format "%s%%d" (if indent-tabs-mode "T" "S")) tab-width))
+  ;; tab-width is not what individual modes actually use for indentation,
+  ;; but it is set by both our own config and editorconfig.
+  (let ((mode (if indent-tabs-mode "T" "S"))
+        (ec (ots-mode-line-editorconfig-suffix)))
+    (format "%s%d%s" mode tab-width ec)))
 
 (defun ots-mode-line-line-count ()
   "Return the amount of lines in the buffer."

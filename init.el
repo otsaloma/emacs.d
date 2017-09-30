@@ -46,6 +46,7 @@
   (require 'ots-diff-mode)
   (require 'ots-dired)
   (require 'ots-editor)
+  (require 'ots-editorconfig)
   (require 'ots-emacs-lisp-mode)
   (require 'ots-environment)
   (require 'ots-ess-mode)
