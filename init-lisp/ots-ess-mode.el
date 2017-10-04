@@ -66,9 +66,7 @@
   (setq-local ess-history-directory "~")
   (setq-local ess-R-argument-suffix "=")
   (setq-local ess-roxy-str "#'")
-  (setq-local ess-use-company t)
-  (setq-local inferior-ess-r-help-command
-   ".ess.help(\"%s\", help.type=\"html\")\n"))
+  (setq-local ess-use-company t))
 
 (defun ots-ess-mode-setwd ()
   "setwd to the directory of the current buffer in R."
@@ -115,6 +113,9 @@
  ess-imenu-S-generic-expression
  '((nil "^\\([a-zA-Z0-9._]+\\) = function(" 1)
    (nil "^\\([a-zA-Z0-9._]+\\) <- function(" 1)))
+
+(setq inferior-ess-r-help-command
+      ".ess.help(\"%s\", help.type=\"html\")\n")
 
 (provide 'ots-ess-mode)
 ;;; ots-ess-mode.el ends here
