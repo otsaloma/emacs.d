@@ -3,6 +3,12 @@
 
 (defvar ots-ess-mode-faces-toggled nil)
 
+(defun ess-smart-S-assign ()
+  "Always insert a fucking underscore, regardless of whether
+  ess-toggle-underscore happens to be working or not."
+  (interactive)
+  (insert "_"))
+
 (defun ots-ess-mode-eval-region ()
   "Send the current region to R."
   (interactive)
@@ -54,7 +60,6 @@
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
-  (ess-toggle-underscore nil)
   (modify-syntax-entry ?. "w")
   (setq-local comment-add 0)
   (setq-local company-backends
