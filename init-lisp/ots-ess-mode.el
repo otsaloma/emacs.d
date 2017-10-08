@@ -61,6 +61,7 @@
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
   (modify-syntax-entry ?. "w")
+  (modify-syntax-entry ?_ "w")
   (setq-local comment-add 0)
   (setq-local company-backends
    '((company-R-objects company-R-args company-keywords company-dabbrev)
