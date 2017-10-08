@@ -74,6 +74,7 @@
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
+  (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)
   (ots-util-bind-key-compile (kbd "<f6>") "python3 -u %s")
   (local-set-key (kbd "<S-f6>") 'ots-python-mode-start)
   (local-set-key (kbd "<f8>") 'ots-python-mode-run-in-shell)
