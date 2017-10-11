@@ -65,14 +65,7 @@
   (setq-local comment-add 0)
   (setq-local company-backends
    '((company-R-objects company-R-args company-keywords company-dabbrev)
-     (company-dabbrev)))
-  (setq-local ess-ask-for-ess-directory nil)
-  (setq-local ess-gen-proc-buffer-name-function
-   'ess-gen-proc-buffer-name:simple)
-  (setq-local ess-history-directory "~")
-  (setq-local ess-R-argument-suffix "=")
-  (setq-local ess-roxy-str "#'")
-  (setq-local ess-use-company t))
+     (company-dabbrev))))
 
 (defun ots-ess-mode-setwd ()
   "setwd to the directory of the current buffer in R."
@@ -113,15 +106,21 @@
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-start t)
 
+(setq ess-ask-for-ess-directory nil)
+(setq ess-gen-proc-buffer-name-function
+ 'ess-gen-proc-buffer-name:simple)
+(setq ess-history-directory "~")
 (setq
  ;; This gets fed to imenu-generic-expression.
  ;; The default in ESS insists on arrows.
  ess-imenu-S-generic-expression
  '((nil "^\\([a-zA-Z0-9._]+\\) = function(" 1)
    (nil "^\\([a-zA-Z0-9._]+\\) <- function(" 1)))
-
+(setq ess-R-argument-suffix "=")
+(setq ess-roxy-str "#'")
+(setq ess-use-company t)
 (setq inferior-ess-r-help-command
-      ".ess.help(\"%s\", help.type=\"html\")\n")
+ ".ess.help(\"%s\", help.type=\"html\")\n")
 
 (provide 'ots-ess-mode)
 ;;; ots-ess-mode.el ends here
