@@ -41,7 +41,9 @@
 
 (defun ots-ess-mode-set-indentation ()
   "Set indentation properties for editing R files."
+  (setq-local ess-align-blocks '())
   (setq-local ess-default-style 'DEFAULT)
+  (setq-local ess-indent-from-lhs '())
   (setq-local ess-indent-offset 4)
   (setq-local ess-indent-with-fancy-comments nil)
   (setq-local ess-offset-arguments-newline 'prev-line))
