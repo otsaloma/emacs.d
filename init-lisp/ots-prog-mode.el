@@ -24,5 +24,11 @@
 (add-hook 'prog-mode-hook 'ots-prog-mode-set-keys)
 (add-hook 'prog-mode-hook 'ots-prog-mode-set-properties)
 
+;; Some programming modes don't inherit from prog-mode.
+;; Add hooks for these modes too, but remember to append
+;; the actual hook so that they overwrite anything set here.
+(add-hook 'ess-mode-hook 'ots-prog-mode-set-keys)
+(add-hook 'ess-mode-hook 'ots-prog-mode-set-properties)
+
 (provide 'ots-prog-mode)
 ;;; ots-prog-mode.el ends here

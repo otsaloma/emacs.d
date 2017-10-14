@@ -52,7 +52,6 @@
   "Set keybindings for editing R files."
   (local-set-key (kbd "C-m") 'exchange-point-and-mark)
   (local-set-key (kbd "C-+") 'yas-expand)
-  (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
   (local-set-key (kbd "<f6>") 'ots-ess-mode-start)
@@ -63,7 +62,6 @@
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
   (modify-syntax-entry ?. "w")
-  (modify-syntax-entry ?_ "w")
   (setq-local comment-add 0)
   (setq-local company-backends
    '((company-R-objects company-R-args company-keywords company-dabbrev)
