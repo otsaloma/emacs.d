@@ -30,6 +30,7 @@
    neotree
    pcre2el
    rainbow-mode
+   rust-mode
    smooth-scrolling
    sqlup-mode
    sudo-edit

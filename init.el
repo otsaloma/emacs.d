@@ -82,6 +82,7 @@
   (require 'ots-python-mode)
   (require 'ots-qml-mode)
   (require 'ots-rainbow-mode)
+  (require 'ots-rust-mode)
   (require 'ots-server)
   (require 'ots-sh-mode)
   (require 'ots-shell-mode)
