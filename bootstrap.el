@@ -29,6 +29,7 @@
    mmm-mode
    neotree
    pcre2el
+   racer
    rainbow-mode
    rust-mode
    smooth-scrolling
