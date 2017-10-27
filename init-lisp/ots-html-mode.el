@@ -17,6 +17,7 @@
   "Set properties for editing HTML files."
   (local-set-key (kbd "C-<") 'sgml-tag)
   (local-set-key (kbd "<f8>") 'browse-url-of-file)
+  (setq-local fill-column 100)
   (setq-local tab-width 2))
 
 (add-hook 'html-mode-hook 'ots-html-mode-set-docsets t)

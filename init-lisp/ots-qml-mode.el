@@ -40,6 +40,7 @@
      (nil "^ +function +\\([^( ]+\\)(" 1)))
   (setq-local company-backends
    '((company-dict company-dabbrev)))
+  (setq-local fill-column 100)
   (setq-local helm-dash-docsets '("JavaScript" "Silica" "QML")))
 
 (autoload 'ots-qml-mode "qml" "QML" t)
