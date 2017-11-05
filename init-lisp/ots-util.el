@@ -48,8 +48,10 @@
 (defun ots-util-compile-current-line ()
   "Run the current line as a compilation command."
   (interactive)
-  (compile (buffer-substring (line-beginning-position)
-                             (line-end-position))))
+  (compile (buffer-substring
+            (line-beginning-position)
+            (line-end-position))
+           t))
 
 (defun ots-util-copy-open-file-names ()
   "Copy names of all open files to the kill ring."
