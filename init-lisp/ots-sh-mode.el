@@ -12,7 +12,7 @@
 
 (defun ots-sh-mode-set-properties ()
   "Set properties for editing shell scripts."
-  (ots-util-bind-key-compile (kbd "<f6>") "sh %s")
+  (ots-util-bind-key-compile (kbd "<f6>") "bash %s")
   (ots-util-bind-key-compile (kbd "<f9>") "shellcheck -f gcc %s")
   (ots-util-set-compile-command "checkbashisms %s")
   (setq-local helm-dash-docsets '("Bash")))
