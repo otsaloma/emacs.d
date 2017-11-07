@@ -19,7 +19,7 @@
   "Bind key locally to a compile command."
   (local-set-key key `(lambda ()
    (interactive)
-   (compile (ots-util-expand-command ',command)))))
+   (compile (ots-util-expand-command ',command) t))))
 
 (defun ots-util-buffer-contains (string)
   "Return t if buffer contains string, else nil."
