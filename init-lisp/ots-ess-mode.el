@@ -3,12 +3,6 @@
 
 (defvar ots-ess-mode-faces-toggled nil)
 
-(defun ess-smart-S-assign ()
-  "Always insert a fucking underscore, regardless of whether
-  ess-toggle-underscore happens to be working or not."
-  (interactive)
-  (insert "_"))
-
 (defun ots-ess-mode-eval-region ()
   "Send the current region to R."
   (interactive)
@@ -52,6 +46,7 @@
   "Set keybindings for editing R files."
   (local-set-key (kbd "C-m") 'exchange-point-and-mark)
   (local-set-key (kbd "C-+") 'yas-expand)
+  (local-set-key (kbd "_") '(lambda () (interactive) (insert "_")))
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
   (local-set-key (kbd "<f6>") 'ots-ess-mode-start)

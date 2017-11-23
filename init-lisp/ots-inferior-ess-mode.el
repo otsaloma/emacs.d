@@ -5,6 +5,7 @@
   "Set properties for interactive R sessions."
   (local-set-key (kbd "C-b") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
+  (local-set-key (kbd "_") '(lambda () (interactive) (insert "_")))
   (setq-local ess-R-argument-suffix "=")
   (setq-local ess-use-company t)
   (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")

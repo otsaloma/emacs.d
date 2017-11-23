@@ -17,6 +17,7 @@
    company-tern
    csv-mode
    editorconfig
+   ess
    git-gutter-fringe+
    graphql-mode
    helm
