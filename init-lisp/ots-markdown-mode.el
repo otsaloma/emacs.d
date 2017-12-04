@@ -23,6 +23,8 @@
 
 (defun ots-markdown-mode-set-properties ()
   "Set properties for editing Markdown files."
+  (local-set-key (kbd "<return>") 'markdown-enter-key)
+  (local-set-key (kbd "<kp-enter>") 'markdown-enter-key)
   (local-set-key (kbd "<f8>") 'markdown-preview)
   (local-set-key (kbd "<f9>") 'markdown-export)
   (setq-local comment-auto-fill-only-comments nil)

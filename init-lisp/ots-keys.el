@@ -108,8 +108,8 @@
 (setq cua-keep-region-after-copy t)
 (ots-keys-set-basic)
 (ots-keys-set-isearch)
-(add-hook 'after-change-major-mode-hook 'ots-keys-set-punct)
-(add-hook 'after-change-major-mode-hook 'ots-keys-set-normal)
+(add-hook 'change-major-mode-after-body-hook 'ots-keys-set-punct)
+(add-hook 'change-major-mode-after-body-hook 'ots-keys-set-normal)
 
 (provide 'ots-keys)
 ;;; ots-keys.el ends here
