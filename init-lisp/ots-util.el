@@ -149,7 +149,10 @@
 
 (defun ots-util-pixel-ratio ()
   "Return screen DPI relative to traditional."
-  (if (> (display-pixel-width) 2000) 2 1))
+  (let* ((monitor (car (display-monitor-attributes-list)))
+         (geometry (assq 'geometry monitor))
+         (width (nth 2 (cdr geometry))))
+    (if (> width 2000) 2 1)))
 
 (defun ots-util-prepend-env (name value)
   "Prepend value to given environment variable."
