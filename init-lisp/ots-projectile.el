@@ -13,10 +13,13 @@
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 
 (add-to-list 'projectile-globally-ignored-file-suffixes ".elc")
+(add-to-list 'projectile-globally-ignored-file-suffixes ".ico")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".min.css")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".min.js")
+(add-to-list 'projectile-globally-ignored-file-suffixes ".png")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".pyc")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".Rd")
+(add-to-list 'projectile-globally-ignored-file-suffixes ".svg")
 (add-to-list 'projectile-globally-ignored-file-suffixes "~")
 
 (projectile-global-mode)
