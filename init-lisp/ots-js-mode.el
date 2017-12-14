@@ -1,6 +1,32 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-js-mode.el
 
+(defun ots-js-mmm-indent-line ()
+  "Indent line handling HTML in template literals correctly."
+  ;; https://github.com/purcell/mmm-mode/blob/master/mmm-region.el
+  (interactive)
+  (let ((prev-line nil)
+        (prev-level 0))
+    ;; If the previous line ends in the opening backtick,
+    ;; indent to one level more than that line's level.
+    (save-excursion
+      (forward-line -1)
+      (setq prev-line (thing-at-point 'line t))
+      (setq prev-level (current-indentation)))
+    (if (string-match-p "`[\t ]*$" prev-line)
+        (indent-line-to (+ prev-level js-indent-level))
+      (mmm-indent-line)))
+  (let ((current-line (thing-at-point 'line t))
+        (next-level 0))
+    ;; If the closing backtick is on a line of its own,
+    ;; indent to the level of the following line.
+    ;; XXX: This is simple, but not always correct.
+    (save-excursion
+      (forward-line 1)
+      (setq next-level (current-indentation)))
+    (if (string-match-p "^[\t ]*`" current-line)
+        (indent-line-to next-level))))
+
 (defun ots-js-mode-run-js ()
   "Start an interactive JavaScript interpreter."
   (interactive)
@@ -19,6 +45,7 @@
    '((nil "^var +\\([^ =]+\\)[ =]" 1)
      (nil "^function +\\([^(]+\\)(" 1)))
   (setq-local helm-dash-docsets '("JavaScript" "jQuery"))
+  (setq-local mmm-indent-line-function 'ots-js-mmm-indent-line)
   (ots-util-add-docset "</" "HTML"))
 
 (defun ots-js-mode-tern ()
