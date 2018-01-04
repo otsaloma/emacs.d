@@ -25,7 +25,6 @@
    helm-projectile
    js-comint
    json-mode
-   magit
    markdown-mode
    mmm-mode
    neotree

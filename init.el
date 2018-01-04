@@ -67,7 +67,6 @@
   (require 'ots-keys)
   (require 'ots-latex-mode)
   (require 'ots-linum)
-  (require 'ots-magit)
   (require 'ots-makefile-mode)
   (require 'ots-markdown-mode)
   (require 'ots-minibuffer)
