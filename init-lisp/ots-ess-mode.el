@@ -12,6 +12,13 @@
       (ess-eval-region-and-go (region-beginning) (region-end) nil)
     (ess-eval-region-and-go (line-beginning-position) (line-end-position) nil)))
 
+(defun ots-ess-mode-insert-pipe ()
+  "Insert the magrittr pipe operator at point."
+  (interactive)
+  (if (not (looking-back " "))
+      (insert " "))
+  (insert "%>% "))
+
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
   (unless ots-ess-mode-faces-toggled
@@ -46,6 +53,7 @@
   "Set keybindings for editing R files."
   (local-set-key (kbd "C-m") 'exchange-point-and-mark)
   (local-set-key (kbd "C-+") 'yas-expand)
+  (local-set-key (kbd "C-ö") 'ots-ess-mode-insert-pipe)
   (local-set-key (kbd "_") '(lambda () (interactive) (insert "_")))
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
