@@ -9,6 +9,8 @@
   (setq-local ess-R-argument-suffix "=")
   (setq-local ess-use-company t)
   (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
+  ;; Try to avoid broken syntax highlighting due to messages etc.
+  (copy-face 'default 'ess-%op%-face)
   (when (eq system-type 'windows-nt)
     (setq-local process-coding-system-alist
                 '(("R.*" . windows-1252)))))
