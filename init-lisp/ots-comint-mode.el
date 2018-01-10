@@ -31,6 +31,7 @@
   (if (eq system-type 'windows-nt)
       (setq-local comint-completion-addsuffix '("\\" . " "))
     (setq-local comint-completion-addsuffix t))
+  (setq-local comint-buffer-maximum-size 1024)
   (setq-local comint-completion-autolist t)
   (setq-local comint-completion-recexact t)
   (setq-local comint-input-ignoredups t)
@@ -42,6 +43,7 @@
 
 (add-hook 'comint-mode-hook 'ots-comint-mode-set-keys)
 (add-hook 'comint-mode-hook 'ots-comint-mode-set-properties)
+(add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
 
 (provide 'ots-comint-mode)
 ;;; ots-comint-mode.el ends here
