@@ -25,6 +25,7 @@
 (add-hook 'css-mode-hook 'ots-css-mode-set-faces)
 (add-hook 'css-mode-hook 'ots-css-mode-set-properties)
 (modify-coding-system-alist 'file "\\.css\\'" 'utf-8)
+(setq css-indent-offset 2)
 
 (provide 'ots-css-mode)
 ;;; ots-css-mode.el ends here
