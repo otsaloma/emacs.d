@@ -38,7 +38,7 @@
  'js-html
  '((html-block
     :submode html-mode
-    :front "`[\n\t ]*<"
+    :front "`\n[\n\t ]*<"
     :front-offset -1
     :back ">[\n\t ]*`"
     :back-offset 1)))
