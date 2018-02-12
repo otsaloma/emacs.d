@@ -14,19 +14,6 @@
      (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
-(defun ots-python-mode-run-in-shell ()
-  "Run the current file in the Python shell."
-  (interactive)
-  (when (not (get-buffer "*Python*"))
-    (run-python "python3 -i" nil t)
-    (sleep-for 1))
-  (let ((directory (expand-file-name default-directory))
-        (file-name (file-relative-name (buffer-file-name))))
-    (python-shell-switch-to-shell)
-    (goto-char (point-max))
-    (ots-util-comint-send "os.chdir(\"%s\")" directory)
-    (ots-util-comint-send "run(\"%s\")" file-name)))
-
 (defun ots-python-mode-send-region ()
   "Run the current line or region in the Python shell."
   (interactive)
@@ -77,8 +64,6 @@
   (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)
   (ots-util-bind-key-compile (kbd "<f6>") "python3 -u %s")
   (local-set-key (kbd "<S-f6>") 'ots-python-mode-start)
-  (local-set-key (kbd "<f8>") 'ots-python-mode-run-in-shell)
-  (local-set-key (kbd "<S-f8>") 'ots-python-mode-send-region)
   (ots-util-bind-key-compile (kbd "<f9>") "pyflakes %s")
   (ots-util-bind-key-compile (kbd "<S-f9>") "py.test -xs %t")
   (ots-util-bind-key-compile (kbd "<C-S-f9>") "nosetests-run -xs %t"))
