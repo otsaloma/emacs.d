@@ -1,8 +1,14 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-inferior-ess-mode.el
 
+(defun ots-inferior-ess-mode-clear ()
+  "Clear the ESS initialization junk from the buffer."
+  (with-current-buffer "*R*"
+    (comint-clear-buffer)))
+
 (defun ots-inferior-ess-mode-set-properties ()
   "Set properties for interactive R sessions."
+  (run-with-idle-timer 1 nil 'ots-inferior-ess-mode-clear)
   (local-set-key (kbd "C-b") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "C-ö") 'ots-ess-mode-insert-pipe)
