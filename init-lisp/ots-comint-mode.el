@@ -39,11 +39,22 @@
   (if (not (eq major-mode 'inferior-emacs-lisp-mode))
       (setq-local comint-process-echoes t))
   (setq-local comint-prompt-read-only nil)
-  (setq-local comint-scroll-show-maximum-output t))
+  (setq-local comint-scroll-show-maximum-output t)
+  (make-local-variable 'jit-lock-defer-timer)
+  (setq-local jit-lock-defer-time 0.001))
+
+(defun ots-comint-mode-wrap (text)
+  "Wrap output to avoid long lines slowing Emacs down."
+  ;; https://www.reddit.com/r/emacs/3scsak
+  (replace-regexp-in-string
+   (format "\\([^\n]\\{%d\\}\\)" (window-body-width))
+   "\\1\n"
+   text))
 
 (add-hook 'comint-mode-hook 'ots-comint-mode-set-keys)
 (add-hook 'comint-mode-hook 'ots-comint-mode-set-properties)
 (add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
+(add-hook 'comint-preoutput-filter-functions 'ots-comint-mode-wrap)
 
 (provide 'ots-comint-mode)
 ;;; ots-comint-mode.el ends here
