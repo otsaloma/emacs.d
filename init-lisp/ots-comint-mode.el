@@ -41,7 +41,7 @@
   (setq-local comint-prompt-read-only nil)
   (setq-local comint-scroll-show-maximum-output t)
   (make-local-variable 'jit-lock-defer-timer)
-  (setq-local jit-lock-defer-time 0.001))
+  (setq-local jit-lock-defer-time 0))
 
 (defun ots-comint-mode-wrap (text)
   "Wrap output to avoid long lines slowing Emacs down."
