@@ -60,6 +60,7 @@
 (add-hook 'js-mode-hook 'ots-js-mode-tern)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 (modify-coding-system-alist 'file "\\.js\\'" 'utf-8)
+(setq tern-command '("tern" "--no-port-file"))
 
 (provide 'ots-js-mode)
 ;;; ots-js-mode.el ends here
