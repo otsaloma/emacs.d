@@ -5,7 +5,8 @@
   "Set properties for editing Makefiles."
   (setq-local helm-dash-docsets '("Make"))
   (setq-local indent-tabs-mode t)
-  (setq-local tab-width 8))
+  (setq-local tab-width 8)
+  (setq-local whitespace-style (quote (face tabs tab-mark))))
 
 (add-hook 'makefile-mode-hook 'ots-makefile-mode-set-properties)
 (modify-coding-system-alist 'file "Makefile\\'" 'utf-8)
