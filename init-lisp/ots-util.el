@@ -61,6 +61,12 @@
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
 
+(defun ots-util-exchange-point-and-mark-no-activate ()
+  "Switch point and mark, but don't activate a region."
+  (interactive)
+  (exchange-point-and-mark)
+  (deactivate-mark nil))
+
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
   (dotimes (i (or (string-match "%s" command) 0))
@@ -164,6 +170,12 @@
   "Select the previous window."
   (interactive)
   (other-window -1))
+
+(defun ots-util-push-mark-no-activate ()
+  "Push point to mark-ring, but don't activate a region"
+  (interactive)
+  (push-mark (point) t nil)
+  (message "Pushed mark to ring"))
 
 (defun ots-util-save-buffer ()
   "Save the current buffer whether or not it is changed."

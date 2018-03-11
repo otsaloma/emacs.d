@@ -20,7 +20,8 @@
   (global-set-key (kbd "C-S-j") 'join-line)
   (global-set-key (kbd "C-k") 'comment-or-uncomment-region)
   (global-set-key (kbd "C-l") 'goto-line)
-  (global-set-key (kbd "C-m") 'exchange-point-and-mark)
+  (global-set-key (kbd "C-m") 'ots-util-exchange-point-and-mark-no-activate)
+  (global-set-key (kbd "C-S-m") 'helm-mark-ring)
   (global-set-key (kbd "M-m") 'menu-bar-mode)
   (global-set-key (kbd "C-n") 'universal-argument)
   (global-set-key (kbd "C-p") 'mark-paragraph)
@@ -46,7 +47,7 @@
   (global-set-key (kbd "C-§") 'helm-buffers-list)
   (global-set-key (kbd "M-§") 'ots-util-switch-to-other-buffer)
   (global-set-key (kbd "C--") 'hs-toggle-hiding)
-  (global-set-key (kbd "C-SPC") 'set-mark-command)
+  (global-set-key (kbd "C-SPC") 'ots-util-push-mark-no-activate)
   (global-set-key (kbd "<tab>") 'ots-util-smart-tab)
   (global-set-key (kbd "<C-tab>") 'ots-util-next-window)
   (global-set-key (kbd "<S-tab>") 'ots-util-previous-window)
@@ -105,6 +106,8 @@
   (local-set-key (kbd "C-:") 'ots-util-mark-to-end-of-sentence))
 
 (cua-mode t)
+;; Remove cua override of set-mark-command key.
+(define-key cua-global-keymap [remap set-mark-command] nil)
 (setq cua-keep-region-after-copy t)
 (ots-keys-set-basic)
 (ots-keys-set-isearch)
