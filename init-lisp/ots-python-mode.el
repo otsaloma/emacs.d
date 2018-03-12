@@ -66,7 +66,9 @@
   (local-set-key (kbd "<S-f6>") 'ots-python-mode-start)
   (ots-util-bind-key-compile (kbd "<f9>") "pyflakes %s")
   (ots-util-bind-key-compile (kbd "<S-f9>") "py.test -xs %t")
-  (ots-util-bind-key-compile (kbd "<C-S-f9>") "nosetests-run -xs %t"))
+  (ots-util-bind-key-compile (kbd "<C-S-f9>") "nosetests-run -xs %t")
+  (when ots-environment-work
+    (ots-util-bind-key-compile (kbd "<f9>") "flake8 %s")))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."

@@ -19,6 +19,10 @@
 ;; XXX: Why must this be before loading init-lisp?
 (setq save-abbrevs nil)
 
+;; Allow conditional rules to apply work environment style guides
+;; etc. as exceptions only on work computer/environment.
+(setq ots-environment-work (string= (system-name) "thinkpad"))
+
 (push "~/.emacs.d/init-lisp" load-path)
 (byte-recompile-directory "~/.emacs.d/init-lisp" 0)
 
