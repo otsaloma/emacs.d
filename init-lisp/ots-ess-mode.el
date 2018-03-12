@@ -25,7 +25,7 @@
     ;; Enable some font-lock stuff that's off by default.
     ;; Full list is in ess-R-font-lock-keywords.
     (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
-    (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:%op%)
+    (ess-font-lock-toggle-keyword 'ess-fl-keyword:operators)
     (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
     (setq ots-ess-mode-faces-toggled t))
   (font-lock-add-keywords
