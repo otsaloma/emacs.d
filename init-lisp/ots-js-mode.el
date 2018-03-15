@@ -37,8 +37,9 @@
 
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
-  (font-lock-add-keywords
-   nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face)))
+  (when (eq major-mode 'js-mode)
+    (font-lock-add-keywords
+     nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face))))
   (local-set-key (kbd "<f8>") 'ots-js-mode-run-js)
   (ots-util-bind-key-compile (kbd "<f9>") "jshint --reporter=unix %s")
   (ots-util-add-imenu-expressions
