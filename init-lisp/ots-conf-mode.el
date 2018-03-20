@@ -4,12 +4,16 @@
 (defun ots-conf-mode-set-properties ()
   "Set properties for editing configuration files."
   (conf-quote-normal nil)
-  (setq-local fill-column 72))
+  (setq-local fill-column 72)
+  (when (string-match-p "\\.git" (buffer-file-name))
+    (setq-local indent-tabs-mode t)
+    (setq-local tab-width 2)))
 
 (add-hook 'conf-mode-hook 'ots-conf-mode-set-properties)
-
-;; Use conf-mode for Freedesktop.org and GNOME key files.
 (add-to-list 'auto-mode-alist '("\\.desktop\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.git/config\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.gitmodules\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.theme\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.thumbnailer\\'" . conf-mode))
 
