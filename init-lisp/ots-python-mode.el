@@ -53,10 +53,19 @@
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
+  ;; Only color special variables.
+  (face-remap-add-relative
+   'font-lock-preprocessor-face
+   :foreground (face-foreground
+                'font-lock-variable-name-face))
+  (face-remap-add-relative
+   'font-lock-variable-name-face
+   :foreground nil)
   (font-lock-add-keywords
    nil '(("\\(=\\)" 1 font-lock-keyword-face)
          ("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
-         ("\\<\\(self\\)\\>" 1 font-lock-variable-name-face))))
+         ("\\<\\(cls\\|self\\)\\>" 1 font-lock-preprocessor-face)
+         ("\\<\\([A-Z0-9_]+\\)\\> += " 1 font-lock-preprocessor-face))))
 
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
