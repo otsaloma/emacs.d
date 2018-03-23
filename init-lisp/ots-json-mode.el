@@ -4,6 +4,8 @@
 (defun ots-json-mode-set-properties ()
   "Set properties for editing JSON files."
   (ots-util-bind-key-compile (kbd "<f9>") "jsonlint %s -cq")
+  (setq-local js-indent-level 2)
+  (setq-local tab-width 2)
   (turn-off-auto-fill))
 
 (add-hook 'json-mode-hook 'ots-json-mode-set-properties)
