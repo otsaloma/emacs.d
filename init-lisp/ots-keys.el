@@ -32,7 +32,7 @@
   (global-set-key (kbd "C-S-r") 'sort-paragraphs)
   (global-set-key (kbd "C-s") 'ots-util-save-buffer)
   (global-set-key (kbd "C-S-s") 'write-file)
-  (global-set-key (kbd "C-t") 'helm-do-grep-ag)
+  (global-set-key (kbd "C-t") 'ots-util-helm-ripgrep)
   (global-set-key (kbd "C-S-t") 'projectile-replace-regexp)
   (global-set-key (kbd "C-u") 'upcase-region)
   (global-set-key (kbd "C-S-u") 'downcase-region)
