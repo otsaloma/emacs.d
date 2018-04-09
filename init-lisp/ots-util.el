@@ -82,11 +82,11 @@
   (interactive)
   (find-file (ots-util-unit-test-file)))
 
-(defun ots-util-helm-ripgrep (arg)
+(defun ots-util-helm-git-grep (arg)
   "Run ripgrep at project root and show results with helm."
   (interactive "P")
   (require 'helm-files)
-  (helm-grep-ag (expand-file-name (projectile-project-root)) arg))
+  (helm-grep-git-1 (expand-file-name (projectile-project-root)) arg))
 
 (defun ots-util-in-git-repo (path)
   "Return true if path is in a git repository"
