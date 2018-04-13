@@ -1,18 +1,19 @@
 #!/bin/sh
+
 # Open files in existing Emacs window or open a new one.
 # Usage: emacs [OPTION...] [FILE...]
-# Using Gnome HiDPI settings confuses emacs window geometry.
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=790098#10
+
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark
-if [ -z "$(ps -A | grep emacs25)" ]; then
-    # Remove stale server if Emacs crashed.
-    rm -rfv /tmp/emacs1000/
-fi
+export LC_ALL=C.UTF-8
+
+# Remove stale server if Emacs crashed.
+[ -z "$(ps -A | grep emacs25)" ] && rm -rfv /tmp/emacs1000/
+
 if [ -e /tmp/emacs1000/server ]; then
     # Open files given as arguments in already running server.
     /usr/bin/emacsclient.emacs25 -n "$@"
 else
     # Start a new emacs, open files given as arguments and start the server.
-    /usr/bin/emacs25 -g 100x35 --eval "(server-mode 1)" "$@" &
+    /usr/bin/emacs25 -g 90x35 --eval "(server-mode 1)" "$@" &
 fi

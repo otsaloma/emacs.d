@@ -32,11 +32,16 @@
 (setq use-file-dialog nil)
 (setq x-select-enable-clipboard t)
 (setq-default fill-column 80)
-(setq-default line-spacing 0.15)
 (setq-default major-mode 'text-mode)
 (show-paren-mode t)
 (tool-bar-mode 0)
 (transient-mark-mode t)
+
+;; Set line spacing depending on the font used.
+(let ((family (face-attribute 'default :family)))
+  (setq-default line-spacing
+   (cond ((string= family "IBM Plex Mono") 0.30)
+         ((string= family "Meslo LG L") 0.15))))
 
 ;; Prevent a window split when opening multiple files at once.
 (add-hook 'emacs-startup-hook 'delete-other-windows t)
