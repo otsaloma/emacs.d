@@ -61,12 +61,6 @@
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
 
-(defun ots-util-exchange-point-and-mark-no-activate ()
-  "Switch point and mark, but don't activate a region."
-  (interactive)
-  (exchange-point-and-mark)
-  (deactivate-mark nil))
-
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
   (dotimes (i (or (string-match "%s" command) 0))
@@ -166,6 +160,11 @@
          (width (nth 2 (cdr geometry))))
     (if (> width 2000) 2 1)))
 
+(defun ots-util-pop-mark ()
+  "Move point to the previous mark in the ring."
+  (interactive)
+  (set-mark-command t))
+
 (defun ots-util-prepend-env (name value)
   "Prepend value to given environment variable."
   (if (eq system-type 'windows-nt)
@@ -177,11 +176,11 @@
   (interactive)
   (other-window -1))
 
-(defun ots-util-push-mark-no-activate ()
-  "Push point to mark-ring, but don't activate a region"
+(defun ots-util-push-mark ()
+  "Push point to the mark ring."
   (interactive)
   (push-mark (point) t nil)
-  (message "Pushed mark to ring"))
+  (message "Mark set"))
 
 (defun ots-util-save-buffer ()
   "Save the current buffer whether or not it is changed."
