@@ -71,6 +71,8 @@
  `(diff-file-header ((t (:background "#ffd9b3" :foreground nil))))
  `(diff-header ((t (:background "#ffffb3" :foreground nil))))
  `(diff-removed ((t (:background "#ffcbcb" :foreground nil))))
+ `(ess-%op%-face ((t (:background nil :foreground "#897fba"))))
+ `(ess-operator-face ((t (:background nil :foreground "#897fba"))))
  `(font-latex-bold-face ((t (:background nil :foreground nil))))
  `(font-latex-italic-face ((t (:background nil :foreground nil))))
  `(font-latex-math-face ((t (:background "#eeeeee" :foreground nil))))
