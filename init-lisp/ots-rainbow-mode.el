@@ -3,7 +3,7 @@
 
 (defvar ots-rainbow-mode-modes
   '(conf-mode css-mode emacs-lisp-mode ess-mode inferior-ess-mode
-    json-mode latex-mode python-mode)
+    json-mode latex-mode)
   "Modes in which to color hexadecimal color codes.")
 
 (defun ots-rainbow-mode-enable ()
