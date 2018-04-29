@@ -7,13 +7,13 @@
 
 (defvar ots-markdown-mode-command
   (concat "pandoc"
-          " --from=markdown"
+          " --from=gfm"
           " --to=html5"
           " --ascii"
           " --css=" (convert-standard-filename ots-markdown-mode-css-file)
           " --highlight-style=haddock"
           " --self-contained"
-          " --smart")
+          " 2>/dev/null")
   "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-set-faces ()
