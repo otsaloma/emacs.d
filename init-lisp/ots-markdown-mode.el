@@ -13,7 +13,7 @@
           " --css=" (convert-standard-filename ots-markdown-mode-css-file)
           " --highlight-style=haddock"
           " --self-contained"
-          " 2>/dev/null")
+          " 2> /dev/null")
   "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-set-faces ()
