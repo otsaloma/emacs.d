@@ -1,7 +1,14 @@
 # name: <table>
 # --
 <table>
-  <tr>
-    <td>$0</td>
-  </tr>
+  <thead>
+    <tr>
+      <td>$0</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
