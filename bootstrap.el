@@ -16,6 +16,7 @@
    company-dict
    company-tern
    csv-mode
+   dockerfile-mode
    editorconfig
    ess
    git-gutter-fringe+
@@ -39,5 +40,6 @@
    tern
    undo-tree
    wcheck-mode
+   yaml-mode
    yasnippet
    ))

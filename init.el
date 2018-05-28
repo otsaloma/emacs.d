@@ -49,6 +49,7 @@
   (require 'ots-css-mode)
   (require 'ots-diff-mode)
   (require 'ots-dired)
+  (require 'ots-dockerfile-mode)
   (require 'ots-editor)
   (require 'ots-editorconfig)
   (require 'ots-emacs-lisp-mode)
