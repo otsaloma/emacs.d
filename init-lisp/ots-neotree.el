@@ -13,8 +13,6 @@
   (interactive)
   (require 'all-the-icons)
   (require 'neotree)
-  (add-to-list 'neo-hidden-regexp-list "^__pycache__$")
-  (add-to-list 'neo-hidden-regexp-list "^node_modules$")
   (let ((file-name (buffer-file-name)))
     (if (neo-global--window-exists-p)
         (neotree-hide)
@@ -33,6 +31,15 @@
 (setq neo-smart-open t)
 (setq neo-theme 'icons)
 (setq neo-window-width 50)
+
+(setq neo-hidden-regexp-list '("\\.elc$"
+                               "\\.pyc$"
+                               "^#.*#$"
+                               "^\\."
+                               "^\\.git$"
+                               "^__pycache__$"
+                               "^node_modules$"
+                               "~$"))
 
 (provide 'ots-neotree)
 ;;; ots-neotree.el ends here
