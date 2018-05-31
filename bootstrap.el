@@ -15,7 +15,6 @@
    company-auctex
    company-dict
    company-tern
-   csv-mode
    dockerfile-mode
    editorconfig
    ess
