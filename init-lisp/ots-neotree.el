@@ -24,22 +24,29 @@
           (neotree-dir (projectile-project-root)))
         (neotree-find file-name)))))
 
+(add-hook 'neotree-mode-hook 'ots-neotree-mode-fix-icons)
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (global-set-key (kbd "<f10>") 'ots-neotree-toggle)
 (global-set-key (kbd "<S-f10>") 'neotree-find)
 
-(setq neo-smart-open t)
-(setq neo-theme 'icons)
-(setq neo-window-width 50)
-
 (setq neo-hidden-regexp-list '("\\.elc$"
                                "\\.pyc$"
+                               "\\.rdata$"
+                               "\\.rds$"
                                "^#.*#$"
                                "^\\.git$"
                                "^\\.cache$"
                                "^__pycache__$"
                                "^node_modules$"
                                "~$"))
+
+(setq neo-smart-open t)
+(setq neo-theme 'icons)
+(setq neo-window-width 50)
+
+(require 'all-the-icons)
+(add-to-list 'all-the-icons-dir-icon-alist '("test" all-the-icons-octicon "file-directory" :height 1.0 :v-adjust -0.1))
+(add-to-list 'all-the-icons-icon-alist '("\\.dockerignore$" all-the-icons-fileicon "dockerfile" :face all-the-icons-dblue))
 
 (provide 'ots-neotree)
 ;;; ots-neotree.el ends here
