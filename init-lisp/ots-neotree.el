@@ -24,7 +24,6 @@
           (neotree-dir (projectile-project-root)))
         (neotree-find file-name)))))
 
-(add-hook 'neotree-mode-hook 'ots-neotree-mode-fix-icons)
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (global-set-key (kbd "<f10>") 'ots-neotree-toggle)
 (global-set-key (kbd "<S-f10>") 'neotree-find)
