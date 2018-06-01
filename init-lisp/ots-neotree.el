@@ -35,8 +35,8 @@
 (setq neo-hidden-regexp-list '("\\.elc$"
                                "\\.pyc$"
                                "^#.*#$"
-                               "^\\."
                                "^\\.git$"
+                               "^\\.cache$"
                                "^__pycache__$"
                                "^node_modules$"
                                "~$"))
