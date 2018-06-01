@@ -11,6 +11,7 @@
 
 (add-hook 'conf-mode-hook 'ots-conf-mode-set-properties)
 (add-to-list 'auto-mode-alist '("\\.desktop\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.flake8\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.git/config\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.gitmodules\\'" . conf-mode))

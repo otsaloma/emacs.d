@@ -19,6 +19,7 @@
 
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-faces)
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-properties)
+(add-to-list 'auto-mode-alist '("\\.env\\'" . sh-mode))
 (modify-coding-system-alist 'file "\\.sh\\'" 'utf-8)
 
 (provide 'ots-sh-mode)
