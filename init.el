@@ -89,7 +89,6 @@
   (require 'ots-server)
   (require 'ots-sh-mode)
   (require 'ots-shell-mode)
-  (require 'ots-smooth-scrolling)
   (require 'ots-sql-mode)
   (require 'ots-tabbar)
   (require 'ots-text-mode)

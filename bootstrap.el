@@ -32,7 +32,6 @@
    racer
    rainbow-mode
    rust-mode
-   smooth-scrolling
    sqlup-mode
    sudo-edit
    tabbar
