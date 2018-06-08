@@ -16,6 +16,7 @@
    company-dict
    company-tern
    dockerfile-mode
+   dtrt-indent
    editorconfig
    ess
    git-gutter-fringe+
