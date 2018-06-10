@@ -87,7 +87,7 @@
  `(helm-match ((t (:foreground "#ff405a"))))
  `(helm-selection ((t (:background "#f5f5aa" :foreground nil))))
  `(helm-source-header ((t (:foreground "#1d77ff"))))
- `(linum ((t (:background "#cccccc" :foreground "#777777" :height 1.0))))
+ `(linum ((t (:background "#f6f6f6" :foreground "#777777" :height 0.85))))
  `(markdown-code-face ((t (:background "#f6f6f6" :foreground nil))))
  `(markdown-header-face ((t (:foreground "#1d77ff" :weight bold))))
  `(mmm-default-submode-face ((t (:background "#f6f6f6" :foreground nil))))
