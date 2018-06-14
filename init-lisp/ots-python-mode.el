@@ -1,17 +1,15 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
-(defun ots-python-mode-anaconda ()
-  "Start anaconda-mode and it's completion via company-mode."
+(defun ots-python-mode-jedi ()
+  "Set auto-complete via jedi."
+  ;; anaconda-mode seems unreliable, use only for eldoc,
+  ;; which we can't seem conveniently get elsewhere.
   (require 'company-dict)
-  (require 'ots-python-completion)
-  (when (eq system-type 'windows-nt)
-    (setq python-shell-interpreter "C:/Python33/python.exe"))
-  (anaconda-mode)
+  (require 'company-jedi)
   (anaconda-eldoc-mode)
   (setq-local company-backends
-   '((company-anaconda :with company-anaconda-dabbrev company-anaconda-dict)
-     (company-keywords company-dict company-dabbrev-code)
+   '((company-jedi company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
 (defun ots-python-mode-send-region ()
@@ -92,16 +90,16 @@
       (run-python "python3 -i" nil t))
   (python-shell-switch-to-shell))
 
-(add-hook 'python-mode-hook 'ots-python-mode-anaconda t)
+(add-hook 'python-mode-hook 'ots-python-mode-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
+
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
-(setenv "PYTHONPATH" ".")
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here

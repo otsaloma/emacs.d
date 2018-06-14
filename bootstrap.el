@@ -14,6 +14,7 @@
    company-anaconda
    company-auctex
    company-dict
+   company-jedi
    company-tern
    dockerfile-mode
    dtrt-indent
