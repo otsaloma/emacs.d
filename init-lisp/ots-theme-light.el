@@ -50,6 +50,8 @@
  `(font-lock-warning-face ((t (:foreground "#ff405a"))))
 
  ;; Add-on packages
+ `(company-preview ((t (:foreground "#ff5555"))))
+ `(company-preview-common ((t (:foreground "#ff5555"))))
  `(company-scrollbar-bg ((t (:background nil))))
  `(company-scrollbar-fg ((t (:background nil))))
  `(company-tooltip ((t (:background "#eeeeec" :foreground "#2e3436"))))
