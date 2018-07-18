@@ -4,6 +4,9 @@
 (defvar ots-theme-current nil
   "Currently active theme (last enabled to be exact).")
 
+(defvar ots-theme-default "dark"
+  "The default theme to use at startup.")
+
 (defun ots-theme-enable (theme)
   "Load and enable theme: either 'dark' or 'light'."
   (when (string= theme "dark")
@@ -26,7 +29,7 @@
   (switch-to-buffer "*scratch*")
   (run-with-timer 0.001 nil #'(lambda () (switch-to-buffer nil))))
 
-(ots-theme-enable "dark")
+(ots-theme-enable ots-theme-default)
 (global-set-key (kbd "<S-f11>") 'ots-theme-toggle)
 
 ;; Disable italics as most monospace fonts don't
