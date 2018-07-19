@@ -77,7 +77,7 @@
  `(font-latex-warning-face ((t (:background nil :foreground "#e68a8a"))))
  `(git-gutter+-added ((t (:background "#88ff88" :foreground "#88ff88"))))
  `(git-gutter+-deleted ((t (:background "#ff8888" :foreground "#ff8888"))))
- `(git-gutter+-modified ((t (:background "#ffff88" :foreground "#ffff88"))))
+ `(git-gutter+-modified ((t (:background "#8888ff" :foreground "#8888ff"))))
  `(helm-candidate-number ((t (:inherit 'mode-line))))
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
