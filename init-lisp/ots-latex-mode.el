@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-latex-mode.el
 
-(defvar ots-latex-mode-compile-command
-  (if (eq system-type 'windows-nt) "make pdf %s" "ostex pdf %s")
-  "Command to compile LaTeX document.")
-
 (defun ots-latex-mode-set-face-sectioning (level)
   "Set fonts and colors for section titles."
   (let ((face (format "font-latex-sectioning-%d-face" level)))
@@ -37,7 +33,6 @@
 (defun ots-latex-mode-set-properties ()
   "Set properties for editing LaTeX files."
   (company-auctex-init)
-  (ots-util-set-compile-command ots-latex-mode-compile-command)
   (setq-local helm-dash-docsets '("LaTeX"))
   (setq-local LaTeX-indent-level 0)
   (setq-local LaTeX-item-indent 0)

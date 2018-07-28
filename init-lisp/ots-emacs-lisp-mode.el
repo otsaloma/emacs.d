@@ -3,8 +3,7 @@
 
 (defun ots-emacs-lisp-mode-set-keys ()
   "Set keybindings for editing Emacs Lisp files."
-  (local-set-key (kbd "<f5>") 'emacs-lisp-byte-compile)
-  (local-set-key (kbd "<f6>") 'ielm))
+  (local-set-key (kbd "<f9>") 'emacs-lisp-byte-compile))
 
 (defun ots-emacs-lisp-mode-set-properties ()
   "Set properties for editing Emacs Lisp files."

@@ -4,6 +4,7 @@
 (require 'projectile)
 
 (add-to-list 'projectile-globally-ignored-directories ".cache")
+(add-to-list 'projectile-globally-ignored-directories ".pytest_cache")
 (add-to-list 'projectile-globally-ignored-directories "__pycache__")
 (add-to-list 'projectile-globally-ignored-directories "build")
 (add-to-list 'projectile-globally-ignored-directories "dist")

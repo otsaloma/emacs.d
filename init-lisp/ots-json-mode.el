@@ -3,7 +3,7 @@
 
 (defun ots-json-mode-set-properties ()
   "Set properties for editing JSON files."
-  (ots-util-bind-key-compile (kbd "<f9>") "jsonlint %s -cq")
+  (ots-util-bind-key-compile (kbd "<f8>") "jsonlint %s -cq")
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
   (turn-off-auto-fill))

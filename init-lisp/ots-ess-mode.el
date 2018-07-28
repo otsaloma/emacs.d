@@ -51,16 +51,16 @@
 
 (defun ots-ess-mode-set-keys ()
   "Set keybindings for editing R files."
-  (local-set-key (kbd "C-m") 'exchange-point-and-mark)
+  (local-set-key (kbd "C-m") 'ots-util-pop-mark)
   (local-set-key (kbd "C-+") 'yas-expand)
   (local-set-key (kbd "C-ö") 'ots-ess-mode-insert-pipe)
   (local-set-key (kbd "_") '(lambda () (interactive) (insert "_")))
   (local-set-key (kbd "<delete>") 'delete-char)
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
-  (local-set-key (kbd "<f6>") 'ots-ess-mode-start)
-  (local-set-key (kbd "<S-f6>") 'ots-ess-mode-setwd)
-  (local-set-key (kbd "<f8>") 'ots-ess-mode-source)
-  (local-set-key (kbd "<f9>") 'ots-ess-mode-eval-region))
+  (local-set-key (kbd "<f5>") 'ots-ess-mode-source)
+  (ots-util-bind-key-compile (kbd "<S-f5>") "rscript %s")
+  (local-set-key (kbd "<f6>") 'ots-ess-mode-eval-region)
+  (ots-util-bind-key-compile (kbd "<f8>") "r --vanilla -e 'invisible(parse(\"%s\"))'"))
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."

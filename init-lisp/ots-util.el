@@ -188,13 +188,6 @@
   (set-buffer-modified-p t)
   (save-buffer))
 
-(defun ots-util-set-compile-command (command)
-  "Expand and set buffer-local compile command."
-  (when (buffer-file-name)
-    (if (string-match "%s" command)
-        (setq command (ots-util-expand-command command)))
-    (set (make-local-variable 'compile-command) command)))
-
 (defun ots-util-set-face (symbol background foreground)
   "Set background and foreground font-lock faces for symbol."
   (when (> (display-color-cells) 16)

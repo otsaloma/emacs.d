@@ -8,7 +8,7 @@
 
 (defun ots-bat-mode-set-properties ()
   "Set properties for editing batch files."
-  (local-set-key (kbd "<f6>") 'ots-bat-mode-run)
+  (local-set-key (kbd "<f5>") 'ots-bat-mode-run)
   (setq-local helm-dash-docsets '("DOS")))
 
 (add-hook 'bat-mode-hook 'ots-bat-mode-set-properties)

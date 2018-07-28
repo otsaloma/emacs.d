@@ -55,7 +55,6 @@
   (require 'ots-environment)
   (require 'ots-ess-mode)
   (require 'ots-fringe)
-  (require 'ots-fullscreen)
   (require 'ots-git-gutter)
   (require 'ots-gpg)
   (require 'ots-graphql-mode)

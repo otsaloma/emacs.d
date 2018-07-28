@@ -25,8 +25,7 @@
         (neotree-find file-name)))))
 
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
-(global-set-key (kbd "<f10>") 'ots-neotree-toggle)
-(global-set-key (kbd "<S-f10>") 'neotree-find)
+(global-set-key (kbd "<f11>") 'ots-neotree-toggle)
 
 (setq neo-hidden-regexp-list '("\\.elc$"
                                "\\.pyc$"
@@ -35,6 +34,7 @@
                                "^#.*#$"
                                "^\\.git$"
                                "^\\.cache$"
+                               "^\\.pytest_cache$"
                                "^__pycache__$"
                                "^node_modules$"
                                "~$"))

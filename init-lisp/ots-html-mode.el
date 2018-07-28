@@ -16,7 +16,7 @@
 (defun ots-html-mode-set-properties ()
   "Set properties for editing HTML files."
   (local-set-key (kbd "C-<") 'sgml-tag)
-  (local-set-key (kbd "<f8>") 'browse-url-of-file)
+  (local-set-key (kbd "<f9>") 'browse-url-of-file)
   (setq-local fill-column 100)
   (setq-local tab-width 2))
 

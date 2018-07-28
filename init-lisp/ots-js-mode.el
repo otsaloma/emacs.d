@@ -27,21 +27,12 @@
     (if (string-match-p "^[\t ]*`" current-line)
         (indent-line-to next-level))))
 
-(defun ots-js-mode-run-js ()
-  "Start an interactive JavaScript interpreter."
-  (interactive)
-  (require 'js-comint)
-  (setenv "NODE_NO_READLINE" "1")
-  (run-js inferior-js-program-command)
-  (delete-other-windows))
-
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
   (when (eq major-mode 'js-mode)
     (font-lock-add-keywords
      nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face))))
-  (local-set-key (kbd "<f8>") 'ots-js-mode-run-js)
-  (ots-util-bind-key-compile (kbd "<f9>") "jshint --reporter=unix %s")
+  (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
   (ots-util-add-imenu-expressions
    '((nil "^var +\\([^ =]+\\)[ =]" 1)
      (nil "^function +\\([^(]+\\)(" 1)))

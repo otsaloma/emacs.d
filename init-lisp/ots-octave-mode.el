@@ -12,10 +12,7 @@
 
 (defun ots-octave-mode-set-keys ()
   "Set keybindings for editing Octave files."
-  (local-set-key (kbd "C-h") 'query-replace-regexp)
-  (local-set-key (kbd "<f6>") 'run-octave)
-  (local-set-key (kbd "<f8>") 'octave-send-buffer)
-  (local-set-key (kbd "<f9>") 'octave-send-line))
+  (local-set-key (kbd "C-h") 'query-replace-regexp))
 
 (defun ots-octave-mode-set-properties ()
   "Set properties for editing Octave files."

@@ -4,7 +4,7 @@
 (defun ots-python-mode-jedi ()
   "Set auto-complete via jedi."
   ;; anaconda-mode seems unreliable, use only for eldoc,
-  ;; which we can't seem conveniently get elsewhere.
+  ;; which we can't seem to conveniently get elsewhere.
   (require 'company-dict)
   (require 'company-jedi)
   (anaconda-eldoc-mode)
@@ -69,13 +69,12 @@
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
   (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)
-  (ots-util-bind-key-compile (kbd "<f6>") "python3 -u %s")
-  (ots-util-bind-key-compile (kbd "<S-f6>") "python3 -i %s")
-  (local-set-key (kbd "<f8>") 'ots-python-mode-send-region)
-  (local-set-key (kbd "<S-f8>") 'ots-python-mode-start)
-  (ots-util-bind-key-compile (kbd "<f9>") "flake8 %s")
-  (ots-util-bind-key-compile (kbd "<S-f9>") "py.test -xs %t")
-  (ots-util-bind-key-compile (kbd "<C-S-f9>") "nosetests-run -xs %t"))
+  (ots-util-bind-key-compile (kbd "<f5>") "python3 -u %s")
+  (ots-util-bind-key-compile (kbd "<S-f5>") "python3 -ui %s")
+  (local-set-key (kbd "<f6>") 'ots-python-mode-send-region)
+  (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
+  (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
+  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t"))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."

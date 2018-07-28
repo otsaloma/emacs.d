@@ -61,11 +61,7 @@
   (global-set-key (kbd "<f1>") 'help)
   (global-set-key (kbd "<S-f1>") 'woman)
   (global-set-key (kbd "<f3>") 'ots-util-start-external-terminal)
-  (global-set-key (kbd "<S-f3>") 'shell)
-  (global-set-key (kbd "<f5>") 'compile)
-  (global-set-key (kbd "<S-f5>") 'ots-util-compile-current-line)
-  (global-set-key (kbd "<C-S-f5>") 'kill-compilation)
-  (global-set-key (kbd "<f11>") 'ots-fullscreen-toggle))
+  (global-set-key (kbd "<S-f3>") 'shell))
 
 (defun ots-keys-set-isearch ()
   "Set keybindings for using interactive search."
