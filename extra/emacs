@@ -8,12 +8,12 @@ export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
 
 # Remove stale server if Emacs crashed.
-[ -z "$(ps -A | grep emacs25)" ] && rm -rfv /tmp/emacs1000/
+[ -z "$(ps u | grep /usr/bin/emacs)" ] && rm -rfv /tmp/emacs1000/
 
 if [ -e /tmp/emacs1000/server ]; then
     # Open files given as arguments in already running server.
-    /usr/bin/emacsclient.emacs25 -n "$@"
+    /usr/bin/emacsclient.emacs -n "$@"
 else
     # Start a new emacs, open files given as arguments and start the server.
-    /usr/bin/emacs25 -g 90x35 --eval "(server-mode 1)" "$@" &
+    /usr/bin/emacs -g 90x35 --eval "(server-mode 1)" "$@" &
 fi

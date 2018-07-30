@@ -13,7 +13,7 @@ too, but that has not been tested. For Windows users,
 not included in Emacs itself should be available via ELPA. You can
 install them in one go with the following shell command.
 
-    emacs25 --script bootstrap.el
+    emacs --script bootstrap.el
 
 My emacs.d is available under the GNU General Public License (GPL), see
 the file [`COPYING`](COPYING) for details. See also my [docsets][2] for
