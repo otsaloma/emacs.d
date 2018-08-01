@@ -8,7 +8,7 @@ export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
 
 # Remove stale server if Emacs crashed.
-[ -z "$(ps u | grep /usr/bin/emacs)" ] && rm -rfv /tmp/emacs1000/
+[ -z "$(ps u | grep "/usr/bin/emac[s]")" ] && rm -rfv /tmp/emacs1000/
 
 if [ -e /tmp/emacs1000/server ]; then
     # Open files given as arguments in already running server.
