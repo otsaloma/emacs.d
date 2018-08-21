@@ -44,6 +44,7 @@
   (ots-util-add-docset "gi.repository"  "GObject")
   (ots-util-add-docset "gi.repository"  "GTK+")
   (ots-util-add-docset "gi.repository"  "Pango")
+  (ots-util-add-docset "\\<django\\>"   "Django")
   (ots-util-add-docset "\\<flask\\>"    "Flask")
   (ots-util-add-docset "\\<numpy\\>"    "NumPy")
   (ots-util-add-docset "\\<pandas\\>"   "Pandas")
