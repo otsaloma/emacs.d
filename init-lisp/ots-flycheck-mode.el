@@ -6,12 +6,18 @@
 (flycheck-define-checker r-parse
   "R syntax checker using parse()."
   :command ("r-parse" source)
-  :error-patterns ((error line-start "  " (file-name) ":" line ":" column ": " (message) line-end))
+  :error-patterns ((error
+                    line-start "  "
+                    (file-name) ":"
+                    line ":"
+                    column ": "
+                    (message)
+                    line-end))
+
   :modes ess-mode)
 
 (add-to-list 'flycheck-checkers 'r-parse)
-
-(setq flycheck-global-modes '(ess-mode python-mode))
+(setq flycheck-global-modes '(ess-mode js-mode json-mode python-mode))
 (setq-default flycheck-disabled-checkers '(r-lintr))
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
