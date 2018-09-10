@@ -54,6 +54,7 @@
   (require 'ots-emacs-lisp-mode)
   (require 'ots-environment)
   (require 'ots-ess-mode)
+  (require 'ots-flycheck-mode)
   (require 'ots-fringe)
   (require 'ots-git-gutter)
   (require 'ots-gpg)

@@ -20,6 +20,7 @@
    dtrt-indent
    editorconfig
    ess
+   flycheck
    git-gutter-fringe+
    graphql-mode
    helm
