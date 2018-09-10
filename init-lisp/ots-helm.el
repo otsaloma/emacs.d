@@ -6,12 +6,10 @@
 (defun ots-helm-find-file ()
   "Find a file to open from common sources."
   (interactive)
-  (require 'helm-for-files)
-  (require 'helm-projectile)
-  (helm :sources '(helm-source-projectile-files-list
-                   helm-source-files-in-current-dir)
-        :ff-transformer-show-only-basename nil
-        :buffer "*helm-find-file*"))
+  (if (and (fboundp 'projectile-project-p)
+           (projectile-project-p))
+      (helm-projectile-find-file-dwim)
+    (helm-find-files default-directory)))
 
 (global-set-key (kbd "C-o") 'ots-helm-find-file)
 (setq helm-case-fold-search t)
