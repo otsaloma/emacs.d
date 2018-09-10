@@ -100,7 +100,7 @@
     (ess-switch-to-end-of-ESS)
     (ots-util-comint-send "source(\"%s\")" file-name)))
 
-(autoload 'R-mode "ess-site.el" "ESS" t)
+(autoload 'R-mode "ess-r-mode.el" "ESS" t)
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
@@ -122,6 +122,7 @@
 (setq ess-R-argument-suffix "=")
 (setq ess-roxy-str "#'")
 (setq ess-use-company t)
+(setq ess-write-to-dribble nil)
 (setq inferior-ess-r-help-command
  ".ess.help(\"%s\", help.type=\"html\")\n")
 
