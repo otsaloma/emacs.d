@@ -34,6 +34,7 @@
    pcre2el
    racer
    rainbow-mode
+   rjsx-mode
    rust-mode
    sqlup-mode
    sudo-edit
