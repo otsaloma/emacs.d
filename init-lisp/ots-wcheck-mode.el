@@ -38,21 +38,16 @@
 (setq wcheck-language "en")
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
+
 (setq wcheck-language-data-defaults
       '((read-or-skip-faces
-         (latex-mode read
-                     nil ; normal text
-                     font-latex-bold-face
-                     font-latex-italic-face
-                     font-latex-sectioning-0-face
-                     font-latex-sectioning-1-face
-                     font-latex-sectioning-2-face
-                     font-latex-sectioning-3-face
-                     font-latex-sectioning-4-face
-                     font-latex-sectioning-5-face
-                     font-latex-slide-title-face
-                     font-lock-type-face
-                     ))))
+         ((gfm-mode markdown-mode)
+          skip
+          font-lock-keyword-face
+          markdown-code-face
+          markdown-pre-face
+          markdown-reference-face
+          markdown-url-face))))
 
 (global-set-key (kbd "<f7>") 'wcheck-mode)
 (global-set-key (kbd "<S-f7>") 'wcheck-change-language)
