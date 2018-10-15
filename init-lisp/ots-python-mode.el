@@ -5,6 +5,10 @@
   "Set auto-complete via jedi."
   ;; anaconda-mode seems unreliable, use only for eldoc,
   ;; which we can't seem to conveniently get elsewhere.
+  (require 'python-environment)
+  (setq jedi:environment-virtualenv
+        (append python-environment-virtualenv
+                '("--python" "/usr/bin/python3")))
   (require 'company-dict)
   (require 'company-jedi)
   (anaconda-eldoc-mode)
