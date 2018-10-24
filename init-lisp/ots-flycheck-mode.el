@@ -27,6 +27,7 @@
 (setq flycheck-python-pycompile-executable "python3")
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(global-set-key (kbd "<S-f8>") 'flycheck-mode)
 
 (provide 'ots-flycheck-mode)
 ;;; ots-flycheck-mode.el ends here
