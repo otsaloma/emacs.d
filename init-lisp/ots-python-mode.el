@@ -1,10 +1,17 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
+(defun ots-python-mode-anaconda ()
+  "Set auto-completion via anaconda."
+  (require 'company-dict)
+  (anaconda-mode)
+  (anaconda-eldoc-mode)
+  (setq-local company-backends
+   '((company-anaconda company-keywords company-dict company-dabbrev-code)
+     (company-dabbrev))))
+
 (defun ots-python-mode-jedi ()
-  "Set auto-complete via jedi."
-  ;; anaconda-mode seems unreliable, use only for eldoc,
-  ;; which we can't seem to conveniently get elsewhere.
+  "Set auto-completion via jedi."
   (require 'python-environment)
   (setq jedi:environment-virtualenv
         (append python-environment-virtualenv
