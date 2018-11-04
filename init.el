@@ -4,8 +4,7 @@
 ;; http://www.reddit.com/r/emacs/comments/3kqt6e/
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 (setq gc-cons-threshold most-positive-fixnum)
-(run-with-idle-timer 5 nil #'(lambda ()
-  (setq gc-cons-threshold (* 100 1024 1024))))
+(run-with-idle-timer 5 nil #'(lambda () (setq gc-cons-threshold (* 100 1024 1024))))
 
 ;; Don't save package-selected-packages.
 (setq custom-file "/dev/null")
@@ -16,12 +15,7 @@
 (package-initialize)
 
 ;; Avoid questions about where to save abbrevs.
-;; XXX: Why must this be before loading init-lisp?
 (setq save-abbrevs nil)
-
-;; Allow conditional rules to apply work environment style guides
-;; etc. as exceptions only on work computer/environment.
-(setq ots-environment-work (string= (system-name) "thinkpad"))
 
 (push "~/.emacs.d/init-lisp" load-path)
 (byte-recompile-directory "~/.emacs.d/init-lisp" 0)
