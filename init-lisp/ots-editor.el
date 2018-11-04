@@ -45,7 +45,7 @@
   (setq-default line-spacing
    (cond ((string= family "IBM Plex Mono") 0.30)
          ((string= family "Meslo LG L") 0.15)
-         ((string= family "SF Mono") 0.40))))
+         ((string= family "SF Mono") 0.45))))
 
 ;; Prevent a window split when opening multiple files at once.
 (add-hook 'emacs-startup-hook 'delete-other-windows t)
