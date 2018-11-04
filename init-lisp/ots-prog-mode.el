@@ -26,7 +26,7 @@
 
 ;; Some programming modes don't inherit from prog-mode.
 ;; Add hooks for these modes too, but remember to append
-;; the actual hook so that they overwrite anything set here.
+;; the main config hook so that it has precedence over this.
 (add-hook 'ess-mode-hook 'ots-prog-mode-set-keys)
 (add-hook 'ess-mode-hook 'ots-prog-mode-set-properties)
 

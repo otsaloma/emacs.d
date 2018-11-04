@@ -41,7 +41,7 @@
   (setq-local company-backends
    '((company-dict company-dabbrev)))
   (setq-local fill-column 100)
-  (setq-local helm-dash-docsets '("JavaScript" "Silica" "QML")))
+  (setq-local helm-dash-docsets '("JavaScript" "QML")))
 
 (autoload 'ots-qml-mode "qml" "QML" t)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-faces)

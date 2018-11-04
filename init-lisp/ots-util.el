@@ -21,13 +21,6 @@
    (interactive)
    (compile (ots-util-expand-command ',command) t))))
 
-(defun ots-util-buffer-contains (string)
-  "Return t if buffer contains string, else nil."
-  (save-excursion
-    (save-match-data
-      (goto-char (point-min))
-      (search-forward string nil t))))
-
 (defun ots-util-buffer-file-name ()
   "Return buffer-file-name relative to default-directory."
   (let ((directory (expand-file-name default-directory ""))
@@ -77,7 +70,7 @@
   (find-file (ots-util-unit-test-file)))
 
 (defun ots-util-helm-git-grep (arg)
-  "Run ripgrep at project root and show results with helm."
+  "Run git grep at project root and show results with helm."
   (interactive "P")
   (require 'helm-files)
   (helm-grep-git-1 (expand-file-name (projectile-project-root)) arg))
@@ -88,16 +81,6 @@
     (if (file-exists-p (concat path "/.git/")) t
       (ots-util-in-git-repo
        (ots-util-parent-directory path)))))
-
-(defun ots-util-insert-en-dash ()
-  "Insert one en dash at point."
-  (interactive)
-  (insert "–"))
-
-(defun ots-util-insert-em-dash ()
-  "Insert one em dash at point."
-  (interactive)
-  (insert "—"))
 
 (defun ots-util-insert-tab ()
   "Insert one tab character at point."
@@ -165,10 +148,6 @@
   (interactive)
   (set-mark-command t))
 
-(defun ots-util-prepend-env (name value)
-  "Prepend value to given environment variable."
-  (setenv name (concat value ":" (getenv name))))
-
 (defun ots-util-previous-window ()
   "Select the previous window."
   (interactive)
@@ -180,17 +159,18 @@
   (push-mark (point) t nil)
   (message "Mark set"))
 
+(defun ots-util-reload ()
+  "Reload the current major-mode."
+  (interactive)
+  (let ((mode major-mode))
+    (fundamental-mode)
+    (funcall-interactively mode)))
+
 (defun ots-util-save-buffer ()
   "Save the current buffer whether or not it is changed."
   (interactive)
   (set-buffer-modified-p t)
   (save-buffer))
-
-(defun ots-util-set-face (symbol background foreground)
-  "Set background and foreground font-lock faces for symbol."
-  (when (> (display-color-cells) 16)
-    (set-face-background symbol background)
-    (set-face-foreground symbol foreground)))
 
 (defun ots-util-smart-fill ()
   "Fill either paragraph at point or paragraphs in region."

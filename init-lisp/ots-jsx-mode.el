@@ -9,8 +9,8 @@
 
 (add-hook 'rjsx-mode-hook 'ots-jsx-mode-set-properties)
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
-(add-to-list 'magic-mode-alist '("^import.*[rR]eact" . rjsx-mode))
-(add-to-list 'magic-mode-alist '("^import.*[rR]edux" . rjsx-mode))
+(add-to-list 'magic-mode-alist '("^import.*[Rr]eact" . rjsx-mode))
+(add-to-list 'magic-mode-alist '("^import.*[Rr]edux" . rjsx-mode))
 
 (provide 'ots-jsx-mode)
 ;;; ots-jsx-mode.el ends here

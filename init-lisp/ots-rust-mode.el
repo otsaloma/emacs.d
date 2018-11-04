@@ -7,7 +7,7 @@
   (setq-local company-backends
    '((company-capf company-keywords company-dabbrev-code)
      (company-dabbrev)))
-  (setq rust-indent-offset 4))
+  (setq-local rust-indent-offset 4))
 
 (autoload 'rust-mode "rust-mode" nil t)
 (add-hook 'rust-mode-hook 'ots-rust-mode-set-properties)

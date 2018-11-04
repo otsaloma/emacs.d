@@ -41,7 +41,7 @@
   (ots-util-add-docset "</" "HTML"))
 
 (defun ots-js-mode-tern ()
-  "Start tern-mode and its auto-complete."
+  "Set auto-completion via tern."
   (when (eq major-mode 'js-mode)
     (tern-mode t)
     (setq-local company-backends

@@ -32,8 +32,8 @@
                                "\\.rdata$"
                                "\\.rds$"
                                "^#.*#$"
-                               "^\\.git$"
                                "^\\.cache$"
+                               "^\\.git$"
                                "^\\.pytest_cache$"
                                "^__pycache__$"
                                "^node_modules$"
@@ -44,6 +44,7 @@
 (setq neo-window-width 50)
 
 (require 'all-the-icons)
+
 (add-to-list 'all-the-icons-dir-icon-alist '("test" all-the-icons-octicon "file-directory" :height 1.0 :v-adjust -0.1))
 (add-to-list 'all-the-icons-icon-alist '("\\.dockerignore$" all-the-icons-fileicon "dockerfile" :face all-the-icons-dblue))
 (add-to-list 'all-the-icons-icon-alist '("\\.rs$" all-the-icons-alltheicon "rust" :height 1.0 :face all-the-icons-maroon))

@@ -56,8 +56,6 @@
   (global-set-key (kbd "<C-iso-lefttab>") 'ots-util-insert-tab)
   (global-set-key (kbd "<delete>") 'delete-char)
   (global-set-key (kbd "<home>") 'ots-util-smart-home)
-  (global-set-key (kbd "<C-kp-subtract>") 'ots-util-insert-en-dash)
-  (global-set-key (kbd "<C-S-kp-subtract>") 'ots-util-insert-em-dash)
   (global-set-key (kbd "<f1>") 'help)
   (global-set-key (kbd "<S-f1>") 'woman)
   (global-set-key (kbd "<f3>") 'ots-util-start-external-terminal)

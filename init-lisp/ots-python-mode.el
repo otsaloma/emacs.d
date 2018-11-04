@@ -49,28 +49,23 @@
 (defun ots-python-mode-set-docsets ()
   "Load helm-dash docsets based on buffer contents."
   (setq-local helm-dash-docsets '("Python"))
-  (ots-util-add-docset "gi.repository"  "GDK")
-  (ots-util-add-docset "gi.repository"  "Gio")
-  (ots-util-add-docset "gi.repository"  "GLib")
-  (ots-util-add-docset "gi.repository"  "GObject")
-  (ots-util-add-docset "gi.repository"  "GTK+")
-  (ots-util-add-docset "gi.repository"  "Pango")
-  (ots-util-add-docset "\\<django\\>"   "Django")
-  (ots-util-add-docset "\\<flask\\>"    "Flask")
-  (ots-util-add-docset "\\<numpy\\>"    "NumPy")
-  (ots-util-add-docset "\\<pandas\\>"   "Pandas")
-  (ots-util-add-docset "\\<requests\\>" "Requests"))
+  (ots-util-add-docset "^\\(from\\|import\\) django" "Django")
+  (ots-util-add-docset "^\\(from\\|import\\) flask" "Flask")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GDK")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "Gio")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GLib")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GObject")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GTK+")
+  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "Pango")
+  (ots-util-add-docset "^\\(from\\|import\\) numpy" "NumPy")
+  (ots-util-add-docset "^\\(from\\|import\\) pandas" "Pandas")
+  (ots-util-add-docset "^\\(from\\|import\\) requests" "Requests"))
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
-  ;; Only color special variables.
-  (face-remap-add-relative
-   'font-lock-preprocessor-face
-   :foreground (face-foreground
-                'font-lock-variable-name-face))
-  (face-remap-add-relative
-   'font-lock-variable-name-face
-   :foreground nil)
+  ;; Only color special variables via font-lock-preprocessor-face.
+  (face-remap-add-relative 'font-lock-preprocessor-face :foreground (face-foreground 'font-lock-variable-name-face))
+  (face-remap-add-relative 'font-lock-variable-name-face :foreground nil)
   (font-lock-add-keywords
    nil '(("\\(=\\)" 1 font-lock-keyword-face)
          ("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
@@ -95,13 +90,6 @@
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
   (setq-local python-shell-interpreter "python3"))
-
-(defun ots-python-mode-start ()
-  "Start a global, interactive Python shell."
-  (interactive)
-  (if (not (get-buffer "*Python*"))
-      (run-python "python3 -i" nil t))
-  (python-shell-switch-to-shell))
 
 (add-hook 'python-mode-hook 'ots-python-mode-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)

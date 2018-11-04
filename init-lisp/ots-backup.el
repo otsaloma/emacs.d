@@ -2,7 +2,7 @@
 ;;; ots-backup.el
 
 (defvar ots-backup-directory
-  (concat temporary-file-directory "emacs/backup/")
+  (concat temporary-file-directory "emacs-backup/")
   "Directory to save backup files in.")
 
 (setq auto-save-file-name-transforms `((".*" ,ots-backup-directory t)))

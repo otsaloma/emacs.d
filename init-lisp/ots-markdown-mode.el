@@ -1,19 +1,9 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-markdown-mode.el
 
-(defvar ots-markdown-mode-css-file
-  (expand-file-name "~/.local/share/markdown-css/github.css")
-  "Name of stylesheet file to use.")
-
 (defvar ots-markdown-mode-command
-  (concat "pandoc"
-          " --from=gfm"
-          " --to=html5"
-          " --ascii"
-          " --css=" (convert-standard-filename ots-markdown-mode-css-file)
-          " --highlight-style=haddock"
-          " --self-contained"
-          " 2> /dev/null")
+  (format "pandoc --from=gfm --to=html5 --ascii --css=%s --highlight-style=haddock --self-contained 2> /dev/null"
+          (expand-file-name "~/.local/share/markdown-css/github.css"))
   "Command to use to compile Markdown files.")
 
 (defun ots-markdown-mode-set-faces ()
@@ -25,7 +15,6 @@
   "Set properties for editing Markdown files."
   (local-set-key (kbd "<return>") 'markdown-enter-key)
   (local-set-key (kbd "<kp-enter>") 'markdown-enter-key)
-  ;; Allow running shell script blocks line by line.
   (local-set-key (kbd "<f6>") 'ots-util-compile-current-line)
   (local-set-key (kbd "<f9>") 'markdown-preview)
   (local-set-key (kbd "<f10>") 'markdown-export)
@@ -42,8 +31,7 @@
   (setq-local markdown-indent-on-enter nil)
   (setq-local markdown-spaces-after-code-fence 0)
   ;; Use GitHub Flavored Markdown by default.
-  (if (not (eq major-mode 'gfm-mode))
-      (gfm-mode)))
+  (if (not (eq major-mode 'gfm-mode)) (gfm-mode)))
 
 (autoload 'markdown-mode "markdown-mode" "Markdown" t)
 (add-hook 'markdown-mode-hook 'ots-markdown-mode-set-faces)

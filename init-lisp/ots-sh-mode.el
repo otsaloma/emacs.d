@@ -3,7 +3,6 @@
 
 (defun ots-sh-mode-set-faces ()
   "Set fonts and colors for shell scripts."
-  (require 'ots-theme)
   (font-lock-add-keywords
    nil '(("alias +\\([a-z0-9\-]+\\)=" 1 font-lock-variable-name-face)
          ("\\(<*\\<EOF\\>\\)" 1 font-lock-keyword-face)))

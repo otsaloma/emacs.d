@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8-unix -*-
 ;;; ots-wcheck-mode.el
 
-(defvar enchant-program
-  "/usr/bin/enchant"
-  "Path to the enchant executable.")
-
 (defun enchant-add-to-dictionary (marked-text)
   "Add word from marked-text to user's dictionary."
   (let* ((word (aref marked-text 0))
@@ -22,9 +18,9 @@
 (defun enchant-wcheck-entry (lang)
   "Construct a wcheck-language-data alist entry for enchant."
   (let ((out (list lang)))
-    (add-to-list 'out `(program . ,enchant-program) t)
+    (add-to-list 'out `(program . ,"/usr/bin/enchant") t)
     (add-to-list 'out `(args "-l" "-d" ,lang) t)
-    (add-to-list 'out `(action-program . ,enchant-program) t)
+    (add-to-list 'out `(action-program . ,"/usr/bin/enchant") t)
     (add-to-list 'out `(action-args "-a" "-d" ,lang) t)
     (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
     out))
@@ -33,19 +29,17 @@
 (autoload 'wcheck-change-language "wcheck-mode" "Switch language." t)
 (autoload 'wcheck-mode "wcheck-mode" "Toggle wcheck-mode." t)
 
-(setq wcheck-language "en")
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
 (add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
 
+(setq wcheck-language "en")
 (setq wcheck-language-data-defaults
-      '((read-or-skip-faces
-         ((gfm-mode markdown-mode)
-          skip
-          font-lock-keyword-face
-          markdown-code-face
-          markdown-pre-face
-          markdown-reference-face
-          markdown-url-face))))
+      '((read-or-skip-faces ((gfm-mode markdown-mode) skip
+                             font-lock-keyword-face
+                             markdown-code-face
+                             markdown-pre-face
+                             markdown-reference-face
+                             markdown-url-face))))
 
 (global-set-key (kbd "<f7>") 'wcheck-mode)
 (global-set-key (kbd "<S-f7>") 'wcheck-change-language)

@@ -41,7 +41,7 @@
           1 font-lock-keyword-face))))
 
 (defun ots-ess-mode-set-indentation ()
-  "Set indentation properties for editing R files."
+  "Set indentation for editing R files."
   (setq-local ess-align-blocks '())
   (setq-local ess-default-style 'DEFAULT)
   (setq-local ess-indent-from-lhs '())
@@ -67,11 +67,11 @@
   (modify-syntax-entry ?. "w")
   (setq-local comment-add 0)
   (setq-local company-backends
-   '((company-R-objects company-R-args company-keywords company-dabbrev)
+   '((company-R-objects company-R-args company-keywords company-dabbrev-code)
      (company-dabbrev))))
 
 (defun ots-ess-mode-setwd ()
-  "setwd to the directory of the current buffer in R."
+  "Change to the directory of the current buffer in R."
   (interactive)
   (ess-change-directory
    (file-name-directory
@@ -101,7 +101,7 @@
     (ots-util-comint-send "source(\"%s\")" file-name)))
 
 (autoload 'R-mode "ess-r-mode.el" "ESS" t)
-(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.[Rr]\\'" . R-mode))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
