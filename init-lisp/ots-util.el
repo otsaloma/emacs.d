@@ -167,9 +167,7 @@
 
 (defun ots-util-prepend-env (name value)
   "Prepend value to given environment variable."
-  (if (eq system-type 'windows-nt)
-      (setenv name (concat value ";" (getenv name)))
-    (setenv name (concat value ":" (getenv name)))))
+  (setenv name (concat value ":" (getenv name))))
 
 (defun ots-util-previous-window ()
   "Select the previous window."
@@ -234,9 +232,7 @@
 (defun ots-util-start-external-terminal ()
   "Start an external terminal in directory of the current buffer."
   (interactive)
-  (if (eq system-type 'windows-nt)
-      (start-process-shell-command "cmd" "*cmd*" "start cmd")
-  (start-process "gnome-terminal" "*gnome-terminal*" "gnome-terminal")))
+  (start-process "gnome-terminal" "*gnome-terminal*" "gnome-terminal"))
 
 (defun ots-util-switch-to-other-buffer ()
   "Switch to the most recently selected buffer."

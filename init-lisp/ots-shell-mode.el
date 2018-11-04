@@ -9,10 +9,7 @@
   (setq-local line-spacing 0))
 
 (add-hook 'shell-mode-hook 'ots-shell-mode-set-properties)
-
-(if (eq system-type 'windows-nt)
-    (setq dirtrack-list '("\\(.*\\)\n> " 1 t))
-  (setq dirtrack-list '("[a-z]+ @ .* : \\(.*\\)$" 1 t)))
+(setq dirtrack-list '("[a-z]+ @ .* : \\(.*\\)$" 1 t))
 
 (provide 'ots-shell-mode)
 ;;; ots-shell-mode.el ends here

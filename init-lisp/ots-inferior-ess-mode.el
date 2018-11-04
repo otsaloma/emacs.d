@@ -17,10 +17,7 @@
   (setq-local ess-use-company t)
   (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
   ;; Try to avoid broken syntax highlighting due to messages etc.
-  (copy-face 'default 'ess-operator-face)
-  (when (eq system-type 'windows-nt)
-    (setq-local process-coding-system-alist
-                '(("R.*" . windows-1252)))))
+  (copy-face 'default 'ess-operator-face))
 
 (defun ots-inferior-ess-mode-smart-home (&optional count)
   "Go to the beginning of the line or right after the prompt."

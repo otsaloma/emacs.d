@@ -28,10 +28,8 @@
 
 (defun ots-comint-mode-set-properties ()
   "Set properties for inferior interpreter sessions."
-  (if (eq system-type 'windows-nt)
-      (setq-local comint-completion-addsuffix '("\\" . " "))
-    (setq-local comint-completion-addsuffix t))
   (setq-local comint-buffer-maximum-size 1024)
+  (setq-local comint-completion-addsuffix t)
   (setq-local comint-completion-autolist t)
   (setq-local comint-completion-recexact t)
   (setq-local comint-input-ignoredups t)

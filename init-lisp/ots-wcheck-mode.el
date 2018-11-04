@@ -2,9 +2,7 @@
 ;;; ots-wcheck-mode.el
 
 (defvar enchant-program
-  (if (eq system-type 'windows-nt)
-      "c:\\cygwin\\bin\\enchant.exe"
-    "/usr/bin/enchant")
+  "/usr/bin/enchant"
   "Path to the enchant executable.")
 
 (defun enchant-add-to-dictionary (marked-text)

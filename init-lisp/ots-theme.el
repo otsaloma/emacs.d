@@ -37,9 +37,5 @@
 (set-face-attribute 'italic nil :slant 'normal)
 (set-face-attribute 'bold-italic nil :slant 'normal)
 
-;; For font used on Unix, see ~/.Xresources.
-(when (eq system-type 'windows-nt)
-  (set-frame-font "Meslo LG L-10"))
-
 (provide 'ots-theme)
 ;;; ots-theme.el ends here
