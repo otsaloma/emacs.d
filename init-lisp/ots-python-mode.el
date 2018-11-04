@@ -1,26 +1,19 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
-(defun ots-python-mode-anaconda ()
-  "Set auto-completion via anaconda."
+(defun ots-python-mode-lsp ()
+  "Set auto-completion via python-language-server."
+  ;; sudo pip3 install -U python-language-server
+  ;; https://github.com/palantir/python-language-server
+  (require 'lsp-mode)
+  (require 'lsp-python)
+  (setq lsp-python-use-init-for-project-root t)
+  (lsp-python-enable)
   (require 'company-dict)
-  (anaconda-mode)
-  (anaconda-eldoc-mode)
+  (require 'company-lsp)
   (setq-local company-backends
-   '((company-anaconda company-keywords company-dict company-dabbrev-code)
-     (company-dabbrev))))
-
-(defun ots-python-mode-jedi ()
-  "Set auto-completion via jedi."
-  (require 'python-environment)
-  (setq jedi:environment-virtualenv
-        (append python-environment-virtualenv
-                '("--python" "/usr/bin/python3")))
-  (require 'company-dict)
-  (require 'company-jedi)
-  (anaconda-eldoc-mode)
-  (setq-local company-backends
-   '((company-jedi company-keywords company-dict company-dabbrev-code)
+   '((company-lsp)
+     (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
 (defun ots-python-mode-send-region ()
@@ -49,17 +42,17 @@
 (defun ots-python-mode-set-docsets ()
   "Load helm-dash docsets based on buffer contents."
   (setq-local helm-dash-docsets '("Python"))
-  (ots-util-add-docset "^\\(from\\|import\\) django" "Django")
-  (ots-util-add-docset "^\\(from\\|import\\) flask" "Flask")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GDK")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "Gio")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GLib")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GObject")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "GTK+")
-  (ots-util-add-docset "^\\(from\\|import\\) gi.repository" "Pango")
-  (ots-util-add-docset "^\\(from\\|import\\) numpy" "NumPy")
-  (ots-util-add-docset "^\\(from\\|import\\) pandas" "Pandas")
-  (ots-util-add-docset "^\\(from\\|import\\) requests" "Requests"))
+  (ots-util-add-docset "\\(from\\|import\\) django" "Django")
+  (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GDK")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "Gio")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GLib")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GObject")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK+")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "Pango")
+  (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
+  (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
+  (ots-util-add-docset "\\(from\\|import\\) requests" "Requests"))
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
@@ -85,13 +78,14 @@
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
+  (anaconda-eldoc-mode)
   (setq-local fill-column 79)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
   (setq-local python-shell-interpreter "python3"))
 
-(add-hook 'python-mode-hook 'ots-python-mode-jedi t)
+(add-hook 'python-mode-hook 'ots-python-mode-lsp t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)

@@ -15,6 +15,7 @@
    company-auctex
    company-dict
    company-jedi
+   company-lsp
    company-tern
    dockerfile-mode
    dtrt-indent
@@ -28,6 +29,8 @@
    helm-projectile
    js-comint
    json-mode
+   lsp-mode
+   lsp-python
    markdown-mode
    mmm-mode
    neotree
