@@ -1,11 +1,9 @@
 emacs.d
 =======
 
-This is my personal Emacs configuration, i.e. `~/.emacs.d`. It contains
-oddities (e.g. entirely redesigned keybindings) and, for some features,
-dependencies on unavailable executables or assumptions about a
-particular platform and environment. It is not a recommended general-use
-solution and is unlikely to be of popular interest as-is.
+This is my personal Emacs configuration, i.e. `~/.emacs.d`. It is
+unlikely to be of much interest to others as a whole, but is available
+for reading and inspiration.
 
 All needed packages not included in Emacs itself should be available via
 ELPA. You can install them in one go with the following shell command.
