@@ -20,7 +20,7 @@
 (defun ots-comint-mode-set-keys ()
   "Set keybindings for inferior interpreter sessions."
   (local-set-key (kbd "C-r") 'helm-comint-input-ring)
-  (local-set-key (kbd "<tab>") 'comint-dynamic-complete)
+  (local-set-key (kbd "<tab>") 'completion-at-point)
   (local-set-key (kbd "<up>") 'ots-comint-mode-previous)
   (local-set-key (kbd "<C-up>") 'previous-line)
   (local-set-key (kbd "<down>") 'ots-comint-mode-next)
