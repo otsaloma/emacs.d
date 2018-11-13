@@ -5,14 +5,17 @@
   "Set auto-completion via python-language-server."
   ;; sudo pip3 install -U python-language-server
   ;; https://github.com/palantir/python-language-server
+  (require 'anaconda-mode)
   (require 'lsp-mode)
   (require 'lsp-python)
-  (setq lsp-python-use-init-for-project-root t)
-  (lsp-python-enable)
   (require 'company-dict)
   (require 'company-lsp)
+  (setq lsp-python-use-init-for-project-root t)
+  (anaconda-mode)
+  (anaconda-eldoc-mode)
+  (lsp-python-enable)
   (setq-local company-backends
-   '((company-lsp)
+   '((company-anaconda company-lsp)
      (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
@@ -78,7 +81,6 @@
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
-  (anaconda-eldoc-mode)
   (setq-local fill-column 79)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
