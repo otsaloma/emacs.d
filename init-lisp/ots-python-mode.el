@@ -1,8 +1,8 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
-(defun ots-python-mode-lsp ()
-  "Set auto-completion via python-language-server."
+(defun ots-python-mode-jedi ()
+  "Set auto-completion via jedi."
   ;; sudo pip3 install -U python-language-server
   ;; https://github.com/palantir/python-language-server
   (require 'anaconda-mode)
@@ -87,7 +87,7 @@
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
   (setq-local python-shell-interpreter "python3"))
 
-(add-hook 'python-mode-hook 'ots-python-mode-lsp t)
+(add-hook 'python-mode-hook 'ots-python-mode-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
