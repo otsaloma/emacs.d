@@ -15,7 +15,8 @@
   (anaconda-eldoc-mode)
   (lsp-python-enable)
   (setq-local company-backends
-   '((company-anaconda company-lsp)
+   '((company-anaconda)
+     (company-lsp)
      (company-keywords company-dict company-dabbrev-code)
      (company-dabbrev))))
 
