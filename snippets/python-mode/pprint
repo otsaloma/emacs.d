@@ -1,4 +1,0 @@
-# name: pprint
-# --
-import pprint
-pprint.pprint($0)
