@@ -97,7 +97,7 @@
  `(popup-tip-face ((t (:background "#f0f080" :foreground "#2e3436"))))
  `(sh-heredoc ((t (:foreground "#ba7fba"))))
  `(tabbar-default ((t (:background "#f2f2f2" :foreground "#999999" :box (:line-width 6 :color "#f2f2f2")))))
- `(tabbar-selected ((t (:background "#ffffff" :foreground "#2e3436" :box (:line-width 6 :color "#ffffff") :overline "#dddddd"))))
+ `(tabbar-selected ((t (:background "#ffffff" :foreground "#1d77ff" :box (:line-width 6 :color "#ffffff")))))
  `(tabbar-unselected ((t (:inherit 'tabbar-default))))
  `(tabbar-highlight ((t (:inherit 'tabbar-selected :overline nil))))
  `(tabbar-modified ((t (:inherit 'tabbar-unselected :foreground "#ff405a"))))
