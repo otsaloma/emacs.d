@@ -21,6 +21,7 @@
 (setq backward-delete-char-untabify-method 'hungry)
 (setq compilation-scroll-output t)
 (setq font-lock-maximum-decoration t)
+(setq frame-resize-pixelwise t)
 (setq frame-title-format "%+%b")
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
