@@ -33,6 +33,7 @@ intersection_update
 is_integer
 isalnum
 isalpha
+isascii
 isdecimal
 isdigit
 isdisjoint
