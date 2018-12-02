@@ -36,12 +36,12 @@
 
 (setq-default mode-line-format
  '(" %*"    (:eval (ots-mode-line-buffer-name 40))
-   " • "    (:eval (symbol-name buffer-file-coding-system))
-   " • "    (:eval (symbol-name major-mode))
-   " • "    (:eval (ots-mode-line-indentation))
-   " • %l/" (:eval (ots-mode-line-line-count))
+   " · "    (:eval (symbol-name buffer-file-coding-system))
+   " · "    (:eval (symbol-name major-mode))
+   " · "    (:eval (ots-mode-line-indentation))
+   " · %l/" (:eval (ots-mode-line-line-count))
    " "      (:eval (ots-mode-line-position))
-   " • %c/" (:eval (ots-mode-line-character-count))))
+   " · %c/" (:eval (ots-mode-line-character-count))))
 
 (provide 'ots-mode-line)
 ;;; ots-mode-line.el ends here
