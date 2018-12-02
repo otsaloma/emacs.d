@@ -2,4 +2,4 @@ TODO
 ====
 
 * Try flycheck-posframe once using Emacs 26
-* Try language-server
+* Try lsp-mode and company-lsp for more languages
