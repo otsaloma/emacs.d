@@ -18,6 +18,7 @@
    company-lsp
    company-tern
    dockerfile-mode
+   doom-themes
    dtrt-indent
    editorconfig
    ess

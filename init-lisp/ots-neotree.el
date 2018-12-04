@@ -12,6 +12,7 @@
   ;; https://github.com/jaypei/emacs-neotree/pull/263
   (interactive)
   (require 'all-the-icons)
+  (require 'doom-themes)
   (require 'neotree)
   (let ((file-name (buffer-file-name)))
     (if (neo-global--window-exists-p)
@@ -21,33 +22,33 @@
         (when (and (fboundp 'projectile-project-p)
                    (projectile-project-p)
                    (fboundp 'projectile-project-root))
+          ;; https://github.com/hlissner/emacs-doom-themes/wiki
+          (setq doom-neotree-project-size 1.05)
+          (doom-themes-neotree-config)
+          (advice-remove #'neo-buffer--insert-root-entry #'doom-neotree-insert-root)
+          (copy-face 'neo-file-link-face 'doom-neotree-hidden-file-face)
           (neotree-dir (projectile-project-root)))
         (neotree-find file-name)))))
 
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (global-set-key (kbd "<f11>") 'ots-neotree-toggle)
 
-(setq neo-hidden-regexp-list '("\\.elc$"
-                               "\\.pyc$"
-                               "\\.rdata$"
-                               "\\.rds$"
-                               "^#.*#$"
-                               "^\\.cache$"
+(setq neo-hidden-regexp-list '("^\\.cache$"
                                "^\\.git$"
                                "^\\.pytest_cache$"
                                "^__pycache__$"
                                "^node_modules$"
-                               "~$"))
+                               "~$"
+                               "\\.*#$"
+                               "\\.elc$"
+                               "\\.pyc$"
+                               "\\.rdata$"
+                               "\\.rds$"))
 
+(setq neo-show-slash-for-folder nil)
 (setq neo-smart-open t)
 (setq neo-theme 'icons)
 (setq neo-window-width 50)
-
-(require 'all-the-icons)
-
-(add-to-list 'all-the-icons-dir-icon-alist '("test" all-the-icons-octicon "file-directory" :height 1.0 :v-adjust -0.1))
-(add-to-list 'all-the-icons-icon-alist '("\\.dockerignore$" all-the-icons-fileicon "dockerfile" :face all-the-icons-dblue))
-(add-to-list 'all-the-icons-icon-alist '("\\.rs$" all-the-icons-alltheicon "rust" :height 1.0 :face all-the-icons-maroon))
 
 (provide 'ots-neotree)
 ;;; ots-neotree.el ends here
