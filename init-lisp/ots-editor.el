@@ -40,6 +40,7 @@
 (setq use-file-dialog nil)
 (setq x-select-enable-clipboard t)
 
+(setq-default cursor-in-non-selected-windows nil)
 (setq-default fill-column 80)
 (setq-default major-mode 'text-mode)
 
