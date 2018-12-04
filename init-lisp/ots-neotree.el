@@ -22,7 +22,6 @@
         (when (and (fboundp 'projectile-project-p)
                    (projectile-project-p)
                    (fboundp 'projectile-project-root))
-          ;; https://github.com/hlissner/emacs-doom-themes/wiki
           (setq doom-neotree-project-size 1.05)
           (doom-themes-neotree-config)
           (advice-remove #'neo-buffer--insert-root-entry #'doom-neotree-insert-root)
@@ -32,6 +31,11 @@
 
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (global-set-key (kbd "<f11>") 'ots-neotree-toggle)
+
+(setq neo-show-slash-for-folder nil)
+(setq neo-smart-open t)
+(setq neo-theme 'icons)
+(setq neo-window-width 50)
 
 (setq neo-hidden-regexp-list '("^\\.cache$"
                                "^\\.git$"
@@ -44,11 +48,6 @@
                                "\\.pyc$"
                                "\\.rdata$"
                                "\\.rds$"))
-
-(setq neo-show-slash-for-folder nil)
-(setq neo-smart-open t)
-(setq neo-theme 'icons)
-(setq neo-window-width 50)
 
 (provide 'ots-neotree)
 ;;; ots-neotree.el ends here
