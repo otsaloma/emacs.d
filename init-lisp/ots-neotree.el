@@ -35,7 +35,8 @@
   (doom-themes-neotree-config)
   (advice-remove #'neo-buffer--insert-root-entry #'doom-neotree-insert-root)
   (copy-face 'neo-file-link-face 'doom-neotree-hidden-file-face)
-  (let ((file-name (buffer-file-name)))
+  (let ((buffer (current-buffer))
+        (file-name (buffer-file-name)))
     (if (neo-global--window-exists-p)
         (neotree-hide)
       (progn
@@ -44,7 +45,8 @@
                    (projectile-project-p)
                    (fboundp 'projectile-project-root))
           (neotree-dir (projectile-project-root)))
-        (neotree-find file-name)))))
+        (neotree-find file-name)
+        (switch-to-buffer buffer)))))
 
 (add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
 (global-set-key (kbd "<f11>") 'ots-neotree-toggle)
