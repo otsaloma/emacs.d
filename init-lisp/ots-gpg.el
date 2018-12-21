@@ -6,8 +6,6 @@
 (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 (setq epa-pinentry-mode 'loopback)
 
-(pinentry-start)
-
 (defun ots-gpg-copy ()
   "Copy phrase at point to the clipboard."
   (interactive)
