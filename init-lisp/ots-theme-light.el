@@ -20,6 +20,8 @@
  `(highlight ((t (:underline t))))
  `(isearch ((t (:background "#ffcc00" :foreground nil))))
  `(lazy-highlight ((t (:background "#cccccc" :foreground nil))))
+ `(line-number ((t (:foreground "#999999" :height 0.85))))
+ `(line-number-current ((t (:foreground "#2e3436" :height 0.85))))
  `(link ((t (:foreground "#897fba"))))
  `(minibuffer-prompt ((t (:foreground "#1d77ff"))))
  `(mode-line ((t (:background "#f2f2f2" :foreground "#999999" :box (:line-width 6 :color "#f2f2f2") :overline "#dddddd"))))
