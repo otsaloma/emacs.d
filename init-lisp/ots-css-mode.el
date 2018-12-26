@@ -17,6 +17,7 @@
   (setq-local company-backends
    '((company-css company-keywords company-dabbrev-code)
      (company-dabbrev)))
+  (setq-local css-fontify-colors nil)
   (setq-local css-indent-offset 2)
   (setq-local fill-column 80)
   (setq-local helm-dash-docsets '("CSS"))
