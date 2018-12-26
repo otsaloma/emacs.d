@@ -87,7 +87,7 @@
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
- `(linum ((t (:background "#33393b" :foreground "#6e706b" :underline nil :height 0.85))))
+ `(linum ((t (:background "#33393b" :foreground "#6e706b" :height 0.85 :underline nil :box nil))))
  `(lsp-face-highlight-read ((t (:underline nil))))
  `(lsp-face-highlight-textual ((t (:underline nil))))
  `(lsp-face-highlight-write ((t (:underline nil))))
