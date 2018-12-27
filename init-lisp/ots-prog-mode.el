@@ -20,6 +20,7 @@
   (setq-local tab-width 4)
   (setq-local truncate-lines t)
   (turn-on-auto-fill)
+  ;; Try to avoid problems with partial fontification.
   (run-with-idle-timer 3 t 'font-lock-flush))
 
 (add-hook 'prog-mode-hook 'ots-prog-mode-set-keys)
