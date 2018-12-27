@@ -31,7 +31,7 @@
 (setq ring-bell-function (lambda () (message "*beep*")))
 (setq same-window-regexps '("^[a-zA-Z0-9_]"))
 (setq scroll-conservatively 1000)
-(setq scroll-margin 0)
+(setq scroll-margin 1)
 (setq scroll-step 1)
 (setq sentence-end "[.?!][]\"')}]*\\($\\|[ \t]\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
