@@ -23,7 +23,10 @@
   (while (progn
            (forward-line -1)
            (and (> (point) (point-min))
-                (not (looking-at "^[\t ]*$"))))))
+                (not (looking-at "^[\t ]*$")))))
+  (if (and (not (bobp))
+           (< (ots-util-visible-pos) 0.25))
+      (recenter)))
 
 (defun ots-util-bind-key-compile (key command)
   "Bind key locally to a compile command."
@@ -82,7 +85,10 @@
 (defun ots-util-forward-block ()
   "Move cursor to the beginning of the next block."
   (interactive "^")
-  (re-search-forward "\n[\n\t ]*$" nil t))
+  (re-search-forward "\n[\n\t ]*$" nil t)
+  (if (and (not (eobp))
+           (> (ots-util-visible-pos) 0.75))
+      (recenter)))
 
 (defun ots-util-helm-git-grep (arg)
   "Run git grep at project root and show results with helm."
@@ -246,6 +252,11 @@
   (let ((directory (file-name-directory (ots-util-buffer-file-name)))
         (file-name (file-name-nondirectory (ots-util-buffer-file-name))))
     (concat directory "test/test_" file-name)))
+
+(defun ots-util-visible-pos ()
+  "Return the current position as fraction of the visible window."
+  (/ (float (- (line-number-at-pos) (line-number-at-pos (window-start))))
+     (float (- (line-number-at-pos (window-end)) (line-number-at-pos (window-start))))))
 
 (defun ots-util-what-face (pos)
   "Print face at pos."
