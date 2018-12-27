@@ -15,6 +15,16 @@
   (setq-local imenu-generic-expression expressions)
   (setq-local imenu-create-index-function 'imenu-default-create-index-function))
 
+(defun ots-util-backward-block ()
+  "Move cursor to the beginning of the previous block."
+  (interactive "^")
+  (skip-chars-backward "\n\t ")
+  (beginning-of-line)
+  (while (progn
+           (forward-line -1)
+           (and (> (point) (point-min))
+                (not (looking-at "^[\t ]*$"))))))
+
 (defun ots-util-bind-key-compile (key command)
   "Bind key locally to a compile command."
   (local-set-key key `(lambda ()
@@ -68,6 +78,11 @@
   "Open the unit test file testing the current buffer."
   (interactive)
   (find-file (ots-util-unit-test-file)))
+
+(defun ots-util-forward-block ()
+  "Move cursor to the beginning of the next block."
+  (interactive "^")
+  (re-search-forward "\n[\n\t ]*$" nil t))
 
 (defun ots-util-helm-git-grep (arg)
   "Run git grep at project root and show results with helm."

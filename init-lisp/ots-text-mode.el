@@ -17,9 +17,6 @@
   (setq-local comment-auto-fill-only-comments t)
   (setq-local fill-column 72)
   (setq-local indent-tabs-mode nil)
-  ;; Restore normal mode-independent paragraph navigation.
-  (setq-local paragraph-separate "[ \t\f]*$")
-  (setq-local paragraph-start "\f\\|[ \t]*$")
   (setq-local tab-width 4)
   (setq-local truncate-lines t)
   (turn-on-auto-fill))
