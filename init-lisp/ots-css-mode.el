@@ -17,8 +17,6 @@
   (setq-local company-backends
    '((company-css company-keywords company-dabbrev-code)
      (company-dabbrev)))
-  (setq-local css-fontify-colors nil)
-  (setq-local css-indent-offset 2)
   (setq-local fill-column 80)
   (setq-local helm-dash-docsets '("CSS"))
   (setq-local tab-width 2))
@@ -27,7 +25,8 @@
 (add-hook 'css-mode-hook 'ots-css-mode-set-properties)
 (modify-coding-system-alist 'file "\\.css\\'" 'utf-8)
 
-;; Needed for <style> blocks in HTML files.
+;; Set globally so that will work in HTML files too.
+(setq css-fontify-colors nil)
 (setq css-indent-offset 2)
 
 (provide 'ots-css-mode)
