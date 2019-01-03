@@ -1,6 +1,7 @@
 *.bak
 *.elc
 .hidden
+.lsp-session*
 .python-environments/
 anaconda-mode/
 auto-save-list/

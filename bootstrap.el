@@ -31,7 +31,6 @@
    js-comint
    json-mode
    lsp-mode
-   lsp-python
    markdown-mode
    mmm-mode
    neotree
