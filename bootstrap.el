@@ -31,6 +31,7 @@
    js-comint
    json-mode
    lsp-mode
+   lua-mode
    markdown-mode
    mmm-mode
    neotree
