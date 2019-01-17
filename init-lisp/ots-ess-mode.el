@@ -84,8 +84,7 @@
     (setq inferior-R-args "--no-save --no-restore-history --quiet")
     (let ((new-process (not ess-process-name-list)))
       (ess-force-buffer-current nil t nil nil)
-      (if new-process (delete-other-windows)))
-    (ess-tracebug -1)))
+      (if new-process (delete-other-windows)))))
 
 (defun ots-ess-mode-source ()
   "Source the current buffer in R."
@@ -122,6 +121,7 @@
 (setq ess-R-argument-suffix "=")
 (setq ess-roxy-str "#'")
 (setq ess-use-company t)
+(setq ess-use-tracebug nil)
 (setq ess-write-to-dribble nil)
 (setq inferior-ess-r-help-command
  ".ess.help(\"%s\", help.type=\"html\")\n")
