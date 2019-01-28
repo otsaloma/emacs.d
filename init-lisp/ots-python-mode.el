@@ -59,7 +59,8 @@
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "Pango")
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
-  (ots-util-add-docset "\\(from\\|import\\) requests" "Requests"))
+  (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
+  (ots-util-add-docset "\\(from\\|import\\) scipy" "SciPy"))
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
