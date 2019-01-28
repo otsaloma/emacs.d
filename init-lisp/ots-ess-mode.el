@@ -9,8 +9,8 @@
   (if (not ess-local-process-name)
       (ess-switch-process))
   (if (use-region-p)
-      (ess-eval-region-and-go (region-beginning) (region-end) nil)
-    (ess-eval-region-and-go (line-beginning-position) (line-end-position) nil)))
+      (ess-eval-region (region-beginning) (region-end) nil)
+    (ess-eval-region (line-beginning-position) (line-end-position) nil)))
 
 (defun ots-ess-mode-insert-pipe ()
   "Insert the magrittr pipe operator at point."
