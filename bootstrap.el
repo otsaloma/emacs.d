@@ -39,6 +39,7 @@
    rainbow-mode
    rjsx-mode
    rust-mode
+   s
    sqlup-mode
    sudo-edit
    tabbar

@@ -1,6 +1,22 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-python-mode.el
 
+(require 's)
+
+(defvar ots-python-quote-char ""
+  "The default quote character to use.")
+
+(defun ots-python-mode-insert-dict-key ()
+  "Insert a dict key at point."
+  (interactive)
+  (when (string= ots-python-quote-char "")
+    (ots-python-mode-update-quote-char))
+  (insert "[")
+  (insert ots-python-quote-char)
+  (insert ots-python-quote-char)
+  (insert "]")
+  (backward-char 2))
+
 (defun ots-python-mode-jedi ()
   "Set auto-completion via jedi."
   ;; sudo pip3 install -U python-language-server
@@ -76,6 +92,7 @@
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
+  (local-set-key (kbd "C-ö") 'ots-python-mode-insert-dict-key)
   (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)
   (ots-util-bind-key-compile (kbd "<f5>") "python3 -u %s")
   (ots-util-bind-key-compile (kbd "<S-f5>") "python3 -ui %s")
@@ -91,6 +108,13 @@
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
   (setq-local python-shell-interpreter "python3"))
+
+(defun ots-python-mode-update-quote-char ()
+  "Update value of the default quote character to use."
+  (if (> (s-count-matches "'" (buffer-string))
+         (s-count-matches "\"" (buffer-string)))
+      (setq ots-python-quote-char "'")
+    (setq ots-python-quote-char "\"")))
 
 (add-hook 'python-mode-hook 'ots-python-mode-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
