@@ -96,5 +96,3 @@
   (require 'ots-yaml-mode)
   (require 'ots-yank-indent)
   (require 'ots-yasnippet))
-
-(run-with-timer 0.001 nil #'(lambda () (message "")))
