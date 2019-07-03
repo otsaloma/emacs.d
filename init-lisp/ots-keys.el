@@ -104,7 +104,9 @@
 (cua-mode t)
 ;; Remove cua override of set-mark-command key.
 (define-key cua-global-keymap [remap set-mark-command] nil)
+(setq cua-check-pending-input nil)
 (setq cua-keep-region-after-copy t)
+(setq cua-prefix-override-inhibit-delay 0.1)
 (ots-keys-set-basic)
 (ots-keys-set-isearch)
 (add-hook 'change-major-mode-after-body-hook 'ots-keys-set-punct)
