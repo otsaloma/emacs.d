@@ -32,7 +32,6 @@
    lsp-mode
    lua-mode
    markdown-mode
-   mmm-mode
    neotree
    pcre2el
    racer

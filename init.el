@@ -69,7 +69,6 @@
   (require 'ots-makefile-mode)
   (require 'ots-markdown-mode)
   (require 'ots-minibuffer)
-  (require 'ots-mmm-mode)
   (require 'ots-mode-line)
   (require 'ots-neotree)
   (require 'ots-octave-mode)
