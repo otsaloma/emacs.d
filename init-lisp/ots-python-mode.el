@@ -26,6 +26,7 @@
   (require 'lsp-clients)
   (require 'company-dict)
   (require 'company-lsp)
+  (setq-local company-lsp-cache-candidates 'auto)
   (setq-local lsp-auto-configure nil)
   (setq-local lsp-auto-guess-root t)
   (setq-local lsp-eldoc-hook '())
