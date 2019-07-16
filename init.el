@@ -1,8 +1,7 @@
 ;;; -*- coding: utf-8-unix -*-
 
 ;; Speed up init by doing garbage collection less often.
-;; http://www.reddit.com/r/emacs/comments/3kqt6e/
-;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+;; https://www.reddit.com/r/emacs/comments/3kqt6e/
 (setq gc-cons-threshold most-positive-fixnum)
 (run-with-idle-timer 5 nil #'(lambda () (setq gc-cons-threshold (* 100 1024 1024))))
 

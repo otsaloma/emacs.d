@@ -43,7 +43,7 @@
 
 (defun ots-comint-mode-wrap (text)
   "Wrap output to avoid long lines slowing Emacs down."
-  ;; https://www.reddit.com/r/emacs/3scsak
+  ;; https://www.reddit.com/r/emacs/comments/3scsak/
   (replace-regexp-in-string
    (format "\\([^\n]\\{%d\\}\\)" (window-body-width))
    "\\1\n"
