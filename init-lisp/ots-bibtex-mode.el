@@ -4,7 +4,6 @@
 (defun ots-bibtex-mode-set-properties ()
   "Set properties for editing BibTeX files."
   (modify-syntax-entry ?_ "w")
-  (setq-local company-backends '((company-dabbrev)))
   (setq-local fill-column 72)
   (setq-local indent-tabs-mode nil)
   (setq-local tab-width 2)

@@ -19,9 +19,6 @@
   (require 'company-dict)
   (setq-local comment-add 0)
   (setq-local comment-start "%")
-  (setq-local company-backends
-   '((company-dict company-dabbrev-code)
-     (company-dabbrev)))
   (setq-local inferior-octave-buffer "*Octave*")
   (setq-local inferior-octave-startup-args '("--quiet" "--traditional"))
   (setq-local octave-block-offset 4)

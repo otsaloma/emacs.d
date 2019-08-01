@@ -11,9 +11,12 @@
   (unwind-protect (ignore-errors (eldoc-mode 1)) (message ""))
   (unwind-protect (ignore-errors (hs-minor-mode 1)) (message ""))
   (modify-syntax-entry ?_ "w")
-  (setq-local company-backends
-   '((company-keywords company-dabbrev-code)
-     (company-dabbrev)))
+  (setq-local company-backends '((company-capf
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev)))
+
   (setq-local comment-auto-fill-only-comments t)
   (setq-local fill-column 72)
   (setq-local indent-tabs-mode nil)

@@ -66,9 +66,13 @@
   "Set properties for editing R files."
   (modify-syntax-entry ?. "w")
   (setq-local comment-add 0)
-  (setq-local company-backends
-   '((company-R-objects company-R-args company-keywords company-dabbrev-code)
-     (company-dabbrev))))
+  (setq-local company-backends '((company-R-objects
+                                  company-R-args
+                                  company-capf
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
 
 (defun ots-ess-mode-setwd ()
   "Change to the directory of the current buffer in R."

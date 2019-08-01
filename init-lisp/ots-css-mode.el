@@ -14,9 +14,6 @@
   "Set properties for editing CSS files."
   (ots-util-add-imenu-expressions
    '((nil "^\\([^ @\n].*\\) +{" 1)))
-  (setq-local company-backends
-   '((company-css company-keywords company-dabbrev-code)
-     (company-dabbrev)))
   (setq-local fill-column 80)
   (setq-local helm-dash-docsets '("CSS"))
   (setq-local tab-width 2))

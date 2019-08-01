@@ -17,9 +17,12 @@
   "Set auto-completion via tern."
   (when (eq major-mode 'js-mode)
     (tern-mode t)
-    (setq-local company-backends
-     '((company-tern company-keywords company-dabbrev-code)
-       (company-dabbrev)))))
+    (setq-local company-backends '((company-tern
+                                    company-capf
+                                    company-keywords
+                                    company-dict
+                                    company-dabbrev-code
+                                    company-dabbrev)))))
 
 (add-hook 'js-mode-hook 'ots-js-mode-set-properties)
 (add-hook 'js-mode-hook 'ots-js-mode-tern)

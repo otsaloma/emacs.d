@@ -26,19 +26,23 @@
   (require 'lsp-clients)
   (require 'company-dict)
   (require 'company-lsp)
+  (setq-local company-anaconda-case-insensitive nil)
   (setq-local company-lsp-cache-candidates 'auto)
   (setq-local lsp-auto-configure nil)
   (setq-local lsp-auto-guess-root t)
   (setq-local lsp-eldoc-hook '())
   (setq-local lsp-eldoc-render-all nil)
+  (setq-local lsp-signature-render-all nil)
   (anaconda-mode)
   (anaconda-eldoc-mode)
   (lsp)
-  (setq-local company-backends
-   '((company-anaconda)
-     (company-lsp)
-     (company-keywords company-dict company-dabbrev-code)
-     (company-dabbrev))))
+  (setq-local company-backends '((company-anaconda
+                                  company-lsp
+                                  company-capf
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
 
 (defun ots-python-mode-send-region ()
   "Run the current line or region in the Python shell."

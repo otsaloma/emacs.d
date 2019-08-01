@@ -12,7 +12,6 @@
   ;; Allow double-quotes and backticks (for identifier names).
   (modify-syntax-entry ?\" "\"" sql-mode-syntax-table)
   (modify-syntax-entry ?\` "\"" sql-mode-syntax-table)
-  (setq-local company-backends '((company-dict company-dabbrev)))
   (setq-local company-dabbrev-ignore-case t)
   (setq-local helm-dash-docsets '("PostgreSQL")))
 

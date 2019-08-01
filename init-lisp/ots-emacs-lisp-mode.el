@@ -7,9 +7,6 @@
 
 (defun ots-emacs-lisp-mode-set-properties ()
   "Set properties for editing Emacs Lisp files."
-  (setq-local company-backends
-   '((company-elisp company-keywords company-dabbrev-code)
-     (company-dabbrev)))
   (setq-local helm-dash-docsets '("Emacs-Lisp"))
   (setq-local tab-width 2))
 

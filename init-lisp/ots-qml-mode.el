@@ -38,8 +38,6 @@
   (ots-util-add-imenu-expressions
    '((nil "^ +\\([^: ]+\\): +{" 1)
      (nil "^ +function +\\([^( ]+\\)(" 1)))
-  (setq-local company-backends
-   '((company-dict company-dabbrev)))
   (setq-local fill-column 100)
   (setq-local helm-dash-docsets '("JavaScript" "QML")))
 

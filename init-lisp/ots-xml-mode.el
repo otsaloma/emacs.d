@@ -3,8 +3,6 @@
 
 (defun ots-xml-mode-set-properties ()
   "Set properties for editing XML files."
-  (setq-local company-backends
-   '((company-nxml company-dabbrev)))
   (setq-local tab-width 2))
 
 (add-hook 'nxml-mode-hook 'ots-xml-mode-set-properties)

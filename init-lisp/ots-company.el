@@ -38,7 +38,7 @@
   (setq-local company-dabbrev-code-everywhere nil)
   (setq-local company-dabbrev-downcase nil)
   (setq-local company-dabbrev-ignore-case nil)
-  (setq-local company-dabbrev-minimum-length 3)
+  (setq-local company-dabbrev-minimum-length 2)
   (setq-local company-idle-delay 0.1)
   (setq-local company-tooltip-align-annotations t)
   (setq-local company-transformers '(company-sort-by-backend-importance
