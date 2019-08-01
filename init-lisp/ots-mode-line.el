@@ -38,6 +38,7 @@
  '(" %*"    (:eval (ots-mode-line-buffer-name 40))
    " · "    (:eval (symbol-name buffer-file-coding-system))
    " · "    (:eval (symbol-name major-mode))
+            (:eval (if (getenv "VIRTUAL_ENV") " (venv)" ""))
    " · "    (:eval (ots-mode-line-indentation))
    " · %l/" (:eval (ots-mode-line-line-count))
    " "      (:eval (ots-mode-line-position))
