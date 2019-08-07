@@ -243,7 +243,7 @@
 (defun ots-util-unit-test-argument ()
   "Return unit test filename argument for unit test programs."
   (let ((file-name (buffer-file-name)))
-    (if (string-match-p "^test_" (file-name-nondirectory file-name))
+    (if (string-match-p "^test[^a-z]" (file-name-nondirectory file-name))
         (shell-quote-argument (ots-util-buffer-file-name))
       (shell-quote-argument (ots-util-unit-test-file)))))
 
