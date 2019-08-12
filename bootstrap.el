@@ -16,6 +16,7 @@
    company-jedi
    company-lsp
    company-tern
+   direnv
    dockerfile-mode
    doom-themes
    dtrt-indent

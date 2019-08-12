@@ -10,12 +10,6 @@ export LC_ALL=C.UTF-8
 # Remove stale server if Emacs crashed.
 [ -z "$(ps ux | grep "/usr/bin/emac[s]")" ] && rm -rfv /tmp/emacs1000/
 
-if [ -f "$1" ]; then
-    # Activate Python virtual environment if found at project root.
-    ROOT="$(cd "$(dirname "$1")" && git rev-parse --show-toplevel 2> /dev/null)"
-    [ -f "$ROOT/venv/bin/activate" ] && . "$ROOT/venv/bin/activate"
-fi
-
 if [ -e /tmp/emacs1000/server ]; then
     # Open files given as arguments in already running server.
     /usr/bin/emacsclient.emacs -n "$@"
