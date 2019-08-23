@@ -21,6 +21,7 @@
                                  "^\\.pytest_cache$"
                                  "^__pycache__$"
                                  "^node_modules$"
+                                 "^venv$"
                                  "~$"
                                  "\\.*#$"
                                  "\\.elc$"

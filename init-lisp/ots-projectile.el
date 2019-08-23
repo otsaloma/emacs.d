@@ -12,6 +12,7 @@
 (add-to-list 'projectile-globally-ignored-directories "elpa")
 (add-to-list 'projectile-globally-ignored-directories "man")
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
+(add-to-list 'projectile-globally-ignored-directories "venv")
 
 (add-to-list 'projectile-globally-ignored-file-suffixes ".elc")
 (add-to-list 'projectile-globally-ignored-file-suffixes ".ico")
