@@ -25,7 +25,6 @@
   (anaconda-mode)
   (anaconda-eldoc-mode)
   (setq-local company-backends '((company-anaconda
-                                  company-capf
                                   company-keywords
                                   company-dict
                                   company-dabbrev-code

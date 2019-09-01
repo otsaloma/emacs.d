@@ -18,7 +18,6 @@
   (when (eq major-mode 'js-mode)
     (tern-mode t)
     (setq-local company-backends '((company-tern
-                                    company-capf
                                     company-keywords
                                     company-dict
                                     company-dabbrev-code

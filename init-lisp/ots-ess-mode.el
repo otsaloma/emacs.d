@@ -68,7 +68,6 @@
   (setq-local comment-add 0)
   (setq-local company-backends '((company-R-objects
                                   company-R-args
-                                  company-capf
                                   company-keywords
                                   company-dict
                                   company-dabbrev-code
