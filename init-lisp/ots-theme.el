@@ -35,9 +35,10 @@
 ;; Set line spacing depending on font used.
 (let ((family (face-attribute 'default :family)))
   (setq-default line-spacing
-                (cond ((string= family "IBM Plex Mono") 0.30)
+                (cond ((string= family "Cascadia Code") 0.40)
+                      ((string= family "IBM Plex Mono") 0.30)
                       ((string= family "Meslo LG L") 0.15)
-                      ((string= family "SF Mono") 0.5))))
+                      ((string= family "SF Mono") 0.50))))
 
 ;; Disable italics as most monospace fonts don't really have proper italics.
 (set-face-attribute 'italic nil :slant 'normal)
