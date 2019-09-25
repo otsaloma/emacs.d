@@ -47,7 +47,7 @@
 ;; Force a sensible fallback for the missing ranges of Cascadia.
 ;; https://github.com/microsoft/cascadia-code/issues/33
 (if (string-match-p "Cascadia Code" (face-font 'default))
-    (set-fontset-font "fontset-startup" '(#x00a0 . #xffff) "SF Mono:demibold"))
+    (set-fontset-font "fontset-startup" '(#x00a0 . #x00ff) "SF Mono:demibold"))
 
 (provide 'ots-theme)
 ;;; ots-theme.el ends here
