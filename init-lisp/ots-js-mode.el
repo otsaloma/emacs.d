@@ -10,8 +10,9 @@
   (ots-util-add-imenu-expressions
    '((nil "^var +\\([^ =]+\\)[ =]" 1)
      (nil "^function +\\([^(]+\\)(" 1)))
-  (setq-local helm-dash-docsets '("JavaScript" "jQuery"))
-  (ots-util-add-docset "</" "HTML"))
+  (setq-local helm-dash-docsets '("JavaScript"))
+  (ots-util-add-docset "\$\(" "jQuery")
+  (ots-util-add-docset "^import" "Node"))
 
 (defun ots-js-mode-tern ()
   "Set auto-completion via tern."
