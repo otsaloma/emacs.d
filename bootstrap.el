@@ -15,7 +15,6 @@
    company-dict
    company-jedi
    company-lsp
-   company-tern
    direnv
    dockerfile-mode
    doom-themes
@@ -43,7 +42,7 @@
    sqlup-mode
    sudo-edit
    tabbar
-   tern
+   tide
    undo-tree
    wcheck-mode
    yaml-mode
