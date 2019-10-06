@@ -22,7 +22,6 @@
     (company-mode +1)
     (eldoc-mode +1)
     (flycheck-mode +1)
-    (tide-hl-identifier-mode +1)
     (setq-local company-backends '((company-tide
                                     company-keywords
                                     company-dict
