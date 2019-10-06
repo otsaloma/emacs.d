@@ -3,6 +3,7 @@
 # Open files in existing Emacs window or open a new one.
 # Usage: emacs [OPTION...] [FILE...]
 
+. $HOME/.profile
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
@@ -15,5 +16,5 @@ if [ -e /tmp/emacs1000/server ]; then
     /usr/bin/emacsclient.emacs -n "$@"
 else
     # Start a new emacs, open files given as arguments and start the server.
-    /usr/bin/emacs -g 90x40 --eval "(server-mode 1)" "$@" &
+    /usr/bin/emacs -g 90x35 --eval "(server-mode 1)" "$@" &
 fi

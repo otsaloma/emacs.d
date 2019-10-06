@@ -1,5 +1,6 @@
 #!/bin/sh
+. $HOME/.profile
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
-/usr/bin/emacs -g 90x40 "$@"
+/usr/bin/emacs -g 90x35 "$@"
