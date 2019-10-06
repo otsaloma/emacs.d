@@ -10,7 +10,7 @@
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
-  (setq-local flycheck-checker 'javascript-eslint)
+  (setq-local flycheck-checker 'javascript-jshint)
   (setq-local helm-dash-docsets '("JavaScript"))
   (ots-util-add-docset "\$\(" "jQuery"))
 

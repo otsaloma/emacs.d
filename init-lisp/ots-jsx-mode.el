@@ -3,7 +3,9 @@
 
 (defun ots-jsx-mode-set-properties ()
   "Set properties for editing JSX files."
+  (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
   (setq-local fill-column 100)
+  (setq-local flycheck-checker 'javascript-standard)
   (setq-local helm-dash-docsets '("HTML" "JavaScript"))
   (setq-local js-indent-level 2)
   (setq-local js2-basic-offset 2)
