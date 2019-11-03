@@ -6,13 +6,28 @@
   (when (eq major-mode 'js-mode)
     (font-lock-add-keywords
      nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face))))
-  (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
+  (if (ots-util-buffer-contains " = require(")
+      (ots-js-mode-set-properties-node)
+    (ots-js-mode-set-properties-browser)))
+
+(defun ots-js-mode-set-properties-browser ()
+  "Set properties for editing Browser JavaScript files."
+  (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
   (setq-local flycheck-checker 'javascript-jshint)
-  (setq-local helm-dash-docsets '("JavaScript"))
-  (ots-util-add-docset "\$\(" "jQuery"))
+  (setq-local helm-dash-docsets '("JavaScript" "jQuery"))
+  (setq-local js-indent-level 4)
+  (setq-local tab-width 4))
+
+(defun ots-js-mode-set-properties-node ()
+  "Set properties for editing Node.js JavaScript files."
+  (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
+  (setq-local flycheck-checker 'javascript-standard)
+  (setq-local helm-dash-docsets '("JavaScript" "Node"))
+  (setq-local js-indent-level 2)
+  (setq-local tab-width 2))
 
 (defun ots-js-mode-tide ()
   "Set auto-completion via tide."

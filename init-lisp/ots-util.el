@@ -5,10 +5,8 @@
   "Add helm-dash docset if regexp found in buffer text."
   (if (not (local-variable-p 'helm-dash-docsets))
       (setq-local helm-dash-docsets '()))
-  (setq limit (min (point-max) (or limit (point-max))))
-  (let ((text (buffer-substring (point-min) limit)))
-    (when (string-match-p regexp text)
-      (add-to-list 'helm-dash-docsets docset t))))
+  (when (ots-util-buffer-contains regexp limit)
+    (add-to-list 'helm-dash-docsets docset t)))
 
 (defun ots-util-add-imenu-expressions (expressions)
   "Set imenu index patterns for the current buffer."
@@ -33,6 +31,12 @@
   (local-set-key key `(lambda ()
    (interactive)
    (compile (ots-util-expand-command ',command) t))))
+
+(defun ots-util-buffer-contains (regexp &optional limit)
+  "Return true if regexp found in buffer text."
+  (setq limit (min (point-max) (or limit (point-max))))
+  (let ((text (buffer-substring (point-min) limit)))
+    (string-match-p regexp text)))
 
 (defun ots-util-buffer-file-name ()
   "Return buffer-file-name relative to default-directory."
