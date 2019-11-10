@@ -3,13 +3,10 @@
 
 (defun ots-js-mode-set-properties ()
   "Set properties for editing JavaScript files."
-  (when (eq major-mode 'js-mode)
-    (font-lock-add-keywords
-     nil '(("\\<\\(self\\|that\\|this\\)\\>" 1 font-lock-variable-name-face))))
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
-  (if (ots-util-buffer-contains " = require(")
+  (if (ots-util-buffer-contains "\\<\\(exports\\|require\\)\\>")
       (ots-js-mode-set-properties-node)
     (ots-js-mode-set-properties-browser)))
 
@@ -23,11 +20,18 @@
 
 (defun ots-js-mode-set-properties-node ()
   "Set properties for editing Node.js JavaScript files."
-  (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
-  (setq-local flycheck-checker 'javascript-standard)
   (setq-local helm-dash-docsets '("JavaScript" "Node"))
   (setq-local js-indent-level 2)
-  (setq-local tab-width 2))
+  (setq-local tab-width 2)
+  ;; Default to standard, use eslint if corresponding config file found.
+  (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
+  (setq-local flycheck-checker 'javascript-standard)
+  (when (or (ots-util-file-above-in-tree default-directory ".eslintignore")
+            (ots-util-file-above-in-tree default-directory ".eslintrc.js")
+            (ots-util-file-above-in-tree default-directory ".eslintrc.json")
+            (ots-util-file-above-in-tree default-directory ".eslintrc.yml"))
+    (ots-util-bind-key-compile (kbd "<f8>") "eslint %s")
+    (setq-local flycheck-checker 'javascript-eslint)))
 
 (defun ots-js-mode-tide ()
   "Set auto-completion via tide."

@@ -81,6 +81,14 @@
     (setq command (format command (ots-util-unit-test-argument))))
   command)
 
+(defun ots-util-file-above-in-tree (path file-name)
+  "Return true if file-name found in path or above in hierarchy."
+  (if (member path '("/" nil)) nil
+    (if (file-exists-p (concat path "/" file-name)) t
+      (ots-util-file-in-tree
+       (ots-util-parent-directory path)
+       file-name))))
+
 (defun ots-util-find-unit-test-file ()
   "Open the unit test file testing the current buffer."
   (interactive)
