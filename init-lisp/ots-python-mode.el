@@ -90,7 +90,9 @@
   (local-set-key (kbd "<f6>") 'ots-python-mode-send-region)
   (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
-  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t"))
+  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t")
+  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-right>") 'anaconda-mode-find-definitions))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
