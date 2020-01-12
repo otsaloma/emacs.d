@@ -13,7 +13,6 @@
    company-anaconda
    company-auctex
    company-dict
-   company-jedi
    company-lsp
    direnv
    dockerfile-mode

@@ -19,12 +19,29 @@
 
 (defun ots-python-mode-jedi ()
   "Set auto-completion via jedi."
-  (require 'anaconda-mode)
   (require 'company-dict)
-  (setq-local company-anaconda-case-insensitive nil)
-  (anaconda-mode)
-  (anaconda-eldoc-mode)
-  (setq-local company-backends '((company-anaconda
+  ;; sudo pip3 install -U python-language-server
+  ;; https://github.com/palantir/python-language-server
+  (require 'company-lsp)
+  (require 'lsp-clients)
+  (require 'lsp-mode)
+  (setq-local company-lsp-cache-candidates nil)
+  (setq-local company-lsp-enable-snippet nil)
+  (setq-local lsp-auto-configure nil)
+  (setq-local lsp-auto-guess-root t)
+  (setq-local lsp-eldoc-render-all nil)
+  (setq-local lsp-enable-completion-at-point t)
+  (setq-local lsp-enable-snippet nil)
+  (setq-local lsp-signature-render-all nil)
+  (lsp)
+  ;; (require 'anaconda-mode)
+  ;; (require 'company-anaconda)
+  ;; (setq-local anaconda-mode-eldoc-as-single-line t)
+  ;; (setq-local company-anaconda-case-insensitive nil)
+  ;; (anaconda-mode)
+  ;; (anaconda-eldoc-mode)
+  (setq-local company-backends '((company-lsp
+                                  :separate
                                   company-keywords
                                   company-dict
                                   company-dabbrev-code
@@ -92,7 +109,7 @@
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
   (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t")
   (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
-  (local-set-key (kbd "<M-right>") 'anaconda-mode-find-definitions))
+  (local-set-key (kbd "<M-right>") 'lsp-find-definition))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
