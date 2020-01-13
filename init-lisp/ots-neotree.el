@@ -14,8 +14,8 @@
   (require 'all-the-icons)
   (require 'doom-themes)
   (require 'neotree)
-  (setq doom-neotree-project-size 1.05)
-  (setq doom-neotree-line-spacing (default-value 'line-spacing))
+  (setq doom-themes-neotree-project-size 1.05)
+  (setq doom-themes-neotree-line-spacing (default-value 'line-spacing))
   (setq neo-hidden-regexp-list '("^\\.cache$"
                                  "^\\.git$"
                                  "^\\.pytest_cache$"
@@ -34,8 +34,8 @@
   (setq neo-theme 'icons)
   (setq neo-window-width 50)
   (doom-themes-neotree-config)
-  (advice-remove #'neo-buffer--insert-root-entry #'doom-neotree-insert-root)
-  (copy-face 'neo-file-link-face 'doom-neotree-hidden-file-face)
+  (advice-remove #'neo-buffer--insert-root-entry #'doom-themes-neotree-insert-root)
+  (copy-face 'neo-file-link-face 'doom-themes-neotree-hidden-file-face)
   (let ((buffer (current-buffer))
         (file-name (buffer-file-name)))
     (if (neo-global--window-exists-p)
