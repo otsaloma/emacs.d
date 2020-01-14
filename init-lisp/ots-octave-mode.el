@@ -23,7 +23,7 @@
   (setq-local inferior-octave-startup-args '("--quiet" "--traditional"))
   (setq-local octave-block-offset 4)
   (setq-local octave-comment-char ?%)
-  (setq-local helm-dash-docsets '("Octave")))
+  (setq-local dash-docs-docsets '("Octave")))
 
 (add-hook 'octave-mode-hook 'ots-octave-mode-set-indentation)
 (add-hook 'octave-mode-hook 'ots-octave-mode-set-keys)

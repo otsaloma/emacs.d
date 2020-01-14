@@ -13,7 +13,7 @@
   (modify-syntax-entry ?\" "\"" sql-mode-syntax-table)
   (modify-syntax-entry ?\` "\"" sql-mode-syntax-table)
   (setq-local company-dabbrev-ignore-case t)
-  (setq-local helm-dash-docsets '("PostgreSQL")))
+  (setq-local dash-docs-docsets '("PostgreSQL")))
 
 (add-hook 'sql-mode-hook 'ots-sql-mode-set-faces)
 (add-hook 'sql-mode-hook 'ots-sql-mode-set-properties)

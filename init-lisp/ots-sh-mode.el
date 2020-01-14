@@ -13,7 +13,7 @@
   "Set properties for editing shell scripts."
   (ots-util-bind-key-compile (kbd "<f5>") "bash %s")
   (ots-util-bind-key-compile (kbd "<f8>") "shellcheck -f gcc %s")
-  (setq-local helm-dash-docsets '("Bash")))
+  (setq-local dash-docs-docsets '("Bash")))
 
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-faces)
 (add-hook 'sh-mode-hook 'ots-sh-mode-set-properties)

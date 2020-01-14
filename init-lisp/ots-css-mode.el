@@ -15,7 +15,7 @@
   (ots-util-add-imenu-expressions
    '((nil "^\\([^ @\n].*\\) +{" 1)))
   (setq-local fill-column 80)
-  (setq-local helm-dash-docsets '("CSS"))
+  (setq-local dash-docs-docsets '("CSS"))
   (setq-local tab-width 2))
 
 (add-hook 'css-mode-hook 'ots-css-mode-set-faces)

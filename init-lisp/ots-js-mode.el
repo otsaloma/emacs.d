@@ -14,13 +14,13 @@
   "Set properties for editing Browser JavaScript files."
   (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
   (setq-local flycheck-checker 'javascript-jshint)
-  (setq-local helm-dash-docsets '("JavaScript" "jQuery"))
+  (setq-local dash-docs-docsets '("JavaScript" "jQuery"))
   (setq-local js-indent-level 4)
   (setq-local tab-width 4))
 
 (defun ots-js-mode-set-properties-node ()
   "Set properties for editing Node.js JavaScript files."
-  (setq-local helm-dash-docsets '("JavaScript" "Node"))
+  (setq-local dash-docs-docsets '("JavaScript" "Node"))
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
   ;; Default to standard, use eslint if corresponding config file found.

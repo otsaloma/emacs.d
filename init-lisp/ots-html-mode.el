@@ -3,7 +3,7 @@
 
 (defun ots-html-mode-set-docsets ()
   "Load helm-dash docsets based on buffer contents."
-  (setq-local helm-dash-docsets '("HTML"))
+  (setq-local dash-docs-docsets '("HTML"))
   (ots-util-add-docset "<style\\>" "CSS")
   (ots-util-add-docset "<script\\>" "JavaScript"))
 

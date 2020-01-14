@@ -39,7 +39,7 @@
    '((nil "^ +\\([^: ]+\\): +{" 1)
      (nil "^ +function +\\([^( ]+\\)(" 1)))
   (setq-local fill-column 100)
-  (setq-local helm-dash-docsets '("JavaScript" "QML")))
+  (setq-local dash-docs-docsets '("JavaScript" "QML")))
 
 (autoload 'ots-qml-mode "qml" "QML" t)
 (add-hook 'ots-qml-mode-hook 'ots-qml-mode-set-faces)

@@ -72,7 +72,7 @@
 
 (defun ots-python-mode-set-docsets ()
   "Load helm-dash docsets based on buffer contents."
-  (setq-local helm-dash-docsets '("Python"))
+  (setq-local dash-docs-docsets '("Python"))
   (ots-util-add-docset "\\(from\\|import\\) django" "Django")
   (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GDK")

@@ -3,7 +3,7 @@
 
 (defun ots-makefile-mode-set-properties ()
   "Set properties for editing Makefiles."
-  (setq-local helm-dash-docsets '("Make"))
+  (setq-local dash-docs-docsets '("Make"))
   (setq-local indent-tabs-mode t)
   (setq-local tab-width 8)
   (setq-local whitespace-style (quote (face tabs tab-mark))))
