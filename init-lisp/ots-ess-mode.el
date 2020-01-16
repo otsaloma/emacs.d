@@ -40,15 +40,6 @@
          ("[^= ]\\(=\\)[^= ]"
           1 font-lock-keyword-face))))
 
-(defun ots-ess-mode-set-indentation ()
-  "Set indentation for editing R files."
-  (setq-local ess-align-blocks '())
-  (setq-local ess-default-style 'DEFAULT)
-  (setq-local ess-indent-from-lhs '())
-  (setq-local ess-indent-offset 4)
-  (setq-local ess-indent-with-fancy-comments nil)
-  (setq-local ess-offset-arguments-newline 'prev-line))
-
 (defun ots-ess-mode-set-keys ()
   "Set keybindings for editing R files."
   (local-set-key (kbd "C-m") 'ots-util-pop-mark)
@@ -106,7 +97,6 @@
 (add-to-list 'auto-mode-alist '("\\.[Rr]\\'" . R-mode))
 
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-faces t)
-(add-hook 'ess-mode-hook 'ots-ess-mode-set-indentation t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-keys t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-set-properties t)
 (add-hook 'ess-mode-hook 'ots-ess-mode-start t)
@@ -127,7 +117,15 @@
 (setq ess-use-tracebug nil)
 (setq ess-write-to-dribble nil)
 (setq inferior-ess-r-help-command
- ".ess.help(\"%s\", help.type=\"html\")\n")
+      ".ess.help(\"%s\", help.type=\"html\")\n")
+
+;; Indentation
+(setq ess-align-blocks '())
+(setq ess-indent-from-lhs '())
+(setq ess-indent-offset 4)
+(setq ess-indent-with-fancy-comments nil)
+(setq ess-offset-arguments-newline 'prev-line)
+(setq ess-style 'DEFAULT)
 
 (provide 'ots-ess-mode)
 ;;; ots-ess-mode.el ends here
