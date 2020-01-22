@@ -14,10 +14,10 @@
                     (message)
                     line-end))
 
-  :modes ess-mode)
+  :modes ess-r-mode)
 
 (add-to-list 'flycheck-checkers 'r-parse)
-(setq flycheck-global-modes '(ess-mode js-mode json-mode python-mode))
+(setq flycheck-global-modes '(ess-r-mode js-mode json-mode python-mode))
 (setq-default flycheck-disabled-checkers '(r-lintr))
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))

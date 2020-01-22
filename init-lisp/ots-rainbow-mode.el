@@ -2,7 +2,7 @@
 ;;; ots-rainbow-mode.el
 
 (defvar ots-rainbow-mode-modes
-  '(conf-mode css-mode emacs-lisp-mode ess-mode inferior-ess-mode
+  '(conf-mode css-mode emacs-lisp-mode ess-r-mode inferior-ess-r-mode
     json-mode latex-mode)
   "Modes in which to color hexadecimal color codes.")
 

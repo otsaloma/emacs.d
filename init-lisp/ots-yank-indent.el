@@ -5,7 +5,7 @@
   "Number of characters over which indentation is not done.")
 
 (defvar ots-yank-indent-modes
-  '(c-mode c++-mode emacs-lisp-mode ess-mode graphql-mode html-mode java-mode
+  '(c-mode c++-mode emacs-lisp-mode ess-r-mode graphql-mode html-mode java-mode
     js-mode json-mode nxml-mode octave-mode ots-qml-mode perl-mode rust-mode
     sh-mode)
   "Modes in which to indent after yanking.")
