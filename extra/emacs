@@ -13,7 +13,7 @@ export LC_ALL=C.UTF-8
 
 if [ -e /tmp/emacs1000/server ]; then
     # Open files given as arguments in already running server.
-    /usr/bin/emacsclient.emacs -n "$@"
+    for X in "$@"; do /usr/bin/emacsclient.emacs -n "$X"; done
 else
     # Start a new emacs, open files given as arguments and start the server.
     /usr/bin/emacs -g 90x35 --eval "(server-mode 1)" "$@" &
