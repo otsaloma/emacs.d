@@ -682,6 +682,7 @@ intersect
 intmax
 intmin
 inv
+inverse
 invhilb
 ipermute
 iqr
