@@ -14,7 +14,6 @@
 
 (defun ots-po-mode-set-properties ()
   "Set properties for editing PO files."
-  (linum-mode 1)
   (local-set-key (kbd "C-s") 'ots-util-save-buffer)
   (local-set-key (kbd "C-z") 'po-undo))
 

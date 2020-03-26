@@ -88,7 +88,6 @@
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
  `(js2-function-param ((t (:foreground "#e68a8a"))))
- `(linum ((t (:background nil :foreground "#555555" :underline nil :box nil))))
  `(lsp-face-highlight-read ((t (:underline nil))))
  `(lsp-face-highlight-textual ((t (:underline nil))))
  `(lsp-face-highlight-write ((t (:underline nil))))
