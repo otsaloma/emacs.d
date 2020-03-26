@@ -8,9 +8,7 @@
    (unless (package-installed-p package)
      (package-install package)))
  '(all-the-icons
-   anaconda-mode
    company
-   company-anaconda
    company-auctex
    company-dict
    company-lsp
@@ -33,7 +31,6 @@
    markdown-mode
    neotree
    pcre2el
-   racer
    rainbow-mode
    rjsx-mode
    rust-mode

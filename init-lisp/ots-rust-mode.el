@@ -3,7 +3,6 @@
 
 (defun ots-rust-mode-set-properties ()
   "Set properties for editing Rust files."
-  (racer-mode 1)
   (setq-local rust-indent-offset 4))
 
 (autoload 'rust-mode "rust-mode" nil t)
