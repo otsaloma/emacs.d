@@ -44,10 +44,5 @@
 (set-face-attribute 'italic nil :slant 'normal)
 (set-face-attribute 'bold-italic nil :slant 'normal)
 
-;; Force a sensible fallback for the missing ranges of Cascadia.
-;; https://github.com/microsoft/cascadia-code/issues/33
-;; (if (string-match-p "Cascadia Code" (face-font 'default))
-;;     (set-fontset-font "fontset-startup" '(#x2192 . #x2192) "SF Mono:demibold"))
-
 (provide 'ots-theme)
 ;;; ots-theme.el ends here
