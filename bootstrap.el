@@ -11,6 +11,7 @@
    company
    company-auctex
    company-dict
+   company-jedi
    company-lsp
    direnv
    dockerfile-mode
