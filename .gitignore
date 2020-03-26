@@ -1,16 +1,7 @@
 *.bak
 *.elc
-.hidden
 .lsp-session*
-.python-environments/
-anaconda-mode/
-auto-save-list/
 docsets/
 elpa/
-image-dired/
-network-security.data
-projectile*
-recentf
-server/
-tramp
+projectile-bookmarks.eld
 transient/history.el
