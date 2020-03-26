@@ -8,6 +8,7 @@
 (defun ots-emacs-lisp-mode-set-properties ()
   "Set properties for editing Emacs Lisp files."
   (setq-local dash-docs-docsets '("Emacs-Lisp"))
+  (setq-local indent-tabs-mode nil)
   (setq-local tab-width 2))
 
 (add-hook 'emacs-lisp-mode-hook 'ots-emacs-lisp-mode-set-keys)

@@ -64,6 +64,7 @@
   (require 'ots-keys)
   (require 'ots-latex-mode)
   (require 'ots-line-numbers)
+  (require 'ots-lsp-mode)
   (require 'ots-lua-mode)
   (require 'ots-makefile-mode)
   (require 'ots-markdown-mode)

@@ -20,29 +20,15 @@
 (defun ots-python-mode-jedi ()
   "Set auto-completion via jedi."
   (require 'company-dict)
+  (require 'company-jedi)
+  (jedi-mode)
   ;; sudo pip3 install -U python-language-server
   ;; https://github.com/palantir/python-language-server
-  (require 'company-lsp)
-  (require 'lsp-clients)
-  (require 'lsp-mode)
-  (setq-local company-lsp-cache-candidates nil)
-  (setq-local company-lsp-enable-snippet nil)
-  (setq-local lsp-auto-configure nil)
-  (setq-local lsp-auto-guess-root t)
-  (setq-local lsp-eldoc-hook nil)
-  (setq-local lsp-eldoc-render-all nil)
-  (setq-local lsp-enable-completion-at-point t)
-  (setq-local lsp-enable-snippet nil)
-  (setq-local lsp-signature-auto-activate nil)
-  (setq-local lsp-signature-render-all nil)
-  (lsp)
-  (require 'anaconda-mode)
-  (require 'company-anaconda)
-  (setq-local anaconda-mode-eldoc-as-single-line t)
-  (setq-local company-anaconda-case-insensitive nil)
-  (anaconda-mode)
-  (anaconda-eldoc-mode)
-  (setq-local company-backends '((company-lsp
+  ;; (require 'company-lsp)
+  ;; (require 'lsp-mode)
+  ;; (require 'lsp-pyls)
+  ;; (lsp)
+  (setq-local company-backends '((company-jedi
                                   :separate
                                   company-keywords
                                   company-dict
@@ -92,7 +78,7 @@
   "Set faces for editing Python files."
   ;; Only color special variables via font-lock-preprocessor-face.
   (face-remap-add-relative 'font-lock-preprocessor-face :foreground (face-foreground 'font-lock-variable-name-face))
-  (face-remap-add-relative 'font-lock-variable-name-face :foreground nil)
+  (face-remap-add-relative 'font-lock-variable-name-face :foreground (face-foreground 'default))
   (font-lock-add-keywords
    nil '(("\\(=\\)" 1 font-lock-keyword-face)
          ("\\<\\([0-9.]+\\)\\>" 1 font-lock-constant-face)
@@ -110,8 +96,8 @@
   (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
   (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t")
-  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
-  (local-set-key (kbd "<M-right>") 'lsp-find-definition))
+  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
+  (local-set-key (kbd "<M-right>") 'jedi:goto-definition))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
