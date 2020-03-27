@@ -5,15 +5,61 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (run-with-idle-timer 5 nil #'(lambda () (setq gc-cons-threshold (* 100 1024 1024))))
 
-;; Don't save package-selected-packages.
-(setq custom-file "/dev/null")
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
 ;; Avoid questions about where to save abbrevs.
 (setq save-abbrevs nil)
+
+;; Use straight.el to lock package versions.
+;; https://github.com/raxod502/straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'all-the-icons)
+(straight-use-package 'company)
+(straight-use-package 'company-auctex)
+(straight-use-package 'company-dict)
+(straight-use-package 'company-jedi)
+(straight-use-package 'company-lsp)
+(straight-use-package 'direnv)
+(straight-use-package 'dockerfile-mode)
+(straight-use-package 'doom-themes)
+(straight-use-package 'dtrt-indent)
+(straight-use-package 'editorconfig)
+(straight-use-package 'ess)
+(straight-use-package 'flycheck)
+(straight-use-package 'git-gutter-fringe+)
+(straight-use-package 'graphql-mode)
+(straight-use-package 'helm)
+(straight-use-package 'helm-dash)
+(straight-use-package 'helm-projectile)
+(straight-use-package 'js-comint)
+(straight-use-package 'json-mode)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'lua-mode)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'neotree)
+(straight-use-package 'pcre2el)
+(straight-use-package 'rainbow-mode)
+(straight-use-package 'rjsx-mode)
+(straight-use-package 'rust-mode)
+(straight-use-package 's)
+(straight-use-package 'sqlup-mode)
+(straight-use-package 'sudo-edit)
+(straight-use-package 'tabbar)
+(straight-use-package 'tide)
+(straight-use-package 'undo-tree)
+(straight-use-package 'wcheck-mode)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'yasnippet)
 
 (push "~/.emacs.d/init-lisp" load-path)
 (byte-recompile-directory "~/.emacs.d/init-lisp" 0)

@@ -5,4 +5,7 @@
 docsets/
 elpa/
 projectile-bookmarks.eld
+straight/build
+straight/build-cache.el
+straight/repos
 transient/history.el
