@@ -3,15 +3,6 @@
 
 (defvar ots-ess-mode-faces-toggled nil)
 
-(defun ots-ess-mode-eval-region ()
-  "Send the current region to R."
-  (interactive)
-  (if (not ess-local-process-name)
-      (ess-switch-process))
-  (if (use-region-p)
-      (ess-eval-region (region-beginning) (region-end) nil)
-    (ess-eval-region (line-beginning-position) (line-end-position) nil)))
-
 (defun ots-ess-mode-insert-pipe ()
   "Insert the magrittr pipe operator at point."
   (interactive)
@@ -50,7 +41,7 @@
   (local-set-key (kbd "<f2>") 'ess-display-help-on-object)
   (local-set-key (kbd "<f5>") 'ots-ess-mode-source)
   (ots-util-bind-key-compile (kbd "<S-f5>") "rscript %s")
-  (local-set-key (kbd "<f6>") 'ots-ess-mode-eval-region)
+  (local-set-key (kbd "<f6>") 'ess-eval-region-or-line-visibly-and-step)
   (ots-util-bind-key-compile (kbd "<f8>") "r --vanilla -e 'invisible(parse(\"%s\"))'"))
 
 (defun ots-ess-mode-set-properties ()
