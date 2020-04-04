@@ -42,7 +42,9 @@
   (local-set-key (kbd "<f5>") 'ots-ess-mode-source)
   (ots-util-bind-key-compile (kbd "<S-f5>") "rscript %s")
   (local-set-key (kbd "<f6>") 'ess-eval-region-or-line-visibly-and-step)
-  (ots-util-bind-key-compile (kbd "<f8>") "r --vanilla -e 'invisible(parse(\"%s\"))'"))
+  (ots-util-bind-key-compile (kbd "<f8>") "r --vanilla -e 'invisible(parse(\"%s\"))'")
+  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-right>") 'xref-find-definitions))
 
 (defun ots-ess-mode-set-properties ()
   "Set properties for editing R files."
