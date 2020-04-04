@@ -29,6 +29,7 @@
                                  "\\.rdata$"
                                  "\\.rds$"))
 
+  (setq neo-autorefresh nil)
   (setq neo-show-slash-for-folder nil)
   (setq neo-smart-open t)
   (setq neo-theme 'icons)
