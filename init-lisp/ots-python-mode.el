@@ -102,6 +102,7 @@
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
   (setq-local fill-column 79)
+  (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
