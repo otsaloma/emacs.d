@@ -18,9 +18,9 @@
 (defun enchant-wcheck-entry (lang)
   "Construct a wcheck-language-data alist entry for enchant."
   (let ((out (list lang)))
-    (add-to-list 'out `(program . ,"/usr/bin/enchant") t)
+    (add-to-list 'out `(program . ,"/usr/bin/enchant-2") t)
     (add-to-list 'out `(args "-l" "-d" ,lang) t)
-    (add-to-list 'out `(action-program . ,"/usr/bin/enchant") t)
+    (add-to-list 'out `(action-program . ,"/usr/bin/enchant-2") t)
     (add-to-list 'out `(action-args "-a" "-d" ,lang) t)
     (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
     out))
@@ -39,7 +39,10 @@
                              markdown-code-face
                              markdown-pre-face
                              markdown-reference-face
-                             markdown-url-face))))
+                             markdown-url-face)
+                            ((python-mode) read
+                             font-lock-doc-face
+                             font-lock-doc-string-face))))
 
 (global-set-key (kbd "<f7>") 'wcheck-mode)
 (global-set-key (kbd "<S-f7>") 'wcheck-change-language)
