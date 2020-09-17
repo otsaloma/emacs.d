@@ -12,7 +12,8 @@
   (if (ots-util-in-git-repo (buffer-file-name))
       (ots-git-gutter-enable)))
 
-(add-hook 'find-file-hook 'ots-git-gutter-enable-maybe)
+;; XXX: Doesn't look nice with centered-window-mode.
+;; (add-hook 'find-file-hook 'ots-git-gutter-enable-maybe)
 
 (provide 'ots-git-gutter)
 ;;; ots-git-gutter.el ends here
