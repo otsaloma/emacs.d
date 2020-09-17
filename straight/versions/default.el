@@ -1,6 +1,7 @@
 (("ESS" . "625041ad51038e43ac12e466e3001a252725d88b")
  ("all-the-icons.el" . "f6cbb51c152dd60be5718218600a4ec14d9fd6cc")
  ("auctex" . "fafa28d54276a73604e696b51c6a1a36d727d3fb")
+ ("centered-window-mode" . "f50859941ab5c7cbeaee410f2d38716252b552ac")
  ("company-auctex" . "48c42c58ce2f0e693301b0cb2d085055410c1b25")
  ("company-jedi" . "5232fbc1fdbfc81b1dd883afb720338c3e39556b")
  ("company-lsp" . "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
