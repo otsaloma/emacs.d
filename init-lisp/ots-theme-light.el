@@ -91,7 +91,7 @@
  `(lsp-face-highlight-read ((t (:underline nil))))
  `(lsp-face-highlight-textual ((t (:underline nil))))
  `(lsp-face-highlight-write ((t (:underline nil))))
- `(markdown-code-face ((t (:background "#f2f2f2" :foreground nil))))
+ `(markdown-code-face ((t (:background nil :foreground nil))))
  `(markdown-header-face ((t (:foreground "#1d77ff" :weight bold))))
  `(mmm-default-submode-face ((t (:background nil :foreground nil))))
  `(neo-dir-link-face ((t (:background nil :foreground "#84a3c2"))))
