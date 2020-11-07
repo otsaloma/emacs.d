@@ -24,7 +24,6 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'all-the-icons)
-(straight-use-package 'centered-window)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
 (straight-use-package 'company-dict)
@@ -80,7 +79,6 @@
   (require 'ots-browse-url)
   (require 'ots-c-mode)
   (require 'ots-c++-mode)
-  (require 'ots-centered-window)
   (require 'ots-comint-mode)
   (require 'ots-company)
   (require 'ots-compilation-mode)
