@@ -35,8 +35,7 @@
 
 (defun ots-js-mode-tide ()
   "Set auto-completion via tide."
-  (when (or (eq major-mode 'js-mode)
-            (eq major-mode 'rjsx-mode))
+  (when (eq major-mode 'js-mode)
     (tide-setup)
     (company-mode +1)
     (eldoc-mode +1)
