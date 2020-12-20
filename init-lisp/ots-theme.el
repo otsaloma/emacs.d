@@ -23,11 +23,7 @@
   (interactive)
   (if (string= ots-theme-current "dark")
       (ots-theme-enable "light")
-    (ots-theme-enable "dark"))
-  ;; tabbar background color doesn't seem to update
-  ;; unless we do something to trigger a redraw.
-  (switch-to-buffer "*scratch*")
-  (run-with-timer 0.001 nil #'(lambda () (switch-to-buffer nil))))
+    (ots-theme-enable "dark")))
 
 (ots-theme-enable ots-theme-default)
 (global-set-key (kbd "<S-f11>") 'ots-theme-toggle)
