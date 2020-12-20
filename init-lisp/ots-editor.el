@@ -47,5 +47,11 @@
 ;; Prevent a window split when opening multiple files at once.
 (add-hook 'emacs-startup-hook 'delete-other-windows t)
 
+;; Try to handle files with long lines better.
+;; https://200ok.ch/posts/2020-09-29_comprehensive_guide_on_handling_long_lines_in_emacs.html
+(setq-default bidi-paragraph-direction 'left-to-right)
+(setq bidi-inhibit-bpa t)
+(global-so-long-mode 1)
+
 (provide 'ots-editor)
 ;;; ots-editor.el ends here
