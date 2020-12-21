@@ -109,8 +109,10 @@
 (setq ess-use-company t)
 (setq ess-use-tracebug nil)
 (setq ess-write-to-dribble nil)
-(setq inferior-ess-r-help-command
-      ".ess.help(\"%s\", help.type=\"html\")\n")
+
+;; XXX: No longer needed?
+;; (setq inferior-ess-r-help-command
+;;       ".ess.help(\"%s\", help.type=\"html\")\n")
 
 ;; Indentation
 (setq ess-align-blocks '())
