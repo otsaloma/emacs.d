@@ -25,6 +25,7 @@
   (global-set-key (kbd "<C-next>") 'centaur-tabs-forward)
   (global-set-key (kbd "<C-prior>") 'centaur-tabs-backward)
   (setq centaur-tabs-adjust-buffer-order t)
+  (setq centaur-tabs-cycle-scope 'tabs)
   (setq centaur-tabs-height 36)
   (setq centaur-tabs-modified-marker "*")
   (setq centaur-tabs-set-close-button nil)
