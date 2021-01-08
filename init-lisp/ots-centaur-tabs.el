@@ -32,8 +32,10 @@
   (setq centaur-tabs-set-modified-marker t)
   (setq centaur-tabs-style "bar"))
 
-(centaur-tabs-mode t)
-(ots-centaur-tabs-set-properties)
+;; XXX: Sorting in alphabetical order doesn't really work.
+;; https://github.com/ema2159/centaur-tabs/issues/101
+;; (centaur-tabs-mode t)
+;; (ots-centaur-tabs-set-properties)
 
 (provide 'ots-centaur-tabs)
 ;;; ots-centaur-tabs.el ends here

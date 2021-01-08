@@ -59,6 +59,7 @@
  ("sqlup-mode.el" . "3f9df9c88d6a7f9b1ae907e401cad8d3d7d63bbf")
  ("straight.el" . "f0d98c9770e087d3075220236a73dfa89d796079")
  ("sudo-edit" . "0e2c32b5e5242d30f8780cbe8e1b1649476cac4d")
+ ("tabbar" . "82bbda31cbe8ef367dd6501c3aa14b7f2c835910")
  ("tide" . "62ae49fa92785ed4a2d7e1d6a196afceb13e0438")
  ("transient" . "0d79ccfaf899f6192151d1191fbc234795489923")
  ("typescript.el" . "54f14c482701c4f937bf51469f70812624e07f87")
