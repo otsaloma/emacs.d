@@ -51,6 +51,8 @@
 ;; https://200ok.ch/posts/2020-09-29_comprehensive_guide_on_handling_long_lines_in_emacs.html
 (setq-default bidi-paragraph-direction 'left-to-right)
 (setq bidi-inhibit-bpa t)
+(setq so-long-action 'so-long-minor-mode)
+(setq so-long-threshold 1000)
 (global-so-long-mode 1)
 
 (provide 'ots-editor)
