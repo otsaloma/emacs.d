@@ -52,7 +52,7 @@
 (setq-default bidi-paragraph-direction 'left-to-right)
 (setq bidi-inhibit-bpa t)
 (setq so-long-action 'so-long-minor-mode)
-(setq so-long-threshold 1000)
+(setq so-long-threshold 5000)
 (global-so-long-mode 1)
 
 (provide 'ots-editor)
