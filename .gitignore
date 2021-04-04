@@ -8,4 +8,5 @@ projectile-bookmarks.eld
 straight/build
 straight/build-cache.el
 straight/repos
+tramp
 transient/history.el
