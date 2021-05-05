@@ -23,6 +23,7 @@
 (add-hook 'html-mode-hook 'ots-html-mode-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-mode-set-faces)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
 (modify-coding-system-alist 'file "\\.html\\'" 'utf-8)
 
 (provide 'ots-html-mode)
