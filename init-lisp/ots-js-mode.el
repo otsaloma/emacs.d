@@ -6,6 +6,8 @@
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
+  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-right>") 'xref-find-definitions)
   (if (ots-util-buffer-contains "\\<\\(exports\\|require\\)\\>")
       (ots-js-mode-set-properties-node)
     (ots-js-mode-set-properties-browser)))
