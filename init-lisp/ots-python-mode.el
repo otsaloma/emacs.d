@@ -68,7 +68,7 @@
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "Gio")
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GLib")
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GObject")
-  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK+")
+  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK")
   (ots-util-add-docset "\\(from\\|import\\) gi.repository" "Pango")
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
