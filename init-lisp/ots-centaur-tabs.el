@@ -11,7 +11,6 @@
              (not (string-match "^\\*ielm" name))
              (not (string-match "^\\*js" name))
              (not (string-match "^\\*man" name))
-             (not (string-match "^\\*Octave" name))
              (not (string-match "^\\*Python" name))
              (not (string-match "^\\*R" name))
              (not (string-match "^\\*shell" name))
