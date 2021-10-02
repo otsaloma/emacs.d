@@ -110,10 +110,6 @@
 (setq ess-use-tracebug nil)
 (setq ess-write-to-dribble nil)
 
-;; XXX: No longer needed?
-;; (setq inferior-ess-r-help-command
-;;       ".ess.help(\"%s\", help.type=\"html\")\n")
-
 ;; Indentation
 (setq ess-align-blocks '())
 (setq ess-indent-from-lhs '())
