@@ -59,6 +59,8 @@ pop
 popitem
 real
 remove
+removeprefix
+removesuffix
 replace
 reverse
 rfind

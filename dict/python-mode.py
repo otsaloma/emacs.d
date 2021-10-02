@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
+
 import itertools
-objs = [
-    bool(),
-    dict(),
-    float(),
-    int(),
-    list(),
-    set(),
-    str(),
-    tuple(),
-]
-names = itertools.chain(*list(map(dir, objs)))
+
+from pathlib import Path
+
+clss = [bool, dict, float, int, list, set, str, tuple]
+objs = [x() for x in clss]
+names = itertools.chain.from_iterable(map(dir, objs))
 names = sorted(set(filter(lambda x: x[0].isalpha(), names)))
-open("python-mode", "w").write("\n".join(names) + "\n")
+text = "\n".join(names) + "\n"
+Path("python-mode").write_text(text, "utf-8")
