@@ -65,6 +65,7 @@
  ("transient" . "0d79ccfaf899f6192151d1191fbc234795489923")
  ("typescript.el" . "54f14c482701c4f937bf51469f70812624e07f87")
  ("undo-tree" . "e326c6135e62f5fe8536528d3acd5e798f847407")
+ ("vterm" . "2681120b770573044832ba8c22ccbac192e1a294")
  ("wcheck-mode" . "e2b6a9f01eb6020e2c0243f9c81a4cf475c6b02b")
  ("with-editor" . "6735180e73e787b79535c245b162249b70dbf841")
  ("yaml-mode" . "fc5e1c58f94472944c4aa838f00f6adcac6fa992")
