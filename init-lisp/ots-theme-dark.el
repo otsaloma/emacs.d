@@ -102,7 +102,6 @@
  `(neo-dir-link-face ((t (:background nil :foreground "#84a3c2"))))
  `(neo-file-link-face ((t (:background nil :foreground "#666666"))))
  `(neo-root-dir-face ((t (:background nil :foreground "#666666"))))
- `(olivetti-fringe ((t (:background nil))))
  `(popup-tip-face ((t (:background "#eeeeee" :foreground "#232323"))))
  `(sh-heredoc ((t (:foreground "#b294bb"))))
  `(tab-line ((t :background "#353535")))

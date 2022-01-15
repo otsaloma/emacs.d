@@ -47,7 +47,6 @@
  ("magit" . "a9c4371a0375140bcc49f9f46626f3c5d256a960")
  ("markdown-mode" . "e250a8465f805644d372c264eb0572f569d7f2a1")
  ("melpa" . "b89bd1ada947b64f6c42dda14e626ef55127f8e5")
- ("olivetti" . "032b3d779f7b374bd12f62b7fc717a310ea16bee")
  ("parent-mode" . "db692cf08deff2f0e973e6e86e26662b44813d1b")
  ("pcre2el" . "0b5b2a2c173aab3fd14aac6cf5e90ad3bf58fa7d")
  ("pkg-info" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
