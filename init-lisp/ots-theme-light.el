@@ -72,6 +72,8 @@
  `(diff-added ((t (:background "#cbffcb" :foreground nil))))
  `(diff-file-header ((t (:background "#ffd9b3" :foreground nil))))
  `(diff-header ((t (:background "#ffffb3" :foreground nil))))
+ `(diff-refine-added ((t (:background "#cbffcb" :foreground nil))))
+ `(diff-refine-removed ((t (:background "#ffcbcb" :foreground nil))))
  `(diff-removed ((t (:background "#ffcbcb" :foreground nil))))
  `(ess-%op%-face ((t (:background nil :foreground "#897fba"))))
  `(ess-operator-face ((t (:background nil :foreground "#897fba"))))
