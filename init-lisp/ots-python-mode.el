@@ -95,6 +95,16 @@
   (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
   (local-set-key (kbd "<M-right>") 'jedi:goto-definition))
 
+(defun ots-python-mode-set-imenu ()
+  "Set definition matchers for creating an imenu index."
+  ;; Compared to the default in python.el, (1) don't list all
+  ;; nested functions and (2) use simple flat output.
+  (ots-util-add-imenu-expressions
+   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
+     ("Function" "^def \\([a-z0-9_]+\\)" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1))))
+
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
   (setq-local fill-column 79)
@@ -115,6 +125,7 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
+(add-hook 'python-mode-hook 'ots-python-mode-set-imenu)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
