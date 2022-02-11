@@ -88,9 +88,9 @@
 
 (defun ots-keys-set-punct-defun ()
   "Set keybindings for navigating between functions."
-  (local-set-key (kbd "C-,") 'beginning-of-defun)
+  (local-set-key (kbd "C-,") 'ots-util-beginning-of-defun)
   (local-set-key (kbd "C-;") 'ots-util-mark-to-beginning-of-defun)
-  (local-set-key (kbd "C-.") 'end-of-defun)
+  (local-set-key (kbd "C-.") 'ots-util-end-of-defun)
   (local-set-key (kbd "C-:") 'ots-util-mark-to-end-of-defun))
 
 (defun ots-keys-set-punct-sentence ()

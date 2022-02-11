@@ -26,6 +26,12 @@
            (< (ots-util-visible-pos) 0.25))
       (recenter)))
 
+(defun ots-util-beginning-of-defun ()
+  "Move backward to the previous function."
+  (interactive)
+  (beginning-of-defun)
+  (recenter))
+
 (defun ots-util-bind-key-compile (key command)
   "Bind key locally to a compile command."
   (local-set-key key `(lambda ()
@@ -70,6 +76,12 @@
     (setq buffers (sort buffers 'string<))
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
+
+(defun ots-util-end-of-defun ()
+  "Move forward to the next function."
+  (interactive)
+  (end-of-defun)
+  (recenter))
 
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
