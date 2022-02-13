@@ -21,14 +21,11 @@
   "Set auto-completion via jedi."
   (require 'company-dict)
   (require 'company-jedi)
+  ;; (require 'eglot)
   (jedi-mode)
-  ;; sudo pip3 install -U python-language-server
-  ;; https://github.com/palantir/python-language-server
-  ;; (require 'company-lsp)
-  ;; (require 'lsp-mode)
-  ;; (require 'lsp-pyls)
-  ;; (lsp)
+  ;; (eglot-ensure)
   (setq-local company-backends '((company-jedi
+                                  ;; company-capf
                                   :separate
                                   company-keywords
                                   company-dict
