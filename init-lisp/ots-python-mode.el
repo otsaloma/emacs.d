@@ -7,7 +7,7 @@
   "The default quote character to use.")
 
 (defun ots-python-mode-insert-dict-key ()
-  "Insert a dict key at point."
+  "Insert a string dict key at point."
   (interactive)
   (when (string= ots-python-quote-char "")
     (ots-python-mode-update-quote-char))
@@ -16,21 +16,6 @@
   (insert ots-python-quote-char)
   (insert "]")
   (backward-char 2))
-
-(defun ots-python-mode-jedi ()
-  "Set auto-completion via jedi."
-  (require 'company-dict)
-  (require 'company-jedi)
-  ;; (require 'eglot)
-  (jedi-mode)
-  ;; (eglot-ensure)
-  (setq-local company-backends '((company-jedi
-                                  ;; company-capf
-                                  :separate
-                                  company-keywords
-                                  company-dict
-                                  company-dabbrev-code
-                                  company-dabbrev))))
 
 (defun ots-python-mode-send-region ()
   "Run the current line or region in the Python shell."
@@ -69,7 +54,7 @@
 
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
-  ;; Only color special variables via font-lock-preprocessor-face.
+  ;; Only color special variables, do that via font-lock-preprocessor-face.
   (face-remap-add-relative 'font-lock-preprocessor-face :foreground (face-foreground 'font-lock-variable-name-face))
   (face-remap-add-relative 'font-lock-variable-name-face :foreground (face-foreground 'default))
   (font-lock-add-keywords
@@ -89,27 +74,26 @@
   (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
   (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t")
-  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
-  (local-set-key (kbd "<M-right>") 'jedi:goto-definition))
-
-(defun ots-python-mode-set-imenu ()
-  "Set definition matchers for creating an imenu index."
-  ;; Compared to the default in python.el, (1) don't list all
-  ;; nested functions and (2) use simple flat output.
-  (ots-util-add-imenu-expressions
-   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
-     ("Function" "^def \\([a-z0-9_]+\\)" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1))))
+  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-right>") 'xref-find-definitions))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
+  (require 'company-dict)
+  (require 'eglot)
+  (eglot-ensure)
   (setq-local fill-column 79)
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
-  (setq-local python-shell-interpreter "python3"))
+  (setq-local python-shell-interpreter "python3")
+  (setq-local company-backends '((company-capf
+                                  :separate
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
 
 (defun ots-python-mode-update-quote-char ()
   "Update value of the default quote character to use."
@@ -118,17 +102,26 @@
       (setq ots-python-quote-char "'")
     (setq ots-python-quote-char "\"")))
 
-(add-hook 'python-mode-hook 'ots-python-mode-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
-(add-hook 'python-mode-hook 'ots-python-mode-set-imenu)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
+
+(setq-default
+ eglot-workspace-configuration
+ ;; https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+ '((pylsp (plugins (flake8      (enabled . :json-false))
+                   (mccabe      (enabled . :json-false))
+                   (pycodestyle (enabled . :json-false))
+                   (pydocstyle  (enabled . :json-false))
+                   (pyflakes    (enabled . :json-false))
+                   (pylint      (enabled . :json-false))
+                   (yapf        (enabled . :json-false))))))
 
 (provide 'ots-python-mode)
 ;;; ots-python-mode.el ends here
