@@ -18,6 +18,7 @@
                                   company-dabbrev)))
 
   (setq-local comment-auto-fill-only-comments t)
+  (setq-local eldoc-echo-area-use-multiline-p nil)
   (setq-local fill-column 80)
   (setq-local indent-tabs-mode nil)
   (setq-local tab-width 4)
