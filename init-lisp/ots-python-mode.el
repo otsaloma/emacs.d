@@ -52,6 +52,21 @@
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
   (ots-util-add-docset "\\(from\\|import\\) scipy" "SciPy"))
 
+(defun ots-python-mode-set-eglot ()
+  "Set autocompletion etc. via eglot + pylsp."
+  (require 'company-dict)
+  (require 'eglot)
+  (eglot-ensure)
+  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-right>") 'xref-find-definitions)
+  (setq-local eglot-stay-out-of '(flymake))
+  (setq-local company-backends '((company-capf
+                                  :separate
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
+
 (defun ots-python-mode-set-faces ()
   "Set faces for editing Python files."
   ;; Only color special variables, do that via font-lock-preprocessor-face.
@@ -63,6 +78,27 @@
          ("\\<\\(cls\\|self\\)\\>" 1 font-lock-preprocessor-face)
          ("\\<\\([A-Z0-9_]+\\)\\> += " 1 font-lock-preprocessor-face))))
 
+(defun ots-python-mode-set-jedi ()
+  "Set autocompletion etc. via emacs-jedi + company-jedi."
+  (require 'company-dict)
+  (require 'company-jedi)
+  (jedi-mode)
+  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
+  (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
+  ;; Compared to the default in python.el, (1) don't list all
+  ;; nested functions and (2) use simple flat output.
+  (ots-util-add-imenu-expressions
+   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
+     ("Function" "^def \\([a-z0-9_]+\\)" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1)))
+  (setq-local company-backends '((company-jedi
+                                  :separate
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
+
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
@@ -73,28 +109,16 @@
   (local-set-key (kbd "<f6>") 'ots-python-mode-send-region)
   (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
-  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t")
-  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
-  (local-set-key (kbd "<M-right>") 'xref-find-definitions))
+  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t"))
 
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
-  (require 'company-dict)
-  (require 'eglot)
-  (eglot-ensure)
-  (setq-local eglot-stay-out-of '(flymake))
   (setq-local fill-column 79)
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
-  (setq-local python-shell-interpreter "python3")
-  (setq-local company-backends '((company-capf
-                                  :separate
-                                  company-keywords
-                                  company-dict
-                                  company-dabbrev-code
-                                  company-dabbrev))))
+  (setq-local python-shell-interpreter "python3"))
 
 (defun ots-python-mode-update-quote-char ()
   "Update value of the default quote character to use."
@@ -106,6 +130,7 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
+(add-hook 'python-mode-hook 'ots-python-mode-set-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
