@@ -82,6 +82,7 @@
   (require 'company-dict)
   (require 'eglot)
   (eglot-ensure)
+  (setq-local eglot-stay-out-of '(flymake))
   (setq-local fill-column 79)
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
