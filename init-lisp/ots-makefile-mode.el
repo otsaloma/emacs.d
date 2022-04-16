@@ -4,7 +4,8 @@
 (defun ots-makefile-mode-set-faces ()
   "Set faces for editing Makefiles."
   (font-lock-add-keywords
-   nil '(("\$\$\\([a-zA-Z_]*\\)" 1 font-lock-preprocessor-face))))
+   nil '(("\\<\\(do\\|done\\|elif\\|else\\|fi\\|for\\|if\\|in\\|while\\)\\>" 1 font-lock-keyword-face)
+         ("\$\$\\([a-zA-Z_]*\\)" 1 font-lock-preprocessor-face))))
 
 (defun ots-makefile-mode-set-properties ()
   "Set properties for editing Makefiles."
