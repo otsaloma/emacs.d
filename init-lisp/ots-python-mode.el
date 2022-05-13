@@ -129,8 +129,8 @@
 
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
+(add-hook 'python-mode-hook 'ots-python-mode-set-eglot t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
-(add-hook 'python-mode-hook 'ots-python-mode-set-jedi t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
