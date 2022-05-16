@@ -2,8 +2,8 @@
 
 ;; Speed up init by doing garbage collection less often.
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
-(setq gc-cons-threshold most-positive-fixnum)
-(run-with-idle-timer 5 nil #'(lambda () (setq gc-cons-threshold (* 100 1024 1024))))
+(setq gc-cons-threshold (* 100 1024 1024))
+(run-with-idle-timer 3 nil #'(lambda () (setq gc-cons-threshold (* 2 1024 1024))))
 
 ;; Avoid questions about where to save abbrevs.
 (setq save-abbrevs nil)
@@ -142,3 +142,9 @@
   (require 'ots-yaml-mode)
   (require 'ots-yank-indent)
   (require 'ots-yasnippet))
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds" (float-time (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
