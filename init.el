@@ -27,6 +27,7 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'all-the-icons)
+(straight-use-package 'anaconda-mode)
 (straight-use-package 'centaur-tabs)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)

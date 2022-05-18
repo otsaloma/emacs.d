@@ -2,6 +2,7 @@
 *.elc
 .lsp-session*
 .python-environments
+anaconda-mode
 docsets/
 elpa/
 projectile-bookmarks.eld

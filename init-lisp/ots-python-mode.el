@@ -33,6 +33,23 @@
               (ots-util-comint-send line))))
       (switch-to-buffer nil))))
 
+(defun ots-python-mode-set-anaconda ()
+  "Set autocompletion etc. via anaconda-mode."
+  (require 'company-dict)
+  (require 'jedi-core)
+  (anaconda-mode)
+  (anaconda-eldoc-mode)
+  (jedi-mode)
+  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
+  (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
+  (ots-python-mode-set-imenu)
+  (setq-local company-backends '((company-capf
+                                  :separate
+                                  company-keywords
+                                  company-dict
+                                  company-dabbrev-code
+                                  company-dabbrev))))
+
 (defun ots-python-mode-set-default-directory ()
   "Set the default directory to the source tree root."
   ;; We need to have the current package at the beginning of PYTHONPATH,
@@ -53,7 +70,7 @@
   (ots-util-add-docset "\\(from\\|import\\) scipy" "SciPy"))
 
 (defun ots-python-mode-set-eglot ()
-  "Set autocompletion etc. via eglot + pylsp."
+  "Set autocompletion etc. via eglot and a language server."
   (require 'company-dict)
   (require 'eglot)
   (eglot-ensure)
@@ -78,6 +95,16 @@
          ("\\<\\(cls\\|self\\)\\>" 1 font-lock-preprocessor-face)
          ("\\<\\([A-Z0-9_]+\\)\\> += " 1 font-lock-preprocessor-face))))
 
+(defun ots-python-mode-set-imenu ()
+  "Set imenu indexing patterns."
+  ;; Compared to the default in python.el, (1) don't list all
+  ;; nested functions and (2) use simple flat output.
+  (ots-util-add-imenu-expressions
+   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
+     ("Function" "^def \\([a-z0-9_]+\\)" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
+     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1))))
+
 (defun ots-python-mode-set-jedi ()
   "Set autocompletion etc. via emacs-jedi + company-jedi."
   (require 'company-dict)
@@ -85,13 +112,7 @@
   (jedi-mode)
   (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
   (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
-  ;; Compared to the default in python.el, (1) don't list all
-  ;; nested functions and (2) use simple flat output.
-  (ots-util-add-imenu-expressions
-   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
-     ("Function" "^def \\([a-z0-9_]+\\)" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1)))
+  (ots-python-mode-set-imenu)
   (setq-local company-backends '((company-jedi
                                   :separate
                                   company-keywords
@@ -127,9 +148,9 @@
       (setq ots-python-quote-char "'")
     (setq ots-python-quote-char "\"")))
 
+(add-hook 'python-mode-hook 'ots-python-mode-set-anaconda t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
-(add-hook 'python-mode-hook 'ots-python-mode-set-eglot t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
