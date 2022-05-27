@@ -45,7 +45,7 @@
   (setq-local company-idle-delay 0.1)
   (setq-local company-tooltip-align-annotations t)
   (setq-local company-transformers '(company-sort-by-backend-importance
-                                     delete-consecutive-dups)))
+                                     delete-dups)))
 
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'company-mode-hook 'ots-company-set-keys)
