@@ -106,7 +106,7 @@
  `(tabbar-modified ((t (:inherit 'tabbar-unselected :foreground "#ff405a"))))
  `(tabbar-selected-modified ((t (:inherit 'tabbar-selected))))
  `(tabbar-separator ((t (:background "#eeeeee"))))
- `(vterm-color-black ((t (:foreground "#232323"))))
+ `(vterm-color-black ((t (:foreground "#252525"))))
  `(vterm-color-blue ((t (:foreground "#3465a4"))))
  `(vterm-color-cyan ((t (:foreground "#06989a"))))
  `(vterm-color-green ((t (:foreground "#4e9a06"))))
