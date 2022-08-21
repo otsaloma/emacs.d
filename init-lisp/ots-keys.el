@@ -72,14 +72,12 @@
 
 (defun ots-keys-set-normal ()
   "Set keybindings for editing normal text files."
-  (catch 'found
-    (dolist (mode ots-normal-modes)
-      (when (derived-mode-p mode)
-        (local-set-key (kbd "C-d") 'ots-util-smart-kill-line)
-        (local-set-key (kbd "C-S-d") 'ots-util-smart-kill-word)
-        (local-set-key (kbd "<return>") 'newline-and-indent)
-        (local-set-key (kbd "<kp-enter>") 'newline-and-indent)
-        (throw 'found t)))))
+  (when (and (not buffer-read-only)
+             (not (derived-mode-p 'comint-mode 'compilation-mode 'vterm-mode)))
+    (local-set-key (kbd "C-d") 'ots-util-smart-kill-line)
+    (local-set-key (kbd "C-S-d") 'ots-util-smart-kill-word)
+    (local-set-key (kbd "<return>") 'newline-and-indent)
+    (local-set-key (kbd "<kp-enter>") 'newline-and-indent)))
 
 (defun ots-keys-set-punct ()
   "Set keybindings for punctuation navigation keys."

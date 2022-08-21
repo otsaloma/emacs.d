@@ -70,7 +70,6 @@
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
 (let ((file-name-handler-alist nil))
   ;; Load in the correct order.
-  (require 'ots-normal)
   (require 'ots-theme)
   (require 'ots-util)
   ;; Load in the correct order.

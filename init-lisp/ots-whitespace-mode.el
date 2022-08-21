@@ -3,11 +3,8 @@
 
 (defun ots-whitespace-mode-enable ()
   "Turn whitespace-mode on if in a normal buffer."
-  (catch 'found
-    (dolist (mode ots-normal-modes)
-      (when (derived-mode-p mode)
-        (whitespace-mode 1)
-        (throw 'found t)))))
+  (if (not (derived-mode-p 'comint-mode 'compilation-mode 'vterm-mode))
+      (whitespace-mode 1)))
 
 (setq whitespace-style
       (quote (face tabs indentation space-after-tab
