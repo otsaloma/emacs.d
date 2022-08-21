@@ -4,17 +4,20 @@
 # Usage: emacs [OPTION...] [FILE...]
 
 . $HOME/.profile
+xrdb -merge $HOME/.Xresources
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
 
-# Remove stale server if Emacs crashed.
-[ -z "$(ps ux | grep "/usr/bin/emac[s]")" ] && rm -rfv /run/user/1000/emacs
+if [ -z "$(ps ux | grep "/usr/bin/emac[s]")" ]; then
+    # Remove stale server if Emacs crashed.
+    rm -rfv /run/user/1000/emacs
+fi
 
 if [ -e /run/user/1000/emacs/server ]; then
     # Open files given as arguments in already running server.
-    for X in "$@"; do /usr/bin/emacsclient.emacs -n "$X"; done
+    for X in "$@"; do emacsclient.emacs -n "$X"; done
 else
-    # Start a new emacs, open files given as arguments and start the server.
+    # Start a new Emacs, open files given as arguments and start the server.
     /usr/bin/emacs -g 90x35 --eval "(server-mode 1)" "$@" &
 fi
