@@ -4,6 +4,7 @@
 .python-environments
 anaconda-mode
 docsets/
+eln-cache/
 elpa/
 projectile-bookmarks.eld
 straight/build

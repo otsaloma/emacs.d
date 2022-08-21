@@ -28,7 +28,6 @@
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'anaconda-mode)
-(straight-use-package 'centaur-tabs)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
 (straight-use-package 'company-dict)
@@ -49,6 +48,7 @@
 (straight-use-package 'js-comint)
 (straight-use-package 'json-mode)
 (straight-use-package 'lua-mode)
+(straight-use-package 'ligature)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'neotree)
 (straight-use-package 'pcre2el)
@@ -59,14 +59,12 @@
 (straight-use-package 'sudo-edit)
 (straight-use-package 'tabbar)
 (straight-use-package 'tide)
-(straight-use-package 'undo-tree)
 (straight-use-package 'vterm)
 (straight-use-package 'wcheck-mode)
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
 
 (push "~/.emacs.d/init-lisp" load-path)
-(byte-recompile-directory "~/.emacs.d/init-lisp" 0)
 
 ;; Do less filename checks when loading requires.
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
@@ -76,14 +74,12 @@
   (require 'ots-theme)
   (require 'ots-util)
   ;; Load in the correct order.
-  (require 'ots-ansi-color)
   (require 'ots-backup)
   (require 'ots-bat-mode)
   (require 'ots-bibtex-mode)
   (require 'ots-browse-url)
   (require 'ots-c-mode)
   (require 'ots-c++-mode)
-  (require 'ots-centaur-tabs)
   (require 'ots-comint-mode)
   (require 'ots-company)
   (require 'ots-compilation-mode)
@@ -113,6 +109,7 @@
   (require 'ots-json-mode)
   (require 'ots-keys)
   (require 'ots-latex-mode)
+  (require 'ots-ligature)
   (require 'ots-line-numbers)
   (require 'ots-lua-mode)
   (require 'ots-makefile-mode)
@@ -133,7 +130,6 @@
   (require 'ots-tabbar)
   (require 'ots-text-mode)
   (require 'ots-trailing-space)
-  (require 'ots-undo-tree)
   (require 'ots-uniquify)
   (require 'ots-vterm)
   (require 'ots-wcheck-mode)
@@ -143,9 +139,3 @@
   (require 'ots-yaml-mode)
   (require 'ots-yank-indent)
   (require 'ots-yasnippet))
-
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs ready in %s with %d garbage collections."
-                     (format "%.2f seconds" (float-time (time-subtract after-init-time before-init-time)))
-                     gcs-done)))

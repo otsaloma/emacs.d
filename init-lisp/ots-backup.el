@@ -10,7 +10,7 @@
 (setq backup-by-copying t)
 (setq backup-directory-alist `((".*" . ,ots-backup-directory)))
 
-(add-hook 'change-major-mode-hook '(lambda () (setq create-lockfiles nil)))
+(add-hook 'change-major-mode-hook #'(lambda () (setq create-lockfiles nil)))
 (make-directory ots-backup-directory t)
 
 (provide 'ots-backup)

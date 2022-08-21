@@ -9,6 +9,7 @@
 (add-to-list 'projectile-globally-ignored-directories "build")
 (add-to-list 'projectile-globally-ignored-directories "dist")
 (add-to-list 'projectile-globally-ignored-directories "docsets")
+(add-to-list 'projectile-globally-ignored-directories "eln-cache")
 (add-to-list 'projectile-globally-ignored-directories "elpa")
 (add-to-list 'projectile-globally-ignored-directories "man")
 (add-to-list 'projectile-globally-ignored-directories "node_modules")

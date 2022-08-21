@@ -44,7 +44,7 @@
 
 (add-hook 'LaTeX-mode-hook 'ots-latex-mode-set-faces)
 (add-hook 'LaTeX-mode-hook 'ots-latex-mode-set-properties)
-(add-hook 'plain-tex-mode-hook '(lambda() (latex-mode)))
+(add-hook 'plain-tex-mode-hook #'(lambda() (latex-mode)))
 
 (provide 'ots-latex-mode)
 ;;; ots-latex-mode.el ends here

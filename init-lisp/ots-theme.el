@@ -36,6 +36,9 @@
 (let ((family (face-attribute 'default :family)))
   (setq-default line-spacing
                 (cond ((string= family "Cascadia Code") 0.40)
+                      ((string= family "Cascadia Code PL") 0.40)
+                      ((string= family "Cascadia Mono") 0.40)
+                      ((string= family "Cascadia Mono PL") 0.40)
                       ((string= family "IBM Plex Mono") 0.30)
                       ((string= family "Meslo LG L") 0.15)
                       ((string= family "SF Mono") 0.50))))

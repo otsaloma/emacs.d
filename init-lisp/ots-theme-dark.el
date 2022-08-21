@@ -52,11 +52,6 @@
  `(font-lock-warning-face ((t (:foreground "#e68a8a"))))
 
  ;; Add-on packages
- `(centaur-tabs-default ((t (:background "#353535" :foreground "#888888"))))
- `(centaur-tabs-selected ((t (:background "#232323" :foreground "#aaaaaa"))))
- `(centaur-tabs-selected-modified ((t (:inherit 'centaur-tabs-selected))))
- `(centaur-tabs-unselected ((t (:inherit 'centaur-tabs-default))))
- `(centaur-tabs-unselected-modified ((t (:inherit 'centaur-tabs-unselected :foreground "#e68a8a"))))
  `(company-preview ((t (:foreground "#ff5555"))))
  `(company-preview-common ((t (:foreground "#ff5555"))))
  `(company-scrollbar-bg ((t (:background nil))))
@@ -104,8 +99,8 @@
  `(popup-tip-face ((t (:background "#eeeeee" :foreground "#232323"))))
  `(sh-heredoc ((t (:foreground "#b294bb"))))
  `(tab-line ((t :background "#353535")))
- `(tabbar-default ((t (:background "#353535" :foreground "#888888" :box (:line-width 12 :color "#353535")))))
- `(tabbar-selected ((t (:background "#232323" :foreground "#aaaaaa" :box (:line-width 12 :color "#232323")))))
+ `(tabbar-default ((t (:background "#353535" :foreground "#888888" :box (:line-width 16 :color "#353535")))))
+ `(tabbar-selected ((t (:background "#232323" :foreground "#aaaaaa" :box (:line-width 16 :color "#232323")))))
  `(tabbar-unselected ((t (:inherit 'tabbar-default))))
  `(tabbar-highlight ((t (:inherit 'tabbar-selected))))
  `(tabbar-modified ((t (:inherit 'tabbar-unselected foreground "#e68a8a"))))

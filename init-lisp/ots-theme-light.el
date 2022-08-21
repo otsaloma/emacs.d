@@ -52,11 +52,6 @@
  `(font-lock-warning-face ((t (:foreground "#ff405a"))))
 
  ;; Add-on packages
- `(centaur-tabs-default ((t (:background "#eeeeee" :foreground "#999999"))))
- `(centaur-tabs-selected ((t (:background "#ffffff" :foreground "#303030"))))
- `(centaur-tabs-selected-modified ((t (:inherit 'centaur-tabs-selected))))
- `(centaur-tabs-unselected ((t (:inherit 'centaur-tabs-default))))
- `(centaur-tabs-unselected-modified ((t (:inherit 'centaur-tabs-unselected :foreground "#ff405a"))))
  `(company-preview ((t (:foreground "#ff5555"))))
  `(company-preview-common ((t (:foreground "#ff5555"))))
  `(company-scrollbar-bg ((t (:background nil))))
