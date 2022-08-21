@@ -53,6 +53,12 @@
   "Return string shortened from filename to use as tab label."
   (format " %s " (tabbar-shorten (format "%s" (tabbar-tab-value tab)) 24)))
 
+(defun ots-tabbar-toggle ()
+  "Enable or disable tabbar depending on current buffers."
+  (if (length> (ots-tabbar-buffer-list) 1)
+      (tabbar-mode 1)
+    (tabbar-mode -1)))
+
 (defun tabbar-add-tab (tabset object &optional append)
   "Add to tabset a tab with value object if there isn't one there yet.
   Override the default tabbar behaviour of appending the tab if append is true
@@ -64,10 +70,11 @@
         (setq tabs (append tabs (list tab))))
       (set tabset (sort tabs 'ots-tabbar-sort)))))
 
-(tabbar-mode t)
 (ots-tabbar-set-buttons)
 (ots-tabbar-set-functions)
 (ots-tabbar-set-keys)
+
+(add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t)
 
 (provide 'ots-tabbar)
 ;;; ots-tabbar.el ends here
