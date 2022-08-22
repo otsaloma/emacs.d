@@ -72,7 +72,7 @@
 
 (defun ots-keys-set-normal ()
   "Set keybindings for editing normal text files."
-  (when (derived-mode-p 'prog-mode 'text-mode)
+  (when (derived-mode-p 'conf-mode 'prog-mode 'text-mode)
     (local-set-key (kbd "C-d") 'ots-util-smart-kill-line)
     (local-set-key (kbd "C-S-d") 'ots-util-smart-kill-word)
     (local-set-key (kbd "<return>") 'newline-and-indent)
