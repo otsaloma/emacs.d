@@ -3,7 +3,7 @@
 
 (defun ots-line-numbers-enable ()
   "Turn display-line-numbers-mode on if in a normal buffer."
-  (if (not (derived-mode-p 'comint-mode 'compilation-mode 'vterm-mode))
+  (if (derived-mode-p 'prog-mode 'text-mode)
       (display-line-numbers-mode 1)))
 
 (add-hook 'after-change-major-mode-hook 'ots-line-numbers-enable)
