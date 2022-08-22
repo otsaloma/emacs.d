@@ -8,8 +8,9 @@
 ;; Avoid questions about where to save abbrevs.
 (setq save-abbrevs nil)
 
-;; Silence "package cl is deprecated" warnings.
+;; Silence uninteresting warnings.
 (setq byte-compile-warnings '(not obsolete))
+(setq warning-minimum-level :error)
 
 ;; Use straight.el to lock package versions.
 ;; https://github.com/raxod502/straight.el
