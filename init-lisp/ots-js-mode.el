@@ -16,7 +16,7 @@
   "Set properties for editing Browser JavaScript files."
   (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
   (setq-local flycheck-checker 'javascript-jshint)
-  (setq-local dash-docs-docsets '("JavaScript" "jQuery"))
+  (setq-local dash-docs-docsets '("JavaScript" "Web"))
   (setq-local js-indent-level 4)
   (setq-local tab-width 4))
 
