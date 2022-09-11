@@ -120,6 +120,13 @@
                                   company-dabbrev-code
                                   company-dabbrev))))
 
+(defun ots-python-mode-flake8 ()
+  "Run flake8 with either project or general configuration."
+  (interactive)
+  (let* ((has-config (ots-util-file-above-in-tree default-directory ".flake8"))
+         (command (if has-config "flake8 %s" "flake8 --select=E1,E9,F --ignore=E129 %s")))
+    (compile (ots-util-expand-command command) t)))
+
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
@@ -128,7 +135,7 @@
   (ots-util-bind-key-compile (kbd "<f5>") "python3 -u %s")
   (ots-util-bind-key-compile (kbd "<S-f5>") "python3 -ui %s")
   (local-set-key (kbd "<f6>") 'ots-python-mode-send-region)
-  (ots-util-bind-key-compile (kbd "<f8>") "flake8 %s")
+  (local-set-key (kbd "<f8>") 'ots-python-mode-flake8)
   (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
   (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t"))
 
