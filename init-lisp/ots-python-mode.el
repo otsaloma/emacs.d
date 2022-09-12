@@ -6,6 +6,13 @@
 (defvar ots-python-quote-char ""
   "The default quote character to use.")
 
+(defun ots-python-mode-flake8 ()
+  "Run flake8 with either project or general configuration."
+  (interactive)
+  (let* ((has-config (ots-util-file-above-in-tree default-directory ".flake8"))
+         (command (if has-config "flake8 %s" "flake8 --select=E1,E9,F --ignore=E129 %s")))
+    (compile (ots-util-expand-command command) t)))
+
 (defun ots-python-mode-insert-dict-key ()
   "Insert a string dict key at point."
   (interactive)
@@ -95,6 +102,11 @@
          ("\\<\\(cls\\|self\\)\\>" 1 font-lock-preprocessor-face)
          ("\\<\\([A-Z0-9_]+\\)\\> += " 1 font-lock-preprocessor-face))))
 
+(defun ots-python-mode-set-flycheck ()
+  "Set flycheck's flake8 to either project or general configuration."
+  (if (not (ots-util-file-above-in-tree default-directory ".flake8"))
+      (setq flycheck-flake8rc "~/.config/flake8")))
+
 (defun ots-python-mode-set-imenu ()
   "Set imenu indexing patterns."
   ;; Compared to the default in python.el, (1) don't list all
@@ -119,13 +131,6 @@
                                   company-dict
                                   company-dabbrev-code
                                   company-dabbrev))))
-
-(defun ots-python-mode-flake8 ()
-  "Run flake8 with either project or general configuration."
-  (interactive)
-  (let* ((has-config (ots-util-file-above-in-tree default-directory ".flake8"))
-         (command (if has-config "flake8 %s" "flake8 --select=E1,E9,F --ignore=E129 %s")))
-    (compile (ots-util-expand-command command) t)))
 
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
@@ -159,6 +164,7 @@
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
+(add-hook 'python-mode-hook 'ots-python-mode-set-flycheck)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
