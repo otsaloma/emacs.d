@@ -16,6 +16,7 @@
 (add-to-list 'auto-mode-alist '("\\.gitmodules\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.theme\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.thumbnailer\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("requirements.*\\.txt\\'" . conf-mode))
 
 (provide 'ots-conf-mode)
 ;;; ots-conf-mode.el ends here
