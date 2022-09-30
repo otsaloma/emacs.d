@@ -13,6 +13,9 @@
   (local-set-key (kbd "<home>") 'ots-inferior-ess-mode-smart-home)
   (local-set-key (kbd "C-ö") 'ots-ess-mode-insert-pipe)
   (local-set-key (kbd "_") '(lambda () (interactive) (insert "_")))
+  ;; Avoid rlang etc. output making text unreadable.
+  ;; https://github.com/emacs-ess/ESS/issues/1193
+  (setq-local ansi-color-for-comint-mode 'filter)
   (setq-local ess-R-argument-suffix "=")
   (setq-local ess-use-company t)
   (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
