@@ -49,7 +49,6 @@
   (jedi-mode)
   (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
   (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
-  (ots-python-mode-set-imenu)
   (setq-local company-backends '((company-capf
                                   :separate
                                   company-keywords
@@ -107,16 +106,6 @@
   (if (not (ots-util-file-above-in-tree default-directory ".flake8"))
       (setq flycheck-flake8rc "~/.config/flake8")))
 
-(defun ots-python-mode-set-imenu ()
-  "Set imenu indexing patterns."
-  ;; Compared to the default in python.el, (1) don't list all
-  ;; nested functions and (2) use simple flat output.
-  (ots-util-add-imenu-expressions
-   '(("Class"    "^class \\([a-zA-Z0-9_]+\\)" 1)
-     ("Function" "^def \\([a-z0-9_]+\\)" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(cls" 1)
-     ("Method"   "^    def \\([a-z0-9_]+\\)(self" 1))))
-
 (defun ots-python-mode-set-jedi ()
   "Set autocompletion etc. via emacs-jedi + company-jedi."
   (require 'company-dict)
@@ -124,7 +113,6 @@
   (jedi-mode)
   (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
   (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
-  (ots-python-mode-set-imenu)
   (setq-local company-backends '((company-jedi
                                   :separate
                                   company-keywords
@@ -147,6 +135,7 @@
 (defun ots-python-mode-set-properties ()
   "Set properties for editing Python files."
   (setq-local fill-column 79)
+  (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
