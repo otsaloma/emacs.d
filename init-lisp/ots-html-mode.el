@@ -20,6 +20,7 @@
   (setq-local fill-column 100)
   (setq-local tab-width 2))
 
+(add-hook 'after-save-hook 'ots-html-mode-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-mode-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-mode-set-faces)
 (add-hook 'html-mode-hook 'ots-html-mode-set-properties)

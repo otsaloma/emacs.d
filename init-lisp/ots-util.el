@@ -5,8 +5,9 @@
   "Add helm-dash docset if regexp found in buffer text."
   (if (not (local-variable-p 'dash-docs-docsets))
       (setq-local dash-docs-docsets '()))
-  (when (ots-util-buffer-contains regexp limit)
-    (add-to-list 'dash-docs-docsets docset t)))
+  (when (not (member docset dash-docs-docsets))
+    (when (ots-util-buffer-contains regexp limit)
+      (add-to-list 'dash-docs-docsets docset t))))
 
 (defun ots-util-add-imenu-expressions (expressions)
   "Set imenu index patterns for the current buffer."

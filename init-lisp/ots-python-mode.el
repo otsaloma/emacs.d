@@ -149,6 +149,7 @@
       (setq ots-python-quote-char "'")
     (setq ots-python-quote-char "\"")))
 
+(add-hook 'after-save-hook 'ots-python-mode-set-docsets t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-anaconda t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
