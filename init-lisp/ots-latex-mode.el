@@ -33,6 +33,7 @@
 (defun ots-latex-mode-set-properties ()
   "Set properties for editing LaTeX files."
   (company-auctex-init)
+  (display-line-numbers-mode 1)
   (setq-local comment-auto-fill-only-comments nil)
   (setq-local dash-docs-docsets '("LaTeX"))
   (setq-local LaTeX-indent-level 0)
