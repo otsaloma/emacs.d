@@ -233,18 +233,20 @@
     (move-beginning-of-line count)))
 
 (defun ots-util-smart-kill-line (&optional arg)
-  "Kill either the current line or the whole active region."
+  "Delete either the current line or the whole active region."
   (interactive)
-  (if mark-active
-      (kill-region (region-beginning) (region-end))
-    (kill-line arg)))
+  (let (kill-ring)
+    (if mark-active
+        (kill-region (region-beginning) (region-end))
+      (kill-line arg))))
 
 (defun ots-util-smart-kill-word (&optional arg)
-  "Kill either the current word or the whole active region."
+  "Delete either the current word or the whole active region."
   (interactive)
-  (if mark-active
-      (kill-region (region-beginning) (region-end))
-    (kill-word arg)))
+  (let (kill-ring)
+    (if mark-active
+        (kill-region (region-beginning) (region-end))
+      (kill-word arg))))
 
 (defun ots-util-smart-tab ()
   "Indent or complete depending on circumstances."
