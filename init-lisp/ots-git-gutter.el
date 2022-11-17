@@ -10,7 +10,8 @@
 (defun ots-git-gutter-enable-maybe ()
   "Enable git-gutter if in a git repository."
   (if (ots-util-in-git-repo (buffer-file-name))
-      (ots-git-gutter-enable)))
+      (if (not (string-suffix-p ".csv" (buffer-file-name)))
+          (ots-git-gutter-enable))))
 
 (add-hook 'find-file-hook 'ots-git-gutter-enable-maybe)
 
