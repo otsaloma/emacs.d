@@ -42,6 +42,7 @@
 
 (defun ots-python-mode-set-anaconda ()
   "Set autocompletion etc. via anaconda-mode."
+  ;; https://github.com/pythonic-emacs/anaconda-mode
   (require 'company-dict)
   (require 'jedi-core)
   (anaconda-mode)
@@ -77,6 +78,9 @@
 
 (defun ots-python-mode-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
+  ;; https://github.com/joaotavora/eglot
+  ;; https://github.com/pappasam/jedi-language-server OR
+  ;; https://github.com/python-lsp/python-lsp-server
   (require 'company-dict)
   (require 'eglot)
   (eglot-ensure)
@@ -108,6 +112,7 @@
 
 (defun ots-python-mode-set-jedi ()
   "Set autocompletion etc. via emacs-jedi + company-jedi."
+  ;; https://github.com/emacsorphanage/company-jedi
   (require 'company-dict)
   (require 'company-jedi)
   (jedi-mode)
@@ -150,9 +155,11 @@
     (setq ots-python-quote-char "\"")))
 
 (add-hook 'after-save-hook 'ots-python-mode-set-docsets t)
-(add-hook 'python-mode-hook 'ots-python-mode-set-anaconda t)
+(add-hook 'after-save-hook 'ots-python-mode-update-quote-char t)
+
 (add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
 (add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
+(add-hook 'python-mode-hook 'ots-python-mode-set-eglot t)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
 (add-hook 'python-mode-hook 'ots-python-mode-set-flycheck)
 (add-hook 'python-mode-hook 'ots-python-mode-set-keys)
