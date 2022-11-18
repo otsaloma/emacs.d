@@ -70,6 +70,7 @@
  `(diff-refine-added ((t (:background nil :foreground "#90b078"))))
  `(diff-refine-removed ((t (:background nil :foreground "#e68a8a"))))
  `(diff-removed ((t (:background nil :foreground "#e68a8a"))))
+ `(eglot-highlight-symbol-face ((t (:weight normal))))
  `(ess-%op%-face ((t (:background nil :foreground "#8abeb7"))))
  `(ess-operator-face ((t (:background nil :foreground "#8abeb7"))))
  `(flycheck-error ((t (:underline "#ff5555"))))
