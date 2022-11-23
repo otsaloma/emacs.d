@@ -86,6 +86,11 @@
   (eglot-ensure)
   (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
   (local-set-key (kbd "<M-right>") 'xref-find-definitions)
+  (setq-local eglot-ignored-server-capabilities '(:colorProvider
+                                                  :documentHighlightProvider
+                                                  :documentLinkProvider
+                                                  :hoverProvider))
+
   (setq-local eglot-stay-out-of '(flymake))
   (setq-local company-backends '((company-capf
                                   :separate
