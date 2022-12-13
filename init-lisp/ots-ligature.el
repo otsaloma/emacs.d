@@ -3,17 +3,11 @@
 
 (require 'ligature)
 
+;; https://github.com/mickeynp/ligature.el
 ;; https://github.com/microsoft/cascadia-code#font-features
-(ligature-set-ligatures '(markdown-mode text-mode) '("!="
-                                                     ">="
-                                                     "<="
-                                                     "<-"
-                                                     "<--"
-                                                     "->"
-                                                     "-->"
-                                                     "<!--"
-                                                     "<=="
-                                                     "==>"))
+(ligature-set-ligatures
+ '(markdown-mode prog-mode text-mode)
+ '("<-" "<--" "->" "-->" "<!--" "<==" "==>" "|>"))
 
 (global-ligature-mode t)
 
