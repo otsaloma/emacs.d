@@ -8,7 +8,7 @@
   (interactive)
   (if (not (looking-back " "))
       (insert " "))
-  (insert "%>% "))
+  (insert "|> "))
 
 (defun ots-ess-mode-set-faces ()
   "Set faces for editing R files."
