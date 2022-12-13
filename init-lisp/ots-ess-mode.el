@@ -15,12 +15,11 @@
   (unless ots-ess-mode-faces-toggled
     ;; Enable some font-lock stuff that's off by default.
     ;; Full list is in ess-R-font-lock-keywords.
-    (ess-font-lock-toggle-keyword 'ess-fl-keyword:numbers)
     (ess-font-lock-toggle-keyword 'ess-fl-keyword:operators)
     (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
     (setq ots-ess-mode-faces-toggled t))
   (font-lock-add-keywords
-   nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|library\\|messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
+   nil '(("\\<\\(args\\|browser\\|function\\|gc\\|invisible\\|messagef?0?\\|options\\|print\\|require\\|rm\\|stop\\|stopif\\|stopifnot\\|system\\|try\\|tryCatch\\|UseMethod\\|warning\\|with\\)("
           1 font-lock-keyword-face)
          ("\\<\\(Recall\\|return\\)("
           1 font-lock-function-name-face)
