@@ -10,5 +10,7 @@ projectile-bookmarks.eld
 straight/build
 straight/build-cache.el
 straight/repos
+theme-dark
+theme-light
 tramp
 transient/history.el

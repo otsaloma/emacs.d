@@ -7,6 +7,12 @@
 (defvar ots-theme-default "dark"
   "The default theme to use at startup.")
 
+(if (file-exists-p "~/.emacs.d/theme-dark")
+  (setq ots-theme-default "dark"))
+
+(if (file-exists-p "~/.emacs.d/theme-light")
+  (setq ots-theme-default "light"))
+
 (defun ots-theme-enable (theme)
   "Load and enable theme: either 'dark' or 'light'."
   (when (string= theme "dark")
