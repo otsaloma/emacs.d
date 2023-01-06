@@ -70,11 +70,12 @@
   (ots-util-add-docset "\\(from\\|import\\) dataiter" "Dataiter")
   (ots-util-add-docset "\\(from\\|import\\) django" "Django")
   (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
-  (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject")
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
-  (ots-util-add-docset "\\(from\\|import\\) scipy" "SciPy"))
+  (if (string= (getenv "GTK_VERSION") "4")
+      (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK4")
+    (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject")))
 
 (defun ots-python-mode-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
