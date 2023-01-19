@@ -49,7 +49,7 @@
           (neotree-dir (projectile-project-root)))
         (neotree-find file-name)
         (if (string= ots-theme-current "dark")
-            (setq buffer-face-mode-face `(:background "#252525"))
+            (setq buffer-face-mode-face `(:background "#242424"))
           (setq buffer-face-mode-face `(:background "#eeeeee")))
         (buffer-face-mode 1)
         (switch-to-buffer buffer)))))
