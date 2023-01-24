@@ -39,6 +39,16 @@
    (interactive)
    (compile (ots-util-expand-command ',command) t))))
 
+(defun ots-util-browse-pypi ()
+  "Browse the PyPI URL of the package on the current line of a requirements.txt file."
+  (interactive)
+  (let* ((start (line-beginning-position))
+         (end (line-end-position))
+         (line (buffer-substring start end))
+         (package (car (split-string line "=")))
+         (url (format "https://pypi.org/project/%s/" package)))
+    (browse-url url)))
+
 (defun ots-util-buffer-contains (regexp &optional limit)
   "Return true if regexp found in buffer text."
   (setq limit (min (point-max) (or limit (point-max))))
