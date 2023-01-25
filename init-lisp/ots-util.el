@@ -45,7 +45,7 @@
   (let* ((start (line-beginning-position))
          (end (line-end-position))
          (line (buffer-substring start end))
-         (package (car (split-string line "=")))
+         (package (car (split-string line "[=<>\\[]")))
          (url (format "https://pypi.org/project/%s/" package)))
     (browse-url url)))
 
