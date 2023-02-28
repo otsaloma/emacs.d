@@ -55,7 +55,7 @@
 
 (defun ots-tabbar-toggle ()
   "Enable or disable tabbar depending on current buffers."
-  (if (length> (ots-tabbar-buffer-list) 1)
+  (if (length> (ots-tabbar-buffer-list) 0)
       (tabbar-mode 1)
     (tabbar-mode -1)))
 
