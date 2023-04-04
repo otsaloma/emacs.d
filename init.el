@@ -65,6 +65,7 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
 
+(push "~/.emacs.d/chatgpt-shell" load-path)
 (push "~/.emacs.d/init-lisp" load-path)
 
 ;; Do less filename checks when loading requires.
@@ -80,6 +81,7 @@
   (require 'ots-browse-url)
   (require 'ots-c-mode)
   (require 'ots-c++-mode)
+  (require 'ots-chatgpt-shell)
   (require 'ots-comint-mode)
   (require 'ots-company)
   (require 'ots-compilation-mode)

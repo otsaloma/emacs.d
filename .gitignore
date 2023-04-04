@@ -3,6 +3,7 @@
 .lsp-session*
 .python-environments
 anaconda-mode
+chatgpt-shell
 docsets/
 eln-cache/
 elpa/
