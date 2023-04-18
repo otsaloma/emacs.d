@@ -52,6 +52,7 @@
 (straight-use-package 'ligature)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'neotree)
+(straight-use-package 'olivetti)
 (straight-use-package 'pcre2el)
 (straight-use-package 'rainbow-mode)
 (straight-use-package 'rust-mode)

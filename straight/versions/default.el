@@ -48,6 +48,7 @@
  ("markdown-mode" . "0b8dc23724caa66b18bded28c08f7516cba9d292")
  ("melpa" . "76cd5a26b05fdba0bf979e7d34a0a3ab981de47c")
  ("nongnu-elpa" . "baad781689346353a219a786fc68ff476c6e013e")
+ ("olivetti" . "8d287a80c5e3d72ac01b56c8afe60b01f18500b4")
  ("parent-mode" . "db692cf08deff2f0e973e6e86e26662b44813d1b")
  ("pcre2el" . "0b5b2a2c173aab3fd14aac6cf5e90ad3bf58fa7d")
  ("pkg-info" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
