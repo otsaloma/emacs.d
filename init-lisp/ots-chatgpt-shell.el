@@ -10,7 +10,7 @@
   (olivetti-mode 1))
 
 ;; https://github.com/xenodium/chatgpt-shell
-(add-hook 'inferior-chatgpt-mode-hook 'ots-chatgpt-shell-set-properties)
+(advice-add 'chatgpt-shell :after #'ots-chatgpt-shell-set-properties)
 (setq chatgpt-shell-chatgpt-model-version "gpt-3.5-turbo")
 (setq chatgpt-shell-chatgpt-streaming t)
 (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
