@@ -2,6 +2,7 @@ ArithmeticError
 AssertionError
 AttributeError
 BaseException
+BaseExceptionGroup
 BlockingIOError
 BrokenPipeError
 BufferError
@@ -17,6 +18,7 @@ Ellipsis
 EncodingWarning
 EnvironmentError
 Exception
+ExceptionGroup
 False
 FileExistsError
 FileNotFoundError
