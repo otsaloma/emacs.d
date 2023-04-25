@@ -17,15 +17,21 @@
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
+      (bootstrap-version 6))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+(setq straight-vc-git-default-clone-depth 1)
+
+;; TODO: Drop :host and :repo once MELPA is up-to-date.
+(straight-use-package '(shell-maker :host github :repo "xenodium/chatgpt-shell"))
+(straight-use-package '(chatgpt-shell :host github :repo "xenodium/chatgpt-shell"))
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'anaconda-mode)
@@ -66,7 +72,6 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
 
-(push "~/.emacs.d/chatgpt-shell" load-path)
 (push "~/.emacs.d/init-lisp" load-path)
 
 ;; Do less filename checks when loading requires.
