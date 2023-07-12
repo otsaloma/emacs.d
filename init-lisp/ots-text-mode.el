@@ -11,13 +11,13 @@
 
 (defun ots-text-mode-set-keys ()
   "Set keybindings for editing text files."
-  (if (string-match-p "\\.txt$" (buffer-file-name))
+  (if (string-match-p "\\.txt$" (or (buffer-file-name) ""))
       (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
     (ots-prog-mode-set-keys)))
 
 (defun ots-text-mode-set-properties ()
   "Set properties for editing text files."
-  (if (string-match-p "\\.txt$" (buffer-file-name))
+  (if (string-match-p "\\.txt$" (or (buffer-file-name) ""))
       (progn (setq-local company-backends '((company-capf company-dabbrev)))
              (setq-local fill-column 72)
              (setq-local indent-tabs-mode nil)
