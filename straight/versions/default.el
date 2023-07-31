@@ -2,7 +2,7 @@
  ("all-the-icons.el" . "6f876fa11ef64af20d9b2a44fdabac6446de51ba")
  ("anaconda-mode" . "ca8edbaa7662d97e4a4416ec9a8d743863303911")
  ("auctex" . "53b82804c9dd9dbea306876f3be84ebacbeb7e74")
- ("chatgpt-shell" . "d271bcf97f6a2ba39f199b7121aa91f3ffeec109")
+ ("chatgpt-shell" . "32218c020e042ae9f0ea4f4f7922e4cf801e0ef4")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-jedi" . "ea22b1f7a980c49aaf2c5e840e4536577f6602f6")
  ("company-mode" . "a96295c055a6938458588b9933e5c0a3fcfae1e5")
