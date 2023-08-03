@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-helm.el
 
-(require 'helm-config)
-
 (defun ots-helm-find-file ()
   "Find a file to open from common sources."
   (interactive)

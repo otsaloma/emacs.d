@@ -44,7 +44,6 @@
 (straight-use-package 'doom-themes)
 (straight-use-package 'dtrt-indent)
 (straight-use-package 'editorconfig)
-(straight-use-package 'eglot)
 (straight-use-package 'ess)
 (straight-use-package 'flycheck)
 (straight-use-package 'git-gutter-fringe+)
