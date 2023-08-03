@@ -11,6 +11,6 @@ bootstrap:
 upgrade:
 	rm -rf straight/versions/default.el
 	$(MAKE) bootstrap
-	$(EMACS) -f "straight-freeze-versions" --kill
+	$(EMACS) -f straight-freeze-versions --kill
 
 .PHONY: bootstrap upgrade
