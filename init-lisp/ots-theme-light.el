@@ -44,6 +44,7 @@
  `(font-lock-keyword-face ((t (:foreground "#897fba"))))
  `(font-lock-negation-char-face ((t (:foreground "#1d77ff" :weight bold))))
  `(font-lock-preprocessor-face ((t (:foreground "#90b078"))))
+ `(font-lock-property-use-face ((t (:foreground nil))))
  `(font-lock-regexp-grouping-backslash ((t (:foreground "#897fba"))))
  `(font-lock-regexp-grouping-construct ((t (:foreground "#897fba"))))
  `(font-lock-string-face ((t (:foreground "#ba7fba"))))

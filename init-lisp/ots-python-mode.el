@@ -163,14 +163,13 @@
 
 (add-hook 'after-save-hook 'ots-python-mode-set-docsets t)
 (add-hook 'after-save-hook 'ots-python-mode-update-quote-char t)
-
-(add-hook 'python-mode-hook 'ots-python-mode-set-default-directory)
-(add-hook 'python-mode-hook 'ots-python-mode-set-docsets t)
-(add-hook 'python-mode-hook 'ots-python-mode-set-eglot t)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-default-directory)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-docsets t)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-eglot t)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-flycheck)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-keys)
+(add-hook 'python-base-mode-hook 'ots-python-mode-set-properties)
 (add-hook 'python-mode-hook 'ots-python-mode-set-faces)
-(add-hook 'python-mode-hook 'ots-python-mode-set-flycheck)
-(add-hook 'python-mode-hook 'ots-python-mode-set-keys)
-(add-hook 'python-mode-hook 'ots-python-mode-set-properties)
 
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))

@@ -62,6 +62,7 @@
  ("themes" . "e4f0b006a516a35f53df2dce2ec116876c5cd7f9")
  ("tide" . "b38dfc3f8fb754e64e48e76fc92d472cb3d1a3dc")
  ("transient" . "323d6b6c84e6ae55e578efa1efb6bb4d42a69cac")
+ ("treesit-auto" . "bac3b9d1d61a4d759f87c80de7be3b808d19cbf6")
  ("wcheck-mode" . "d3a704884187a8f72e069f9be33b531ae944d6d8")
  ("wfnames" . "4447417c58b063df1fca1ba4bec9cb650c7beb60")
  ("with-editor" . "a4853781835346aabf083d2d9cb87f656d01ccac")
