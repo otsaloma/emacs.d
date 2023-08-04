@@ -138,7 +138,7 @@
   (require 'ots-tabbar)
   (require 'ots-text-mode)
   (require 'ots-trailing-space)
-  (require 'ots-treesit)
+  (require 'ots-tree-sitter)
   (require 'ots-uniquify)
   (require 'ots-vterm)
   (require 'ots-wcheck-mode)
