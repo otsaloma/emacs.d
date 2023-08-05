@@ -10,7 +10,8 @@
   "Run flake8 with either project or general configuration."
   (interactive)
   (let* ((has-config (ots-util-file-above-in-tree default-directory ".flake8"))
-         (command (if has-config "flake8 %s" "flake8 --select=E1,E9,F --ignore=E129 %s")))
+         (fallback (expand-file-name "~/.config/flake8"))
+         (command (if has-config "flake8 %s" (format "flake8 --config=%s %%s" fallback))))
     (compile (ots-util-expand-command command) t)))
 
 (defun ots-python-mode-insert-dict-key ()
@@ -40,23 +41,6 @@
               (ots-util-comint-send line))))
       (switch-to-buffer nil))))
 
-(defun ots-python-mode-set-anaconda ()
-  "Set autocompletion etc. via anaconda-mode."
-  ;; https://github.com/pythonic-emacs/anaconda-mode
-  (require 'company-dict)
-  (require 'jedi-core)
-  (anaconda-mode)
-  (anaconda-eldoc-mode)
-  (jedi-mode)
-  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
-  (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
-  (setq-local company-backends '((company-capf
-                                  :separate
-                                  company-keywords
-                                  company-dict
-                                  company-dabbrev-code
-                                  company-dabbrev))))
-
 (defun ots-python-mode-set-default-directory ()
   "Set the default directory to the source tree root."
   ;; We need to have the current package at the beginning of PYTHONPATH,
@@ -65,13 +49,14 @@
     (cd "..")))
 
 (defun ots-python-mode-set-docsets ()
-  "Load helm-dash docsets based on buffer contents."
+  "Load dash docsets based on buffer contents."
   (setq-local dash-docs-docsets '("Python"))
   (ots-util-add-docset "\\(from\\|import\\) dataiter" "Dataiter")
   (ots-util-add-docset "\\(from\\|import\\) django" "Django")
   (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
+  (ots-util-add-docset "\\(from\\|import\\) peewee" "Peewee")
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
   (ots-util-add-docset "\\(from\\|import\\) sklearn" "Scikit-Learn")
   (if (string= (getenv "GTK_VERSION") "4")
@@ -80,8 +65,7 @@
 
 (defun ots-python-mode-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
-  ;; https://github.com/joaotavora/eglot
-  ;; https://github.com/pappasam/jedi-language-server OR
+  ;; https://github.com/pappasam/jedi-language-server (better)
   ;; https://github.com/python-lsp/python-lsp-server
   (require 'company-dict)
   (require 'eglot)
@@ -101,36 +85,10 @@
                                   company-dabbrev-code
                                   company-dabbrev))))
 
-(defun ots-python-mode-set-faces ()
-  "Set faces for editing Python files."
-  ;; Only color special variables, do that via font-lock-preprocessor-face.
-  (face-remap-add-relative 'font-lock-preprocessor-face :foreground (face-foreground 'font-lock-variable-name-face))
-  (face-remap-add-relative 'font-lock-variable-name-face :foreground (face-foreground 'default))
-  (font-lock-add-keywords
-   nil '(("\\(=\\)" 1 font-lock-keyword-face)
-         ("\\<\\([0-9._]+\\)\\>" 1 font-lock-constant-face)
-         ("\\<\\(cls\\|self\\)\\>" 1 font-lock-preprocessor-face)
-         ("\\<\\([A-Z0-9_]+\\)\\> += " 1 font-lock-preprocessor-face))))
-
 (defun ots-python-mode-set-flycheck ()
   "Set flycheck's flake8 to either project or general configuration."
   (if (not (ots-util-file-above-in-tree default-directory ".flake8"))
       (setq flycheck-flake8rc "~/.config/flake8")))
-
-(defun ots-python-mode-set-jedi ()
-  "Set autocompletion etc. via emacs-jedi + company-jedi."
-  ;; https://github.com/emacsorphanage/company-jedi
-  (require 'company-dict)
-  (require 'company-jedi)
-  (jedi-mode)
-  (local-set-key (kbd "<M-left>") 'jedi:goto-definition-pop-marker)
-  (local-set-key (kbd "<M-right>") 'jedi:goto-definition)
-  (setq-local company-backends '((company-jedi
-                                  :separate
-                                  company-keywords
-                                  company-dict
-                                  company-dabbrev-code
-                                  company-dabbrev))))
 
 (defun ots-python-mode-set-keys ()
   "Set keybindings for editing Python files."
@@ -148,6 +106,7 @@
   "Set properties for editing Python files."
   (setq-local fill-column 79)
   (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
+  ;; Some of these are ignore by python-ts-mode.
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
@@ -169,8 +128,6 @@
 (add-hook 'python-base-mode-hook 'ots-python-mode-set-flycheck)
 (add-hook 'python-base-mode-hook 'ots-python-mode-set-keys)
 (add-hook 'python-base-mode-hook 'ots-python-mode-set-properties)
-(add-hook 'python-mode-hook 'ots-python-mode-set-faces)
-
 (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
 (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)

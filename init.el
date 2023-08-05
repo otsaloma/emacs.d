@@ -34,11 +34,9 @@
 (straight-use-package '(chatgpt-shell :host github :repo "xenodium/chatgpt-shell"))
 
 (straight-use-package 'all-the-icons)
-(straight-use-package 'anaconda-mode)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
 (straight-use-package 'company-dict)
-(straight-use-package 'company-jedi)
 (straight-use-package 'direnv)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'doom-themes)
