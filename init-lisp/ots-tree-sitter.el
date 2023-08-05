@@ -1,5 +1,5 @@
 ;;; -*- coding: utf-8 -*-
-;;; ots-tree-sitter-mode.el
+;;; ots-tree-sitter.el
 
 (require 'treesit-auto)
 (setq treesit-auto-install t)
@@ -7,5 +7,5 @@
 (setq treesit-font-lock-level 3)
 (global-treesit-auto-mode)
 
-(provide 'ots-tree-sitter-mode)
-;;; ots-tree-sitter-mode.el ends here
+(provide 'ots-tree-sitter)
+;;; ots-tree-sitter.el ends here
