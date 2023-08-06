@@ -19,7 +19,8 @@
     (when do-delete
       (delete-trailing-whitespace))))
 
-(add-hook 'before-save-hook 'ots-trailing-space-delete)
+(use-package emacs
+  :config (add-hook 'before-save-hook 'ots-trailing-space-delete))
 
 (provide 'ots-trailing-space)
 ;;; ots-trailing-space.el ends here

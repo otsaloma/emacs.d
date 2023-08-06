@@ -5,8 +5,11 @@
   "Add imenu index if the mode supports it."
   (ignore-errors (imenu-add-to-menubar "Index")))
 
-(add-hook 'font-lock-mode-hook 'ots-imenu-add-maybe t)
-(global-set-key (kbd "<f4>") 'helm-imenu)
+(use-package imenu)
+(use-package helm
+  :config
+  (add-hook 'font-lock-mode-hook 'ots-imenu-add-maybe t)
+  (global-set-key (kbd "<f4>") 'helm-imenu))
 
 (provide 'ots-imenu)
 ;;; ots-imenu.el ends here

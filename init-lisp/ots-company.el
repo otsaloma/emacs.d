@@ -39,17 +39,17 @@
   (setq-local company-dabbrev-downcase nil)
   (setq-local company-dabbrev-ignore-case nil)
   (setq-local company-dabbrev-minimum-length 2)
-  ;; Disable icons.
   ;; https://github.com/company-mode/company-mode/issues/1102
   (setq-local company-format-margin-function nil)
   (setq-local company-idle-delay 0.1)
   (setq-local company-tooltip-align-annotations t)
-  (setq-local company-transformers '(company-sort-by-backend-importance
-                                     delete-dups)))
+  (setq-local company-transformers '(company-sort-by-backend-importance delete-dups)))
 
-(add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'company-mode-hook 'ots-company-set-keys)
-(add-hook 'company-mode-hook 'ots-company-set-properties)
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (add-hook 'company-mode-hook 'ots-company-set-keys)
+  (add-hook 'company-mode-hook 'ots-company-set-properties))
 
 (provide 'ots-company)
 ;;; ots-company.el ends here

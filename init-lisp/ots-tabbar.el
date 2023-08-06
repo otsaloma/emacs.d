@@ -1,8 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-tabbar.el
 
-(require 'tabbar)
-
 (defun ots-tabbar-buffer-groups ()
   "Return list of groups that buffer belongs to."
   (list "All Buffers"))
@@ -38,10 +36,10 @@
 
 (defun ots-tabbar-sort (x y)
   "Return string sort value for tabs x and y."
-  (string-lessp (ots-tabbar-label-sort-key x)
-                (ots-tabbar-label-sort-key y)))
+  (string-lessp (ots-tabbar-sort-key x)
+                (ots-tabbar-sort-key y)))
 
-(defun ots-tabbar-label-sort-key (tab)
+(defun ots-tabbar-sort-key (tab)
   "Return a sort key for the label of tab."
   ;; Sort unit test files to the right of the main file.
   (let ((label (tabbar-buffer-tab-label tab)))
@@ -70,11 +68,12 @@
         (setq tabs (append tabs (list tab))))
       (set tabset (sort tabs 'ots-tabbar-sort)))))
 
-(ots-tabbar-set-buttons)
-(ots-tabbar-set-functions)
-(ots-tabbar-set-keys)
-
-(add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t)
+(use-package tabbar
+  :config
+  (ots-tabbar-set-buttons)
+  (ots-tabbar-set-functions)
+  (ots-tabbar-set-keys)
+  (add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t))
 
 (provide 'ots-tabbar)
 ;;; ots-tabbar.el ends here

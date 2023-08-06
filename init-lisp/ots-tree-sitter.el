@@ -1,11 +1,12 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-tree-sitter.el
 
-(require 'treesit-auto)
-(setq treesit-auto-install nil)
-(setq treesit-auto-langs '(python))
-(setq treesit-font-lock-level 3)
-(global-treesit-auto-mode)
+(use-package treesit-auto
+  :config
+  (setq treesit-auto-install nil)
+  (setq treesit-auto-langs '(python))
+  (setq treesit-font-lock-level 3)
+  (global-treesit-auto-mode))
 
 (provide 'ots-tree-sitter)
 ;;; ots-tree-sitter.el ends here

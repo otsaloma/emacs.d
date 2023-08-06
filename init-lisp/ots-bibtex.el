@@ -10,7 +10,8 @@
   (setq-local truncate-lines t)
   (turn-on-auto-fill))
 
-(add-hook 'bibtex-mode-hook 'ots-bibtex-set-properties)
+(use-package bibtex
+  :config (add-hook 'bibtex-mode-hook 'ots-bibtex-set-properties))
 
 (provide 'ots-bibtex)
 ;;; ots-bibtex.el ends here

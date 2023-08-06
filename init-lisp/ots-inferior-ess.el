@@ -31,8 +31,10 @@
     (if (looking-at "Browse\\[[0-9]\\]> ")
         (forward-char 11))))
 
-(add-hook 'inferior-ess-mode-hook 'ots-inferior-ess-set-properties t)
-(setq inferior-R-args "--no-save --no-restore-history --quiet")
+(use-package ess-mode
+  :config
+  (add-hook 'inferior-ess-mode-hook 'ots-inferior-ess-set-properties t)
+  (setq inferior-R-args "--no-save --no-restore-history --quiet"))
 
 (provide 'ots-inferior-ess)
 ;;; ots-inferior-ess.el ends here

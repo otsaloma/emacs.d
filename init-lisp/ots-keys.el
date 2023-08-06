@@ -98,18 +98,19 @@
   (local-set-key (kbd "C-.") 'forward-sentence)
   (local-set-key (kbd "C-:") 'ots-util-mark-to-end-of-sentence))
 
-(setq cua-check-pending-input nil)
-(setq cua-keep-region-after-copy t)
-(setq cua-prefix-override-inhibit-delay 0.1)
-(setq cua-remap-control-z nil)
-(cua-mode t)
-;; Remove cua override of set-mark-command key.
-(define-key cua-global-keymap [remap set-mark-command] nil)
-
-(ots-keys-set-basic)
-(ots-keys-set-isearch)
-(add-hook 'change-major-mode-after-body-hook 'ots-keys-set-punct)
-(add-hook 'change-major-mode-after-body-hook 'ots-keys-set-normal)
+(use-package emacs
+  :config
+  (setq cua-check-pending-input nil)
+  (setq cua-keep-region-after-copy t)
+  (setq cua-prefix-override-inhibit-delay 0.1)
+  (setq cua-remap-control-z nil)
+  (cua-mode t)
+  ;; Remove cua override of set-mark-command key.
+  (define-key cua-global-keymap [remap set-mark-command] nil)
+  (ots-keys-set-basic)
+  (ots-keys-set-isearch)
+  (add-hook 'change-major-mode-after-body-hook 'ots-keys-set-normal)
+  (add-hook 'change-major-mode-after-body-hook 'ots-keys-set-punct))
 
 (provide 'ots-keys)
 ;;; ots-keys.el ends here

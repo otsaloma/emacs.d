@@ -6,8 +6,6 @@
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
-  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
-  (local-set-key (kbd "<M-right>") 'xref-find-definitions)
   (if (ots-util-buffer-contains "\\<\\(exports\\|require\\)\\>")
       (ots-js-set-properties-node)
     (ots-js-set-properties-browser)))
@@ -15,8 +13,8 @@
 (defun ots-js-set-properties-browser ()
   "Set properties for editing Browser JavaScript files."
   (ots-util-bind-key-compile (kbd "<f8>") "jshint --reporter=unix %s")
-  (setq-local flycheck-checker 'javascript-jshint)
   (setq-local dash-docs-docsets '("JavaScript" "Web"))
+  (setq-local flycheck-checker 'javascript-jshint)
   (setq-local js-indent-level 4)
   (setq-local tab-width 4))
 
@@ -39,19 +37,21 @@
   "Set auto-completion via tide."
   (when (eq major-mode 'js-mode)
     (tide-setup)
-    (company-mode +1)
-    (eldoc-mode +1)
-    (flycheck-mode +1)
+    (company-mode 1)
+    (eldoc-mode 1)
+    (flycheck-mode 1)
     (setq-local company-backends '((company-tide
                                     company-keywords
                                     company-dict
                                     company-dabbrev-code
                                     company-dabbrev)))))
 
-(add-hook 'js-mode-hook 'ots-js-set-properties)
-(add-hook 'js-mode-hook 'ots-js-tide)
-(add-to-list 'interpreter-mode-alist '("node" . js-mode))
-(modify-coding-system-alist 'file "\\.js\\'" 'utf-8)
+(use-package js
+  :config
+  (add-hook 'js-mode-hook 'ots-js-set-properties)
+  (add-hook 'js-mode-hook 'ots-js-tide)
+  (add-to-list 'interpreter-mode-alist '("node" . js-mode))
+  (modify-coding-system-alist 'file "\\.js\\'" 'utf-8))
 
 (provide 'ots-js)
 ;;; ots-js.el ends here

@@ -7,7 +7,8 @@
   (setq-local lua-indent-level 2)
   (setq-local tab-width 2))
 
-(add-hook 'lua-mode-hook 'ots-lua-set-properties)
+(use-package lua-mode
+  :config (add-hook 'lua-mode-hook 'ots-lua-set-properties))
 
 (provide 'ots-lua)
 ;;; ots-lua.el ends here

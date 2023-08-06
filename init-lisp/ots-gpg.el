@@ -1,11 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-gpg.el
 
-;; Remember passphrase typed when opening a GPG-encrypted file
-;; and automatically use the same passphrase when saving the file.
-(setq epa-file-cache-passphrase-for-symmetric-encryption t)
-(setq epa-pinentry-mode 'loopback)
-
 (defun ots-gpg-copy ()
   "Copy phrase at point to the clipboard."
   (interactive)
@@ -19,10 +14,10 @@
   "Add special font-lock for pass.gpg files."
   (local-set-key (kbd "C-c C-c") 'ots-gpg-copy)
   (local-set-key (kbd "<f5>") 'ots-gpg-copy)
-  (font-lock-add-keywords
-   nil '(("^#: +\\(.+\\)$" 1 font-lock-function-name-face)
-         ("^u: +\\(.+\\)$" 1 font-lock-variable-name-face)
-         ("^p: +\\(.+\\)$" 1 font-lock-keyword-face)))
+  (font-lock-add-keywords nil
+   '(("^#: +\\(.+\\)$" 1 font-lock-function-name-face)
+     ("^u: +\\(.+\\)$" 1 font-lock-variable-name-face)
+     ("^p: +\\(.+\\)$" 1 font-lock-keyword-face)))
   (let ((default-fg (face-attribute 'default :foreground)))
     (set-face-attribute 'font-lock-keyword-face nil
                         :background default-fg
@@ -33,7 +28,13 @@
   (when (string= (file-name-nondirectory buffer-file-name) "pass.gpg")
     (ots-gpg-pass)))
 
-(add-hook 'find-file-hook 'ots-gpg-pass-maybe)
+(use-package emacs
+  :config
+  (add-hook 'find-file-hook 'ots-gpg-pass-maybe)
+  ;; Remember passphrase typed when opening a GPG-encrypted file
+  ;; and automatically use the same passphrase when saving the file.
+  (setq epa-file-cache-passphrase-for-symmetric-encryption t)
+  (setq epa-pinentry-mode 'loopback))
 
 (provide 'ots-gpg)
 ;;; ots-gpg.el ends here

@@ -92,7 +92,6 @@
  `(helm-match ((t (:foreground "#ff405a"))))
  `(helm-selection ((t (:background "#f5f5aa" :foreground nil))))
  `(helm-source-header ((t (:foreground "#1d77ff"))))
- `(js2-function-param ((t (:foreground "#00ba88"))))
  `(markdown-code-face ((t (:background nil :foreground nil))))
  `(markdown-header-face ((t (:foreground "#1d77ff" :weight bold))))
  `(mmm-default-submode-face ((t (:background nil :foreground nil))))
@@ -117,7 +116,7 @@
  `(vterm-color-red ((t (:foreground "#cc0000"))))
  `(vterm-color-white ((t (:foreground "#eeeeec"))))
  `(vterm-color-yellow ((t (:foreground "#c4a000"))))
- `(wcheck-default-face ((t (:underline "#ff5555"))))
+ `(wcheck-default-face ((t (:background "#ffdddd"))))
  `(woman-bold ((t (:foreground "#1d77ff"))))
  `(woman-italic ((t (:foreground "#9f6fff"))))
 

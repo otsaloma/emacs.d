@@ -23,21 +23,18 @@
            (forward-line -1)
            (and (> (point) (point-min))
                 (not (looking-at "^[\t ]*$")))))
-  (if (and (not (bobp))
-           (< (ots-util-visible-pos) 0.25))
-      (recenter)))
+  (ots-util-recenter))
 
 (defun ots-util-beginning-of-defun ()
   "Move backward to the previous function."
   (interactive)
   (beginning-of-defun)
-  (recenter))
+  (ots-util-recenter))
 
 (defun ots-util-bind-key-compile (key command)
   "Bind key locally to a compile command."
-  (local-set-key key `(lambda ()
-   (interactive)
-   (compile (ots-util-expand-command ',command) t))))
+  (local-set-key key `(lambda () (interactive)
+                        (compile (ots-util-expand-command ',command) t))))
 
 (defun ots-util-browse-pypi ()
   "Browse the PyPI URL of the package on the current line of a requirements.txt file."
@@ -67,18 +64,9 @@
 
 (defun ots-util-comint-send (command &optional args)
   "Format command and send as input in a comint buffer."
-  (if args
-      (setq command (format command args)))
+  (if args (setq command (format command args)))
   (insert command)
   (comint-send-input))
-
-(defun ots-util-compile-current-line ()
-  "Run the current line as a compilation command."
-  (interactive)
-  (compile (buffer-substring
-            (line-beginning-position)
-            (line-end-position))
-           t))
 
 (defun ots-util-copy-open-file-names ()
   "Copy names of all open files to the kill ring."
@@ -92,7 +80,7 @@
   "Move forward to the next function."
   (interactive)
   (end-of-defun)
-  (recenter))
+  (ots-util-recenter))
 
 (defun ots-util-expand-command (command)
   "Return command with '%s's replaced with buffer filenames."
@@ -121,14 +109,11 @@
   "Move cursor to the beginning of the next block."
   (interactive "^")
   (re-search-forward "\n[\n\t ]*$" nil t)
-  (if (and (not (eobp))
-           (> (ots-util-visible-pos) 0.75))
-      (recenter)))
+  (ots-util-recenter))
 
 (defun ots-util-helm-git-grep (arg)
   "Run git grep at project root and show results with helm."
   (interactive "P")
-  (require 'helm-files)
   (helm-grep-git-1 (expand-file-name (projectile-project-root)) arg))
 
 (defun ots-util-in-git-repo (path)
@@ -215,12 +200,13 @@
   (push-mark (point) t nil)
   (message "Mark set"))
 
-(defun ots-util-reload ()
-  "Reload the current major-mode."
-  (interactive)
-  (let ((mode major-mode))
-    (fundamental-mode)
-    (funcall-interactively mode)))
+(defun ots-util-recenter ()
+  "Scroll the text so that point is vertically centered."
+  (if (and (not (bobp))
+           (not (eobp))
+           (or (< (ots-util-visible-pos) 0.25)
+               (> (ots-util-visible-pos) 0.75)))
+      (recenter)))
 
 (defun ots-util-save-buffer ()
   "Save the current buffer whether or not it is changed."
@@ -231,9 +217,7 @@
 (defun ots-util-smart-fill ()
   "Fill either paragraph at point or paragraphs in region."
   (interactive)
-  (if mark-active
-      (fill-paragraph nil)
-    (fill-paragraph nil)))
+  (fill-paragraph nil))
 
 (defun ots-util-smart-home (&optional count)
   "Go to either beginning of line or beginning of indentation."

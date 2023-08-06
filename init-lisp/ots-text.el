@@ -6,9 +6,6 @@
 ;; an actual mode or have a mode that inherits from text-mode. Defer
 ;; programming files to the corresponding functions in ots-prog.
 
-(require 'olivetti)
-(require 'ots-prog)
-
 (defun ots-text-set-keys ()
   "Set keybindings for editing text files."
   (if (string-match-p "\\.txt$" (or (buffer-file-name) ""))
@@ -27,8 +24,12 @@
              (olivetti-mode 1))
     (ots-prog-set-properties)))
 
-(add-hook 'text-mode-hook 'ots-text-set-keys)
-(add-hook 'text-mode-hook 'ots-text-set-properties)
+(use-package olivetti)
+(use-package ots-prog)
+(use-package text-mode
+  :config
+  (add-hook 'text-mode-hook 'ots-text-set-keys)
+  (add-hook 'text-mode-hook 'ots-text-set-properties))
 
 (provide 'ots-text)
 ;;; ots-text.el ends here

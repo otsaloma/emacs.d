@@ -43,9 +43,11 @@
   (setq-local TeX-electric-sub-and-superscript t)
   (turn-on-reftex))
 
-(add-hook 'LaTeX-mode-hook 'ots-latex-set-faces)
-(add-hook 'LaTeX-mode-hook 'ots-latex-set-properties)
-(add-hook 'plain-tex-mode-hook #'(lambda() (latex-mode)))
+(use-package latex
+  :config
+  (add-hook 'LaTeX-mode-hook 'ots-latex-set-faces)
+  (add-hook 'LaTeX-mode-hook 'ots-latex-set-properties)
+  (add-hook 'plain-tex-mode-hook #'(lambda() (latex-mode))))
 
 (provide 'ots-latex)
 ;;; ots-latex.el ends here

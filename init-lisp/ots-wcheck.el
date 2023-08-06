@@ -25,27 +25,22 @@
     (add-to-list 'out `(action-parser . enchant-suggestions-menu) t)
     out))
 
-(autoload 'wcheck-actions "wcheck-mode" "Open actions menu." t)
-(autoload 'wcheck-change-language "wcheck-mode" "Switch language." t)
-(autoload 'wcheck-mode "wcheck-mode" "Toggle wcheck-mode." t)
+(use-package wcheck-mode
+  :config
+  (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
+  (add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
+  (setq wcheck-language "en")
+  (wcheck-change-language "en" t)
+  (setq wcheck-language-data-defaults
+        '((read-or-skip-faces ((gfm-mode markdown-mode) skip
+                               font-lock-keyword-face
+                               markdown-code-face
+                               markdown-pre-face
+                               markdown-reference-face
+                               markdown-url-face))))
 
-(add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
-(add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
-
-(setq wcheck-language "en")
-(setq wcheck-language-data-defaults
-      '((read-or-skip-faces ((gfm-mode markdown-mode) skip
-                             font-lock-keyword-face
-                             markdown-code-face
-                             markdown-pre-face
-                             markdown-reference-face
-                             markdown-url-face)
-                            ((python-mode) read
-                             font-lock-doc-face
-                             font-lock-doc-string-face))))
-
-(global-set-key (kbd "<f7>") 'wcheck-mode)
-(global-set-key (kbd "<S-f7>") 'wcheck-change-language)
+  (global-set-key (kbd "<f7>") 'wcheck-mode)
+  (global-set-key (kbd "<S-f7>") 'wcheck-change-language))
 
 (provide 'ots-wcheck)
 ;;; ots-wcheck.el ends here

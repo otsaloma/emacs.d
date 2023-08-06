@@ -67,8 +67,6 @@
   "Set autocompletion etc. via eglot and a language server."
   ;; https://github.com/pappasam/jedi-language-server
   (eglot-ensure)
-  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
-  (local-set-key (kbd "<M-right>") 'xref-find-definitions)
   (setq-local eglot-ignored-server-capabilities '(:colorProvider
                                                   :documentHighlightProvider
                                                   :documentLinkProvider
@@ -106,7 +104,7 @@
   (add-hook 'after-save-hook 'ots-python-update-quote-char t t)
   (setq-local fill-column 79)
   (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
-  ;; Some of these are ignored by python-ts-mode.
+  ;; XXX: These are probably not used at all by python-ts-mode.
   (setq-local python-fill-docstring-style 'django)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
@@ -124,7 +122,6 @@
 (use-package eglot)
 (use-package s)
 (use-package python
-
   :config
   (add-hook 'python-base-mode-hook 'ots-python-set-default-directory)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
@@ -132,11 +129,7 @@
   (add-hook 'python-base-mode-hook 'ots-python-set-flycheck)
   (add-hook 'python-base-mode-hook 'ots-python-set-keys)
   (add-hook 'python-base-mode-hook 'ots-python-set-properties)
-  (add-to-list 'interpreter-mode-alist '("python2" . python-mode))
-  (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
-  (modify-coding-system-alist 'file "\\.py\\'" 'utf-8)
-
-  )
+  (modify-coding-system-alist 'file "\\.py\\'" 'utf-8))
 
 (provide 'ots-python)
 ;;; ots-python.el ends here

@@ -23,7 +23,7 @@
   (visual-line-mode 1)
   (define-key po-subedit-mode-map (kbd "C-s") 'po-subedit-exit)
   (define-key po-subedit-mode-map (kbd "C-g") 'po-subedit-abort)
-  (setq-local po-subedit-message "Type 'C-s' once done, or 'C-g' to abort edit"))
+  (setq-local po-subedit-message "Type 'C-s' to save, or 'C-g' to abort edit"))
 
 (defadvice po-edit-string (around setup-spell-checking (string type expand-tabs) activate)
   "Set up spell-checking for the subedit buffer."
@@ -33,11 +33,13 @@
       (wcheck-change-language lang)
       (wcheck-mode))))
 
-(autoload 'po-mode "po-mode" "PO" t)
-(add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode))
-(modify-coding-system-alist 'file "\\.po\\'" 'utf-8)
-(add-hook 'po-mode-hook 'ots-po-set-properties)
-(add-hook 'po-subedit-mode-hook 'ots-po-subedit-set-properties)
+(use-package po-mode
+  :config
+  (add-hook 'po-mode-hook 'ots-po-set-properties)
+  (add-hook 'po-subedit-mode-hook 'ots-po-subedit-set-properties)
+  (add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode))
+  (add-to-list 'auto-mode-alist '("\\.pot\\'" . po-mode))
+  (modify-coding-system-alist 'file "\\.po\\'" 'utf-8))
 
 (provide 'ots-po)
 ;;; ots-po.el ends here

@@ -14,7 +14,8 @@
 (defun ots-mode-line-editorconfig-suffix ()
   "Return a string indicating if an editorconfig file is in use."
   (if (and (boundp 'editorconfig-properties-hash)
-           (gethash 'indent_size editorconfig-properties-hash)) "-EC" ""))
+           (gethash 'indent_size editorconfig-properties-hash))
+      "-EC" ""))
 
 (defun ots-mode-line-indentation ()
   "Return a string describing current buffer's indentation settings."
@@ -34,15 +35,17 @@
         (total (line-number-at-pos (point-max))))
     (format "(%.0f%%%%)" (/ (* 100.0 (- current 1)) total))))
 
-(setq-default mode-line-format
- '(" %*"    (:eval (ots-mode-line-buffer-name 40))
-   " + "    (:eval (symbol-name buffer-file-coding-system))
-   " + "    (:eval (symbol-name major-mode))
-            (:eval (if (getenv "VIRTUAL_ENV") " (venv)" ""))
-   " + "    (:eval (ots-mode-line-indentation))
-   " + %l/" (:eval (ots-mode-line-line-count))
-   " "      (:eval (ots-mode-line-position))
-   " + %c/" (:eval (ots-mode-line-character-count))))
+(use-package emacs
+  :config
+  (setq-default mode-line-format
+                '(" %*"    (:eval (ots-mode-line-buffer-name 40))
+                  " + "    (:eval (symbol-name buffer-file-coding-system))
+                  " + "    (:eval (symbol-name major-mode))
+                  (:eval (if (getenv "VIRTUAL_ENV") " (venv)" ""))
+                  " + "    (:eval (ots-mode-line-indentation))
+                  " + %l/" (:eval (ots-mode-line-line-count))
+                  " "      (:eval (ots-mode-line-position))
+                  " + %c/" (:eval (ots-mode-line-character-count)))))
 
 (provide 'ots-mode-line)
 ;;; ots-mode-line.el ends here

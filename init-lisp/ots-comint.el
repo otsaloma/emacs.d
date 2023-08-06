@@ -34,12 +34,12 @@
   (setq-local comint-completion-recexact t)
   (setq-local comint-input-ignoredups t)
   (setq-local comint-move-point-for-output "all")
-  (if (not (eq major-mode 'inferior-emacs-lisp-mode))
-      (setq-local comint-process-echoes t))
   (setq-local comint-prompt-read-only nil)
   (setq-local comint-scroll-show-maximum-output t)
   (make-local-variable 'jit-lock-defer-timer)
-  (setq-local jit-lock-defer-time 0))
+  (setq-local jit-lock-defer-time 0)
+  (if (not (eq major-mode 'inferior-emacs-lisp-mode))
+      (setq-local comint-process-echoes t)))
 
 (defun ots-comint-wrap (text)
   "Wrap output to avoid long lines slowing Emacs down."
@@ -49,10 +49,12 @@
    "\\1\n"
    text))
 
-(add-hook 'comint-mode-hook 'ots-comint-set-keys)
-(add-hook 'comint-mode-hook 'ots-comint-set-properties)
-(add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
-(add-hook 'comint-preoutput-filter-functions 'ots-comint-wrap)
+(use-package comint
+  :config
+  (add-hook 'comint-mode-hook 'ots-comint-set-keys)
+  (add-hook 'comint-mode-hook 'ots-comint-set-properties)
+  (add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
+  (add-hook 'comint-preoutput-filter-functions 'ots-comint-wrap))
 
 (provide 'ots-comint)
 ;;; ots-comint.el ends here

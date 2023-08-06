@@ -5,10 +5,12 @@
   "Rename woman buffer according to the man page name."
   (let ((name (buffer-name)))
     (if (string-match-p "WoMan [0-9]+" name)
-        (rename-buffer (replace-match "man" t nil name nil) t))))
+        (rename-buffer (format "*man %s" (car (last (split-string name))))))))
 
-(add-hook 'woman-mode-hook 'ots-woman-rename-buffer t)
-(setq-default woman-use-own-frame nil)
+(use-package woman
+  :config
+  (add-hook 'woman-mode-hook 'ots-woman-rename-buffer t)
+  (setq-default woman-use-own-frame nil))
 
 (provide 'ots-woman)
 ;;; ots-woman.el ends here

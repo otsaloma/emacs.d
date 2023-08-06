@@ -11,10 +11,11 @@
   (local-set-key (kbd "<f5>") 'ots-bat-run)
   (setq-local dash-docs-docsets '("DOS")))
 
-(add-hook 'bat-mode-hook 'ots-bat-set-properties)
-(add-hook 'dos-mode-hook 'ots-bat-set-properties)
-(modify-coding-system-alist 'file "\\.bat\\'" 'cp850)
-(modify-coding-system-alist 'file "\\.cmd\\'" 'cp850)
+(use-package bat-mode
+  :config
+  (add-hook 'bat-mode-hook 'ots-bat-set-properties)
+  (modify-coding-system-alist 'file "\\.bat\\'" 'cp850)
+  (modify-coding-system-alist 'file "\\.cmd\\'" 'cp850))
 
 (provide 'ots-bat)
 ;;; ots-bat.el ends here

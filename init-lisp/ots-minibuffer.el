@@ -6,7 +6,8 @@
   (when (>= (recursion-depth) 1)
     (abort-recursive-edit)))
 
-(add-hook 'mouse-leave-buffer-hook 'ots-minibuffer-abort)
+(use-package emacs
+  :config (add-hook 'mouse-leave-buffer-hook 'ots-minibuffer-abort))
 
 (provide 'ots-minibuffer)
 ;;; ots-minibuffer.el ends here

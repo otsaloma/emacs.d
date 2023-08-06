@@ -2,56 +2,32 @@
 ;;; ots-theme.el
 
 (defvar ots-theme-current nil
-  "Currently active theme (last enabled to be exact).")
+  "Currently active theme: 'dark' or 'light'.")
 
-(defvar ots-theme-default "dark"
-  "The default theme to use at startup.")
-
-(if (file-exists-p "~/.emacs.d/theme-dark")
-  (setq ots-theme-default "dark"))
-
-(if (file-exists-p "~/.emacs.d/theme-light")
-  (setq ots-theme-default "light"))
-
-(defun ots-theme-enable (theme)
-  "Load and enable theme: either 'dark' or 'light'."
-  (when (string= theme "dark")
-    (require 'ots-theme-dark)
-    (enable-theme 'ots-dark)
-    (setq ots-theme-current theme))
-  (when (string= theme "light")
-    (require 'ots-theme-light)
+(use-package ots-theme-dark)
+(use-package ots-theme-light)
+(use-package emacs
+  :config
+  (setq font-lock-maximum-decoration t)
+  (when (file-exists-p "~/.emacs.d/theme-light")
     (enable-theme 'ots-light)
-    (setq ots-theme-current theme)))
-
-(defun ots-theme-toggle ()
-  "Toggle between dark and light themes."
-  (interactive)
-  (if (string= ots-theme-current "dark")
-      (ots-theme-enable "light")
-    (ots-theme-enable "dark"))
-  ;; tabbar background color doesn't seem to update
-  ;; unless we do something to trigger a redraw.
-  (switch-to-buffer "*scratch*")
-  (run-with-timer 0.001 nil #'(lambda () (switch-to-buffer nil))))
-
-(ots-theme-enable ots-theme-default)
-(global-set-key (kbd "<S-f11>") 'ots-theme-toggle)
-
-;; Set line spacing depending on font used.
-(let ((family (face-attribute 'default :family)))
-  (setq-default line-spacing
-                (cond ((string= family "Cascadia Code") 0.40)
-                      ((string= family "Cascadia Code PL") 0.40)
-                      ((string= family "Cascadia Mono") 0.40)
-                      ((string= family "Cascadia Mono PL") 0.40)
-                      ((string= family "IBM Plex Mono") 0.30)
-                      ((string= family "Meslo LG L") 0.15)
-                      ((string= family "SF Mono") 0.50))))
-
-;; Disable italics as most monospace fonts don't really have proper italics.
-(set-face-attribute 'italic nil :slant 'normal)
-(set-face-attribute 'bold-italic nil :slant 'normal)
+    (setq ots-theme-current "light"))
+  (when (or (file-exists-p "~/.emacs.d/theme-dark")
+            (not ots-theme-current))
+    (enable-theme 'ots-dark)
+    (setq ots-theme-current "dark"))
+  ;; Disable italics as most monospace fonts don't really have proper italics.
+  ;; (set-face-attribute 'italic nil :slant 'normal)
+  ;; (set-face-attribute 'bold-italic nil :slant 'normal)
+  ;; Set line spacing depending on font used.
+  (let ((family (face-attribute 'default :family)))
+    (setq-default line-spacing
+                  (cond ((string= family "Cascadia Code")    0.40)
+                        ((string= family "Cascadia Code PL") 0.40)
+                        ((string= family "Cascadia Mono")    0.40)
+                        ((string= family "Cascadia Mono PL") 0.40)
+                        ((string= family "IBM Plex Mono")    0.30)
+                        ((string= family "SF Mono")          0.50)))))
 
 (provide 'ots-theme)
 ;;; ots-theme.el ends here

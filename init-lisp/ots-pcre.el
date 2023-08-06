@@ -19,8 +19,10 @@
        (buffer-file-name x))
      (buffer-list)))))
 
-;; Use PCRE for regular expressions in the minibuffer.
-(add-hook 'after-change-major-mode-hook #'(lambda () (pcre-mode 1)) t)
+(use-package pcre2el
+  :config
+  ;; Use PCRE for regular expressions in the minibuffer.
+  (add-hook 'after-change-major-mode-hook #'(lambda () (pcre-mode 1)) t))
 
 (provide 'ots-pcre)
 ;;; ots-pcre.el ends here
