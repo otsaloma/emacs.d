@@ -72,6 +72,8 @@
 
 (push "~/.emacs.d/init-lisp" load-path)
 
+(require 'use-package)
+
 ;; Do less filename checks when loading requires.
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/
 (let ((file-name-handler-alist nil))
@@ -127,7 +129,7 @@
   (require 'ots-po-mode)
   (require 'ots-prog-mode)
   (require 'ots-projectile)
-  (require 'ots-python-mode)
+  (require 'ots-python)
   (require 'ots-rainbow-mode)
   (require 'ots-rust-mode)
   (require 'ots-sh-mode)

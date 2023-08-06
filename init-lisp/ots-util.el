@@ -104,11 +104,11 @@
     (setq command (format command (ots-util-unit-test-argument))))
   command)
 
-(defun ots-util-file-above-in-tree (path file-name)
+(defun ots-util-file-above (path file-name)
   "Return true if file-name found in path or above in hierarchy."
   (if (member path '("/" nil)) nil
     (if (file-exists-p (concat path "/" file-name)) t
-      (ots-util-file-above-in-tree
+      (ots-util-file-above
        (ots-util-parent-directory path)
        file-name))))
 

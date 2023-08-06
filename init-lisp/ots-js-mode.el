@@ -28,10 +28,10 @@
   ;; Default to standard, use eslint if corresponding config file found.
   (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
   (setq-local flycheck-checker 'javascript-standard)
-  (when (or (ots-util-file-above-in-tree default-directory ".eslintignore")
-            (ots-util-file-above-in-tree default-directory ".eslintrc.js")
-            (ots-util-file-above-in-tree default-directory ".eslintrc.json")
-            (ots-util-file-above-in-tree default-directory ".eslintrc.yml"))
+  (when (or (ots-util-file-above default-directory ".eslintignore")
+            (ots-util-file-above default-directory ".eslintrc.js")
+            (ots-util-file-above default-directory ".eslintrc.json")
+            (ots-util-file-above default-directory ".eslintrc.yml"))
     (ots-util-bind-key-compile (kbd "<f8>") "eslint %s")
     (setq-local flycheck-checker 'javascript-eslint)))
 
