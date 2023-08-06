@@ -4,4 +4,4 @@ xrdb -merge $HOME/.Xresources
 export GDK_SCALE=emacs
 export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
-/usr/bin/emacs -g 90x35 "$@"
+exec /usr/bin/emacs -g 90x35 "$@"
