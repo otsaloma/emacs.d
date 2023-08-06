@@ -1,12 +1,10 @@
 *.bak
 *.elc
 .lsp-session*
-.python-environments
-anaconda-mode
 chatgpt/history
-docsets/
-eln-cache/
-elpa/
+docsets
+eln-cache
+elpa
 projectile-bookmarks.eld
 straight/build
 straight/build-cache.el
@@ -15,4 +13,4 @@ theme-dark
 theme-light
 tramp
 transient/history.el
-tree-sitter/
+tree-sitter
