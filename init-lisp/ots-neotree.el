@@ -1,7 +1,7 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-neotree.el
 
-(defun ots-neotree-mode-set-properties ()
+(defun ots-neotree-set-properties ()
   "Set properties for neotree buffers."
   (local-set-key (kbd "<f4>") 'neotree-change-root)
   (local-set-key (kbd "<f5>") 'neotree-refresh))
@@ -54,7 +54,7 @@
         (buffer-face-mode 1)
         (switch-to-buffer buffer)))))
 
-(add-hook 'neotree-mode-hook 'ots-neotree-mode-set-properties t)
+(add-hook 'neotree-mode-hook 'ots-neotree-set-properties t)
 (global-set-key (kbd "<f11>") 'ots-neotree-toggle)
 
 (provide 'ots-neotree)

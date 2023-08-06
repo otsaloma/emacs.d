@@ -1,0 +1,24 @@
+;;; -*- coding: utf-8 -*-
+;;; ots-sh.el
+
+(defun ots-sh-set-faces ()
+  "Set fonts and colors for shell scripts."
+  (font-lock-add-keywords
+   nil '(("alias +\\([a-z0-9\-]+\\)=" 1 font-lock-variable-name-face)
+         ("\\(<*\\<EOF\\>\\)" 1 font-lock-keyword-face)))
+  (let ((face (face-foreground 'font-lock-constant-face)))
+    (set-face-foreground 'sh-quoted-exec face)))
+
+(defun ots-sh-set-properties ()
+  "Set properties for editing shell scripts."
+  (ots-util-bind-key-compile (kbd "<f5>") "bash %s")
+  (ots-util-bind-key-compile (kbd "<f8>") "shellcheck -f gcc %s")
+  (setq-local dash-docs-docsets '("Bash")))
+
+(add-hook 'sh-mode-hook 'ots-sh-set-faces)
+(add-hook 'sh-mode-hook 'ots-sh-set-properties)
+(add-to-list 'auto-mode-alist '("\\.env\\'" . sh-mode))
+(modify-coding-system-alist 'file "\\.sh\\'" 'utf-8)
+
+(provide 'ots-sh)
+;;; ots-sh.el ends here
