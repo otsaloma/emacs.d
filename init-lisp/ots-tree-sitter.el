@@ -2,7 +2,7 @@
 ;;; ots-tree-sitter.el
 
 (require 'treesit-auto)
-(setq treesit-auto-install t)
+(setq treesit-auto-install nil)
 (setq treesit-auto-langs '(python))
 (setq treesit-font-lock-level 3)
 (global-treesit-auto-mode)
