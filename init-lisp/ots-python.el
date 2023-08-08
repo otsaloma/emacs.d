@@ -50,7 +50,7 @@
 
 (defun ots-python-set-docsets ()
   "Load dash docsets based on buffer contents."
-  (setq-local dash-docs-docsets '("Python"))
+  (ots-util-add-docset "." "Python")
   (ots-util-add-docset "\\(from\\|import\\) dataiter" "Dataiter")
   (ots-util-add-docset "\\(from\\|import\\) django" "Django")
   (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
@@ -101,6 +101,8 @@
 
 (defun ots-python-set-properties ()
   "Set properties for editing Python files."
+  (add-hook 'after-save-hook 'ots-python-set-docsets t t)
+  (add-hook 'after-save-hook 'ots-python-update-quote-char t t)
   (setq-local fill-column 79)
   (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
   ;; Some of these are ignored by python-ts-mode.
@@ -123,8 +125,6 @@
 (use-package python
 
   :config
-  (add-hook 'after-save-hook 'ots-python-set-docsets t)
-  (add-hook 'after-save-hook 'ots-python-update-quote-char t)
   (add-hook 'python-base-mode-hook 'ots-python-set-default-directory)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)

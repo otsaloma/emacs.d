@@ -2,8 +2,8 @@
 ;;; ots-html.el
 
 (defun ots-html-set-docsets ()
-  "Load helm-dash docsets based on buffer contents."
-  (setq-local dash-docs-docsets '("HTML"))
+  "Load dash docsets based on buffer contents."
+  (ots-util-add-docset "." "HTML")
   (ots-util-add-docset "<style\\>" "CSS")
   (ots-util-add-docset "<script\\>" "JavaScript"))
 
@@ -15,12 +15,12 @@
 
 (defun ots-html-set-properties ()
   "Set properties for editing HTML files."
+  (add-hook 'after-save-hook 'ots-html-set-docsets t t)
   (local-set-key (kbd "C-<") 'sgml-tag)
   (local-set-key (kbd "<f9>") 'browse-url-of-file)
   (setq-local fill-column 100)
   (setq-local tab-width 2))
 
-(add-hook 'after-save-hook 'ots-html-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-set-docsets t)
 (add-hook 'html-mode-hook 'ots-html-set-faces)
 (add-hook 'html-mode-hook 'ots-html-set-properties)
