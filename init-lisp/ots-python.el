@@ -83,9 +83,10 @@
                                   company-dabbrev))))
 
 (defun ots-python-set-flycheck ()
-  "Set flycheck's flake8 to either project or general configuration."
+  "Set flake8 linting via flycheck."
   (if (not (ots-util-file-above default-directory ".flake8"))
-      (setq flycheck-flake8rc "~/.config/flake8")))
+      (setq flycheck-flake8rc "~/.config/flake8"))
+  (flycheck-mode 1))
 
 (defun ots-python-set-keys ()
   "Set keybindings for editing Python files."
