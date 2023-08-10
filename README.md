@@ -15,3 +15,7 @@ the file [`COPYING`](COPYING) for details. See also my [docsets][] for
 documentation packages used by default by this configuration.
 
 [docsets]: https://github.com/otsaloma/docsets
+
+## References
+
+* https://github.com/jwiegley/dot-emacs/blob/master/init.org
