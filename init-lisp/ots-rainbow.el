@@ -8,7 +8,9 @@
 
 (defun ots-rainbow-enable ()
   "Enable rainbow-mode to color color strings."
-  (if (member major-mode ots-rainbow-modes)
+  ;; Skip submodes where buffer-file-name is nil.
+  (if (and (buffer-file-name)
+           (member major-mode ots-rainbow-modes))
       (rainbow-mode)))
 
 (add-hook 'after-change-major-mode-hook 'ots-rainbow-enable)
