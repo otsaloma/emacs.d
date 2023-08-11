@@ -112,7 +112,6 @@
   (require 'ots-java)
   (require 'ots-js)
   (require 'ots-json)
-  (require 'ots-keys)
   (require 'ots-latex)
   (require 'ots-ligature)
   (require 'ots-line-numbers)
@@ -143,4 +142,6 @@
   (require 'ots-xml)
   (require 'ots-yaml)
   (require 'ots-yank-indent)
-  (require 'ots-yasnippet))
+  (require 'ots-yasnippet)
+  ;; Load in the correct order.
+  (require 'ots-keys))

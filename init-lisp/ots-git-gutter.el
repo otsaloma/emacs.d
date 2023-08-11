@@ -13,7 +13,9 @@
           (ots-git-gutter-enable))))
 
 (use-package git-gutter-fringe+
-  :config (add-hook 'find-file-hook 'ots-git-gutter-enable-maybe))
+  :defer t
+  :init
+  (add-hook 'find-file-hook 'ots-git-gutter-enable-maybe))
 
 (provide 'ots-git-gutter)
 ;;; ots-git-gutter.el ends here

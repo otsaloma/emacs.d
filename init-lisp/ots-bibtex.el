@@ -11,7 +11,9 @@
   (turn-on-auto-fill))
 
 (use-package bibtex
-  :config (add-hook 'bibtex-mode-hook 'ots-bibtex-set-properties))
+  :defer t
+  :config
+  (add-hook 'bibtex-mode-hook 'ots-bibtex-set-properties))
 
 (provide 'ots-bibtex)
 ;;; ots-bibtex.el ends here

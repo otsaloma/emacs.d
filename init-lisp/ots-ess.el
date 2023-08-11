@@ -77,6 +77,7 @@
     (ots-util-comint-send "source(\"%s\")" file-name)))
 
 (use-package ess-mode
+  :defer t
   :config
   (add-hook 'ess-mode-hook 'ots-ess-set-faces t)
   (add-hook 'ess-mode-hook 'ots-ess-set-keys t)

@@ -34,12 +34,10 @@
       (wcheck-mode))))
 
 (use-package po-mode
+  :mode "\\.pot?\\'"
   :config
   (add-hook 'po-mode-hook 'ots-po-set-properties)
-  (add-hook 'po-subedit-mode-hook 'ots-po-subedit-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode))
-  (add-to-list 'auto-mode-alist '("\\.pot\\'" . po-mode))
-  (modify-coding-system-alist 'file "\\.po\\'" 'utf-8))
+  (add-hook 'po-subedit-mode-hook 'ots-po-subedit-set-properties))
 
 (provide 'ots-po)
 ;;; ots-po.el ends here

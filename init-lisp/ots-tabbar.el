@@ -29,11 +29,6 @@
   (setq tabbar-buffer-list-function 'ots-tabbar-buffer-list)
   (setq tabbar-tab-label-function 'ots-tabbar-tab-label))
 
-(defun ots-tabbar-set-keys ()
-  "Set keybindings to use to navigate the tabbar."
-  (global-set-key (kbd "<C-next>") 'tabbar-forward-tab)
-  (global-set-key (kbd "<C-prior>") 'tabbar-backward-tab))
-
 (defun ots-tabbar-sort (x y)
   "Return string sort value for tabs x and y."
   (string-lessp (ots-tabbar-sort-key x)
@@ -72,7 +67,6 @@
   :config
   (ots-tabbar-set-buttons)
   (ots-tabbar-set-functions)
-  (ots-tabbar-set-keys)
   (add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t))
 
 (provide 'ots-tabbar)

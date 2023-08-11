@@ -9,8 +9,8 @@
   (setq-local company-dabbrev-ignore-case t)
   (setq-local dash-docs-docsets '("PostgreSQL")))
 
-(use-package company-dict)
 (use-package sql
+  :defer t
   :config
   (add-hook 'sql-mode-hook 'ots-sql-set-properties)
   (add-hook 'sql-mode-hook 'sqlup-mode))

@@ -8,25 +8,27 @@
 
 (defun ots-text-set-keys ()
   "Set keybindings for editing text files."
-  (if (string-match-p "\\.txt$" (or (buffer-file-name) ""))
+  (if (and (buffer-file-name)
+           (string-match-p "\\.txt$" (buffer-file-name)))
       (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
     (ots-prog-set-keys)))
 
 (defun ots-text-set-properties ()
   "Set properties for editing text files."
-  (if (string-match-p "\\.txt$" (or (buffer-file-name) ""))
+  (if (and (buffer-file-name)
+           (string-match-p "\\.txt$" (buffer-file-name)))
       (progn (setq-local company-backends '((company-capf company-dabbrev)))
              (setq-local fill-column 72)
              (setq-local indent-tabs-mode nil)
              (setq-local tab-width 4)
              (setq-local truncate-lines nil)
              (turn-off-auto-fill)
+             (require 'olivetti)
              (olivetti-mode 1))
     (ots-prog-set-properties)))
 
-(use-package olivetti)
-(use-package ots-prog)
 (use-package text-mode
+  :defer t
   :config
   (add-hook 'text-mode-hook 'ots-text-set-keys)
   (add-hook 'text-mode-hook 'ots-text-set-properties))

@@ -9,9 +9,9 @@
   (setq-local whitespace-style (quote (face tabs tab-mark))))
 
 (use-package make-mode
+  :defer t
   :config
-  (add-hook 'makefile-mode-hook 'ots-makefile-set-properties)
-  (modify-coding-system-alist 'file "Makefile\\'" 'utf-8))
+  (add-hook 'makefile-mode-hook 'ots-makefile-set-properties))
 
 (provide 'ots-makefile)
 ;;; ots-makefile.el ends here

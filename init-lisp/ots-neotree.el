@@ -9,6 +9,7 @@
 (defun ots-neotree-toggle ()
   "Open neotree in projectile root or current directory."
   (interactive)
+  (require 'neotree)
   (let ((buffer (current-buffer))
         (file-name (buffer-file-name)))
     (if (neo-global--window-exists-p)
@@ -22,12 +23,12 @@
         (buffer-face-mode 1)
         (switch-to-buffer buffer)))))
 
-(use-package all-the-icons)
-(use-package doom-themes)
 (use-package neotree
+  :defer t
   :config
+  (require 'all-the-icons)
+  (require 'doom-themes)
   (add-hook 'neotree-mode-hook 'ots-neotree-set-properties t)
-  (global-set-key (kbd "<f11>") 'ots-neotree-toggle)
   (setq doom-themes-neotree-line-spacing (default-value 'line-spacing))
   (setq doom-themes-neotree-project-size 1.05)
   (setq neo-autorefresh nil)

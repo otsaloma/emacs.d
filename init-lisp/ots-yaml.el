@@ -7,9 +7,9 @@
   (setq-local tab-width 2))
 
 (use-package yaml-mode
+  :defer t
   :config
-  (add-hook 'yaml-mode-hook 'ots-yaml-set-properties)
-  (modify-coding-system-alist 'file "\\.yml\\'" 'utf-8))
+  (add-hook 'yaml-mode-hook 'ots-yaml-set-properties))
 
 (provide 'ots-yaml)
 ;;; ots-yaml.el ends here

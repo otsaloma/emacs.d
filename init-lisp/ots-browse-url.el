@@ -2,7 +2,9 @@
 ;;; ots-browse-url.el
 
 (use-package browse-url
-  :config (setq browse-url-browser-function 'browse-url-xdg-open))
+  :defer t
+  :config
+  (setq browse-url-browser-function 'browse-url-xdg-open))
 
 (provide 'ots-browse-url)
 ;;; ots-browse-url.el ends here

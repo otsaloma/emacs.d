@@ -118,18 +118,15 @@
       (setq ots-python-quote-char "'")
     (setq ots-python-quote-char "\"")))
 
-(use-package company-dict)
-(use-package eglot)
-(use-package s)
 (use-package python
+  :defer t
   :config
   (add-hook 'python-base-mode-hook 'ots-python-set-default-directory)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
   (add-hook 'python-base-mode-hook 'ots-python-set-flycheck)
   (add-hook 'python-base-mode-hook 'ots-python-set-keys)
-  (add-hook 'python-base-mode-hook 'ots-python-set-properties)
-  (modify-coding-system-alist 'file "\\.py\\'" 'utf-8))
+  (add-hook 'python-base-mode-hook 'ots-python-set-properties))
 
 (provide 'ots-python)
 ;;; ots-python.el ends here

@@ -47,9 +47,9 @@
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
   (add-hook 'company-mode-hook 'ots-company-set-keys)
-  (add-hook 'company-mode-hook 'ots-company-set-properties))
+  (add-hook 'company-mode-hook 'ots-company-set-properties)
+  (global-company-mode))
 
 (provide 'ots-company)
 ;;; ots-company.el ends here

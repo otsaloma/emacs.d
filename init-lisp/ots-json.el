@@ -9,12 +9,9 @@
   (turn-off-auto-fill))
 
 (use-package json-mode
+  :mode "\\.\\(geojson\\|jshintrc\\)\\'"
   :config
-  (add-hook 'json-mode-hook 'ots-json-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.geojson\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.jshintrc\\'" . json-mode))
-  (modify-coding-system-alist 'file "\\.geojson\\'" 'utf-8)
-  (modify-coding-system-alist 'file "\\.json\\'" 'utf-8))
+  (add-hook 'json-mode-hook 'ots-json-set-properties))
 
 (provide 'ots-json)
 ;;; ots-json.el ends here

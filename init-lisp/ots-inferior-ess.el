@@ -32,6 +32,7 @@
         (forward-char 11))))
 
 (use-package ess-mode
+  :defer t
   :config
   (add-hook 'inferior-ess-mode-hook 'ots-inferior-ess-set-properties t)
   (setq inferior-R-args "--no-save --no-restore-history --quiet"))

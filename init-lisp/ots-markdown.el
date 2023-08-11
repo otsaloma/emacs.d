@@ -21,17 +21,14 @@
   (setq-local markdown-indent-function 'indent-relative-maybe)
   (setq-local markdown-indent-on-enter nil)
   (setq-local markdown-spaces-after-code-fence 0)
-  ;; Use GitHub Flavored Markdown by default.
-  (if (not (eq major-mode 'gfm-mode)) (gfm-mode))
   ;; ess-mode doesn't seem to work and a lacking definition
   ;; confuses syntax highlighting outside the code block.
   (add-to-list 'markdown-code-lang-modes '("r" . python-mode)))
 
 (use-package markdown-mode
+  :mode ("\\.md\\'" . gfm-mode)
   :config
-  (add-hook 'markdown-mode-hook 'ots-markdown-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-  (modify-coding-system-alist 'file "\\.md\\'" 'utf-8))
+  (add-hook 'markdown-mode-hook 'ots-markdown-set-properties))
 
 (provide 'ots-markdown)
 ;;; ots-markdown.el ends here

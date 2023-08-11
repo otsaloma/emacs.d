@@ -8,6 +8,7 @@
         (rename-buffer (format "*man %s" (car (last (split-string name))))))))
 
 (use-package woman
+  :defer t
   :config
   (add-hook 'woman-mode-hook 'ots-woman-rename-buffer t)
   (setq-default woman-use-own-frame nil))

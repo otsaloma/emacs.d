@@ -4,16 +4,16 @@
 (defvar ots-theme-current nil
   "Currently active theme: 'dark' or 'light'.")
 
-(use-package ots-theme-dark)
-(use-package ots-theme-light)
 (use-package emacs
   :config
   (setq font-lock-maximum-decoration t)
   (when (file-exists-p "~/.emacs.d/theme-light")
+    (require 'ots-theme-light)
     (enable-theme 'ots-light)
     (setq ots-theme-current "light"))
   (when (or (file-exists-p "~/.emacs.d/theme-dark")
             (not ots-theme-current))
+    (require 'ots-theme-dark)
     (enable-theme 'ots-dark)
     (setq ots-theme-current "dark"))
   ;; Disable italics as most monospace fonts don't really have proper italics.

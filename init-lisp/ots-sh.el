@@ -8,10 +8,9 @@
   (setq-local dash-docs-docsets '("Bash")))
 
 (use-package sh-script
+  :mode ("\\.env\\'" . sh-mode)
   :config
-  (add-hook 'sh-mode-hook 'ots-sh-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.env\\'" . sh-mode))
-  (modify-coding-system-alist 'file "\\.sh\\'" 'utf-8))
+  (add-hook 'sh-mode-hook 'ots-sh-set-properties))
 
 (provide 'ots-sh)
 ;;; ots-sh.el ends here

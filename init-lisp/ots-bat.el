@@ -12,6 +12,7 @@
   (setq-local dash-docs-docsets '("DOS")))
 
 (use-package bat-mode
+  :defer t
   :config
   (add-hook 'bat-mode-hook 'ots-bat-set-properties)
   (modify-coding-system-alist 'file "\\.bat\\'" 'cp850)

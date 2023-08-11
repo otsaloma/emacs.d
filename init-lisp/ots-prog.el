@@ -29,6 +29,7 @@
   (turn-on-auto-fill))
 
 (use-package prog-mode
+  :defer t
   :config
   (add-hook 'prog-mode-hook 'ots-prog-set-keys)
   (add-hook 'prog-mode-hook 'ots-prog-set-properties)

@@ -47,11 +47,10 @@
                                     company-dabbrev)))))
 
 (use-package js
+  :defer t
   :config
   (add-hook 'js-mode-hook 'ots-js-set-properties)
-  (add-hook 'js-mode-hook 'ots-js-tide)
-  (add-to-list 'interpreter-mode-alist '("node" . js-mode))
-  (modify-coding-system-alist 'file "\\.js\\'" 'utf-8))
+  (add-hook 'js-mode-hook 'ots-js-tide))
 
 (provide 'ots-js)
 ;;; ots-js.el ends here

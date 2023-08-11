@@ -8,9 +8,9 @@
   (setq-local tab-width 2))
 
 (use-package elisp-mode
+  :defer t
   :config
-  (add-hook 'emacs-lisp-mode-hook 'ots-emacs-lisp-set-properties)
-  (modify-coding-system-alist 'file "\\.el\\'" 'utf-8))
+  (add-hook 'emacs-lisp-mode-hook 'ots-emacs-lisp-set-properties))
 
 (provide 'ots-emacs-lisp)
 ;;; ots-emacs-lisp.el ends here

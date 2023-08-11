@@ -7,8 +7,10 @@
       (whitespace-mode 1)))
 
 (use-package whitespace
-  :config
+  :defer t
+  :init
   (add-hook 'after-change-major-mode-hook 'ots-whitespace-enable-maybe)
+  :config
   (setq whitespace-style
         (quote (face tabs indentation space-after-tab
                      space-before-tab tab-mark)))

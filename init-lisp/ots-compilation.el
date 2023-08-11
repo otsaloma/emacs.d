@@ -8,6 +8,7 @@
   (setq-local truncate-partial-width-windows nil))
 
 (use-package compile
+  :defer t
   :config
   (add-hook 'compilation-mode-hook 'ots-compilation-set-properties)
   (add-hook 'compilation-filter-hook 'comint-truncate-buffer))

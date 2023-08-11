@@ -50,6 +50,7 @@
    text))
 
 (use-package comint
+  :defer t
   :config
   (add-hook 'comint-mode-hook 'ots-comint-set-keys)
   (add-hook 'comint-mode-hook 'ots-comint-set-properties)

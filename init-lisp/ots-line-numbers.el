@@ -3,7 +3,7 @@
 
 (defun ots-line-numbers-enable-maybe ()
   "Turn display-line-numbers-mode on if in a normal buffer."
-  (if (derived-mode-p 'conf-mode 'po-mode 'prog-mode 'text-mode)
+  (if (derived-mode-p 'bibtex-mode 'conf-mode 'po-mode 'prog-mode 'text-mode)
       (display-line-numbers-mode 1)))
 
 (use-package display-line-numbers

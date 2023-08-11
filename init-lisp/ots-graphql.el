@@ -6,9 +6,9 @@
   (setq-local graphql-indent-level 2))
 
 (use-package graphql-mode
+  :mode "\\.graphql\\'"
   :config
-  (add-hook 'graphql-mode-hook 'ots-graphql-set-properties)
-  (modify-coding-system-alist 'file "\\.graphql\\'" 'utf-8))
+  (add-hook 'graphql-mode-hook 'ots-graphql-set-properties))
 
 (provide 'ots-graphql)
 ;;; ots-graphql.el ends here

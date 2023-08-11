@@ -17,11 +17,10 @@
   (setq-local tab-width 2))
 
 (use-package mhtml-mode
+  :mode "\\.vue\\'"
   :config
   (add-hook 'html-mode-hook 'ots-html-set-docsets t)
-  (add-hook 'html-mode-hook 'ots-html-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
-  (modify-coding-system-alist 'file "\\.html\\'" 'utf-8))
+  (add-hook 'html-mode-hook 'ots-html-set-properties))
 
 (provide 'ots-html)
 ;;; ots-html.el ends here

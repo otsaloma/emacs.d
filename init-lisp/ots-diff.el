@@ -6,7 +6,9 @@
   (setq-local truncate-lines t))
 
 (use-package diff-mode
-  :config (add-hook 'diff-mode-hook 'ots-diff-set-properties))
+  :defer t
+  :config
+  (add-hook 'diff-mode-hook 'ots-diff-set-properties))
 
 (provide 'ots-diff)
 ;;; ots-diff.el ends here

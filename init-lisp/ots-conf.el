@@ -10,15 +10,16 @@
     (setq-local tab-width 2)))
 
 (use-package conf-mode
+  :mode (("\\.flake8\\'"            . conf-mode)
+         ("\\.git/config\\'"        . conf-mode)
+         ("\\.gitconfig\\'"         . conf-mode)
+         ("\\.gitmodules\\'"        . conf-mode)
+         ("\\.theme\\'"             . conf-mode)
+         ("\\.thumbnailer\\'"       . conf-mode)
+         ("requirements.*\\.txt\\'" . conf-mode))
+
   :config
-  (add-hook 'conf-mode-hook 'ots-conf-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.flake8\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.git/config\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.gitmodules\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.theme\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.thumbnailer\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("requirements.*\\.txt\\'" . conf-mode)))
+  (add-hook 'conf-mode-hook 'ots-conf-set-properties))
 
 (provide 'ots-conf)
 ;;; ots-conf.el ends here

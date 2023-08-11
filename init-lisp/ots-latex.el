@@ -44,10 +44,10 @@
   (turn-on-reftex))
 
 (use-package latex
+  :mode ("\\.tex\\'" . latex-mode)
   :config
   (add-hook 'LaTeX-mode-hook 'ots-latex-set-faces)
-  (add-hook 'LaTeX-mode-hook 'ots-latex-set-properties)
-  (add-hook 'plain-tex-mode-hook #'(lambda() (latex-mode))))
+  (add-hook 'LaTeX-mode-hook 'ots-latex-set-properties))
 
 (provide 'ots-latex)
 ;;; ots-latex.el ends here

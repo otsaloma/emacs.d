@@ -7,7 +7,9 @@
   (setq-local c-basic-offset 4))
 
 (use-package cc-mode
-  :config (add-hook 'c++-mode-hook 'ots-c++-set-properties))
+  :defer t
+  :config
+  (add-hook 'c++-mode-hook 'ots-c++-set-properties))
 
 (provide 'ots-c++)
 ;;; ots-c++.el ends here

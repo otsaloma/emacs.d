@@ -26,6 +26,7 @@
     out))
 
 (use-package wcheck-mode
+  :defer t
   :config
   (add-to-list 'wcheck-language-data (enchant-wcheck-entry "en") t)
   (add-to-list 'wcheck-language-data (enchant-wcheck-entry "fi") t)
@@ -37,10 +38,7 @@
                                markdown-code-face
                                markdown-pre-face
                                markdown-reference-face
-                               markdown-url-face))))
-
-  (global-set-key (kbd "<f7>") 'wcheck-mode)
-  (global-set-key (kbd "<S-f7>") 'wcheck-change-language))
+                               markdown-url-face)))))
 
 (provide 'ots-wcheck)
 ;;; ots-wcheck.el ends here

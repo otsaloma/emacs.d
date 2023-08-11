@@ -5,17 +5,20 @@
   "Set properties for editing CSS files."
   (ots-util-add-imenu-expressions
    '((nil "^\\([^ @\n].*\\) +{" 1)))
+  (setq-local css-fontify-colors t)
   (setq-local dash-docs-docsets '("CSS"))
   (setq-local fill-column 80)
   (setq-local tab-width 2))
 
 (use-package css-mode
-  :config
-  (add-hook 'css-mode-hook 'ots-css-set-properties)
-  (modify-coding-system-alist 'file "\\.css\\'" 'utf-8)
-  ;; Set globally so that will work in HTML files too.
+  :defer t
+  :init
+  ;; Set globally for <style> elements in HTML files,
+  ;; override under css-mode-hook for actual CSS files.
   (setq css-fontify-colors nil)
-  (setq css-indent-offset 2))
+  (setq css-indent-offset 2)
+  :config
+  (add-hook 'css-mode-hook 'ots-css-set-properties))
 
 (provide 'ots-css)
 ;;; ots-css.el ends here

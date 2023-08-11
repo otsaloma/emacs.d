@@ -111,11 +111,6 @@
   (re-search-forward "\n[\n\t ]*$" nil t)
   (ots-util-recenter))
 
-(defun ots-util-helm-git-grep (arg)
-  "Run git grep at project root and show results with helm."
-  (interactive "P")
-  (helm-grep-git-1 (expand-file-name (projectile-project-root)) arg))
-
 (defun ots-util-in-git-repo (path)
   "Return true if path is in a git repository"
   (if (member path '("/" nil)) nil

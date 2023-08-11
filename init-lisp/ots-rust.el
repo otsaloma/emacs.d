@@ -6,7 +6,9 @@
   (setq-local rust-indent-offset 4))
 
 (use-package rust-mode
-  :config (add-hook 'rust-mode-hook 'ots-rust-set-properties))
+  :defer t
+  :config
+  (add-hook 'rust-mode-hook 'ots-rust-set-properties))
 
 (provide 'ots-rust)
 ;;; ots-rust.el ends here

@@ -6,10 +6,9 @@
   (setq-local tab-width 2))
 
 (use-package nxml-mode
+  :mode "\\.svg\\'"
   :config
-  (add-hook 'nxml-mode-hook 'ots-xml-set-properties)
-  (add-to-list 'auto-mode-alist '("\\.svg\\'" . nxml-mode))
-  (modify-coding-system-alist 'file "\\.xml\\'" 'utf-8))
+  (add-hook 'nxml-mode-hook 'ots-xml-set-properties))
 
 (provide 'ots-xml)
 ;;; ots-xml.el ends here
