@@ -43,10 +43,12 @@
 
 (defun ots-python-set-default-directory ()
   "Set the default directory to the source tree root."
+  ;; XXX: This confuses git-gutter.
   ;; We need to have the current package at the beginning of PYTHONPATH,
   ;; which is easiest done by changing the working directory.
-  (while (file-exists-p (concat default-directory "__init__.py"))
-    (cd "..")))
+  ;; (while (file-exists-p (concat default-directory "__init__.py"))
+  ;;   (cd ".."))
+  )
 
 (defun ots-python-set-docsets ()
   "Load dash docsets based on buffer contents."
@@ -113,6 +115,7 @@
 
 (defun ots-python-update-quote-char ()
   "Update value of the default quote character to use."
+  (require 's)
   (if (> (s-count-matches "'" (buffer-string))
          (s-count-matches "\"" (buffer-string)))
       (setq ots-python-quote-char "'")
