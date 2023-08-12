@@ -16,7 +16,6 @@
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (scroll-bar-mode 0)
-  (set-fringe-mode (* 6 (ots-util-pixel-ratio)))
   (show-paren-mode t)
   (tool-bar-mode 0)
   (transient-mark-mode t)
