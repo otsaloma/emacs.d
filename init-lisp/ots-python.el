@@ -61,9 +61,10 @@
   (ots-util-add-docset "\\(from\\|import\\) peewee" "Peewee")
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
   (ots-util-add-docset "\\(from\\|import\\) sklearn" "Scikit-Learn")
-  (if (string= (getenv "GTK_VERSION") "4")
-      (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK4")
-    (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject")))
+  (let ((gtk3 (ots-util-file-above default-directory ".gtk3"))
+        (gtk4 (ots-util-file-above default-directory ".gtk4")))
+    (if gtk3 (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject"))
+    (if gtk4 (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK4"))))
 
 (defun ots-python-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
