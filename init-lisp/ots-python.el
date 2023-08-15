@@ -91,6 +91,7 @@
 
 (defun ots-python-set-keys ()
   "Set keybindings for editing Python files."
+  (local-set-key (kbd "M-p") 'ots-python-toggle-mode)
   (local-set-key (kbd "C-S-o") 'ots-util-find-unit-test-file)
   (local-set-key (kbd "C-ö") 'ots-python-insert-dict-key)
   (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)
@@ -113,6 +114,13 @@
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
   (setq-local python-shell-interpreter "python3"))
+
+(defun ots-python-toggle-mode ()
+  "Toggle between python-mode and python-ts-mode."
+  (interactive)
+  (if (eq major-mode 'python-ts-mode)
+      (python-mode)
+    (python-ts-mode)))
 
 (defun ots-python-update-quote-char ()
   "Update value of the default quote character to use."
