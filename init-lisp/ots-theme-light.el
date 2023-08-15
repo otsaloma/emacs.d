@@ -100,6 +100,7 @@
  `(neo-root-dir-face ((t (:background unspecified :foreground "#999999"))))
  `(popup-tip-face ((t (:background "#f0f080" :foreground "#303030"))))
  `(sh-heredoc ((t (:foreground "#ba7fba"))))
+ `(sh-quoted-exec ((t (:foreground "#00bb29"))))
  `(tab-line ((t :background "#eeeeee")))
  `(tabbar-default ((t (:background "#eeeeee" :foreground "#999999" :box (:line-width 12 :color "#eeeeee")))))
  `(tabbar-selected ((t (:background "#fafafa" :foreground "#303030" :box (:line-width 12 :color "#fafafa")))))
