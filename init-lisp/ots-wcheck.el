@@ -40,6 +40,7 @@
                                markdown-reference-face
                                markdown-url-face)
                               ((conf-mode conf-colon-mode) skip
+                               font-lock-comment-face
                                font-lock-variable-name-face)))))
 
 (provide 'ots-wcheck)
