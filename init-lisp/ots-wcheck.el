@@ -38,7 +38,9 @@
                                markdown-code-face
                                markdown-pre-face
                                markdown-reference-face
-                               markdown-url-face)))))
+                               markdown-url-face)
+                              ((conf-mode conf-colon-mode) skip
+                               font-lock-variable-name-face)))))
 
 (provide 'ots-wcheck)
 ;;; ots-wcheck.el ends here
