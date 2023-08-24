@@ -1,17 +1,13 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-compilation.el
 
-(defun ots-compilation-set-properties ()
-  "Set properties for compilation buffers."
-  (setq-local comint-buffer-maximum-size 1024)
-  (setq-local compilation-scroll-output t)
-  (setq-local truncate-partial-width-windows nil))
-
 (use-package compile
   :defer t
   :config
-  (add-hook 'compilation-mode-hook 'ots-compilation-set-properties)
-  (add-hook 'compilation-filter-hook 'comint-truncate-buffer))
+  (add-hook 'compilation-filter-hook 'comint-truncate-buffer)
+  (setq comint-buffer-maximum-size 1024)
+  (setq compilation-scroll-output t)
+  (setq truncate-partial-width-windows nil))
 
 (provide 'ots-compilation)
 ;;; ots-compilation.el ends here
