@@ -59,6 +59,7 @@
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
   (ots-util-add-docset "\\(from\\|import\\) peewee" "Peewee")
+  (ots-util-add-docset "\\(from\\|import\\) plotly" "Plotly")
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
   (ots-util-add-docset "\\(from\\|import\\) sklearn" "Scikit-Learn")
   (let ((gtk3 (ots-util-file-above default-directory ".gtk3"))
