@@ -78,11 +78,7 @@
 
 (use-package ess-mode
   :defer t
-  :config
-  (add-hook 'ess-mode-hook 'ots-ess-set-faces t)
-  (add-hook 'ess-mode-hook 'ots-ess-set-keys t)
-  (add-hook 'ess-mode-hook 'ots-ess-set-properties t)
-  (add-hook 'ess-mode-hook 'ots-ess-start t)
+  :init
   (setq ess-ask-for-ess-directory nil)
   (setq ess-gen-proc-buffer-name-function 'ess-gen-proc-buffer-name:simple)
   (setq ess-history-directory "~")
@@ -97,7 +93,12 @@
   (setq ess-indent-offset 4)
   (setq ess-indent-with-fancy-comments nil)
   (setq ess-offset-arguments-newline 'prev-line)
-  (setq ess-style 'DEFAULT))
+  (setq ess-style 'DEFAULT)
+  :config
+  (add-hook 'ess-mode-hook 'ots-ess-set-faces t)
+  (add-hook 'ess-mode-hook 'ots-ess-set-keys t)
+  (add-hook 'ess-mode-hook 'ots-ess-set-properties t)
+  (add-hook 'ess-mode-hook 'ots-ess-start t))
 
 (provide 'ots-ess)
 ;;; ots-ess.el ends here
