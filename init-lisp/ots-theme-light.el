@@ -19,7 +19,7 @@
  `(header-line ((t (:background "#fafafa"))))
  `(highlight ((t (:underline t))))
  `(isearch ((t (:background "#ffcc00" :foreground unspecified))))
- `(lazy-highlight ((t (:background "#cccccc" :foreground unspecified))))
+ `(lazy-highlight ((t (:background "#e0e0e0" :foreground unspecified))))
  `(line-number ((t (:foreground "#bbbbbb"))))
  `(line-number-current ((t (:foreground "#bbbbbb"))))
  `(link ((t (:foreground "#897fba"))))
