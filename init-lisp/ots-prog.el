@@ -5,7 +5,7 @@
   "Set keybindings for editing program code."
   (local-set-key (kbd "<f2>") 'helm-dash-at-point)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
-  (local-set-key (kbd "<M-left>") 'xref-pop-marker-stack)
+  (local-set-key (kbd "<M-left>") 'xref-go-back)
   (local-set-key (kbd "<M-right>") 'xref-find-definitions))
 
 (defun ots-prog-set-properties ()
