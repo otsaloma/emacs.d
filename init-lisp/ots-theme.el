@@ -22,7 +22,8 @@
   ;; Set line spacing depending on font used.
   (let ((family (face-attribute 'default :family)))
     (setq-default line-spacing
-                  (cond ((string= family "Cascadia Code")    0.40)
+                  (cond ((string= family "Berkeley Mono")    0.40)
+                        ((string= family "Cascadia Code")    0.40)
                         ((string= family "Cascadia Code PL") 0.40)
                         ((string= family "Cascadia Mono")    0.40)
                         ((string= family "Cascadia Mono PL") 0.40)
