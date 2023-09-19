@@ -52,6 +52,12 @@
       (tabbar-mode 1)
     (tabbar-mode -1)))
 
+(use-package tabbar
+  :config
+  (ots-tabbar-set-buttons)
+  (ots-tabbar-set-functions)
+  (add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t))
+
 (defun tabbar-add-tab (tabset object &optional append)
   "Add to tabset a tab with value object if there isn't one there yet.
   Override the default tabbar behaviour of appending the tab if append is true
@@ -62,12 +68,6 @@
         (tabbar-set-template tabset nil)
         (setq tabs (append tabs (list tab))))
       (set tabset (sort tabs 'ots-tabbar-sort)))))
-
-(use-package tabbar
-  :config
-  (ots-tabbar-set-buttons)
-  (ots-tabbar-set-functions)
-  (add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t))
 
 (provide 'ots-tabbar)
 ;;; ots-tabbar.el ends here
