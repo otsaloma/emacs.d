@@ -36,6 +36,7 @@
         '((read-or-skip-faces ((gfm-mode markdown-mode) skip
                                font-lock-keyword-face
                                markdown-code-face
+                               markdown-inline-code-face
                                markdown-pre-face
                                markdown-reference-face
                                markdown-url-face)
