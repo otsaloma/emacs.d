@@ -117,7 +117,7 @@
  `(vterm-color-red ((t (:foreground "#cc0000"))))
  `(vterm-color-white ((t (:foreground "#eeeeec"))))
  `(vterm-color-yellow ((t (:foreground "#c4a000"))))
- `(wcheck-default-face ((t (:background "#eaeaea"))))
+ `(wcheck-default-face ((t (:underline "#ff5555"))))
  `(woman-bold ((t (:foreground "#1d77ff"))))
  `(woman-italic ((t (:foreground "#9f6fff"))))
 
