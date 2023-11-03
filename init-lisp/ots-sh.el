@@ -8,7 +8,9 @@
   (setq-local dash-docs-docsets '("Bash")))
 
 (use-package sh-script
-  :mode ("\\.env\\'" . sh-mode)
+  :mode (("\\.env\\'" . sh-mode)
+         ("\\<env\\'" . sh-mode))
+
   :config
   (add-hook 'sh-mode-hook 'ots-sh-set-properties))
 
