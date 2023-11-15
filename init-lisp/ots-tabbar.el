@@ -49,13 +49,13 @@
 (defun ots-tabbar-toggle ()
   "Enable or disable tabbar depending on current buffers."
   (if (length> (ots-tabbar-buffer-list) 0)
-      (tabbar-mode 1)
+      (progn (tabbar-mode 1)
+             (ots-tabbar-set-buttons)
+             (ots-tabbar-set-functions))
     (tabbar-mode -1)))
 
 (use-package tabbar
   :config
-  (ots-tabbar-set-buttons)
-  (ots-tabbar-set-functions)
   (add-hook 'window-configuration-change-hook 'ots-tabbar-toggle t))
 
 (defun tabbar-add-tab (tabset object &optional append)
