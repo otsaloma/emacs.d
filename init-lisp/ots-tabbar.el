@@ -44,7 +44,7 @@
 
 (defun ots-tabbar-tab-label (tab)
   "Return string shortened from filename to use as tab label."
-  (format " %s " (tabbar-shorten (format "%s" (tabbar-tab-value tab)) 24)))
+  (format "  %s  " (tabbar-shorten (format "%s" (tabbar-tab-value tab)) 24)))
 
 (defun ots-tabbar-toggle ()
   "Enable or disable tabbar depending on current buffers."
