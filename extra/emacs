@@ -4,10 +4,10 @@
 # Usage: emacs [OPTION...] [FILE...]
 
 . $HOME/.profile
-xrdb -merge $HOME/.Xresources
-export GDK_SCALE=emacs
-export GTK_THEME=Adwaita:dark
 export LC_ALL=C.UTF-8
+if [ -f $HOME/.emacs.d/theme-dark ]; then
+    export GTK_THEME=Adwaita:dark
+fi
 
 if [ -z "$(ps ux | grep "/usr/bin/emac[s]")" ]; then
     # Remove stale server if Emacs crashed.
