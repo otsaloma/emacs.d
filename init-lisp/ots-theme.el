@@ -6,7 +6,7 @@
 
 (use-package emacs
   :config
-  (add-to-list 'default-frame-alist '(font . "Berkeley Mono-11"))
+  (add-to-list 'default-frame-alist '(font . "Berkeley Mono-10.5"))
   (setq-default line-spacing 0.4)
   (setq font-lock-maximum-decoration t)
   (when (file-exists-p "~/.emacs.d/theme-light")

@@ -16,7 +16,7 @@
  `(cursor ((t (:background "#1d77ff"))))
  `(default ((t (:background "#fafafa" :foreground "#444444"))))
  `(fringe ((t (:foreground "#1d77ff"))))
- `(header-line ((t (:background "#fafafa" :box (:line-width 24 :color "#fafafa")))))
+ `(header-line ((t (:background "#fafafa" :box (:line-width 12 :color "#fafafa")))))
  `(highlight ((t (:underline t))))
  `(isearch ((t (:background "#ffcc00" :foreground unspecified))))
  `(lazy-highlight ((t (:background "#e0e0e0" :foreground unspecified))))
