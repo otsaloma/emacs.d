@@ -14,6 +14,7 @@
 (defun ots-mode-line-editorconfig-suffix ()
   "Return a string indicating if an editorconfig file is in use."
   (if (and (boundp 'editorconfig-properties-hash)
+           (hash-table-p editorconfig-properties-hash)
            (gethash 'indent_size editorconfig-properties-hash))
       "-EC" ""))
 
