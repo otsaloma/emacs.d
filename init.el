@@ -1,9 +1,22 @@
 ;;; -*- coding: utf-8-unix -*-
 
-;; Speed up init by doing garbage collection less often.
-;; https://www.reddit.com/r/emacs/comments/3kqt6e/
-(setq gc-cons-threshold (* 100 1024 1024))
-(run-with-idle-timer 3 nil #'(lambda () (setq gc-cons-threshold (* 2 1024 1024))))
+;; Speed up by doing garbage collect less often.
+;; https://akrl.sdf.org/#orgc15a10d
+(defmacro k-time (&rest body)
+  "Measure and return the time it takes evaluating BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (float-time (time-since time))))
+
+;; Set garbage collection threshold to 1 GB.
+(setq gc-cons-threshold #x40000000)
+
+;; When idle for 15 s run the GC no matter what.
+(defvar k-gc-timer
+  (run-with-idle-timer 15 t
+                       (lambda ()
+                         (message "Garbage Collect ran in %.03f s"
+                                  (k-time (garbage-collect))))))
 
 ;; Avoid questions about where to save abbrevs.
 (setq save-abbrevs nil)
