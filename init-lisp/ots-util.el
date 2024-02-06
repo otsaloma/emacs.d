@@ -111,6 +111,11 @@
   (re-search-forward "\n[\n\t ]*$" nil t)
   (ots-util-recenter))
 
+(defun ots-util-getenv-true (name)
+  "Return true if environment variable NAME is set to a true value."
+  (let ((value (getenv name)))
+    (and value (> (length value) 0))))
+
 (defun ots-util-in-git-repo (path)
   "Return true if path is in a git repository"
   (if (member path '("/" nil)) nil

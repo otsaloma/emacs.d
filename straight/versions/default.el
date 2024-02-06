@@ -4,7 +4,6 @@
  ("chatgpt-shell" . "c1e6cbe3e3884b89bb45f3fc63157a0126b38814")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "7c24dc8668af5aea8a5d07aeceda5fac7a2a85b5")
- ("copilot" . "c629d3951df88b48bdc47620b33d2588508d73be")
  ("dash-docs" . "29848b6b347ac520f7646c200ed2ec36cea3feda")
  ("dash.el" . "f46268c75cb7c18361d3cee942cd4dc14a03aef4")
  ("dockerfile-mode" . "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")

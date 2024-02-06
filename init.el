@@ -45,13 +45,12 @@
 ;; TODO: Drop :host and :repo once MELPA is up-to-date.
 (straight-use-package '(shell-maker :host github :repo "xenodium/chatgpt-shell"))
 (straight-use-package '(chatgpt-shell :host github :repo "xenodium/chatgpt-shell"))
-(straight-use-package '(copilot :host github :repo "jart/emacs-copilot"))
+(straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
 (straight-use-package 'company-dict)
-(straight-use-package 'copilot)
 (straight-use-package 'direnv)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'doom-themes)
