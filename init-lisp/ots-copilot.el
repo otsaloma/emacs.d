@@ -3,6 +3,7 @@
 
 (defun ots-copilot-set-properties ()
   "Set properties for GitHub Copilot."
+  (local-set-key (kbd "<C-insert>") 'copilot-complete)
   (define-key copilot-completion-map (kbd "<C-right>") 'copilot-accept-completion-by-line)
   (define-key copilot-completion-map (kbd "<C-down>") 'copilot-accept-completion)
   (define-key copilot-completion-map (kbd "<C-backspace>") 'copilot-clear-overlay)
@@ -13,6 +14,7 @@
   ;; https://github.com/copilot-emacs/copilot.el/issues/204
   :load-path "~/.emacs.d/straight/repos/copilot.el"
   :config
+  (setq copilot-idle-delay 86400)
   (when (ots-util-getenv-true "USE_GITHUB_COPILOT")
     (add-hook 'prog-mode-hook 'copilot-mode)
     (add-hook 'copilot-mode-hook 'ots-copilot-set-properties)))
