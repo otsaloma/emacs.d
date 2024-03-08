@@ -35,6 +35,7 @@
   (setq neo-hidden-regexp-list '("^\\.cache$"
                                  "^\\.git$"
                                  "^\\.pytest_cache$"
+                                 "^\\.venv$"
                                  "^__pycache__$"
                                  "^node_modules$"
                                  "^venv$"
