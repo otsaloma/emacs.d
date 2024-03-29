@@ -18,7 +18,7 @@
         (neotree-show)
         (neotree-find file-name)
         (if (string= ots-theme-current "dark")
-            (setq buffer-face-mode-face `(:background "#353535"))
+            (setq buffer-face-mode-face `(:background "#313131"))
           (setq buffer-face-mode-face `(:background "#eeeeee")))
         (buffer-face-mode 1)
         (switch-to-buffer buffer)))))
