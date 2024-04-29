@@ -75,6 +75,7 @@
  `(ess-%op%-face ((t (:inherit 'font-lock-keyword-face))))
  `(ess-modifiers-face ((t (:inherit 'font-lock-builtin-face))))
  `(ess-operator-face ((t (:inherit 'font-lock-keyword-face))))
+ `(fill-column-indicator ((t (:foreground "#555555"))))
  `(flycheck-error ((t (:underline "#ff5555"))))
  `(flycheck-info ((t (:underline "#ff5555"))))
  `(flycheck-warning ((t (:underline "#ff5555"))))

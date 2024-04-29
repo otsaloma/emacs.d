@@ -93,12 +93,14 @@
   command)
 
 (defun ots-util-file-above (path file-name)
-  "Return true if file-name found in path or above in hierarchy."
+  "Return file-path if file-name found in path or above in hierarchy."
   (if (member path '("/" nil)) nil
-    (if (file-exists-p (concat path "/" file-name)) t
-      (ots-util-file-above
-       (ots-util-parent-directory path)
-       file-name))))
+    (let ((candidate (concat path "/" file-name)))
+      (if (file-exists-p candidate)
+          candidate
+        (ots-util-file-above
+         (ots-util-parent-directory path)
+         file-name)))))
 
 (defun ots-util-find-unit-test-file ()
   "Open the unit test file testing the current buffer."

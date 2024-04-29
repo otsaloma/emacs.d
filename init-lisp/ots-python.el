@@ -50,6 +50,30 @@
   ;;   (cd ".."))
   )
 
+(defun ots-python-set-display-fill-column ()
+  "Set the fill-column and fill-column-indicator to use."
+  (let ((project-line-length nil)
+        (pyproject-toml (ots-util-file-above default-directory "pyproject.toml")))
+    (if pyproject-toml
+        (with-temp-buffer
+          ;; Read Black's configured line-length from pyproject.toml.
+          (insert-file-contents pyproject-toml)
+          (let ((match (s-match "line-length = \\([0-9]+\\)" (buffer-string))))
+            (if match
+                (setq project-line-length
+                      (string-to-number (nth 1 match)))))))
+    (if project-line-length
+      (progn
+        ;; If we have a line-length configured in the project, use that as
+        ;; a visible fill column so we can minimize the amount of shitty
+        ;; line-breaks introduced by the primitive and dogmatic Black.
+        (setq-local display-fill-column-indicator-character ?\u00B7)
+        (setq-local display-fill-column-indicator-column project-line-length)
+        (setq-local fill-column project-line-length)
+        (display-fill-column-indicator-mode 1))
+      ;; Fall back on PEP8.
+      (setq-local fill-column 79))))
+
 (defun ots-python-set-docsets ()
   "Load dash docsets based on buffer contents."
   (ots-util-add-docset "." "Python")
@@ -107,7 +131,6 @@
   "Set properties for editing Python files."
   (add-hook 'after-save-hook 'ots-python-set-docsets t t)
   (add-hook 'after-save-hook 'ots-python-update-quote-char t t)
-  (setq-local fill-column 79)
   (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
   ;; XXX: These are probably not used at all by python-ts-mode.
   (setq-local python-fill-docstring-style 'django)
@@ -135,6 +158,7 @@
   :defer t
   :config
   (add-hook 'python-base-mode-hook 'ots-python-set-default-directory)
+  (add-hook 'python-base-mode-hook 'ots-python-set-display-fill-column)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
   (add-hook 'python-base-mode-hook 'ots-python-set-flycheck)
