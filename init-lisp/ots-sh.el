@@ -8,7 +8,7 @@
   (setq-local dash-docs-docsets '("Bash")))
 
 (use-package sh-script
-  :mode (("\\.env\\'" . sh-mode)
+  :mode (("\\.env\\(\\.[a-z]+\\)?\\'" . sh-mode)
          ("\\<env\\'" . sh-mode))
 
   :config
