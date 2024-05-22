@@ -134,6 +134,7 @@
   (setq-local imenu-create-index-function #'python-imenu-create-flat-index)
   ;; XXX: These are probably not used at all by python-ts-mode.
   (setq-local python-fill-docstring-style 'django)
+  (setq-local python-indent-def-block-scale 1)
   (setq-local python-indent-offset 4)
   (setq-local python-shell-completion-native nil)
   (setq-local python-shell-completion-native-disabled-interpreters '("python3"))
