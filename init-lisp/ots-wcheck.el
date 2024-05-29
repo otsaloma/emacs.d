@@ -37,6 +37,7 @@
                                font-lock-keyword-face
                                markdown-code-face
                                markdown-inline-code-face
+                               markdown-plain-url-face
                                markdown-pre-face
                                markdown-reference-face
                                markdown-url-face)
