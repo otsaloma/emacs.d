@@ -6,7 +6,9 @@
   (ots-util-add-imenu-expressions
    '((nil "^const +\\([^ ]+\\) += +(.*) +=>", 1)
      (nil "^function +\\([^(]+\\)(" 1)))
-  (if (ots-util-buffer-contains "\\<\\(exports\\|require\\)\\>")
+  (if (or (ots-util-file-above default-directory "node_modules")
+          (ots-util-file-above default-directory "package.json")
+          (ots-util-buffer-contains "\\<\\(exports\\|require\\)\\>"))
       (ots-js-set-properties-node)
     (ots-js-set-properties-browser)))
 
@@ -23,6 +25,7 @@
   (setq-local dash-docs-docsets '("JavaScript" "Node"))
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
+  (setq-local treesit-font-lock-level 4)
   ;; Default to standard, use eslint if corresponding config file found.
   (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
   (setq-local flycheck-checker 'javascript-standard)
@@ -48,6 +51,13 @@
 
 (use-package js
   :defer t
+  :config
+  (add-hook 'js-mode-hook 'ots-js-set-properties)
+  (add-hook 'js-mode-hook 'ots-js-tide))
+
+(use-package typescript-ts-mode
+  :defer t
+  :mode "\\.ts\\'"
   :config
   (add-hook 'js-mode-hook 'ots-js-set-properties)
   (add-hook 'js-mode-hook 'ots-js-tide))

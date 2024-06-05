@@ -4,7 +4,7 @@
 (use-package treesit-auto
   :config
   (setq treesit-auto-install nil)
-  (setq treesit-auto-langs '(python))
+  (setq treesit-auto-langs '(python typescript))
   (setq treesit-font-lock-level 3)
   (global-treesit-auto-mode))
 
