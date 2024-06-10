@@ -63,6 +63,7 @@
  `(company-tooltip-common ((t (:foreground "#527bcc"))))
  `(company-tooltip-common-selection ((t (:foreground "#ffff00"))))
  `(company-tooltip-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
+ `(copilot-overlay-face ((t (:foreground "#d1d175"))))
  `(cua-rectangle ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(cua-rectangle-noselect ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(diff-added ((t (:background unspecified :foreground "#90b078"))))
