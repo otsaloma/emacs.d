@@ -57,7 +57,7 @@
 
 (use-package typescript-ts-mode
   :defer t
-  :mode "\\.ts\\'"
+  :mode "\\.tsx?\\'"
   :config
   (add-hook 'js-mode-hook 'ots-js-set-properties)
   (add-hook 'js-mode-hook 'ots-js-tide))
