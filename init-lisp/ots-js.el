@@ -26,6 +26,7 @@
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
   (setq-local treesit-font-lock-level 4)
+  (setq-local typescript-ts-mode-indent-offset 2)
   ;; Default to standard, use eslint if corresponding config file found.
   (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
   (setq-local flycheck-checker 'javascript-standard)
@@ -59,8 +60,8 @@
   :defer t
   :mode "\\.tsx?\\'"
   :config
-  (add-hook 'js-mode-hook 'ots-js-set-properties)
-  (add-hook 'js-mode-hook 'ots-js-tide))
+  (add-hook 'typescript-ts-base-mode-hook 'ots-js-set-properties)
+  (add-hook 'typescript-ts-base-mode-hook 'ots-js-tide))
 
 (provide 'ots-js)
 ;;; ots-js.el ends here
