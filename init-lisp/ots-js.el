@@ -22,19 +22,17 @@
 
 (defun ots-js-set-properties-node ()
   "Set properties for editing Node.js JavaScript files."
-  (setq-local dash-docs-docsets '("JavaScript" "Node"))
+  (setq-local dash-docs-docsets '("JavaScript"))
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
-  (setq-local treesit-font-lock-level 4)
-  (setq-local typescript-ts-mode-indent-offset 2)
   ;; Default to standard, use eslint if corresponding config file found.
-  (ots-util-bind-key-compile (kbd "<f8>") "standard %s")
+  (ots-util-bind-key-compile (kbd "<f8>") "npx standard %s")
   (setq-local flycheck-checker 'javascript-standard)
   (when (or (ots-util-file-above default-directory ".eslintignore")
             (ots-util-file-above default-directory ".eslintrc.js")
             (ots-util-file-above default-directory ".eslintrc.json")
             (ots-util-file-above default-directory ".eslintrc.yml"))
-    (ots-util-bind-key-compile (kbd "<f8>") "eslint %s")
+    (ots-util-bind-key-compile (kbd "<f8>") "npx eslint %s")
     (setq-local flycheck-checker 'javascript-eslint)))
 
 (defun ots-js-tide ()
@@ -55,13 +53,6 @@
   :config
   (add-hook 'js-mode-hook 'ots-js-set-properties)
   (add-hook 'js-mode-hook 'ots-js-tide))
-
-(use-package typescript-ts-mode
-  :defer t
-  :mode "\\.tsx?\\'"
-  :config
-  (add-hook 'typescript-ts-base-mode-hook 'ots-js-set-properties)
-  (add-hook 'typescript-ts-base-mode-hook 'ots-js-tide))
 
 (provide 'ots-js)
 ;;; ots-js.el ends here

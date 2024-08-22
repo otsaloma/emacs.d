@@ -150,6 +150,7 @@
   (require 'ots-text)
   (require 'ots-trailing-space)
   (require 'ots-tree-sitter)
+  (require 'ots-ts)
   (require 'ots-uniquify)
   (require 'ots-vterm)
   (require 'ots-wcheck)
