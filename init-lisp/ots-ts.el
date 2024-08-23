@@ -9,14 +9,14 @@
   (setq-local treesit-font-lock-level 4)
   (setq-local typescript-ts-mode-indent-offset 2)
   ;; Default to standard, use eslint if corresponding config file found.
-  (ots-util-bind-key-compile (kbd "<f8>") "npx standard %s")
+  (ots-util-bind-key-compile-root (kbd "<f8>") "npx standard .")
   (setq-local flycheck-checker 'javascript-standard)
   (when (or (ots-util-file-above default-directory ".eslintignore")
             (ots-util-file-above default-directory ".eslintrc.js")
             (ots-util-file-above default-directory ".eslintrc.json")
             (ots-util-file-above default-directory ".eslintrc.yml"))
-    (ots-util-bind-key-compile (kbd "<f5>") "npx tsc --noEmit --pretty false %s")
-    (ots-util-bind-key-compile (kbd "<f8>") "npx eslint %s")
+    (ots-util-bind-key-compile-root (kbd "<f5>") "npx tsc --noEmit --pretty false")
+    (ots-util-bind-key-compile-root (kbd "<f8>") "npx eslint .")
     (setq-local flycheck-checker 'javascript-eslint)))
 
 (defun ots-ts-set-eglot ()

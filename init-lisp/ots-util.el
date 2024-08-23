@@ -36,6 +36,14 @@
   (local-set-key key `(lambda () (interactive)
                         (compile (ots-util-expand-command ',command) t))))
 
+(defun ots-util-bind-key-compile-root (key command)
+  "Bind key locally to a compile command run at project root (if applicable)."
+  (local-set-key key `(lambda () (interactive)
+                        (if (and (fboundp 'projectile-project-p) (projectile-project-p))
+                            (let ((default-directory (projectile-project-root)))
+                              (compile (ots-util-expand-command ',command) t))
+                          (compile (ots-util-expand-command ',command) t)))))
+
 (defun ots-util-browse-pypi ()
   "Browse the PyPI URL of the package on the current line of a requirements.txt file."
   (interactive)
