@@ -41,15 +41,6 @@
               (ots-util-comint-send line))))
       (switch-to-buffer nil))))
 
-(defun ots-python-set-default-directory ()
-  "Set the default directory to the source tree root."
-  ;; XXX: This confuses git-gutter.
-  ;; We need to have the current package at the beginning of PYTHONPATH,
-  ;; which is easiest done by changing the working directory.
-  ;; (while (file-exists-p (concat default-directory "__init__.py"))
-  ;;   (cd ".."))
-  )
-
 (defun ots-python-set-display-fill-column ()
   "Set the fill-column and fill-column-indicator to use."
   (let ((project-line-length nil)
@@ -158,7 +149,6 @@
 (use-package python
   :defer t
   :config
-  (add-hook 'python-base-mode-hook 'ots-python-set-default-directory)
   (add-hook 'python-base-mode-hook 'ots-python-set-display-fill-column)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
