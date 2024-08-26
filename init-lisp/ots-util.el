@@ -39,7 +39,7 @@
 (defun ots-util-bind-key-compile-root (key command)
   "Bind key locally to a compile command run at project root (if applicable)."
   (local-set-key key `(lambda () (interactive)
-                        (if (and (fboundp 'projectile-project-p) (projectile-project-p))
+                        (if (ots-util-project-p)
                             (let ((default-directory (projectile-project-root)))
                               (compile (ots-util-expand-command ',command) t))
                           (compile (ots-util-expand-command ',command) t)))))
@@ -203,6 +203,10 @@
   "Select the previous window."
   (interactive)
   (other-window -1))
+
+(defun ots-util-project-p ()
+  "Return TRUE if in a project, elsewhere FALSE."
+  (and (fboundp 'projectile-project-p) (projectile-project-p)))
 
 (defun ots-util-push-mark ()
   "Push point to the mark ring."
