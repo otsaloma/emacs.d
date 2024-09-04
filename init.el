@@ -46,6 +46,7 @@
 (straight-use-package '(shell-maker :host github :repo "xenodium/chatgpt-shell"))
 (straight-use-package '(chatgpt-shell :host github :repo "xenodium/chatgpt-shell"))
 (straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
+(straight-use-package '(bicep-ts-mode :host github :repo "josteink/bicep-ts-mode"))
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'company)
@@ -99,6 +100,7 @@
   (require 'ots-backup)
   (require 'ots-bat)
   (require 'ots-bibtex)
+  (require 'ots-bicep)
   (require 'ots-browse-url)
   (require 'ots-c)
   (require 'ots-c++)
