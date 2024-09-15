@@ -6,7 +6,11 @@
 
 (use-package emacs
   :config
-  (add-to-list 'default-frame-alist '(font . "Berkeley Mono-10.5"))
+  ;; If using --font at the command line, Emacs will put that into
+  ;; default-frame-alist. Set font here only if --font was not used.
+  ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html
+  (if (not (assoc 'font default-frame-alist))
+      (add-to-list 'default-frame-alist '(font . "Berkeley Mono-10.5")))
   (setq-default line-spacing 0.4)
   (setq font-lock-maximum-decoration t)
   (when (file-exists-p "~/.emacs.d/theme-light")
