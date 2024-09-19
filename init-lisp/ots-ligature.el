@@ -8,9 +8,8 @@
 (use-package ligature
   :config
   ;; https://github.com/mickeynp/ligature.el
-  ;; https://github.com/microsoft/cascadia-code#font-features
-  (ligature-set-ligatures '(text-mode) '("<-" "<--" "<==" "->" "-->" "==>"))
-  (global-ligature-mode t))
+  (ligature-set-ligatures '(text-mode) '("<-" "<--" "<!--" "<==" "->" "-->" "==>"))
+  (global-ligature-mode -1))
 
 (provide 'ots-ligature)
 ;;; ots-ligature.el ends here
