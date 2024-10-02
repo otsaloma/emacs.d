@@ -70,6 +70,7 @@
   (ots-util-add-docset "." "Python")
   (ots-util-add-docset "\\(from\\|import\\) dataiter" "Dataiter")
   (ots-util-add-docset "\\(from\\|import\\) django" "Django")
+  (ots-util-add-docset "\\(from\\|import\\) fastapi" "FastAPI")
   (ots-util-add-docset "\\(from\\|import\\) flask" "Flask")
   (ots-util-add-docset "\\(from\\|import\\) numpy" "NumPy")
   (ots-util-add-docset "\\(from\\|import\\) pandas" "Pandas")
