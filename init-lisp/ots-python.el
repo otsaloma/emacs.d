@@ -47,7 +47,7 @@
         (pyproject-toml (ots-util-file-above default-directory "pyproject.toml")))
     (if pyproject-toml
         (with-temp-buffer
-          ;; Read Black's configured line-length from pyproject.toml.
+          ;; Read Black/Ruff line-length from pyproject.toml.
           (insert-file-contents pyproject-toml)
           (let ((match (s-match "line-length = \\([0-9]+\\)" (buffer-string))))
             (if match
@@ -57,7 +57,7 @@
       (progn
         ;; If we have a line-length configured in the project, use that as
         ;; a visible fill column so we can minimize the amount of shitty
-        ;; line-breaks introduced by the primitive and dogmatic Black.
+        ;; line-breaks introduced by a primitive and dogmatic formatter.
         (setq-local display-fill-column-indicator-character ?\u00B7)
         (setq-local display-fill-column-indicator-column project-line-length)
         (setq-local fill-column project-line-length)
