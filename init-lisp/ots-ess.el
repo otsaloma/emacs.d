@@ -19,8 +19,13 @@
     (ess-font-lock-toggle-keyword 'ess-R-fl-keyword:F&T)
     (setq ots-ess-faces-toggled t))
   (font-lock-add-keywords nil
-   '(("^ *\\(.+?\\) \\(=\\|<<?-\\) function\\>" 1 font-lock-function-name-face)
-     ("\\<\\(return\\|Recall\\)\\>" 1 font-lock-function-name-face))))
+   '(("\\(\\$\\||>\\|\\.\\.\\.\\|::\\)" 1 font-lock-keyword-face)
+     ("\\<\\(return\\|Recall\\)\\>" 1 font-lock-function-name-face)
+     ("\\<\\(ifelse\\|messagef?\\|print\\|stopif\\|stopifnot\\)\\>" 1 font-lock-builtin-face)
+     ("^ *\\(\\w+\\) +\\(=\\|<<?-\\) function\\>" 1 font-lock-function-name-face)
+     ("^ *\\(\\w+\\) +\\(=\\|<<?-\\) " 1 font-lock-variable-name-face)
+     ("^ *\\(\\w+\\)\\$\\w+ +\\(=\\|<<?-\\) " 1 font-lock-variable-name-face)
+     ("^ *\\w+\\$\\(\\w+\\) +\\(=\\|<<?-\\) " 1 font-lock-variable-name-face))))
 
 (defun ots-ess-set-keys ()
   "Set keybindings for editing R files."
