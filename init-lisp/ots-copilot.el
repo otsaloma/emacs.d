@@ -9,14 +9,14 @@
   (define-key copilot-completion-map (kbd "<C-backspace>") 'copilot-clear-overlay)
   (define-key copilot-completion-map (kbd "<C-delete>") 'copilot-clear-overlay))
 
-(use-package copilot
-  ;; Specify load-path to work around a jsonrpc error.
-  ;; https://github.com/copilot-emacs/copilot.el/issues/204
-  :load-path "~/.emacs.d/straight/repos/copilot.el"
-  :config
-  (setq copilot-idle-delay 86400)
-  (when (ots-util-getenv-true "USE_GITHUB_COPILOT")
-    (add-hook 'prog-mode-hook 'copilot-mode)
+(when (ots-util-getenv-true "USE_GITHUB_COPILOT")
+  (use-package copilot
+    ;; Specify load-path to work around a jsonrpc error.
+    ;; https://github.com/copilot-emacs/copilot.el/issues/204
+    :load-path "~/.emacs.d/straight/repos/copilot.el"
+    :hook (prog-mode . copilot-mode)
+    :config
+    (setq copilot-idle-delay 86400)
     (add-hook 'copilot-mode-hook 'ots-copilot-set-properties)))
 
 (provide 'ots-copilot)

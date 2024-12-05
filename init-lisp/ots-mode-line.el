@@ -36,6 +36,10 @@
         (total (line-number-at-pos (point-max))))
     (format "(%.0f%%%%)" (/ (* 100.0 (- current 1)) total))))
 
+(defun ots-mode-line-using-copilot ()
+  "Return true if using GitHub Copilot in the current buffer."
+  (and (boundp 'copilot-mode) copilot-mode))
+
 (use-package emacs
   :config
   (setq-default mode-line-format
@@ -43,6 +47,7 @@
                   " + "    (:eval (symbol-name buffer-file-coding-system))
                   " + "    (:eval (symbol-name major-mode))
                   (:eval (if (getenv "VIRTUAL_ENV") " (venv)" ""))
+                  (:eval (if (ots-mode-line-using-copilot) " + copilot"))
                   " + "    (:eval (ots-mode-line-indentation))
                   " + %l/" (:eval (ots-mode-line-line-count))
                   " "      (:eval (ots-mode-line-position))
