@@ -142,7 +142,6 @@
 
 (defun ots-python-update-quote-char ()
   "Update value of the default quote character to use."
-  (require 's)
   (if (> (s-count-matches "'" (buffer-string))
          (s-count-matches "\"" (buffer-string)))
       (setq ots-python-quote-char "'")
@@ -151,6 +150,7 @@
 (use-package python
   :defer t
   :config
+  (require 's)
   (add-hook 'python-base-mode-hook 'ots-python-set-display-fill-column)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
