@@ -93,7 +93,7 @@
                                                   :documentLinkProvider
                                                   :hoverProvider))
 
-  (setq-local eglot-stay-out-of '(flymake))
+  (setq-local eglot-stay-out-of '(flymake imenu))
   (setq-local company-backends '((company-capf
                                   :separate
                                   company-keywords
