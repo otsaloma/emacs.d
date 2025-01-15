@@ -35,7 +35,7 @@
            (lines (split-string text "\n")))
       (switch-to-buffer "*compilation*")
       (goto-char (point-max))
-      (when (looking-back "^>>> *")
+      (when (looking-back "^\\(>>>\\|(Pdb)\\) *")
         (dolist (line lines)
           (if (> (length line) 0)
               (ots-util-comint-send line))))
