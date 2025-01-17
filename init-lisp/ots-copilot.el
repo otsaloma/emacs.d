@@ -3,11 +3,9 @@
 
 (defun ots-copilot-set-properties ()
   "Set properties for GitHub Copilot."
-  (local-set-key (kbd "<C-insert>") 'copilot-complete)
-  (define-key copilot-completion-map (kbd "<C-right>") 'copilot-accept-completion-by-line)
-  (define-key copilot-completion-map (kbd "<C-down>") 'copilot-accept-completion)
-  (define-key copilot-completion-map (kbd "<C-backspace>") 'copilot-clear-overlay)
-  (define-key copilot-completion-map (kbd "<C-delete>") 'copilot-clear-overlay))
+  (local-set-key (kbd "<C-SPC>") 'copilot-complete)
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion-by-line)
+  (define-key copilot-completion-map (kbd "<delete>") 'copilot-clear-overlay))
 
 (when (ots-util-getenv-true "USE_GITHUB_COPILOT")
   (use-package copilot
