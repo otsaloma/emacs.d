@@ -2,7 +2,6 @@
  ("all-the-icons.el" . "f491f39c21336d354e85bdb4cca281e0a0c2f880")
  ("auctex" . "573142ba10c5fa7285a212a3714c43525994f098")
  ("bicep-ts-mode" . "5cb02221f9b7084d4a2a3f4ec757f8f045326e72")
- ("chatgpt-shell" . "c1e6cbe3e3884b89bb45f3fc63157a0126b38814")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "7c24dc8668af5aea8a5d07aeceda5fac7a2a85b5")
  ("dash-docs" . "29848b6b347ac520f7646c200ed2ec36cea3feda")

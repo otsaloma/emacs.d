@@ -43,8 +43,6 @@
 (setq straight-vc-git-default-clone-depth 1)
 
 ;; TODO: Drop :host and :repo once MELPA is up-to-date.
-(straight-use-package '(shell-maker :host github :repo "xenodium/chatgpt-shell"))
-(straight-use-package '(chatgpt-shell :host github :repo "xenodium/chatgpt-shell"))
 (straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
 (straight-use-package '(bicep-ts-mode :host github :repo "josteink/bicep-ts-mode"))
 
@@ -104,7 +102,6 @@
   (require 'ots-browse-url)
   (require 'ots-c)
   (require 'ots-c++)
-  (require 'ots-chatgpt-shell)
   (require 'ots-comint)
   (require 'ots-company)
   (require 'ots-compilation)

@@ -14,7 +14,7 @@
   (let ((name (buffer-name buffer)))
     (or (eq (current-buffer) buffer)
         (string-match "^[^* ]" name) ; regular buffers
-        (string-match "^\\*\\(ansi-term\\|chatgpt\\*\\|ielm\\|js\\|man\\|Python\\|R\\|shell\\|term\\|vterm\\)" name))))
+        (string-match "^\\*\\(ansi-term\\|ielm\\|js\\|man\\|Python\\|R\\|shell\\|term\\|vterm\\)" name))))
 
 (defun ots-tabbar-set-buttons ()
   "Set button pixmaps to use in tabbar buttons."
