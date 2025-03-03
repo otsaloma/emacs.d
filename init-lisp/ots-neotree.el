@@ -27,10 +27,7 @@
   :defer t
   :config
   (require 'all-the-icons)
-  (require 'doom-themes)
   (add-hook 'neotree-mode-hook 'ots-neotree-set-properties t)
-  (setq doom-themes-neotree-line-spacing (default-value 'line-spacing))
-  (setq doom-themes-neotree-project-size 1.05)
   (setq neo-autorefresh nil)
   (setq neo-hidden-regexp-list '("^\\.cache$"
                                  "^\\.git$"
@@ -49,10 +46,7 @@
   (setq neo-show-slash-for-folder nil)
   (setq neo-smart-open t)
   (setq neo-theme 'icons)
-  (setq neo-window-width 64)
-  (doom-themes-neotree-config)
-  (advice-remove #'neo-buffer--insert-root-entry #'doom-themes-neotree-insert-root)
-  (copy-face 'neo-file-link-face 'doom-themes-neotree-hidden-file-face))
+  (setq neo-window-width 64))
 
 (provide 'ots-neotree)
 ;;; ots-neotree.el ends here
