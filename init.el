@@ -52,7 +52,6 @@
 (straight-use-package 'company-dict)
 (straight-use-package 'direnv)
 (straight-use-package 'dockerfile-mode)
-(straight-use-package 'doom-themes)
 (straight-use-package 'dtrt-indent)
 (straight-use-package 'editorconfig)
 (straight-use-package 'ess)
