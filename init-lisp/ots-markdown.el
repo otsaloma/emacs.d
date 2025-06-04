@@ -26,7 +26,9 @@
   (add-to-list 'markdown-code-lang-modes '("r" . python-mode)))
 
 (use-package markdown-mode
-  :mode ("\\.md\\'" . gfm-mode)
+  :mode (("\\.md\\'"  . gfm-mode)
+         ("\\.qmd\\'" . gfm-mode))
+
   :config
   (add-hook 'markdown-mode-hook 'ots-markdown-set-properties))
 

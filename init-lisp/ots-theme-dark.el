@@ -94,7 +94,7 @@
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#527bcc" :foreground "#ffffff"))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
- `(markdown-code-face ((t (:background unspecified :foreground unspecified))))
+ `(markdown-code-face ((t (:background "#3b3b3b" :foreground unspecified))))
  `(markdown-header-face ((t (:foreground "#d1d175" :weight bold))))
  `(mmm-default-submode-face ((t (:background unspecified :foreground unspecified))))
  `(neo-dir-link-face ((t (:background unspecified :foreground "#84a3c2"))))
