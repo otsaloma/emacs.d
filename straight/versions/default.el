@@ -24,7 +24,7 @@
  ("git-gutter-fringe" . "648cb5b57faec55711803cdc9434e55a733c3eba")
  ("gnu-elpa-mirror" . "f1e03263b93efa89f797b0555396af8e385ec19c")
  ("graphql-mode" . "ee49531935ede7a2c9597713e13a4c9d33ef2220")
- ("helm" . "c0b70dbc2697ff361d9d5bb99e11c654317aa00d")
+ ("helm" . "dd80517f418a166e40b2b306d54f46f95641cce0")
  ("helm-dash" . "7f853bd34da666f0e9a883011c80f451b06f6c59")
  ("helm-projectile" . "041076e35a6663302a91a0fa672f847c7d64bf29")
  ("js-comint" . "68908b5d232738bdc25c4cae502067ef2255a2fd")

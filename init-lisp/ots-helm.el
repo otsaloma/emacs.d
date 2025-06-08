@@ -1,6 +1,11 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-helm.el
 
+;; Work around some bug in helm-imenu.
+;; helm-imenu--maybe-switch-to-buffer:
+;; Symbol’s value as variable is void: helm-buffers-maybe-switch-to-tab
+(defvar helm-buffers-maybe-switch-to-tab nil "XXX")
+
 (defun ots-helm-find-file ()
   "Find a file to open from common sources."
   (interactive)
