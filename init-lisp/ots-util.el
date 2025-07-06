@@ -2,7 +2,7 @@
 ;;; ots-util.el
 
 (defun ots-util-add-docset (regexp docset &optional limit)
-  "Add helm-dash docset if regexp found in buffer text."
+  "Add dash docset if regexp found in buffer text."
   (if (not (local-variable-p 'dash-docs-docsets))
       (setq-local dash-docs-docsets '()))
   (when (not (member docset dash-docs-docsets))
@@ -110,6 +110,13 @@
          (ots-util-parent-directory path)
          file-name)))))
 
+(defun ots-util-find-file ()
+  "Find a file to open from common sources."
+  (interactive)
+  (if (ots-util-project-p)
+      (projectile-find-file)
+    (call-interactively 'find-file)))
+
 (defun ots-util-find-unit-test-file ()
   "Open the unit test file testing the current buffer."
   (interactive)
@@ -125,6 +132,14 @@
   "Return true if environment variable NAME is set to a true value."
   (let ((value (getenv name)))
     (and value (> (length value) 0))))
+
+(defun ots-util-git-grep ()
+  "Run ripgrep at project root and show results."
+  (interactive)
+  (let ((input (or (thing-at-point 'symbol) "")))
+    (if (ots-util-project-p)
+        (consult-ripgrep (projectile-project-root) input)
+      (consult-ripgrep default-directory input))))
 
 (defun ots-util-in-git-repo (path)
   "Return true if path is in a git repository"

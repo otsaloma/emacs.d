@@ -111,6 +111,8 @@
  `(tabbar-modified ((t (:inherit 'tabbar-unselected :foreground "#ff405a"))))
  `(tabbar-selected-modified ((t (:inherit 'tabbar-selected))))
  `(tabbar-separator ((t (:background "#eeeeee"))))
+ `(vertico-current ((t (:background "#f5f5aa" :foreground unspecified))))
+ `(vertico-group-title ((t (:foreground "#1d77ff"))))
  `(vterm-color-black ((t (:foreground "#252525"))))
  `(vterm-color-blue ((t (:foreground "#3465a4"))))
  `(vterm-color-cyan ((t (:foreground "#06989a"))))

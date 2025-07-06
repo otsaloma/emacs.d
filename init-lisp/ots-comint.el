@@ -19,7 +19,7 @@
 
 (defun ots-comint-set-keys ()
   "Set keybindings for inferior interpreter sessions."
-  (local-set-key (kbd "C-r") 'helm-comint-input-ring)
+  (local-set-key (kbd "C-r") 'consult-history)
   (local-set-key (kbd "<tab>") 'completion-at-point)
   (local-set-key (kbd "<up>") 'ots-comint-previous)
   (local-set-key (kbd "<C-up>") 'previous-line)
