@@ -22,9 +22,7 @@
              (setq-local indent-tabs-mode nil)
              (setq-local tab-width 4)
              (setq-local truncate-lines nil)
-             (turn-off-auto-fill)
-             (require 'olivetti)
-             (olivetti-mode 1))
+             (turn-off-auto-fill))
     (ots-prog-set-properties)))
 
 (use-package text-mode
