@@ -14,6 +14,9 @@
 
 (defun ots-po-set-properties ()
   "Set properties for editing PO files."
+  ;; XXX: Why do we need these here?
+  (display-line-numbers-mode 1)
+  (font-lock-mode)
   (local-set-key (kbd "C-s") 'ots-util-save-buffer)
   (local-set-key (kbd "C-z") 'po-undo))
 
@@ -24,14 +27,6 @@
   (define-key po-subedit-mode-map (kbd "C-s") 'po-subedit-exit)
   (define-key po-subedit-mode-map (kbd "C-g") 'po-subedit-abort)
   (setq-local po-subedit-message "Type 'C-s' to save, or 'C-g' to abort edit"))
-
-(defadvice po-edit-string (around setup-spell-checking (string type expand-tabs) activate)
-  "Set up spell-checking for the subedit buffer."
-  (let ((lang (ots-po-guess-language)))
-    ad-do-it
-    (when lang
-      (wcheck-change-language lang)
-      (wcheck-mode))))
 
 (use-package po-mode
   :mode "\\.pot?\\'"
