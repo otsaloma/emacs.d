@@ -5,7 +5,7 @@
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "8d599ebc8a9aca27c0a6157aeb31c5b7f05ed0a3")
  ("consult" . "f77f5fb89664a78a4adf38e6d7ac2f533b6f24ec")
- ("copilot.el" . "7d105d708a23d16cdfd5240500be8bb02f95a46e")
+ ("copilot.el" . "4f51b3c21c42756d09ee17011201ea7d6e18ff69")
  ("dash-docs" . "29848b6b347ac520f7646c200ed2ec36cea3feda")
  ("dash.el" . "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")
  ("dockerfile-mode" . "7ce17e054eca4d56ca8bc1e4a6a0dbf58efd8d52")

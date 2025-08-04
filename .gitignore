@@ -1,5 +1,6 @@
 *.bak
 *.elc
+.cache
 .claude
 .lsp-session*
 chatgpt/history
