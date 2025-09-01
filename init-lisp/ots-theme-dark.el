@@ -94,6 +94,7 @@
  `(helm-match ((t (:foreground "#e68a8a"))))
  `(helm-selection ((t (:background "#375288" :foreground unspecified))))
  `(helm-source-header ((t (:foreground "#d1d175"))))
+ `(makefile-space ((t (:background "#555555" :foreground unspecified))))
  `(markdown-code-face ((t (:background "#3b3b3b" :foreground unspecified))))
  `(markdown-header-face ((t (:foreground "#d1d175" :weight bold))))
  `(mmm-default-submode-face ((t (:background unspecified :foreground unspecified))))
