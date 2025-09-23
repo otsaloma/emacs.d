@@ -45,6 +45,7 @@
  ("rainbow-mode" . "2e6b18609c2fdd1a2dc513937a64d276fd6cf24c")
  ("rust-mode" . "efd830806c8519bb7f614504eac6bdfdbbac1247")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
+ ("sql-indent.el" . "2ed4c6a26b8f3d651ac6231eaafb2565d77c918b")
  ("sqlup-mode.el" . "3f9df9c88d6a7f9b1ae907e401cad8d3d7d63bbf")
  ("straight.el" . "483b205efb2eaa6be7c0dc7078b8c9dafcffb318")
  ("sudo-edit" . "74eb1e6986461baed9a9269566ff838530b4379b")
