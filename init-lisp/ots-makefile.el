@@ -4,7 +4,8 @@
 (defun ots-makefile-set-properties ()
   "Set properties for editing Makefiles."
   (font-lock-add-keywords nil
-   '(("\\<\\(case\\|do\\|done\\|echo\\|elif\\|else\\|esac\\|fi\\|for\\|if\\|in\\|printf\\|then\\|until\\|while\\)\\>" 1 font-lock-keyword-face)))
+   '(("\\<\\(case\\|do\\|done\\|echo\\|elif\\|else\\|esac\\|fi\\|for\\|if\\|in\\|printf\\|then\\|until\\|while\\)\\>" 1 font-lock-keyword-face)
+     ("\\(&&\\|||\\)" 1 font-lock-keyword-face)))
   (setq-local dash-docs-docsets '("Make"))
   (setq-local indent-tabs-mode t)
   (setq-local tab-width 8)
