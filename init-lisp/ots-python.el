@@ -108,6 +108,32 @@
       (setq flycheck-flake8rc "~/.config/flake8"))
   (flycheck-mode 1))
 
+(defun ots-python-set-font-lock ()
+  "Set tree-sitter font-lock features to use."
+  ;; https://github.com/emacs-mirror/emacs/blob/master/lisp/progmodes/python.el
+  (setq-local treesit-font-lock-feature-list '((builtin
+                                                comment
+                                                constant
+                                                decorator
+                                                definition
+                                                keyword
+                                                number
+                                                string
+                                                type
+                                                ;; assignment
+                                                ;; bracket
+                                                ;; delimiter
+                                                ;; escape-sequence
+                                                ;; function
+                                                ;; operator
+                                                ;; property
+                                                ;; string-interpolation
+                                                ;; variable
+                                                )))
+
+  (setq-local treesit-font-lock-level 1)
+  (treesit-font-lock-recompute-features))
+
 (defun ots-python-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "M-p") 'ots-python-toggle-mode)
@@ -156,6 +182,7 @@
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
   (add-hook 'python-base-mode-hook 'ots-python-set-flycheck)
+  (add-hook 'python-base-mode-hook 'ots-python-set-font-lock)
   (add-hook 'python-base-mode-hook 'ots-python-set-keys)
   (add-hook 'python-base-mode-hook 'ots-python-set-properties))
 
