@@ -10,6 +10,7 @@
  ("dash.el" . "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")
  ("dockerfile-mode" . "7ce17e054eca4d56ca8bc1e4a6a0dbf58efd8d52")
  ("dtrt-indent" . "22498ca24ac93c051d233abef630aece1ac45dd1")
+ ("dumb-jump" . "a9a7e1711ee100747877528bb3531b947233a99e")
  ("editorconfig-emacs" . "1a9942746cf5b10daae8962f380b5f2a459086f3")
  ("el-get" . "ec5cba8d965980b2c47a8a11dce30dd5e845ed2a")
  ("emacs-async" . "b99658e831bc7e7d20ed4bb0a85bdb5c7dd74142")

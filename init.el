@@ -43,8 +43,8 @@
 (setq straight-vc-git-default-clone-depth 1)
 
 ;; TODO: Drop :host and :repo once MELPA is up-to-date.
-(straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
 (straight-use-package '(bicep-ts-mode :host github :repo "josteink/bicep-ts-mode"))
+(straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'company)
@@ -55,6 +55,7 @@
 (straight-use-package 'direnv)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dtrt-indent)
+(straight-use-package 'dumb-jump)
 (straight-use-package 'editorconfig)
 (straight-use-package 'ess)
 (straight-use-package 'flycheck)
@@ -115,6 +116,7 @@
   (require 'ots-css)
   (require 'ots-diff)
   (require 'ots-dockerfile)
+  (require 'ots-dumb-jump)
   (require 'ots-editor)
   (require 'ots-editorconfig)
   (require 'ots-emacs-lisp)
