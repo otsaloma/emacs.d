@@ -37,7 +37,7 @@
  ;; Font-lock
  `(font-lock-builtin-face ((t (:foreground "#d2a86e"))))
  `(font-lock-comment-delimiter-face ((t (:inherit 'font-lock-comment-face))))
- `(font-lock-comment-face ((t (:foreground "#84a3c2"))))
+ `(font-lock-comment-face ((t (:background "#393b3e" :foreground "#84a3c2"))))
  `(font-lock-constant-face ((t (:inherit 'font-lock-type-face))))
  `(font-lock-doc-string-face ((t (:inherit 'font-lock-comment-face))))
  `(font-lock-function-name-face ((t (:foreground "#d1d175"))))
