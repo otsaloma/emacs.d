@@ -14,6 +14,19 @@
                     (format "flake8 --config=%s %%s" fallback))))
     (compile (ots-util-expand-command command) t)))
 
+(defun ots-python-indent-line ()
+  "Extend indentation with method chain dot-alignment."
+  (interactive)
+  (let ((col (current-column))
+        (indent-col nil))
+    (python-indent-line)
+    (when (ots-python-method-chain-continuation-line-p)
+      (setq indent-col (ots-python-method-chain-find-anchor-column))
+      (when indent-col
+        (indent-line-to indent-col)))
+    (when (> col (current-indentation))
+      (move-to-column col))))
+
 (defun ots-python-insert-dict-key ()
   "Insert a string dict key at point."
   (interactive)
@@ -24,6 +37,25 @@
   (insert ots-python-quote-char)
   (insert "]")
   (backward-char 2))
+
+(defun ots-python-method-chain-continuation-line-p ()
+  "Return true if the current line is a method chain continuation."
+  (save-excursion
+    (back-to-indentation)
+    (looking-at-p "\\.")))
+
+(defun ots-python-method-chain-find-anchor-column ()
+  "Return the dot column of a method chain."
+  (save-excursion
+    (let ((orig (point))
+          open-paren-pos)
+      (condition-case nil
+          (setq open-paren-pos (scan-lists orig -1 1))
+        (error nil))
+      (when open-paren-pos
+        (goto-char open-paren-pos)
+        (when (re-search-forward "\\." nil t)
+          (1- (current-column)))))))
 
 (defun ots-python-send-region ()
   "Run the current line or region in the Python shell."
@@ -134,6 +166,10 @@
   (setq-local treesit-font-lock-level 1)
   (treesit-font-lock-recompute-features))
 
+(defun ots-python-set-indentation ()
+  "Enable dot-aligned method chain indentation."
+  (setq-local indent-line-function 'ots-python-indent-line))
+
 (defun ots-python-set-keys ()
   "Set keybindings for editing Python files."
   (local-set-key (kbd "M-p") 'ots-python-toggle-mode)
@@ -183,6 +219,7 @@
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
   (add-hook 'python-base-mode-hook 'ots-python-set-flycheck)
   (add-hook 'python-base-mode-hook 'ots-python-set-font-lock)
+  (add-hook 'python-base-mode-hook 'ots-python-set-indentation)
   (add-hook 'python-base-mode-hook 'ots-python-set-keys)
   (add-hook 'python-base-mode-hook 'ots-python-set-properties))
 
