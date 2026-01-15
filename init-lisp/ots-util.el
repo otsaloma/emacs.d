@@ -255,6 +255,18 @@
       (back-to-indentation)
     (move-beginning-of-line count)))
 
+(defun ots-util-smart-home-end (&optional count)
+  "Go to either beginning of line or beginning of indentation or end."
+  (interactive "^p")
+  (if (bolp)
+      (let ((pos (point)))
+        (back-to-indentation)
+        (if (= pos (point))
+            (move-end-of-line count)))
+    (if (eolp)
+        (move-beginning-of-line count)
+      (move-end-of-line count))))
+
 (defun ots-util-smart-kill-line (&optional arg)
   "Delete either the current line or the whole active region."
   (interactive)
