@@ -295,7 +295,7 @@
 (defun ots-util-start-external-terminal ()
   "Start an external terminal in directory of the current buffer."
   (interactive)
-  (start-process "gnome-terminal" "*gnome-terminal*" "gnome-terminal"))
+  (start-process "ptyxis" "*ptyxis*" "ptyxis" "--new-window"))
 
 (defun ots-util-switch-to-other-buffer ()
   "Switch to the most recently selected buffer."
