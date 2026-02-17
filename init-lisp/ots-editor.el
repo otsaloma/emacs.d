@@ -53,6 +53,12 @@
   (setq-default bidi-paragraph-direction 'left-to-right)
   (global-so-long-mode 1)
 
+  ;; Automatically revert buffers when file changes on disk.
+  ;; This will not revert a buffer if it has unsaved changes!
+  ;; Needed for working with terminal coding agents.
+  (global-auto-revert-mode 1)
+  (setq auto-revert-avoid-polling t)
+
   )
 
 (provide 'ots-editor)
