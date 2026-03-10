@@ -4,6 +4,7 @@
 (defun ots-sql-set-properties ()
   "Set properties for editing SQL files."
   ;; Allow double-quotes and backticks (for identifier names).
+  (modify-syntax-entry ?_ "w" sql-mode-syntax-table)
   (modify-syntax-entry ?\" "\"" sql-mode-syntax-table)
   (modify-syntax-entry ?\` "\"" sql-mode-syntax-table)
   (setq-local company-dabbrev-ignore-case t)
