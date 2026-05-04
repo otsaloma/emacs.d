@@ -59,6 +59,10 @@
   (global-auto-revert-mode 1)
   (setq auto-revert-avoid-polling t)
 
+  ;; Try to avoid slow icon rendering in neotree.
+  ;; https://github.com/domtronn/all-the-icons.el/issues/28
+  (setq inhibit-compacting-font-caches t)
+
   )
 
 (provide 'ots-editor)
