@@ -1,6 +1,12 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-neotree.el
 
+;; XXX: Work around some directory icons being really slow to render (?)
+;; by using the plain directory icon for all different directories.
+(with-eval-after-load 'all-the-icons
+  (defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
+    (apply #'all-the-icons-octicon "file-directory" '(:height 1.0 :v-adjust -0.1))))
+
 (defun ots-neotree-set-properties ()
   "Set properties for neotree buffers."
   (local-set-key (kbd "<f4>") 'neotree-change-root)
