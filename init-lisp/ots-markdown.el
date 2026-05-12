@@ -6,6 +6,19 @@
           (expand-file-name "~/.local/share/markdown-css/github.css"))
   "Command to use to compile Markdown files.")
 
+(defun ots-markdown-has-long-lines-p ()
+  "Return non-nil if the current buffer uses long lines."
+  (let ((long-line-count 0))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (goto-char (point-min))
+        (while (and (< long-line-count 3) (not (eobp)))
+          (when (> (- (line-end-position) (line-beginning-position)) 100)
+            (setq long-line-count (1+ long-line-count)))
+          (forward-line 1))))
+    (>= long-line-count 3)))
+
 (defun ots-markdown-set-properties ()
   "Set properties for editing Markdown files."
   (local-set-key (kbd "<return>") 'markdown-enter-key)
@@ -21,6 +34,9 @@
   (setq-local markdown-indent-function 'indent-relative-maybe)
   (setq-local markdown-indent-on-enter nil)
   (setq-local markdown-spaces-after-code-fence 0)
+  (when (ots-markdown-has-long-lines-p)
+    (turn-off-auto-fill)
+    (visual-line-mode 1))
   ;; ess-mode doesn't seem to work and a lacking definition
   ;; confuses syntax highlighting outside the code block.
   (add-to-list 'markdown-code-lang-modes '("r" . python-mode)))
