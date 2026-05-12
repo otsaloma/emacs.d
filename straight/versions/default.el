@@ -3,7 +3,7 @@
  ("auctex" . "f8f80e9a52b23067cf26594e63b96c85fa30bc93")
  ("bicep-ts-mode" . "1aee55a6db5f263325ba4ee1a606346d011331b7")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
- ("company-mode" . "8d599ebc8a9aca27c0a6157aeb31c5b7f05ed0a3")
+ ("company-mode" . "7a636925bf37bc7aabaed70ad9188ab427a9db2a")
  ("consult" . "f77f5fb89664a78a4adf38e6d7ac2f533b6f24ec")
  ("copilot.el" . "4f51b3c21c42756d09ee17011201ea7d6e18ff69")
  ("dash-docs" . "29848b6b347ac520f7646c200ed2ec36cea3feda")
