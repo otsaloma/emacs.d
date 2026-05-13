@@ -19,8 +19,19 @@
           (forward-line 1))))
     (>= long-line-count 3)))
 
+(defun ots-markdown-toggle-wrap ()
+  "Toggle between display modes of long lines."
+  (interactive)
+  (if visual-line-mode
+      (progn
+        (visual-line-mode -1)
+        (turn-on-auto-fill))
+    (turn-off-auto-fill)
+    (visual-line-mode 1)))
+
 (defun ots-markdown-set-properties ()
   "Set properties for editing Markdown files."
+  (local-set-key (kbd "C-ö") 'ots-markdown-toggle-wrap)
   (local-set-key (kbd "<return>") 'markdown-enter-key)
   (local-set-key (kbd "<kp-enter>") 'markdown-enter-key)
   (local-set-key (kbd "<f9>") 'markdown-preview)
