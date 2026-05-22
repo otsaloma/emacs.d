@@ -111,6 +111,7 @@
   (ots-util-add-docset "\\(from\\|import\\) pydantic" "Pydantic")
   (ots-util-add-docset "\\(from\\|import\\) requests" "Requests")
   (ots-util-add-docset "\\(from\\|import\\) sklearn" "Scikit-Learn")
+  (ots-util-add-docset "\\(from\\|import\\) strands" "Strands")
   (ots-util-add-docset "\\(from\\|import\\) xgboost" "XGBoost")
   (let ((gtk3 (ots-util-file-above default-directory ".gtk3"))
         (gtk4 (ots-util-file-above default-directory ".gtk4")))
