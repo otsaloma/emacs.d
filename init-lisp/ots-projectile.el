@@ -27,6 +27,9 @@
   (add-to-list 'projectile-globally-ignored-file-suffixes ".svg")
   (add-to-list 'projectile-globally-ignored-file-suffixes "~")
 
+  ;; When in a git repository, show also files not in git.
+  (setq projectile-indexing-method 'native)
+
   (projectile-global-mode))
 
 (provide 'ots-projectile)
