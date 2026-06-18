@@ -44,13 +44,13 @@
 
 ;; TODO: Drop :host and :repo once MELPA is up-to-date.
 (straight-use-package '(bicep-ts-mode :host github :repo "josteink/bicep-ts-mode"))
-(straight-use-package '(copilot :host github :repo "copilot-emacs/copilot.el"))
 
 (straight-use-package 'all-the-icons)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
 (straight-use-package 'company-dict)
 (straight-use-package 'consult)
+(straight-use-package 'copilot)
 (straight-use-package 'dash-docs)
 (straight-use-package 'direnv)
 (straight-use-package 'dockerfile-mode)

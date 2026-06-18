@@ -10,6 +10,7 @@ elpa
 projectile-bookmarks.eld
 straight/build
 straight/build-cache.el
+straight/modified
 straight/repos
 theme-dark
 theme-light

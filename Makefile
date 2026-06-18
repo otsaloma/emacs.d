@@ -13,4 +13,9 @@ upgrade:
 	$(MAKE) bootstrap
 	$(EMACS) -f straight-freeze-versions --kill
 
-.PHONY: bootstrap upgrade
+# Not needed for a major upgrade, just for adding a single package
+# (to see if a recipe has been added for some brand new package).
+update-recipes:
+	$(EMACS) -f straight-pull-recipe-repositories --kill
+
+.PHONY: bootstrap upgrade update-recipes
