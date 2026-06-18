@@ -4,5 +4,10 @@ export LC_ALL=C.UTF-8
 export USE_GITHUB_COPILOT=
 if [ -f $HOME/.emacs.d/theme-dark ]; then
     export GTK_THEME=Adwaita:dark
+    sed -i 's/emacs-light/emacs-dark/' \
+        ~/.config/gtk-3.0/gtk.css
+else # theme-light
+    sed -i 's/emacs-dark/emacs-light/' \
+        ~/.config/gtk-3.0/gtk.css
 fi
 exec /usr/bin/emacs -g 90x35 --font "$(emacs-font)" "$@"

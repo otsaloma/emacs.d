@@ -1,5 +1,5 @@
 #!/bin/sh
 case "$(display-resolution)" in
-    3840x2160) echo "Berkeley Mono-10.5";;
-    *)         echo "Berkeley Mono-11";;
+    3840x2160) echo "Berkeley Mono Medium-10";;
+    *)         echo "Berkeley Mono Medium-10";;
 esac
