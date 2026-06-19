@@ -3,7 +3,7 @@
 
 (defun ots-prog-set-keys ()
   "Set keybindings for editing program code."
-  (local-set-key (kbd "<f2>") 'helm-dash-at-point)
+  (local-set-key (kbd "<f2>") 'consult-dash)
   (local-set-key (kbd "<backspace>") 'backward-delete-char-untabify)
   (local-set-key (kbd "<M-left>") 'xref-go-back)
   (local-set-key (kbd "<M-right>") 'xref-find-definitions))
