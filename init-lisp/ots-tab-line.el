@@ -3,10 +3,18 @@
 
 (defun ots-tab-line-buffer-p (buffer)
   "Return non-nil if BUFFER should be shown as a tab."
+  (or (eq (current-buffer) buffer)
+      (ots-tab-line-show-buffer-p buffer)))
+
+(defun ots-tab-line-show-buffer-p (buffer)
+  "Return non-nil if BUFFER should be shown as a tab."
   (let ((name (buffer-name buffer)))
-    (or (eq (current-buffer) buffer)
-        (string-match-p "^[^* ]" name) ;; Regular file buffers
+    (or (string-match-p "^[^* ]" name) ;; Regular file buffers
         (string-match-p "^\\*\\(ansi-term\\|ielm\\|js\\|man\\|Python\\|R\\|shell\\|term\\|vterm\\)" name))))
+
+(defun ots-tab-line-skip-buffer (_window buffer _bury-or-kill)
+  "Skip hidden buffers when switching buffers after a kill or bury."
+  (not (ots-tab-line-show-buffer-p buffer)))
 
 (defun ots-tab-line-buffers ()
   "Return a list of buffers to show as tabs, sorted by filename."
@@ -32,6 +40,7 @@
 
 (use-package tab-line
   :config
+  (setq switch-to-prev-buffer-skip #'ots-tab-line-skip-buffer)
   (setq tab-line-close-button-show nil)
   (setq tab-line-new-button-show nil)
   (setq tab-line-separator "")
