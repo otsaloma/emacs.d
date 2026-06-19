@@ -40,8 +40,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(setq straight-vc-git-default-clone-depth 1)
-
 ;; TODO: Drop :host and :repo once MELPA is up-to-date.
 (straight-use-package '(bicep-ts-mode :host github :repo "josteink/bicep-ts-mode"))
 
