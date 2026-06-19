@@ -3,11 +3,9 @@
 .cache
 .claude
 .lsp-session*
-chatgpt/history
 docsets
 eln-cache
 elpa
-projectile-bookmarks.eld
 straight/build
 straight/build-cache.el
 straight/modified
