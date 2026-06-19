@@ -40,7 +40,7 @@
   "Bind key locally to a compile command run at project root (if applicable)."
   (local-set-key key `(lambda () (interactive)
                         (if (ots-util-project-p)
-                            (let ((default-directory (projectile-project-root)))
+                            (let ((default-directory (project-root (project-current))))
                               (compile (ots-util-expand-command ',command) t))
                           (compile (ots-util-expand-command ',command) t)))))
 
@@ -128,11 +128,22 @@ If an exact match is found, jump to it directly, otherwise show
          file-name)))))
 
 (defun ots-util-find-file ()
-  "Find a file to open from common sources."
+  "Find a file to open in the project, including files not tracked by git."
   (interactive)
-  (if (ots-util-project-p)
-      (projectile-find-file)
-    (call-interactively 'find-file)))
+  (let ((project (project-current)))
+    (if project
+        ;; Walk the file system instead of going through git so that
+        ;; off-repo files show up too, dropping only the noise listed
+        ;; in `project-vc-ignores'.
+        (let* ((root (project-root project))
+               (default-directory root)
+               (ignores (append project-vc-ignores
+                                (mapcar (lambda (dir) (concat dir "/"))
+                                        vc-directory-exclusion-list)))
+               (files (mapcar (lambda (file) (file-relative-name file root))
+                              (project--files-in-directory root ignores))))
+          (find-file (completing-read "Find file: " files nil t)))
+      (call-interactively 'find-file))))
 
 (defun ots-util-find-unit-test-file ()
   "Open the unit test file testing the current buffer."
@@ -155,7 +166,7 @@ If an exact match is found, jump to it directly, otherwise show
   (interactive)
   (let ((input (or (thing-at-point 'symbol) "")))
     (if (ots-util-project-p)
-        (consult-ripgrep (projectile-project-root) input)
+        (consult-ripgrep (project-root (project-current)) input)
       (consult-ripgrep default-directory input))))
 
 (defun ots-util-imenu-items (&optional alist)
@@ -247,7 +258,7 @@ If an exact match is found, jump to it directly, otherwise show
 
 (defun ots-util-project-p ()
   "Return TRUE if in a project, elsewhere FALSE."
-  (and (fboundp 'projectile-project-p) (projectile-project-p)))
+  (and (project-current) t))
 
 (defun ots-util-push-mark ()
   "Push point to the mark ring."

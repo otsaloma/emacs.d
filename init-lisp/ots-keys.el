@@ -35,7 +35,7 @@
   (global-set-key (kbd "C-s") 'ots-util-save-buffer)
   (global-set-key (kbd "C-S-s") 'write-file)
   (global-set-key (kbd "C-t") 'ots-util-git-grep)
-  (global-set-key (kbd "C-S-t") 'projectile-replace-regexp)
+  (global-set-key (kbd "C-S-t") 'project-query-replace-regexp)
   (global-set-key (kbd "C-u") 'upcase-region)
   (global-set-key (kbd "C-S-v") 'yank-pop)
   (global-set-key (kbd "C-w") 'ots-util-kill-buffer)

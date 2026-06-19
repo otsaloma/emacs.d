@@ -13,7 +13,7 @@
   (local-set-key (kbd "<f5>") 'neotree-refresh))
 
 (defun ots-neotree-toggle ()
-  "Open neotree in projectile root or current directory."
+  "Open neotree at the current file or directory."
   (interactive)
   (require 'neotree)
   (let ((buffer (current-buffer))
