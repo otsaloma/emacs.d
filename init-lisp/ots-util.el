@@ -76,6 +76,23 @@
   (insert command)
   (comint-send-input))
 
+(defun ots-util-consult-imenu ()
+  "Go to imenu item, using the symbol at point as the initial query.
+If an exact match is found, jump to it directly, otherwise show
+`consult-imenu' with the symbol as initial input."
+  (interactive)
+  (let* ((symbol (thing-at-point 'symbol t))
+         (matches (and symbol
+                       (seq-filter
+                        (lambda (item) (string= (car item) symbol))
+                        (ots-util-imenu-items)))))
+    (cond
+     ((null symbol) (consult-imenu))
+     ((= (length matches) 1) (imenu (car matches)))
+     (t (minibuffer-with-setup-hook
+            (lambda () (insert symbol))
+          (consult-imenu))))))
+
 (defun ots-util-copy-open-file-names ()
   "Copy names of all open files to the kill ring."
   (interactive)
@@ -140,6 +157,15 @@
     (if (ots-util-project-p)
         (consult-ripgrep (projectile-project-root) input)
       (consult-ripgrep default-directory input))))
+
+(defun ots-util-imenu-items (&optional alist)
+  "Return a flat list of leaf items from the imenu index."
+  (require 'imenu)
+  (mapcan (lambda (item)
+            (cond ((not (and (consp item) (stringp (car item)))) nil)
+                  ((imenu--subalist-p item) (ots-util-imenu-items (cdr item)))
+                  (t (list item))))
+          (or alist (imenu--make-index-alist t))))
 
 (defun ots-util-in-git-repo (path)
   "Return true if path is in a git repository"

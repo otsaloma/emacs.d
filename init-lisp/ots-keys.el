@@ -65,7 +65,7 @@
   (global-set-key (kbd "<S-f1>") 'woman)
   (global-set-key (kbd "<f3>") 'vterm)
   (global-set-key (kbd "<S-f3>") 'ots-util-start-external-terminal)
-  (global-set-key (kbd "<f4>") 'consult-imenu)
+  (global-set-key (kbd "<f4>") 'ots-util-consult-imenu)
   (global-set-key (kbd "<f7>") 'wcheck-mode)
   (global-set-key (kbd "<S-f7>") 'wcheck-change-language)
   (global-set-key (kbd "<S-f8>") 'flycheck-mode)
