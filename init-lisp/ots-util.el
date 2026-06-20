@@ -101,6 +101,11 @@ If an exact match is found, jump to it directly, otherwise show
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
 
+(defun ots-util-edit-user-agents-md ()
+  "Open the user's global AGENTS.md file for editing."
+  (interactive)
+  (find-file "~/.config/AGENTS.md"))
+
 (defun ots-util-end-of-defun ()
   "Move forward to the next function."
   (interactive)
