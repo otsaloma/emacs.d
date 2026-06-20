@@ -55,7 +55,6 @@
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dtrt-indent)
 (straight-use-package 'dumb-jump)
-(straight-use-package 'editorconfig)
 (straight-use-package 'ess)
 (straight-use-package 'flycheck)
 (straight-use-package 'git-gutter)
