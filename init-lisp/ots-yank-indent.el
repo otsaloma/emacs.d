@@ -9,24 +9,20 @@
     js-mode json-mode nxml-mode perl-mode rust-mode sh-mode)
   "Modes in which to indent after yanking.")
 
+(defun ots-yank-indent-advice (&optional arg &rest _)
+  "Indent yanked text, unless prefix ARG given or mode unsupported."
+  (if (and (not arg)
+           (member major-mode ots-yank-indent-modes))
+      (let ((transient-mark-mode nil))
+        (ots-yank-indent-indent (region-beginning) (region-end)))))
+
 (defun ots-yank-indent-indent (beginning end)
   "Indent yanked text, as long as the region isn't too large."
   (if (<= (- end beginning) ots-yank-indent-max-chars)
       (indent-region beginning end nil)))
 
-(defadvice yank (after yank-indent activate)
-  "Indent yanked text or with prefix argument don't indent."
-  (if (and (not (ad-get-arg 0))
-           (member major-mode ots-yank-indent-modes))
-      (let ((transient-mark-mode nil))
-        (ots-yank-indent-indent (region-beginning) (region-end)))))
-
-(defadvice yank-pop (after yank-pop-indent activate)
-  "Indent yanked text or with prefix argument don't indent."
-  (if (and (not (ad-get-arg 0))
-           (member major-mode ots-yank-indent-modes))
-      (let ((transient-mark-mode nil))
-        (ots-yank-indent-indent (region-beginning) (region-end)))))
+(advice-add 'yank :after #'ots-yank-indent-advice)
+(advice-add 'yank-pop :after #'ots-yank-indent-advice)
 
 (provide 'ots-yank-indent)
 ;;; ots-yank-indent.el ends here
