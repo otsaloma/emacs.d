@@ -10,7 +10,6 @@
 
   (blink-cursor-mode 0)
   (delete-selection-mode 1)
-  (fset 'yes-or-no-p 'y-or-n-p)
   (menu-bar-mode 0)
   (modify-frame-parameters nil '((wait-for-wm . nil)))
   (pixel-scroll-precision-mode 1)
@@ -37,7 +36,7 @@
   (setq server-raise-frame nil)
   (setq sort-fold-case t)
   (setq use-file-dialog nil)
-  (setq x-select-enable-clipboard t)
+  (setq use-short-answers t)
 
   (setq-default cursor-in-non-selected-windows nil)
   (setq-default major-mode 'text-mode)
