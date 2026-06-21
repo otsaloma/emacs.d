@@ -14,6 +14,7 @@
   :defer t
   :config
   (add-hook 'sql-mode-hook 'ots-sql-set-properties)
+  (add-hook 'sql-mode-hook 'sqlind-minor-mode)
   (add-hook 'sql-mode-hook 'sqlup-mode))
 
 (provide 'ots-sql)
