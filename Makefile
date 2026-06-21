@@ -4,6 +4,7 @@ EMACS = /usr/bin/emacs
 
 bootstrap:
 	rm -rf straight/build
+	rm -rf straight/modified
 	rm -rf straight/repos
 	rm -rf straight/build-cache.el
 	$(EMACS) --script init.el
