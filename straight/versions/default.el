@@ -26,7 +26,6 @@
  ("git-gutter-fringe" . "648cb5b57faec55711803cdc9434e55a733c3eba")
  ("gnu-elpa-mirror" . "f1e03263b93efa89f797b0555396af8e385ec19c")
  ("graphql-mode" . "ee49531935ede7a2c9597713e13a4c9d33ef2220")
- ("js-comint" . "68908b5d232738bdc25c4cae502067ef2255a2fd")
  ("json-mode" . "77125b01c0ddce537085201098bea9b4b8ba6be3")
  ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jsonrpc" . "444cafedd091815e674b6c93458ba97a55a76928")

@@ -60,7 +60,6 @@
 (straight-use-package 'git-gutter)
 (straight-use-package 'git-gutter-fringe)
 (straight-use-package 'graphql-mode)
-(straight-use-package 'js-comint)
 (straight-use-package 'json-mode)
 (straight-use-package 'ligature)
 (straight-use-package 'lua-mode)
