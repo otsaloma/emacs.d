@@ -30,8 +30,5 @@
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-styles '(orderless basic)))
 
-;; TODO: Anything useful here?
-;; (use-package marginalia :init (marginalia-mode))
-
 (provide 'ots-vertico)
 ;;; ots-vertico.el ends here

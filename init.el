@@ -63,7 +63,6 @@
 (straight-use-package 'json-mode)
 (straight-use-package 'ligature)
 (straight-use-package 'lua-mode)
-(straight-use-package 'marginalia)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'neotree)
 (straight-use-package 'olivetti)

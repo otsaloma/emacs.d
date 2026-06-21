@@ -31,7 +31,6 @@
  ("jsonrpc" . "444cafedd091815e674b6c93458ba97a55a76928")
  ("ligature.el" . "6ac1634612dbd42f7eb81ecaf022bd239aabb954")
  ("lua-mode" . "d074e4134b1beae9ed4c9b512af741ca0d852ba3")
- ("marginalia" . "fc5f4de19c7d932c696874ef5a08fe75097f07c2")
  ("markdown-mode" . "0a522bf682c977b39f449b0edc63ebf1db14aa04")
  ("melpa" . "4f1924c03798e91d149e3320ecfcc3fe7428bba5")
  ("nongnu-elpa" . "e867bf7d9c559ce636516507a04dee244e9e100d")
