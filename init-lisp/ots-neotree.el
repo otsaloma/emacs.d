@@ -91,20 +91,17 @@
   (require 'all-the-icons)
   (add-hook 'neotree-mode-hook 'ots-neotree-set-properties t)
   (setq neo-autorefresh nil)
-  (setq neo-hidden-regexp-list '("^\\.cache$"
+  (setq neo-hidden-regexp-list '("#$"
+                                 "\\.elc$"
+                                 "\\.pyc$"
+                                 "^\\.cache$"
                                  "^\\.git$"
                                  "^\\.pytest_cache$"
                                  "^\\.venv$"
                                  "^__pycache__$"
                                  "^node_modules$"
                                  "^venv$"
-                                 "~$"
-                                 "\\.*#$"
-                                 "\\.elc$"
-                                 "\\.parquet$"
-                                 "\\.pyc$"
-                                 "\\.rdata$"
-                                 "\\.rds$"))
+                                 "~$"))
 
   (setq neo-show-slash-for-folder nil)
   (setq neo-smart-open t)

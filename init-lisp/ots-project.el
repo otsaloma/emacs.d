@@ -5,16 +5,19 @@
   :config
   ;; Used both by project.el's own commands and by `ots-util-find-file',
   ;; which walks the file system so that off-repo files show up too.
-  (setq project-vc-ignores '("*.elc"
+  (setq project-vc-ignores '("*#"
+                             "*.elc"
                              "*.ico"
                              "*.min.css"
                              "*.min.js"
                              "*.parquet"
                              "*.png"
                              "*.pyc"
+                             "*.rdata"
                              "*.rds"
                              "*~"
                              ".cache/"
+                             ".git/"
                              ".pytest_cache/"
                              ".venv/"
                              "__pycache__/"
