@@ -1,11 +1,67 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-neotree.el
 
-;; XXX: Work around some directory icons being really slow to render (?)
-;; by using the plain directory icon for all different directories.
+(defvar ots-neotree-binary-extensions
+  '("7z"
+    "a"
+    "avi"
+    "bin"
+    "class"
+    "dat"
+    "db"
+    "dll"
+    "doc"
+    "docx"
+    "dylib"
+    "eot"
+    "exe"
+    "flac"
+    "gif"
+    "ico"
+    "jpeg"
+    "jpg"
+    "mkv"
+    "mov"
+    "mp3"
+    "mp4"
+    "o"
+    "ogg"
+    "otf"
+    "pdf"
+    "png"
+    "ppt"
+    "pptx"
+    "rar"
+    "so"
+    "sqlite"
+    "tar"
+    "tgz"
+    "ttf"
+    "wav"
+    "webm"
+    "webp"
+    "woff"
+    "woff2"
+    "xls"
+    "xlsx"
+    "xz"
+    "zip")
+  "File extensions shown with the binary icon in neotree.")
+
+(defun ots-neotree-binary-file-p (file)
+  "Return non-nil if FILE has a binary extension."
+  (member (downcase (or (file-name-extension file) ""))
+          ots-neotree-binary-extensions))
+
+;; Override to render only three distinct icons.
+;; This also works around slow rendering of some particular icons.
 (with-eval-after-load 'all-the-icons
-  (defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
-    (apply #'all-the-icons-octicon "file-directory" '(:height 1.0 :v-adjust -0.1))))
+  (defun all-the-icons-icon-for-dir (dir &rest _)
+    (all-the-icons-octicon "file-directory" :height 1.0 :v-adjust -0.1))
+  (defun all-the-icons-icon-for-file (file &rest _)
+    (if (ots-neotree-binary-file-p file)
+        (all-the-icons-faicon "file-o" :height 1.0 :v-adjust 0.0)
+      (all-the-icons-faicon "file-text-o" :height 1.0 :v-adjust 0.0))))
 
 (defun ots-neotree-set-properties ()
   "Set properties for neotree buffers."
