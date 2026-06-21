@@ -79,10 +79,12 @@
       (progn
         (neotree-show)
         (neotree-find file-name)
-        (if (string= ots-theme-current "dark")
-            (setq buffer-face-mode-face `(:background "#313131"))
-          (setq buffer-face-mode-face `(:background "#f2ede0")))
-        (buffer-face-mode 1)
+        ;; Custom background color via buffer-face-mode.
+        ;; (if (string= ots-theme-current "dark")
+        ;;     (setq buffer-face-mode-face `(:background "#363636"))
+        ;;   (setq buffer-face-mode-face `(:background "#e4e0d3")))
+        ;; (buffer-face-mode 1)
+        (set-window-fringes (neo-global--get-window) 0 0)
         (switch-to-buffer buffer)))))
 
 (use-package neotree
@@ -103,6 +105,7 @@
                                  "^venv$"
                                  "~$"))
 
+  (setq neo-mode-line-type 'none)
   (setq neo-show-slash-for-folder nil)
   (setq neo-smart-open t)
   (setq neo-theme 'icons)
