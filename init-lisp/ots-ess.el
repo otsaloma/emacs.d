@@ -49,7 +49,6 @@
   (setq-local company-backends '((company-R-objects
                                   company-R-args
                                   company-keywords
-                                  company-dict
                                   company-dabbrev-code
                                   company-dabbrev))))
 

@@ -28,7 +28,6 @@
   (setq-local company-backends '((company-capf
                                   :separate
                                   company-keywords
-                                  company-dict
                                   company-dabbrev-code
                                   company-dabbrev))))
 

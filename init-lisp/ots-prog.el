@@ -16,7 +16,6 @@
   (setq-local backward-delete-char-untabify-method 'hungry)
   (setq-local company-backends '((company-capf
                                   company-keywords
-                                  company-dict
                                   company-dabbrev-code
                                   company-dabbrev)))
 

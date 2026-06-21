@@ -44,7 +44,6 @@
     (flycheck-mode 1)
     (setq-local company-backends '((company-tide
                                     company-keywords
-                                    company-dict
                                     company-dabbrev-code
                                     company-dabbrev)))))
 

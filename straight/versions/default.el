@@ -14,7 +14,6 @@
  ("dumb-jump" . "a9a7e1711ee100747877528bb3531b947233a99e")
  ("el-get" . "ec5cba8d965980b2c47a8a11dce30dd5e845ed2a")
  ("emacs-async" . "b99658e831bc7e7d20ed4bb0a85bdb5c7dd74142")
- ("emacs-company-dict" . "cd7b8394f6014c57897f65d335d6b2bd65dab1f4")
  ("emacs-direnv" . "c0bf3b81c7a97e2a0d06d05495e86848254fcc1f")
  ("emacs-libvterm" . "056ad74653704bc353d8ec8ab52ac75267b7d373")
  ("emacs-neotree" . "4a4cd8576157a39c0fdb478a2887c01ccfe1aec9")

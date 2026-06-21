@@ -46,7 +46,6 @@
 (straight-use-package 'all-the-icons)
 (straight-use-package 'company)
 (straight-use-package 'company-auctex)
-(straight-use-package 'company-dict)
 (straight-use-package 'consult)
 (straight-use-package 'consult-dash)
 (straight-use-package 'copilot)
