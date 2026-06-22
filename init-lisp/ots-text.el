@@ -28,6 +28,7 @@
 (use-package text-mode
   :defer t
   :config
+  (setq text-mode-ispell-word-completion nil)
   (add-hook 'text-mode-hook 'ots-text-set-keys)
   (add-hook 'text-mode-hook 'ots-text-set-properties))
 
