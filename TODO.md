@@ -1,17 +1,12 @@
 # TODO
 
+- Consider corfu-popupinfo, corfu-history, cape-file
+- Switch away from unmaintained jedi-language-server?
+- Use various LSP-included flymakes, drop flycheck?
+
 ## Emacs 31
 
 - Use treesit modes where applicable
 - Auto-install treesit grammar
 - Drop packages like dockerfile-mode that we have just for syntax highlighting
 - See https://www.rahuljuliato.com/posts/emacs-31-around-the-corner
-
-## Autocomplete
-
-- Migrate from company-mode to corfu + cape (the modern capf-based stack,
-  consistent with our existing vertico + consult + orderless setup)
-- company-backends groups become cape-capf-super merged capfs;
-  company-capf -> native capf, company-keywords -> cape-keyword,
-  company-dabbrev(-code) -> cape-dabbrev
-- New extras to consider: corfu-popupinfo, corfu-history, cape-file
