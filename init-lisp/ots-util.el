@@ -101,6 +101,17 @@ If an exact match is found, jump to it directly, otherwise show
     (kill-new (mapconcat 'identity buffers "\n")))
   (message "Copied!"))
 
+(defun ots-util-copy-relative-file-name ()
+  "Copy the current buffer's relative filename to the kill ring."
+  (interactive)
+  (let* ((file-name (expand-file-name (buffer-file-name)))
+         (project (project-current))
+         (name (if project
+                   (file-relative-name file-name (project-root project))
+                 file-name)))
+    (kill-new name)
+    (message "Copied: %s" name)))
+
 (defun ots-util-edit-user-agents-md ()
   "Open the user's global AGENTS.md file for editing."
   (interactive)
