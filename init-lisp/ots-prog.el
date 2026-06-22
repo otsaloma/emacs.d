@@ -14,11 +14,7 @@
   (unwind-protect (ignore-errors (hs-minor-mode 1)) (message ""))
   (modify-syntax-entry ?_ "w")
   (setq-local backward-delete-char-untabify-method 'hungry)
-  (setq-local company-backends '((company-capf
-                                  company-keywords
-                                  company-dabbrev-code
-                                  company-dabbrev)))
-
+  (ots-corfu-set-prog-capf)
   (setq-local comment-auto-fill-only-comments t)
   (setq-local eldoc-echo-area-use-multiline-p nil)
   (setq-local fill-column 80)

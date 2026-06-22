@@ -46,11 +46,12 @@
   "Set properties for editing R files."
   (modify-syntax-entry ?. "w")
   (setq-local comment-add 0)
-  (setq-local company-backends '((company-R-objects
-                                  company-R-args
-                                  company-keywords
-                                  company-dabbrev-code
-                                  company-dabbrev))))
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super #'ess-r-object-completion
+                                     #'ess-r-package-completion
+                                     #'cape-keyword
+                                     #'cape-dabbrev)
+                    #'ess-filename-completion)))
 
 (defun ots-ess-setwd ()
   "Change to the directory of the current buffer in R."
@@ -90,7 +91,6 @@
   (setq ess-history-directory "~")
   (setq ess-R-argument-suffix "=")
   (setq ess-roxy-str "#'")
-  (setq ess-use-company t)
   (setq ess-use-tracebug nil)
   (setq ess-write-to-dribble nil)
   ;; Indentation

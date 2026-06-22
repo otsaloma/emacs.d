@@ -7,7 +7,7 @@
   (modify-syntax-entry ?_ "w" sql-mode-syntax-table)
   (modify-syntax-entry ?\" "\"" sql-mode-syntax-table)
   (modify-syntax-entry ?\` "\"" sql-mode-syntax-table)
-  (setq-local company-dabbrev-ignore-case t)
+  (setq-local dabbrev-case-fold-search t)
   (setq-local dash-docs-docsets '("PostgreSQL")))
 
 (use-package sql

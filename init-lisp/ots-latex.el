@@ -3,7 +3,7 @@
 
 (defun ots-latex-set-properties ()
   "Set properties for editing LaTeX files."
-  (company-auctex-init)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev 95 t)
   (display-line-numbers-mode 1)
   (setq-local comment-auto-fill-only-comments nil)
   (setq-local dash-docs-docsets '("LaTeX"))

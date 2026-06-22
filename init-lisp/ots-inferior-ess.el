@@ -17,7 +17,6 @@
   ;; https://github.com/emacs-ess/ESS/issues/1193
   (setq-local ansi-color-for-comint-mode 'filter)
   (setq-local ess-R-argument-suffix "=")
-  (setq-local ess-use-company t)
   (setq-local inferior-ess-r-help-command ".ess.help('%s', help.type='html')\n")
   ;; Try to avoid broken syntax highlighting due to messages etc.
   (copy-face 'default 'ess-operator-face))

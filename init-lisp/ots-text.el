@@ -17,7 +17,7 @@
   "Set properties for editing text files."
   (if (and (buffer-file-name)
            (string-match-p "\\.txt$" (buffer-file-name)))
-      (progn (setq-local company-backends '((company-capf company-dabbrev)))
+      (progn (setq-local completion-at-point-functions (list #'cape-dabbrev))
              (setq-local fill-column 72)
              (setq-local indent-tabs-mode nil)
              (setq-local tab-width 4)

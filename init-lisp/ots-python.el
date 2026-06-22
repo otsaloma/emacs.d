@@ -128,11 +128,7 @@
                                                   :hoverProvider))
 
   (setq-local eglot-stay-out-of '(flymake imenu))
-  (setq-local company-backends '((company-capf
-                                  :separate
-                                  company-keywords
-                                  company-dabbrev-code
-                                  company-dabbrev))))
+  (ots-corfu-set-eglot-capf))
 
 (defun ots-python-set-flycheck ()
   "Set flake8 linting via flycheck."
