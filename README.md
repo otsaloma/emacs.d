@@ -19,6 +19,7 @@ documentation packages used by default by this configuration.
 
 ```bash
 # https://github.com/pappasam/jedi-language-server
+sudo pip install -U importlib-metadata
 sudo pip install -U jedi-language-server
 
 # https://github.com/typescript-language-server/typescript-language-server
