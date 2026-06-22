@@ -6,6 +6,7 @@
   (define-key yas-minor-mode-map (kbd "<tab>") nil)
   (define-key yas-minor-mode-map (kbd "TAB") nil)
   (define-key yas-minor-mode-map (kbd "C-+") 'yas-expand)
+  (define-key yas-keymap (kbd "<tab>") 'yas-next-field-or-maybe-expand)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (setq yas-trigger-symbol "+")
   (yas-global-mode 1)
