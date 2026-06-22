@@ -73,7 +73,6 @@
 (straight-use-package 'sql-indent)
 (straight-use-package 'sqlup-mode)
 (straight-use-package 'sudo-edit)
-(straight-use-package 'tide)
 (straight-use-package 'treesit-auto)
 (straight-use-package 'vertico)
 (straight-use-package 'vterm)

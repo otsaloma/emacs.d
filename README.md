@@ -1,5 +1,4 @@
-emacs.d
-=======
+# emacs.d
 
 This is my personal Emacs configuration, i.e. `~/.emacs.d`. It is
 unlikely to be of much interest to others as a whole, but is available
@@ -16,6 +15,16 @@ documentation packages used by default by this configuration.
 
 [docsets]: https://github.com/otsaloma/docsets
 
+## Requirements
+
+```bash
+# https://github.com/pappasam/jedi-language-server
+sudo pip install -U jedi-language-server
+
+# https://github.com/typescript-language-server/typescript-language-server
+npm install -g typescript-language-server typescript
+```
+
 ## References
 
-* https://github.com/jwiegley/dot-emacs/blob/master/init.org
+- https://github.com/jwiegley/dot-emacs/blob/master/init.org

@@ -43,7 +43,6 @@
  ("sqlup-mode.el" . "3f9df9c88d6a7f9b1ae907e401cad8d3d7d63bbf")
  ("straight.el" . "483b205efb2eaa6be7c0dc7078b8c9dafcffb318")
  ("sudo-edit" . "74eb1e6986461baed9a9269566ff838530b4379b")
- ("tide" . "6a35fe355f1442da34b976bf2decf008d6e4f991")
  ("treesit-auto" . "016bd286a1ba4628f833a626f8b9d497882ecdf3")
  ("vertico" . "fcab88ad878e16356c392c99a64f172e7541dd65")
  ("wcheck-mode" . "44fc914c3b820f5ec1b71b65dc977eaf1d768e18")
