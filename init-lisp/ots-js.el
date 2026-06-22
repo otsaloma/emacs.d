@@ -25,15 +25,8 @@
   (setq-local dash-docs-docsets '("JavaScript"))
   (setq-local js-indent-level 2)
   (setq-local tab-width 2)
-  ;; Default to standard, use eslint if corresponding config file found.
   (ots-util-bind-key-compile (kbd "<f8>") "npx standard %s")
-  (setq-local flycheck-checker 'javascript-standard)
-  (when (or (ots-util-file-above default-directory ".eslintignore")
-            (ots-util-file-above default-directory ".eslintrc.js")
-            (ots-util-file-above default-directory ".eslintrc.json")
-            (ots-util-file-above default-directory ".eslintrc.yml"))
-    (ots-util-bind-key-compile (kbd "<f8>") "npx eslint %s")
-    (setq-local flycheck-checker 'javascript-eslint)))
+  (setq-local flycheck-checker 'javascript-standard))
 
 (defun ots-js-tide ()
   "Set auto-completion via tide."
