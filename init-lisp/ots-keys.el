@@ -67,8 +67,8 @@
   (global-set-key (kbd "<f3>") 'vterm)
   (global-set-key (kbd "<S-f3>") 'ots-util-start-external-terminal)
   (global-set-key (kbd "<f4>") 'ots-util-consult-imenu)
-  (global-set-key (kbd "<f7>") 'wcheck-mode)
-  (global-set-key (kbd "<S-f7>") 'wcheck-change-language)
+  (global-set-key (kbd "<f7>") 'jinx-mode)
+  (global-set-key (kbd "<S-f7>") 'jinx-correct)
   (global-set-key (kbd "<S-f8>") 'flycheck-mode)
   (global-set-key (kbd "<f11>") 'ots-neotree-toggle))
 

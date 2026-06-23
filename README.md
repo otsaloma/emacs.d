@@ -18,6 +18,9 @@ documentation packages used by default by this configuration.
 ## Requirements
 
 ```bash
+# https://github.com/minad/jinx
+sudo apt install libenchant-2-dev pkg-config
+
 # https://github.com/pappasam/jedi-language-server
 sudo pip install -U importlib-metadata
 sudo pip install -U jedi-language-server

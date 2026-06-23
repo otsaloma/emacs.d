@@ -25,6 +25,7 @@
  ("git-gutter-fringe" . "648cb5b57faec55711803cdc9434e55a733c3eba")
  ("gnu-elpa-mirror" . "f1e03263b93efa89f797b0555396af8e385ec19c")
  ("graphql-mode" . "ee49531935ede7a2c9597713e13a4c9d33ef2220")
+ ("jinx" . "987b9f90eb10df53c34c0f4972469875c1e93203")
  ("json-mode" . "77125b01c0ddce537085201098bea9b4b8ba6be3")
  ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jsonrpc" . "444cafedd091815e674b6c93458ba97a55a76928")
@@ -43,7 +44,6 @@
  ("sudo-edit" . "74eb1e6986461baed9a9269566ff838530b4379b")
  ("treesit-auto" . "016bd286a1ba4628f833a626f8b9d497882ecdf3")
  ("vertico" . "fcab88ad878e16356c392c99a64f172e7541dd65")
- ("wcheck-mode" . "44fc914c3b820f5ec1b71b65dc977eaf1d768e18")
  ("yaml-mode" . "d91f878729312a6beed77e6637c60497c5786efa")
  ("yasnippet" . "5b315f1753480ebe669b157b8242448b5eafcfea"))
 :gamma
