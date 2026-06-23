@@ -42,7 +42,7 @@
   (setq-local markdown-command-needs-filename t)
   (setq-local markdown-fontify-code-blocks-natively t)
   (setq-local markdown-gfm-use-electric-backquote nil)
-  (setq-local markdown-indent-function 'indent-relative-maybe)
+  (setq-local markdown-indent-function 'indent-relative-first-indent-point)
   (setq-local markdown-indent-on-enter nil)
   (setq-local markdown-spaces-after-code-fence 0)
   (when (ots-markdown-has-long-lines-p)

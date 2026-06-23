@@ -62,9 +62,7 @@
 
 (defun ots-util-buffer-file-name ()
   "Return buffer-file-name relative to default-directory."
-  (let ((directory (expand-file-name default-directory ""))
-        (file-name (expand-file-name (buffer-file-name) "")))
-    (substring file-name (length directory))))
+  (file-relative-name (buffer-file-name)))
 
 (defun ots-util-buffer-file-name-quoted ()
   "Return shell-quoted current buffer's filename."
