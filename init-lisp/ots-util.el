@@ -134,14 +134,9 @@ If an exact match is found, jump to it directly, otherwise show
   command)
 
 (defun ots-util-file-above (path file-name)
-  "Return file-path if file-name found in path or above in hierarchy."
-  (if (member path '("/" nil)) nil
-    (let ((candidate (concat path "/" file-name)))
-      (if (file-exists-p candidate)
-          candidate
-        (ots-util-file-above
-         (ots-util-parent-directory path)
-         file-name)))))
+  "Return the path to FILE-NAME if found in PATH or above in the hierarchy."
+  (let ((directory (locate-dominating-file path file-name)))
+    (and directory (expand-file-name file-name directory))))
 
 (defun ots-util-find-file ()
   "Find a file to open in the project, including files not tracked by git."
@@ -195,11 +190,8 @@ If an exact match is found, jump to it directly, otherwise show
           (or alist (imenu--make-index-alist t))))
 
 (defun ots-util-in-git-repo (path)
-  "Return true if path is in a git repository"
-  (if (member path '("/" nil)) nil
-    (if (file-exists-p (concat path "/.git/")) t
-      (ots-util-in-git-repo
-       (ots-util-parent-directory path)))))
+  "Return non-nil if PATH is inside a git repository."
+  (and (locate-dominating-file path ".git") t))
 
 (defun ots-util-insert-tab ()
   "Insert one tab character at point."
@@ -250,10 +242,6 @@ If an exact match is found, jump to it directly, otherwise show
   "Select the next window."
   (interactive)
   (other-window 1))
-
-(defun ots-util-parent-directory (path)
-  "Return the parent directory of path."
-  (file-name-directory (directory-file-name path)))
 
 (defun ots-util-pixel-ratio ()
   "Return screen DPI relative to traditional."
