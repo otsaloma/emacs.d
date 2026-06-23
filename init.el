@@ -68,7 +68,6 @@
 (straight-use-package 'pcre2el)
 (straight-use-package 'rainbow-mode)
 (straight-use-package 'rust-mode)
-(straight-use-package 's)
 (straight-use-package 'sql-indent)
 (straight-use-package 'sqlup-mode)
 (straight-use-package 'sudo-edit)

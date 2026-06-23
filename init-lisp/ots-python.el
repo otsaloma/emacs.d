@@ -81,10 +81,10 @@
         (with-temp-buffer
           ;; Read Black/Ruff line-length from pyproject.toml.
           (insert-file-contents pyproject-toml)
-          (let ((match (s-match "line-length = \\([0-9]+\\)" (buffer-string))))
-            (if match
-                (setq project-line-length
-                      (string-to-number (nth 1 match)))))))
+          (goto-char (point-min))
+          (when (re-search-forward "line-length = \\([0-9]+\\)" nil t)
+            (setq project-line-length
+                  (string-to-number (match-string 1))))))
     (if project-line-length
       (progn
         ;; If we have a line-length configured in the project, use that as
@@ -201,15 +201,14 @@
 
 (defun ots-python-update-quote-char ()
   "Update value of the default quote character to use."
-  (if (> (s-count-matches "'" (buffer-string))
-         (s-count-matches "\"" (buffer-string)))
+  (if (> (seq-count (lambda (c) (= c ?')) (buffer-string))
+         (seq-count (lambda (c) (= c ?\")) (buffer-string)))
       (setq ots-python-quote-char "'")
     (setq ots-python-quote-char "\"")))
 
 (use-package python
   :defer t
   :config
-  (require 's)
   (add-hook 'python-base-mode-hook 'ots-python-set-display-fill-column)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
   (add-hook 'python-base-mode-hook 'ots-python-set-eglot t)
