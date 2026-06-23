@@ -16,8 +16,10 @@
   (vertico-mode)
   (vertico-buffer-mode)
   :config
-  (setq vertico-buffer-display-action '(display-buffer-at-bottom (window-height . ,(+ 3 vertico-count))))
+  ;; Set vertico-count before the display action, whose height derives from it.
   (setq vertico-count 20)
+  (setq vertico-buffer-display-action
+        `(display-buffer-at-bottom (window-height . ,(+ 3 vertico-count))))
   (setq vertico-group-format nil)
   (setq vertico-preselect 'prompt)
   (setq vertico-resize nil))
