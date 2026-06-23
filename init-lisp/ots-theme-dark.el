@@ -85,6 +85,7 @@
  `(git-gutter:added ((t (:background "#88ff88" :foreground "#313131"))))
  `(git-gutter:deleted ((t (:background "#ff8888" :foreground "#313131"))))
  `(git-gutter:modified ((t (:background "#8888ff" :foreground "#313131"))))
+ `(jinx-misspelled ((t (:underline "#d2a86e"))))
  `(makefile-space ((t (:background "#555555" :foreground unspecified))))
  `(markdown-code-face ((t (:background unspecified :foreground "#b294bb"))))
  `(markdown-header-face ((t (:foreground "#d1d175" :weight bold))))
@@ -116,7 +117,6 @@
  `(vterm-color-red ((t (:foreground "#ef2929"))))
  `(vterm-color-white ((t (:foreground "#eeeeec"))))
  `(vterm-color-yellow ((t (:foreground "#fce94f"))))
- `(wcheck-default-face ((t (:underline "#ff5555"))))
  `(woman-bold ((t (:foreground "#84a3c2"))))
  `(woman-italic ((t (:foreground "#b294bb"))))
 
