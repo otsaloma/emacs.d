@@ -35,6 +35,7 @@
   ;; TAB accepts the selection, RET inserts a newline.
   (keymap-set corfu-map "<tab>" 'corfu-insert)
   (keymap-unset corfu-map "RET" t)
+  (corfu-history-mode)
   (corfu-popupinfo-mode)
   (global-corfu-mode))
 
