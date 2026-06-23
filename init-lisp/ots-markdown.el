@@ -45,6 +45,7 @@
   (setq-local markdown-indent-function 'indent-relative-first-indent-point)
   (setq-local markdown-indent-on-enter nil)
   (setq-local markdown-spaces-after-code-fence 0)
+  (jinx-mode 1)
   (when (ots-markdown-has-long-lines-p)
     (turn-off-auto-fill)
     (visual-line-mode 1))
