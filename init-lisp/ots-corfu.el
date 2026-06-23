@@ -4,16 +4,22 @@
 (defun ots-corfu-set-eglot-capf ()
   "Set completion sources for eglot-managed buffers."
   (setq-local completion-at-point-functions
-              (list (cape-capf-super #'eglot-completion-at-point
-                                     #'cape-keyword
-                                     #'cape-dabbrev))))
+              (list (cape-capf-properties
+                     (cape-capf-super #'eglot-completion-at-point
+                                      #'cape-keyword
+                                      #'cape-dabbrev)
+                     ;; Drop annotations like "Dabbrev".
+                     :annotation-function #'ignore))))
 
 (defun ots-corfu-set-prog-capf ()
   "Merge cape keyword and dabbrev fallbacks with the buffer's native capfs."
   (setq-local completion-at-point-functions
-              (list (apply #'cape-capf-super
-                           (append (delq t (copy-sequence completion-at-point-functions))
-                                   (list #'cape-keyword #'cape-dabbrev))))))
+              (list (cape-capf-properties
+                     (apply #'cape-capf-super
+                            (append (delq t (copy-sequence completion-at-point-functions))
+                                    (list #'cape-keyword #'cape-dabbrev)))
+                     ;; Drop annotations like "Dabbrev".
+                     :annotation-function #'ignore))))
 
 (use-package corfu
   :config
