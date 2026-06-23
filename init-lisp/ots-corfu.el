@@ -7,7 +7,8 @@
               (list (cape-capf-properties
                      (cape-capf-super #'eglot-completion-at-point
                                       #'cape-keyword
-                                      #'cape-dabbrev)
+                                      #'cape-dabbrev
+                                      #'cape-file)
                      ;; Drop annotations like "Dabbrev".
                      :annotation-function #'ignore))))
 
@@ -17,7 +18,7 @@
               (list (cape-capf-properties
                      (apply #'cape-capf-super
                             (append (delq t (copy-sequence completion-at-point-functions))
-                                    (list #'cape-keyword #'cape-dabbrev)))
+                                    (list #'cape-keyword #'cape-dabbrev #'cape-file)))
                      ;; Drop annotations like "Dabbrev".
                      :annotation-function #'ignore))))
 
@@ -41,7 +42,8 @@
 
 (use-package cape
   :config
-  (setq cape-dabbrev-min-length 2))
+  (setq cape-dabbrev-min-length 2)
+  (add-hook 'completion-at-point-functions #'cape-file))
 
 (use-package dabbrev
   :config
