@@ -9,6 +9,7 @@
   (global-set-key (kbd "C-3") 'split-window-horizontally)
   (global-set-key (kbd "C-a") 'mark-whole-buffer)
   (global-set-key (kbd "C-b") 'ots-util-smart-home)
+  (global-set-key (kbd "M-c") 'ots-util-copy-relative-file-name)
   (global-set-key (kbd "C-e") 'end-of-line)
   (global-set-key (kbd "C-f") 'isearch-forward-regexp)
   (global-set-key (kbd "C-S-f") 'isearch-backward-regexp)
