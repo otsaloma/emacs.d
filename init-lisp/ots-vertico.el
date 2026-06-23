@@ -27,7 +27,9 @@
 (use-package orderless
   :custom
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion))))
+  ;; Override eglot's dumb-flex default so its completions use orderless.
+  (completion-category-overrides '((eglot-capf (styles orderless basic))
+                                   (file (styles partial-completion))))
   (completion-styles '(orderless basic)))
 
 (provide 'ots-vertico)
