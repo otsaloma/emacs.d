@@ -27,6 +27,7 @@
   (setq corfu-auto-delay 0.1)
   (setq corfu-auto-prefix 3)
   (setq corfu-cycle t)
+  (setq corfu-popupinfo-delay '(2 . 0.5))
   (setq corfu-preselect 'first)
   (setq corfu-preview-current t)
   (setq corfu-quit-at-boundary t)
@@ -34,6 +35,7 @@
   ;; TAB accepts the selection, RET inserts a newline.
   (keymap-set corfu-map "<tab>" 'corfu-insert)
   (keymap-unset corfu-map "RET" t)
+  (corfu-popupinfo-mode)
   (global-corfu-mode))
 
 (use-package cape

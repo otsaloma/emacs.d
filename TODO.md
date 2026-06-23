@@ -1,6 +1,6 @@
 # TODO
 
-- Consider corfu-popupinfo, corfu-history, cape-file
+- Consider corfu-history, cape-file
 - Switch away from unmaintained jedi-language-server?
 - Use various LSP-included flymakes, drop flycheck?
 
