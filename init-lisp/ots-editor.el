@@ -1,10 +1,6 @@
 ;;; -*- coding: utf-8 -*-
 ;;; ots-editor.el
 
-(defun process-query-on-exit-flag (process)
-  "Terminate subprocesses on exit without asking."
-  nil)
-
 (use-package emacs
   :config
 
@@ -20,6 +16,7 @@
   (tool-bar-mode 0)
   (transient-mark-mode t)
 
+  (setq confirm-kill-processes nil)
   (setq frame-resize-pixelwise t)
   (setq frame-title-format "%+%b")
   (setq inhibit-startup-message t)
