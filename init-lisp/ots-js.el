@@ -4,9 +4,10 @@
 (defun ots-js-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
   ;; https://github.com/typescript-language-server/typescript-language-server
-  (eglot-ensure)
-  (eldoc-mode 1)
-  (ots-corfu-set-eglot-capf))
+  (unless (derived-mode-p 'json-mode)
+    (eglot-ensure)
+    (eldoc-mode 1)
+    (ots-corfu-set-eglot-capf)))
 
 (defun ots-js-set-properties ()
   "Set properties for editing JavaScript files."
