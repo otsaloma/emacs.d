@@ -34,6 +34,7 @@
   (setq corfu-quit-at-boundary t)
   (setq corfu-quit-no-match t)
   ;; TAB accepts the selection, RET inserts a newline.
+  (keymap-set corfu-map "<escape>" 'corfu-quit)
   (keymap-set corfu-map "<tab>" 'corfu-insert)
   (keymap-unset corfu-map "RET" t)
   (corfu-history-mode)
