@@ -29,6 +29,12 @@ sudo pip install -U jedi-language-server
 npm install -g typescript-language-server typescript
 ```
 
+## Screenshots
+
+![screenshot](extra/screenshot-dark.png)
+
+![screenshot](extra/screenshot-light.png)
+
 ## References
 
 - https://github.com/jwiegley/dot-emacs/blob/master/init.org
