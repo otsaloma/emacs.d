@@ -31,9 +31,8 @@ npm install -g typescript-language-server typescript
 
 ## Screenshots
 
-![screenshot](extra/screenshot-dark.png)
-
-![screenshot](extra/screenshot-light.png)
+<img src="extra/screenshot-dark.png" alt="screenshot" width="804">
+<img src="extra/screenshot-light.png" alt="screenshot" width="822">
 
 ## References
 
