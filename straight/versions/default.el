@@ -26,8 +26,6 @@
  ("gnu-elpa-mirror" . "f1e03263b93efa89f797b0555396af8e385ec19c")
  ("graphql-mode" . "ee49531935ede7a2c9597713e13a4c9d33ef2220")
  ("jinx" . "987b9f90eb10df53c34c0f4972469875c1e93203")
- ("json-mode" . "77125b01c0ddce537085201098bea9b4b8ba6be3")
- ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jsonrpc" . "444cafedd091815e674b6c93458ba97a55a76928")
  ("lua-mode" . "d074e4134b1beae9ed4c9b512af741ca0d852ba3")
  ("markdown-mode" . "0a522bf682c977b39f449b0edc63ebf1db14aa04")

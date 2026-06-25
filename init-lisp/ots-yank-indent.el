@@ -6,7 +6,7 @@
 
 (defvar ots-yank-indent-modes
   '(c-mode c++-mode emacs-lisp-mode ess-r-mode graphql-mode html-mode java-mode
-    js-mode json-mode nxml-mode perl-mode rust-mode sh-mode)
+    js-json-mode js-mode nxml-mode perl-mode rust-mode sh-mode)
   "Modes in which to indent after yanking.")
 
 (defun ots-yank-indent-advice (&optional arg &rest _)

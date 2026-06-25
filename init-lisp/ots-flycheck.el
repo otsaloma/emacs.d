@@ -18,7 +18,7 @@
 
   (add-to-list 'flycheck-checkers 'r-parse)
   (setq flycheck-check-syntax-automatically '(mode-enabled save))
-  (setq flycheck-global-modes '(emacs-lisp ess-r-mode json-mode python-mode yaml-mode))
+  (setq flycheck-global-modes '(emacs-lisp ess-r-mode js-json-mode python-mode yaml-mode))
   (setq flycheck-help-echo-function nil)
   (setq flycheck-indication-mode nil)
   (setq flycheck-python-flake8-executable "python3")

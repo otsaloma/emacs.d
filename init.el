@@ -60,7 +60,6 @@
 (straight-use-package 'git-gutter-fringe)
 (straight-use-package 'graphql-mode)
 (straight-use-package 'jinx)
-(straight-use-package 'json-mode)
 (straight-use-package 'lua-mode)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'neotree)
