@@ -99,6 +99,7 @@
                                  "^\\.cache$"
                                  "^\\.git$"
                                  "^\\.pytest_cache$"
+                                 "^\\.ruff_cache$"
                                  "^\\.venv$"
                                  "^__pycache__$"
                                  "^node_modules$"
