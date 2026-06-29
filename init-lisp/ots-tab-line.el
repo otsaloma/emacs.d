@@ -23,6 +23,16 @@
           (string-lessp (ots-tab-line-sort-key a)
                         (ots-tab-line-sort-key b)))))
 
+(defun ots-tab-line-kill-buffer-advice (orig-fun &rest args)
+  "Move focus to the next tab to the right when killing the current buffer.
+Fall back to the previous tab when killing the rightmost one."
+  (let* ((buffer (current-buffer))
+         (tabs (ots-tab-line-buffers))
+         (next (or (cadr (memq buffer tabs))
+                   (cadr (memq buffer (reverse tabs))))))
+    (when (and (apply orig-fun args) next)
+      (switch-to-buffer next))))
+
 (defun ots-tab-line-sort-key (buffer)
   "Return a sort key for BUFFER, placing unit test files after the main file."
   (let ((name (buffer-name buffer)))
@@ -48,6 +58,7 @@
   (setq tab-line-tab-name-function #'ots-tab-line-tab-name)
   (setq tab-line-tabs-function #'ots-tab-line-buffers)
   (add-to-list 'tab-line-exclude-modes 'neotree-mode)
+  (advice-add 'ots-util-kill-buffer :around #'ots-tab-line-kill-buffer-advice)
   (global-tab-line-mode 1))
 
 (provide 'ots-tab-line)
