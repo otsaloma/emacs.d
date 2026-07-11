@@ -176,8 +176,8 @@
   (ots-util-bind-key-compile (kbd "<S-f5>") "python3 -ui %s")
   (local-set-key (kbd "<f6>") 'ots-python-send-region)
   (local-set-key (kbd "<f8>") 'ots-python-flake8)
-  (ots-util-bind-key-compile (kbd "<f9>") "py.test -xs %t")
-  (ots-util-bind-key-compile (kbd "<f10>") "nosetests-run -xs %t"))
+  (ots-util-bind-key-compile (kbd "<f9>") "pytest -xs %t")
+  (ots-util-bind-key-compile (kbd "<f10>") "pytest-run -xs %t"))
 
 (defun ots-python-set-properties ()
   "Set properties for editing Python files."
