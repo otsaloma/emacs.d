@@ -28,6 +28,7 @@
   (setq corfu-auto-delay 0.1)
   (setq corfu-auto-prefix 3)
   (setq corfu-cycle t)
+  (setq corfu-on-exact-match 'quit)
   (setq corfu-popupinfo-delay '(2 . 0.5))
   (setq corfu-preselect 'first)
   (setq corfu-preview-current t)
