@@ -1,7 +1,7 @@
 *.bak
 *.elc
 .cache
-.claude
+.claude/settings.local.json
 .lsp-session*
 docsets
 eln-cache
