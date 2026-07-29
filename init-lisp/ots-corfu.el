@@ -4,23 +4,31 @@
 (defun ots-corfu-set-eglot-capf ()
   "Set completion sources for eglot-managed buffers."
   (setq-local completion-at-point-functions
-              (list (cape-capf-properties
+              ;; Keep cape-file separate, merging it with cape-capf-super
+              ;; would lose completion boundaries and thus complete
+              ;; relative file names without their directory part.
+              (list #'cape-file
+                    (cape-capf-properties
                      (cape-capf-super #'eglot-completion-at-point
                                       #'cape-keyword
-                                      #'cape-dabbrev
-                                      #'cape-file)
+                                      #'cape-dabbrev)
                      ;; Drop annotations like "Dabbrev".
                      :annotation-function #'ignore))))
 
 (defun ots-corfu-set-prog-capf ()
   "Merge cape keyword and dabbrev fallbacks with the buffer's native capfs."
-  (setq-local completion-at-point-functions
-              (list (cape-capf-properties
-                     (apply #'cape-capf-super
-                            (append (delq t (copy-sequence completion-at-point-functions))
-                                    (list #'cape-keyword #'cape-dabbrev #'cape-file)))
-                     ;; Drop annotations like "Dabbrev".
-                     :annotation-function #'ignore))))
+  (let ((capfs (delq t (delq #'cape-file
+                             (copy-sequence completion-at-point-functions)))))
+    (setq-local completion-at-point-functions
+                ;; Keep cape-file separate, merging it with cape-capf-super
+                ;; would lose completion boundaries and thus complete
+                ;; relative file names without their directory part.
+                (list #'cape-file
+                      (cape-capf-properties
+                       (apply #'cape-capf-super
+                              (append capfs (list #'cape-keyword #'cape-dabbrev)))
+                       ;; Drop annotations like "Dabbrev".
+                       :annotation-function #'ignore)))))
 
 (use-package corfu
   :config
