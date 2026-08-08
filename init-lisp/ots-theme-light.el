@@ -86,6 +86,7 @@
  `(git-gutter:deleted ((t (:background "#ff8888" :foreground "#f2ede0"))))
  `(git-gutter:modified ((t (:background "#8888ff" :foreground "#f2ede0"))))
  `(jinx-misspelled ((t (:underline "#b0a678"))))
+ `(makefile-shell ((t (:background unspecified :foreground unspecified))))
  `(makefile-space ((t (:background "#ffd9b3" :foreground unspecified))))
  `(markdown-code-face ((t (:background unspecified :foreground "#ba7fba"))))
  `(markdown-header-face ((t (:foreground "#1d77ff" :weight bold))))
