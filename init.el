@@ -136,6 +136,7 @@
   (require 'ots-python)
   (require 'ots-rainbow)
   (require 'ots-rust)
+  (require 'ots-server)
   (require 'ots-sh)
   (require 'ots-sql)
   (require 'ots-tab-line)

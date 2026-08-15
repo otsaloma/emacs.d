@@ -30,7 +30,6 @@
   (setq scroll-step 1)
   (setq sentence-end "[.?!][]\"')}]*\\($\\|[ \t]\\)[ \t\n]*")
   (setq sentence-end-double-space nil)
-  (setq server-raise-frame nil)
   (setq sort-fold-case t)
   (setq use-file-dialog nil)
   (setq use-short-answers t)
