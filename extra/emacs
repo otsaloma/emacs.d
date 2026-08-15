@@ -22,7 +22,7 @@ fi
 
 if [ -e /run/user/1000/emacs/server ]; then
     # Open files given as arguments in already running server.
-    for X in "$@"; do emacsclient.emacs -n "$X"; done
+    if [ $# -gt 0 ]; then emacsclient.emacs -n "$@"; fi
 else
     # Start a new Emacs, open files given as arguments and start the server.
     /usr/bin/emacs -g 90x35 --font "$(emacs-font)" --eval "(server-mode 1)" "$@" &
