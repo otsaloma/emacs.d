@@ -24,7 +24,12 @@
   (setq vertico-preselect 'prompt)
   (setq vertico-resize nil))
 
-(use-package consult)
+(use-package consult
+  :config
+  ;; https://www.jamescherti.com/emacs-consult-speed-async-searche-grep-ripgrep-fd-find/
+  (setq consult-async-input-debounce 0.05)
+  (setq consult-async-input-throttle 0.1)
+  (setq consult-async-refresh-delay 0.05))
 
 (use-package orderless
   :custom
