@@ -165,11 +165,6 @@ If an exact match is found, jump to it directly, otherwise show
   (re-search-forward "\n[\n\t ]*$" nil t)
   (ots-util-recenter))
 
-(defun ots-util-getenv-true (name)
-  "Return true if environment variable NAME is set to a true value."
-  (let ((value (getenv name)))
-    (and value (> (length value) 0))))
-
 (defun ots-util-git-grep ()
   "Run ripgrep at project root and show results."
   (interactive)

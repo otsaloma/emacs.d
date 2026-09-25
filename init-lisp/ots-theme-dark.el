@@ -53,7 +53,6 @@
  `(font-lock-warning-face ((t (:foreground "#e68a8a"))))
 
  ;; Add-on packages
- `(copilot-overlay-face ((t (:foreground "#d1d175"))))
  `(corfu-annotations ((t (:foreground "#dddddd"))))
  `(corfu-bar ((t (:background unspecified))))
  `(corfu-border ((t (:background unspecified))))
