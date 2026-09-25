@@ -113,10 +113,9 @@
   (ots-util-add-docset "\\(from\\|import\\) sklearn" "Scikit-Learn")
   (ots-util-add-docset "\\(from\\|import\\) strands" "Strands")
   (ots-util-add-docset "\\(from\\|import\\) xgboost" "XGBoost")
-  (let ((gtk3 (ots-util-file-above default-directory ".gtk3"))
-        (gtk4 (ots-util-file-above default-directory ".gtk4")))
-    (if gtk3 (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject"))
-    (if gtk4 (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK4"))))
+  (if (ots-util-file-above default-directory ".gtk3")
+      (ots-util-add-docset "\\(from\\|import\\) gi.repository" "PyGObject")
+    (ots-util-add-docset "\\(from\\|import\\) gi.repository" "GTK4")))
 
 (defun ots-python-set-eglot ()
   "Set autocompletion etc. via eglot and a language server."
