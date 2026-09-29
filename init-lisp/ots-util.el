@@ -143,14 +143,23 @@ If an exact match is found, jump to it directly, otherwise show
     (if project
         ;; Walk the file system instead of going through git so that
         ;; off-repo files show up too, dropping only the noise listed
-        ;; in `project-vc-ignores'.
-        (let* ((root (project-root project))
-               (default-directory root)
+        ;; in `project-vc-ignores'. Call find directly, since
+        ;; `project--files-in-directory' hardcodes -H, which doesn't
+        ;; descend into symlinked directories.
+        (let* ((default-directory (project-root project))
                (ignores (append project-vc-ignores
                                 (mapcar (lambda (dir) (concat dir "/"))
                                         vc-directory-exclusion-list)))
-               (files (mapcar (lambda (file) (file-relative-name file root))
-                              (project--files-in-directory root ignores))))
+               (files (with-temp-buffer
+                        (require 'xref)
+                        ;; Discard stderr, where find reports symlink loops.
+                        (process-file-shell-command
+                         (format "%s -L . %s -type f -print0"
+                                 find-program
+                                 (xref--find-ignores-arguments ignores "./"))
+                         nil '(t nil))
+                        (mapcar (lambda (file) (string-remove-prefix "./" file))
+                                (split-string (buffer-string) "\0" t)))))
           (find-file (completing-read "Find file: " files nil t)))
       (call-interactively 'find-file))))
 
