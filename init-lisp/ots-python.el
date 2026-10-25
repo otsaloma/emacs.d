@@ -207,6 +207,7 @@
 
 (use-package python
   :defer t
+  :interpreter ("uv" . python-mode)
   :config
   (add-hook 'python-base-mode-hook 'ots-python-set-display-fill-column)
   (add-hook 'python-base-mode-hook 'ots-python-set-docsets t)
