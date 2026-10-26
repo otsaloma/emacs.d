@@ -45,12 +45,14 @@
                           (compile (ots-util-expand-command ',command) t)))))
 
 (defun ots-util-browse-pypi ()
-  "Browse the PyPI URL of the package on the current line of a requirements.txt file."
+  "Browse the PyPI URL of the package at point.
+Works on the current line of requirements.txt or the quoted string at point
+in pyproject.toml."
   (interactive)
-  (let* ((start (line-beginning-position))
-         (end (line-end-position))
-         (line (buffer-substring start end))
-         (package (car (split-string line "[=<>\\[]")))
+  (let* ((start (save-excursion (skip-chars-backward "^\"" (line-beginning-position)) (point)))
+         (end (save-excursion (skip-chars-forward "^\"" (line-end-position)) (point)))
+         (requirement (string-trim (buffer-substring start end)))
+         (package (car (split-string requirement "[ !;<=>~[]")))
          (url (format "https://pypi.org/project/%s/" package)))
     (browse-url url)))
 
